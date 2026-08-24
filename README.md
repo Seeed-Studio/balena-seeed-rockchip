@@ -1,4 +1,6 @@
-## Clone / Initialize this repository
+#  balena-rockchip repository
+
+## Clone/Initialize the repository
 
 There are two ways of initializing this repository:
 * Clone this repository with "git clone --recursive".
@@ -49,6 +51,15 @@ Additional host tools need to be installed for native builds to work.
 
 * Run bitbake (see message outputted when you sourced above for examples)
 
+### Seeed reComputer RK3588 DevKit
+
+The initial board port is available as `recomputer-rk3588-devkit`.
+
+It uses the Seeed board DTB, the Radxa RK3588 U-Boot branch, and the Balena
+Rockchip raw-loader layout. See [PORTING.md](PORTING.md) for the current
+bring-up status and the remaining hardware validation steps. The detailed
+phase-one change log is in [docs/阶段一移植工作记录.md](docs/阶段一移植工作记录.md).
+
 ### Build flags
 
 * Consult layers/meta-balena/README.md for info on various build flags (setting
@@ -60,7 +71,8 @@ modifying `local.conf`.
 
 ### Issues
 
-See [Issues](../../issues) section
+For issues we use an aggregated github repository available [here](https://github.com/balena-os/balena/issues). When you create issue make sure you select the right labels.
+For issues please use this section: https://github.com/balena-os/balena-rockpi/issues
 
 ### Pull requests
 
@@ -68,7 +80,6 @@ To contribute send github pull requests targeting this repository.
 
 Please refer to: [Yocto Contribution Guidelines](https://wiki.yoctoproject.org/wiki/Contribution_Guidelines#General_Information) and try to use the commit log format as stated there. Example:
 ```
-
 <component>: Short description
 
 I'm going to explain here what my commit does in a way that history
@@ -93,11 +104,11 @@ Also, every update to `meta-balena` should be separated into its own commit, if 
 An example of a valid commit updating `meta-balena` is:
 
 ```
-layers/meta-balena: Update to v2.24.0
+layers/meta-balena: Update to v2.73.0
 
-Update meta-balena from 2.19.0 to 2.24.0
+Update meta-balena from 2.72.0 to 2.73.0
 
-Changelog-entry: Update meta-balena from v2.19.0 to v2.24.0
+Changelog-entry: Update the meta-balena submodule from v2.72.0 to v2.73.0
 ```
 
 Make sure you mention the issue addressed by a PR. See:

@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Update the Rockchip loader artifacts from resin-boot onto the media that
+# currently contains /mnt/boot. Keep the same raw offsets used to assemble
+# balenaos-img so hostapp updates and first provisioning are identical.
+
+set -eu
+
+device=$(findmnt --noheadings --canonicalize --output SOURCE /mnt/boot/ | sed -E 's/p?[0-9]+$//')
+
+for spec in \
+    "idbloader.img 512 64" \
+    "u-boot.itb 512 16384"; do
+    set -- ${spec}
+    file=$1
+    block_size=$2
+    seek_blocks=$3
+    source=/resin-boot/${file}
+
+    [ -f "${source}" ] || continue
+
+    update_size=$(stat -c%s "${source}")
+    update_md5sum=$(md5sum "${source}" | awk '{print $1}')
+    skip_bytes=$((block_size * seek_blocks))
+    existing_md5sum=$(dd if="${device}" skip="${skip_bytes}" bs=1 count="${update_size}" status=none | md5sum | awk '{print $1}')
+
+    if [ "${existing_md5sum}" != "${update_md5sum}" ] || [ -n "${force_write:-}" ]; then
+        force_write=true
+        echo "Flashing ${file} to ${device}"
+        dd if="${source}" of="${device}" conv=fdatasync seek="${seek_blocks}" bs="${block_size}"
+    fi
+done
