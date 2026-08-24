@@ -1,54 +1,7622 @@
 Change log
 -----------
 
-# v6.0.33
-## (2024-09-22)
+# v8.0.0
+## (2026-08-18)
 
 
 <details>
-<summary> Update layers/meta-balena to f2c72d6bbd312821f0bb97897fe7836c525950f7 [balena-renovate[bot]] </summary>
+<summary> Update layers/meta-balena to 9c83231c087d0ff78b943765551e2f061e0e9f72 [balena-renovate[bot]] </summary>
 
-> ## meta-balena-6.0.33
-> ### (2024-09-22)
+> ## meta-balena-8.0.0
+> ### (2026-08-17)
 > 
-> * Override the default commit body for digest updates [Kyle Harding]
+> * image_types_balena: force 4K block size for resin-state ext4 [guille-vega]
+> * Increase default boot, root and state partition sizes [guille-vega]
 > 
 
 </details>
 
-# v6.0.32
-## (2024-09-21)
-
 
 <details>
-<summary> Update layers/meta-balena to 8786d755f72c35fb3b332c26b32c3de576d3d0ce [balena-renovate[bot]] </summary>
+<summary> Update layers/meta-balena to 212305a6be2a8a448a4069cf83a57bfcdf654772 [balena-renovate[bot]] </summary>
 
-> ## meta-balena-6.0.32
-> ### (2024-09-21)
+> ## meta-balena-8.0.0
+> ### (2026-08-17)
 > 
-> * kernel-headers-test: update dockerfile to bullseye [Alex Gonzalez]
+> * image_types_balena: force 4K block size for resin-state ext4 [guille-vega]
+> * Increase default boot, root and state partition sizes [guille-vega]
 > 
 
 </details>
 
-# v6.0.31
-## (2024-09-21)
+# v7.9.4+rev3
+## (2026-08-14)
+
+* recipes-kernel: rkwifibt-firmware.bb: fix wifi firmware crash in AP mode [Ryan Cooke]
+
+# v7.9.4+rev2
+## (2026-08-14)
+
+* Update layers/meta-openembedded to bec755063a8b5da65df626f5749496aadaa4f4bb [balena-renovate[bot]]
+
+# v7.9.4+rev1
+## (2026-08-14)
+
+* Update layers/poky to 1ba3cd7c884dc6c3d78c6bedc15e081f5000c8c9 [balena-renovate[bot]]
+
+# v7.9.4
+## (2026-08-13)
 
 
 <details>
-<summary> Update layers/meta-balena to b3ab5311c0ad999dc896ab5b9a85e48098ddd3dc [balena-renovate[bot]] </summary>
+<summary> Update layers/meta-balena to 5463b02b0ad994f9823194c7be374580ff632958 [balena-renovate[bot]] </summary>
 
-> ## meta-balena-6.0.31
-> ### (2024-09-20)
+> ## meta-balena-7.9.4
+> ### (2026-08-11)
 > 
-> * mkfs-hostapp-native: update Dockerfile to using trixie [Alex Gonzalez]
-> * meta-balena-rust: rust-llvm: backport a fix for build with gcc-13 [Alex Gonzalez]
+> * hostapp: Add deploy assets to hostapp composition [Kyle Harding]
 > 
 
 </details>
 
-# v6.0.30+rev1
-## (2024-09-20)
+# v7.9.3+rev2
+## (2026-08-12)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 4b858287c2b8eb6ffb7bedb66908ddde47525605 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.42.4
+> ### (2026-08-12)
+> 
+> * Deploy the hostApp with `os-profiles` draft release channel [Christina Ying Wang]
+> 
+> ## balena-yocto-scripts-1.42.3
+> ### (2026-08-12)
+> 
+> * Update GitHub Actions [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.42.2
+> ### (2026-08-12)
+> 
+> * Add source-mirror-setup dependency to All Jobs [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.42.1
+> ### (2026-08-11)
+> 
+> * Update Pin ubuntu Docker tag to 3b06811 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.42.0
+> ### (2026-08-10)
+> 
+> * yocto-build-deploy: Transport artifacts via lzma-artifact-action [Kyle Harding]
+> * hostapp-deploy: Verify required release assets before finalizing [Kyle Harding]
+> * hostapp-deploy: Group extension release assets by service [Kyle Harding]
+> * hostapp-deploy: Always deploy as draft and finalize after asset upload [Kyle Harding]
+> * hostapp-deploy: Run on ubuntu-24.04 instead of self-hosted [Kyle Harding]
+> * deploy: Create deflates via python script during deploy [Kyle Harding]
+> 
+
+</details>
+
+# v7.9.3+rev1
+## (2026-08-09)
+
+* Update layers/poky to 077627338ac18aeca34bfe0c52777fab38e2e0c0 [balena-renovate[bot]]
+
+# v7.9.3
+## (2026-08-09)
+
+
+<details>
+<summary> Update layers/meta-balena to c806f4ead5c1fb34ed161266c2ed07a7c3b150d6 [balena-renovate[bot]] </summary>
+
+> ## meta-balena-7.9.3
+> ### (2026-08-08)
+> 
+> * balena-extension-runtime: do not duplicate binary [Alex Gonzalez]
+> * balena-extension-runtime: update to v1.2.1 [Alex Gonzalez]
+> 
+
+</details>
+
+# v7.9.2+rev1
+## (2026-08-08)
+
+* Update layers/meta-arm to 045eb74bd9abe7d9ccf365a2417e440ce83bcbb0 [balena-renovate[bot]]
+
+# v7.9.2
+## (2026-08-08)
+
+
+<details>
+<summary> Update layers/meta-balena to 669cd979a6d181271989e268bdb334c600b16955 [balena-renovate[bot]] </summary>
+
+> ## meta-balena-7.9.2
+> ### (2026-08-07)
+> 
+> * extra-udev-rules: Disable power management on mlan* wireless network interfaces [Florin Sarbu]
+> 
+> ## meta-balena-7.9.1
+> ### (2026-08-07)
+> 
+> * recipes-containers/balena-extension-runtime: Enable Wrynose builds [Alexandru Costache]
+> 
+> ## meta-balena-7.9.0
+> ### (2026-08-04)
+> 
+> * docs: update hostapp extensions kernel abi compatibility section [Alex Gonzalez]
+> * balena-hostapp-extension: add class [Alex Gonzalez]
+> * kernel-override-hooks: add recipe [Alex Gonzalez]
+> * os-helpers-extensions: use kernel image hash as kernel-abi-id [Alex Gonzalez]
+> * os-helpers-bootenv: leave hup variables to bootloaders hooks [Alex Gonzalez]
+> * rollback-health: use standard os logging [Alex Gonzalez]
+> * initrdscripts(abroot): kernel selection [Alex Gonzalez]
+> * balena-image-bootloader-initramfs: add mount data stage [Alex Gonzalez]
+> * initrdscript: add stage2 data partition mount [Alex Gonzalez]
+> 
+> ## meta-balena-7.8.1
+> ### (2026-08-01)
+> 
+> * initrdscripts: check alignment of data partition in resindataexpander [Michal Toman]
+> 
+
+</details>
+
+# v7.8.0+rev4
+## (2026-08-07)
+
+* Update layers/meta-openembedded to ef3df29f2cfca6a9513b51ebcdccf82b6c8a836f [balena-renovate[bot]]
+
+# v7.8.0+rev3
+## (2026-08-07)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 8aa037bbf693fcebce7a7e4e219c6d75d2dead22 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.41.9
+> ### (2026-07-24)
+> 
+> * Update docker/login-action action to v4 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.41.8
+> ### (2026-07-15)
+> 
+> * Update GitHub Actions [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.41.7
+> ### (2026-07-14)
+> 
+> * Update product-os/review-commit-action action to v0.3.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.41.6
+> ### (2026-07-13)
+> 
+> * Update balena-io/balena-cli to v25 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v7.8.0+rev2
+## (2026-08-06)
+
+
+<details>
+<summary> Update contracts to 410a252de768cef05e71bde5417361819dda50e1 [balena-renovate[bot]] </summary>
+
+> ## contracts-2.0.147
+> ### (2026-08-04)
+> 
+> * Add device family and manufacturer metadata [Pranas Ziaukas]
+> 
+> ## contracts-2.0.146
+> ### (2026-07-16)
+> 
+> * Modify existing device family and manufacturer metadata [Pranas Ziaukas]
+> 
+> ## contracts-2.0.145
+> ### (2026-07-01)
+> 
+> * hw/device-type: Add Jetson AGX Thor Devkit contract [Alexandru Costache]
+> 
+> ## contracts-2.0.144
+> ### (2026-05-19)
+> 
+> * hw.device-type/beaglebone-ai64: Add the beaglebone-ai-64 alias to align with its device repo definition [Thodoris Greasidis]
+> 
+> ## contracts-2.0.143
+> ### (2026-04-22)
+> 
+> * hw.device-type: Add new device-type Compulab IOT-LINK Gateway [Florin Sarbu]
+> 
+> ## contracts-2.0.142
+> ### (2026-04-09)
+> 
+> * Update iot-gate-imx8plus-d1d8 to remove Wifi and BT [Alexandru Costache]
+> 
+> ## contracts-2.0.141
+> ### (2026-03-16)
+> 
+> * iot-gate-imx8plus: replace dram size range with explicit dram sizes [Alex Gonzalez]
+> 
+> ## contracts-2.0.140
+> ### (2026-03-11)
+> 
+> * iot-gate-imx8plus-d1d8: Enable bluetooth and wifi [Florin Sarbu]
+> 
+> ## contracts-2.0.139
+> ### (2026-03-11)
+> 
+> * ucm-imx93: Set wifi and bt to false [Florin Sarbu]
+> 
+
+</details>
+
+# v7.8.0+rev1
+## (2026-08-05)
+
+* Set explicit partition size overrides for each machine [guille-vega]
+
+# v7.8.0
+## (2026-08-04)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 7d1760c79d5584f3d6bf9a1c2d0e796b6a5b5d82 [Florin Sarbu] </summary>
+
+> ## balena-yocto-scripts-1.41.5
+> ### (2026-06-29)
+> 
+> * yocto-build-deploy: replace pattern based all history first parent match [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.41.4
+> ### (2026-06-23)
+> 
+> * Decode base64-encoded GitHub App private key before token generation [Kyle Harding]
+> * Update actions/create-github-app-token action to v3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.41.3
+> ### (2026-06-10)
+> 
+> * Update GitHub Actions [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.41.2
+> ### (2026-06-04)
+> 
+> * yocto-build-deploy: soft-skip schema validation when not in checkout [Kyle Harding]
+> * yocto-build-deploy: normalize composition placeholders to __VAR__ form [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.41.1
+> ### (2026-06-03)
+> 
+> * Update aws/aws-cli to v2.34.61 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.41.0
+> ### (2026-06-03)
+> 
+> * Add hostapp composition build pipeline [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.40.0
+> ### (2026-06-02)
+> 
+> * Make release asset upload step required [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.39.35
+> ### (2026-05-16)
+> 
+> * build/barys: Add Wrynose build support [Alexandru Costache]
+> 
+> ## balena-yocto-scripts-1.39.34
+> ### (2026-05-07)
+> 
+> * Dockerfile_yocto-build-env: Switch to docker-ce, pin 28.5.2 [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.39.33
+> ### (2026-05-01)
+> 
+> * yocto-build-deploy.yml: Wait for self-CI helper image before Build [Kyle Harding]
+> * yocto-build-deploy.yml: Override helper image tag for self-CI [Kyle Harding]
+> * Dockerfile_yocto-build-env: Pin docker.io to 27.x [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.39.32
+> ### (Invalid date)
+> 
+> * Set the default source-mirror environment to balena-production.us-east-1 [Kyle Harding]
+> * Backup shared-downloads to S3 on build failure [Kyle Harding]
+> * .github/workflows/yocto-build-deploy.yml: Add the rust crates to MIRRORS [Florin Sarbu]
+> 
+> ## balena-yocto-scripts-1.39.31
+> ### (2026-04-03)
+> 
+> * Update aws/aws-cli to v2.34.23 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.30
+> ### (2026-04-01)
+> 
+> * Update balena-io/balena-cli to v24 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.29
+> ### (2026-03-28)
+> 
+> * stop running AMI delete on failure step if no AMI created, and stop AMI deploy on non-finalised workflow-dispatch [Ryan Cooke]
+> * workflows: simplify esr check to tag comparison [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.39.28
+> ### (2026-02-18)
+> 
+> * Update aws/aws-cli to v2.33.25 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.27
+> ### (2026-02-13)
+> 
+> * Remove dead AMI script and its Dockerfile dependencies [Kyle Harding]
+> * Replace deprecated `balena key add` with `balena ssh-key add` [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.39.26
+> ### (2026-02-10)
+> 
+> * Update aws/aws-cli to v2.33.18 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.25
+> ### (2026-02-07)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.96 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.24
+> ### (2026-02-07)
+> 
+> * Update aws-actions/configure-aws-credentials action to v6 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.23
+> ### (2026-02-06)
+> 
+> * Update aws/aws-cli to v2.33.17 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.22
+> ### (2026-02-04)
+> 
+> * Update aws/aws-cli to v2.33.14 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.21
+> ### (2026-02-01)
+> 
+> * Update docker/login-action action to v3.7.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.20
+> ### (2026-02-01)
+> 
+> * Update aws/aws-cli to v2.33.12 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.19
+> ### (2026-01-27)
+> 
+> * Update aws/aws-cli to v2.33.7 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.18
+> ### (2026-01-24)
+> 
+> * Update actions/checkout action to v6.0.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.17
+> ### (2026-01-22)
+> 
+> * Update aws/aws-cli to v2.33.5 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.16
+> ### (2026-01-20)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.15
+> ### (2026-01-17)
+> 
+> * Update aws/aws-cli to v2.33.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.14
+> ### (2026-01-17)
+> 
+> * Update balena-io/balena-cli to v23.2.30 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.13
+> ### (2026-01-17)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.95 [balena-renovate[bot]]
+> 
+
+</details>
+
+
+<details>
+<summary> Update layers/meta-balena to 05f71c5607f293a7bc162db6570f40bd5522393f [Florin Sarbu] </summary>
+
+> ## meta-balena-7.8.0
+> ### (2026-07-29)
+> 
+> * mobynit: update to v1.1.0 [Alex Gonzalez]
+> 
+> ## meta-balena-7.7.2
+> ### (2026-07-24)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to dacce76 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.120
+>> #### (2026-07-24)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.41 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.119
+>> #### (2026-07-23)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.40 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.118
+>> #### (2026-07-23)
+>> 
+>> * Update balena-io/balena-cli to v25.1.10 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.117
+>> #### (2026-07-23)
+>> 
+>> * core/lib/common/worker.js: improve reliability of segmented image upload [guille-vega]
+>> 
+>> ### leviathan-2.36.116
+>> #### (2026-07-16)
+>> 
+>> * Update alpine Docker tag to v3.18.12 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.115
+>> #### (2026-07-16)
+>> 
+>> * Update core/contracts digest to a4ab96e [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.114
+>> #### (2026-07-14)
+>> 
+>> * Update Pin dependencies [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-7.7.1
+> ### (2026-07-21)
+> 
+> * tests: os: led: check LED_FILE exists on device, and stop counting sdterr [Ryan Cooke]
+> 
+> ## meta-balena-7.7.0
+> ### (2026-07-15)
+> 
+> * image-types: tag hostapp during import so it includes RepoTags [Alex Gonzalez]
+> * hostapp-update-hooks: add extensions support [Alex Gonzalez]
+> * packagegroup-resin: add extension OCI runtime [Alex Gonzalez]
+> * balena: register extensions runtime [Alex Gonzalez]
+> * balena-extension-runtime: add recipe [Alex Gonzalez]
+> * os-helpers: add bootenv helper [Alex Gonzalez]
+> * os-helpers: add extensions helper [Alex Gonzalez]
+> * docker-disk: remove built-in extension support [Alex Gonzalez]
+> * hostapp-extensions-update: remove recipe. [Alex Gonzalez]
+> 
+> ## meta-balena-7.6.0
+> ### (2026-07-14)
+> 
+> * mobynit: update to v1.0.1 [Alex Gonzalez]
+> 
+> ## meta-balena-7.5.11
+> ### (2026-07-12)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v18 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-18.2.2
+>> #### (2026-07-06)
+>> 
+>> * Clean up supervisor images in the database [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-18.2.1
+>> #### (2026-07-02)
+>> 
+>> * Clarify documentation on device tags API [Jonathan Berger]
+>> 
+>> ### balena-supervisor-18.2.0
+>> #### (2026-06-22)
+>> 
+>> * Rename the supervisor service to core on the commposition [Felipe Lalanne]
+>> * Report the supervisor main service to backend [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-18.1.2
+>> #### (2026-06-22)
+>> 
+>> * Docs: clarify behavior for `PATCH /v2/device/tags` [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-18.1.1
+>> #### (2026-06-05)
+>> 
+>> * Pass correct value for restart policy 'no' [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-18.1.0
+>> #### (2026-06-03)
+>> 
+>> * Remove any overrides created by helios and restore service [Felipe Lalanne]
+>> * Revert "Add `helios` service to composition" [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-18.0.0
+>> #### (2026-05-27)
+>> 
+>> * Add `helios` service to composition [Felipe Lalanne]
+>> * Restrict supervisor API listen address when overriding port [Felipe Lalanne]
+>> * Use RESIN_BOARD_REV OS release info as a fallback [Felipe Lalanne]
+>> * Add BALENA_HOST_OS_BUILD as environment variable [Felipe Lalanne]
+>> * Add firewall configurations for the override port [Felipe Lalanne]
+>> * Allow overriding apiEndpoint from a database field [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-17.8.5
+>> #### (2026-05-26)
+>> 
+>> * Convert extra_hosts separator from `=` to `:` [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.8.4
+>> #### (2026-05-21)
+>> 
+>> * Remove debugging-supervisor docs in favor of moving directly to docs [Matthew Yarmolinsky]
+>> 
+>> ### balena-supervisor-17.8.3
+>> #### (2026-05-20)
+>> 
+>> * Remove update-locking docs in favor of moving them directly to the docs [Matthew Yarmolinsky]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-7.5.10
+> ### (2026-07-09)
+> 
+> * kernel-image-initramfs: multi-kernel support [Alex Gonzalez]
+> * kernel-balena-noimage: remove upstream rrecommends [Alex Gonzalez]
+> * kernel-balena-override: add config fragment support [Alex Gonzalez]
+> * kernel-balena: add multi kernel support [Alex Gonzalez]
+> 
+> ## meta-balena-7.5.9
+> ### (2026-07-08)
+> 
+> * renovate: Append major/minor/patch updates with change-type footer [Kyle Harding]
+> 
+> ## meta-balena-7.5.8
+> ### (2026-07-07)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to a8266fb [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.113
+>> #### (2026-07-06)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.35 [Florin Sarbu]
+>> * core/lib/common/worker.js: Switch to segmented OS image upload to worker [Florin Sarbu]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-7.5.7
+> ### (2026-06-24)
+> 
+> * classes/image-balena: Cleanup issue file in Wrynose [Alexandru Costache]
+> 
+> ## meta-balena-7.5.6
+> ### (2026-06-23)
+> 
+> * tests: Add uptime regression test to the os suite [Kyle Harding]
+> * coreutils: Restore /proc/uptime read so uptime works on scarthgap [Kyle Harding]
+> 
+> ## meta-balena-7.5.5
+> ### (2026-06-22)
+> 
+> * meta-balena-esr: Use GitHub REST API for verified commits [Kyle Harding]
+> 
+> ## meta-balena-7.5.4
+> ### (2026-06-21)
+> 
+> * balena: bump balena-engine to restore 1777 default for bare tmpfs mounts [Kyle Harding]
+> 
+> ## meta-balena-7.5.3
+> ### (2026-06-19)
+> 
+> * networkmanager_%.bbappend: Don't remove /usr/lib/NetworkManager/conf.d from the rootfs [Florin Sarbu]
+> 
+> ## meta-balena-7.5.2
+> ### (2026-06-17)
+> 
+> * recipes-core/systemd: Fix building with Wrynose [Alexandru]
+> 
+> ## meta-balena-7.5.1
+> ### (2026-06-15)
+> 
+> * tests: Define imx8mmebcrs16a1 as flasherConfig type [Florin Sarbu]
+> 
+> ## meta-balena-7.5.0
+> ### (2026-06-12)
+> 
+> * conf/layer.conf: Specify Wrynose compatibility [Alexandru Costache]
+> 
+> ## meta-balena-7.4.1
+> ### (2026-06-11)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to a310841 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.112
+>> #### (2026-06-10)
+>> 
+>> * core/lib: Make Protected Management Frames (PMF) support optional / disabled when creating the wifi connection profile [Florin Sarbu]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-7.4.0
+> ### (2026-06-09)
+> 
+> * systemd: add configuration to ignore lid switch events [Dr Bill Mcilhargey]
+> 
+> ## meta-balena-7.3.0
+> ### (2026-06-09)
+> 
+> * tests: pieeprom test raspberrypi4 and CM4 [Yann CARDAILLAC]
+> 
+> ## meta-balena-7.2.1
+> ### (2026-06-05)
+> 
+> * hostapp.yml: Add root hostapp composition for all boards [Kyle Harding]
+> 
+> ## meta-balena-7.2.0
+> ### (2026-05-29)
+> 
+> * balena: Remove aufs as a supported storage driver [Kyle Harding]
+> * balena: Remove aufs-to-overlay2 storage migration drop-in [Kyle Harding]
+> * go: Upgrade to 1.24.6 from upstream walnascar recipes [Kyle Harding]
+> * balena: Update balena engine to v25.0.14 [Kyle Harding]
+> 
+> ## meta-balena-7.1.1
+> ### (2026-05-28)
+> 
+> * Remove some docs in favor of moving them directly to the product docs [Matthew Yarmolinsky]
+> 
+> ## meta-balena-7.1.0
+> ### (2026-05-27)
+> 
+> * remove all bins from nss to save some place [Yann CARDAILLAC]
+> 
+> ## meta-balena-7.0.7
+> ### (2026-05-26)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 053da9e [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.111
+>> #### (2026-05-21)
+>> 
+>> * Update balena-io/balena-cli to v25 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.110
+>> #### (2026-05-20)
+>> 
+>> * e2e: probe supervisor /ping instead of /v1/healthy [Kyle Harding]
+>> 
+>> ### leviathan-2.36.109
+>> #### (2026-04-27)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.108
+>> #### (2026-04-22)
+>> 
+>> * Update core/contracts digest to 7c3bf64 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.107
+>> #### (2026-04-20)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-7.0.6
+> ### (2026-05-25)
+> 
+> * wpa_supplicant: enable OWE networks [Michal Toman]
+> 
+> ## meta-balena-7.0.5
+> ### (2026-05-21)
+> 
+> * image-balena: include size of boot directory in HUP check [Alex Gonzalez]
+> 
+> ## meta-balena-7.0.4
+> ### (2026-05-20)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.8.2 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.8.2
+>> #### (2026-05-19)
+>> 
+>> * Pin back to Node 22 / Alpine 3.22 [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.8.1
+>> #### (2026-05-13)
+>> 
+>> * Update systeminformation to v5.31.6 [SECURITY] [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-17.8.0
+>> #### (2026-05-01)
+>> 
+>> * Add a `PATCH /v2/device/tags` endpoint to tell the supervisor device tags to report [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.7.5
+>> #### (Invalid date)
+>> 
+>> * Trim whitespaces around dtparam input values [Christina Ying Wang]
+>> * Fix dtparam parsing for comma-separated values [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.7.4
+>> #### (2026-04-29)
+>> 
+>> * Fix the network connectivity check [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-17.7.3
+>> #### (2026-04-20)
+>> 
+>> * Fix error propagation is fsUtils.touch [Pagan Gazzard]
+>> * Convert code to async/await [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.7.2
+>> #### (2026-04-14)
+>> 
+>> * Firewall: avoid `exports.` to improve type-checking [Pagan Gazzard]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-7.0.3
+> ### (2026-05-13)
+> 
+> * plymouth: start after udev settle [Michal Toman]
+> 
+> ## meta-balena-7.0.2
+> ### (2026-05-11)
+> 
+> * kernel-balena: address CVE-2026-43284 [Alex Gonzalez]
+> 
+> ## meta-balena-7.0.1
+> ### (2026-05-08)
+> 
+> * kernel-balena: address CVE-2026-31431 [Alex Gonzalez]
+> 
+> ## meta-balena-7.0.0
+> ### (2026-04-24)
+> 
+> * mobynit: update to v1.0.0 [Alex Gonzalez]
+> 
+> ## meta-balena-6.12.11
+> ### (2026-04-23)
+> 
+> * tests: cloud: Stop waiting for healthy supervisor in cloud suite before preload test [Ryan Cooke]
+> 
+> ## meta-balena-6.12.10
+> ### (2026-04-21)
+> 
+> * balena-bootloader.bbclass: Add required CONFIG_NLS_ISO8859_1 as built-in [Florin Sarbu]
+> 
+> ## meta-balena-6.12.9
+> ### (2026-04-16)
+> 
+> * Fix modemmanager build on dunfell [Florin Sarbu]
+> 
+> ## meta-balena-6.12.8
+> ### (2026-04-13)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 2e945b4 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.106
+>> #### (2026-04-13)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.105
+>> #### (2026-04-11)
+>> 
+>> * Update actions/upload-artifact digest to 043fb46 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.104
+>> #### (2026-04-10)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.30 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.103
+>> #### (2026-04-10)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.102
+>> #### (2026-04-10)
+>> 
+>> * core/contracts: Update submodule to v2.0.142 [Alexandru Costache]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.12.7
+> ### (2026-04-11)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.7.1 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.7.1
+>> #### (2026-04-08)
+>> 
+>> * Fix bug in single -> multicontainer migration of legacy app.json [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.7.0
+>> #### (2026-04-07)
+>> 
+>> * Return updateStatus in /v2/applications/state [Felipe Lalanne]
+>> * Ensure all downloading images are reported [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-17.6.32
+>> #### (2026-04-07)
+>> 
+>> * Convert many lodash usages to native equivalents [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.31
+>> #### (2026-04-07)
+>> 
+>> * Tests: remove unused file [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.30
+>> #### (2026-04-06)
+>> 
+>> * Update to typescript 6.x / es2025 [Pagan Gazzard]
+>> * Remove nodejs 20/22 from the test matrix as we only ship with/truly support 24.x [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.29
+>> #### (2026-04-03)
+>> 
+>> * Update lodash to v4.18.1 [SECURITY] [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-17.6.28
+>> #### (2026-04-03)
+>> 
+>> * config/backends: Allow setting custom dtb on iot-gate-imx8plus [Alexandru Costache]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.12.6
+> ### (2026-04-10)
+> 
+> * Update actions/checkout digest to de0fac2 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.12.5
+> ### (2026-04-09)
+> 
+> * .github/workflows: Remove discontinued machines [Florin Sarbu]
+> 
+> ## meta-balena-6.12.4
+> ### (2026-04-02)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.6.27 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.6.27
+>> #### (2026-04-01)
+>> 
+>> * Webpack: target the built js files directly [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.26
+>> #### (2026-04-01)
+>> 
+>> * Fix connectivity healthcheck [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-17.6.25
+>> #### (Invalid date)
+>> 
+>> * Remove unused `stateReportErrors` variable [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.24
+>> #### (Invalid date)
+>> 
+>> * Switch from pinejs-client-request to pinejs-client-fetch [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.23
+>> #### (Invalid date)
+>> 
+>> * Fix inconsistent handling of `null` vs `undefined` for `getEntryPoint` [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.22
+>> #### (2026-03-28)
+>> 
+>> * Fix pify promisified method names [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.6.21
+>> #### (2026-03-27)
+>> 
+>> * Migratinng legacy databases: fix handling no compatible releases [Pagan Gazzard]
+>> * Update to using balena-api v7 [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.20
+>> #### (2026-03-26)
+>> 
+>> * Use `pify` for promisifying request [Pagan Gazzard]
+>> * Use `Promise` as the return type for async request methods [Pagan Gazzard]
+>> * Replace `Bluebird.filter` with async/await equivalent [Pagan Gazzard]
+>> * Remove bluebird from migration files by converting to async/await [Pagan Gazzard]
+>> * Replace `Bluebird.timeout` with `p-timeout` [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.19
+>> #### (2026-03-26)
+>> 
+>> * Avoid unnecessary `Promise`s in `ConfigBackend.matches` implementations [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.18
+>> #### (2026-03-26)
+>> 
+>> * Switch locks to using native resource management functionality [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.17
+>> #### (2026-03-26)
+>> 
+>> * Convert `forEach` to `for` loops where appropriate [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.16
+>> #### (2026-03-24)
+>> 
+>> * mdns-lookup: improve typings [Pagan Gazzard]
+>> * mdns-lookup: remove setting explicit `verbatim: true` as it already defaults true [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.15
+>> #### (2026-03-24)
+>> 
+>> * Update migration.ts [giuseppe443]
+>> 
+>> ### balena-supervisor-17.6.14
+>> #### (2026-03-20)
+>> 
+>> * Build: avoid needing to `mv` all files immediately after compiling [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.13
+>> #### (2026-03-20)
+>> 
+>> * Tests: switch from `require` to `fs` for loading JSON fixtures [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.12
+>> #### (2026-03-18)
+>> 
+>> * Remove legacy tests as they are not being run and no longer work [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.11
+>> #### (2026-03-18)
+>> 
+>> * Update to nodejs 24.x, alpine 3.23 [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.10
+>> #### (2026-03-17)
+>> 
+>> 
+>> <details>
+>> <summary> Update dependencies [Pagan Gazzard] </summary>
+>> 
+>>> #### balena-register-device-9.0.16
+>>> ##### (2026-02-22)
+>>> 
+>>> * Update dependency balena-config-karma to v4.0.3 [balena-renovate[bot]]
+>>> 
+>>> #### balena-register-device-9.0.15
+>>> ##### (2026-02-19)
+>>> 
+>>> * Add id-token: write permission for NPM OIDC publishing [Kyle Harding]
+>>> 
+>>> #### balena-register-device-9.0.14
+>>> ##### (2025-11-24)
+>>> 
+>>> * Remove stub `@types/uuid` dependency [Pagan Gazzard]
+>>> 
+>>> #### balena-register-device-9.0.13
+>>> ##### (2025-11-13)
+>>> 
+>>> * Update dependency uuid to v13 [balena-renovate[bot]]
+>>> 
+>>> #### balena-register-device-9.0.12
+>>> ##### (2025-11-11)
+>>> 
+>>> * Update dependency mocha to v11 [balena-renovate[bot]]
+>>> 
+>>> #### balena-register-device-9.0.11
+>>> ##### (2025-11-11)
+>>> 
+>>> * Update dependency @types/mocha to v10 [balena-renovate[bot]]
+>>> 
+>>> #### balena-register-device-9.0.10
+>>> ##### (2025-11-11)
+>>> 
+>>> * Update dependency @balena/lint to v9 [balena-renovate[bot]]
+>>> 
+>>> #### balena-register-device-9.0.9
+>>> ##### (2025-11-11)
+>>> 
+>>> * Update dependency buffer to v6 [balena-renovate[bot]]
+>>> 
+>>> #### balena-register-device-9.0.8
+>>> ##### (2025-11-11)
+>>> 
+>>> * Update uuid to v11 [balena-renovate[bot]]
+>>> 
+>>> #### balena-register-device-9.0.7
+>>> ##### (2025-04-10)
+>>> 
+>>> * Tests: remove use of chai-as-promised [Pagan Gazzard]
+>>> 
+>>> #### balena-register-device-9.0.6
+>>> ##### (2025-04-10)
+>>> 
+>>> * Update dependency karma to v6 [SECURITY] [balena-renovate[bot]]
+>>> 
+>>> #### balena-register-device-9.0.5
+>>> ##### (2025-03-19)
+>>> 
+>>> * Update dependency balena-config-karma to v4.0.2 [balena-renovate[bot]]
+>>> 
+>>> #### node-docker-delta-5.0.1
+>>> ##### (2026-02-19)
+>>> 
+>>> * Add id-token: write permission for NPM OIDC publishing [Kyle Harding]
+>>> 
+>>> #### node-docker-delta-5.0.0
+>>> ##### (2026-02-04)
+>>> 
+>>> * Remove bluebird dependency [Pagan Gazzard]
+>>> 
+>>> <details>
+>>> <summary> Update docker-toolbelt to 7.x, dropping support for docker < 1.10 (released Feb 2016) [Pagan Gazzard] </summary>
+>>> 
+>>>> ##### docker-toolbelt-7.0.0
+>>>> ###### (2026-02-02)
+>>>> 
+>>>> * Update @types/dockerode to 4.x [Pagan Gazzard]
+>>>> * Switch to ESM [Pagan Gazzard]
+>>>> * Update tsconfig target to es2024 [Pagan Gazzard]
+>>>> * Update minimum supported nodejs version to ^22.22.0 || >=24.13.0 [Pagan Gazzard]
+>>>> * Drop support for docker < 1.10 (released Feb 2016) [Pagan Gazzard]
+>>>> 
+>>>> ##### docker-toolbelt-6.0.14
+>>>> ###### (2025-10-07)
+>>>> 
+>>>> * Remove `event-stream` in favor of built-in alternatives [Pagan Gazzard]
+>>>> 
+>>> 
+>>> </details>
+>>> 
+>>> * Switch to ESM [Pagan Gazzard]
+>>> * Update tsconfig target to es2024 [Pagan Gazzard]
+>>> * Update minimum supported nodejs version to ^22.22.0 || >=24.13.0 [Pagan Gazzard]
+>>> 
+>>> #### node-docker-delta-4.1.1
+>>> ##### (2025-10-07)
+>>> 
+>>> 
+>>> <details>
+>>> <summary> Update dependencies [Pagan Gazzard] </summary>
+>>> 
+>>>> ##### docker-toolbelt-6.0.13
+>>>> ###### (2025-10-06)
+>>>> 
+>>>> * Update actions/checkout digest to 08eba0b [balena-renovate[bot]]
+>>>> 
+>>>> ##### docker-toolbelt-6.0.12
+>>>> ###### (2025-10-06)
+>>>> 
+>>>> * Update dependencies [Pagan Gazzard]
+>>>> 
+>>>> ##### docker-toolbelt-6.0.11
+>>>> ###### (2025-04-16)
+>>>> 
+>>>> * Update actions/setup-node digest to 49933ea [balena-renovate[bot]]
+>>>> 
+>>>> ##### docker-toolbelt-6.0.10
+>>>> ###### (2025-04-11)
+>>>> 
+>>>> * Update dependency typedoc to ^0.28.0 [balena-renovate[bot]]
+>>>> 
+>>>> ##### docker-toolbelt-6.0.9
+>>>> ###### (2025-04-10)
+>>>> 
+>>>> * Update peaceiris/actions-gh-pages action to v4 [balena-renovate[bot]]
+>>>> 
+>>>> ##### docker-toolbelt-6.0.8
+>>>> ###### (2025-04-10)
+>>>> 
+>>>> * Update dependency rimraf to v6 [balena-renovate[bot]]
+>>>> 
+>>>> ##### docker-toolbelt-6.0.7
+>>>> ###### (2025-04-10)
+>>>> 
+>>>> * Update dependency balena-semver to v3 [balena-renovate[bot]]
+>>>> 
+>>>> ##### docker-toolbelt-6.0.6
+>>>> ###### (2025-04-02)
+>>>> 
+>>>> * Update dependency mocha to v11 [balena-renovate[bot]]
+>>>> 
+>>>> ##### docker-toolbelt-6.0.5
+>>>> ###### (2025-03-25)
+>>>> 
+>>>> * Update actions/setup-node action to v4 [balena-renovate[bot]]
+>>>> 
+>>>> ##### docker-toolbelt-6.0.4
+>>>> ###### (2025-03-19)
+>>>> 
+>>>> * Pin dependencies [balena-renovate[bot]]
+>>>> 
+>>>> ##### docker-toolbelt-6.0.3
+>>>> ###### (2024-09-27)
+>>>> 
+>>>> * CI: Update checkout settings [Pagan Gazzard]
+>>>> 
+>>> 
+>>> </details>
+>>> 
+>>> 
+>>> #### node-systemd-0.5.11
+>>> ##### (2026-02-19)
+>>> 
+>>> * Add id-token: write permission for NPM OIDC publishing [Kyle Harding]
+>>> 
+>>> #### node-systemd-0.5.10
+>>> ##### (2025-04-10)
+>>> 
+>>> * Update dependency @balena/lint to v8 [balena-renovate[bot]]
+>>> 
+>>> #### node-systemd-0.5.9
+>>> ##### (2025-04-07)
+>>> 
+>>> * Update Rust crate tokio to v1.38.2 [SECURITY] [balena-renovate[bot]]
+>>> 
+>>> #### node-systemd-0.5.8
+>>> ##### (2025-04-02)
+>>> 
+>>> * Update dependency mocha to v11 [balena-renovate[bot]]
+>>> 
+>>> #### node-systemd-0.5.7
+>>> ##### (2025-03-19)
+>>> 
+>>> * Update docker/login-action action to v3.4.0 [balena-renovate[bot]]
+>>> 
+>>> #### node-systemd-0.5.6
+>>> ##### (2025-03-19)
+>>> 
+>>> * Update actions/upload-artifact action to v4.6.2 [balena-renovate[bot]]
+>>> 
+>>> #### node-systemd-0.5.5
+>>> ##### (2025-03-19)
+>>> 
+>>> * Update ghcr.io/balena-os/mock-systemd-bus Docker tag to v0.2.3 [balena-renovate[bot]]
+>>> 
+>>> #### node-systemd-0.5.4
+>>> ##### (2025-03-19)
+>>> 
+>>> * Pin actions/setup-node action to 1a4442c [balena-renovate[bot]]
+>>> 
+>>> #### node-systemd-0.5.3
+>>> ##### (2025-03-19)
+>>> 
+>>> * Update actions/upload-artifact action to v4.6.1 [balena-renovate[bot]]
+>>> 
+>>> #### node-systemd-0.5.2
+>>> ##### (2025-02-07)
+>>> 
+>>> * Update to Node 20 [Christina Ying Wang]
+>>> 
+>>> #### node-systemd-0.5.1
+>>> ##### (2024-11-18)
+>>> 
+>>> * Explicitly set GH_TOKEN permissions [Anton Belodedenko]
+>>> 
+>>> #### balena-compose-7.4.0
+>>> ##### (2026-03-06)
+>>> 
+>>> * Mark balena-sdk v23 as supported [Pagan Gazzard]
+>>> * Mark balena-sdk to the peer dependency it is [Pagan Gazzard]
+>>> 
+>>> #### balena-compose-7.3.3
+>>> ##### (2026-02-24)
+>>> 
+>>> * Add id-token: write permission for NPM OIDC publishing [Kyle Harding]
+>>> 
+>>> #### balena-compose-7.3.2
+>>> ##### (2026-01-08)
+>>> 
+>>> * Add ts-node to dev deps [joshbwlng]
+>>> * Update dependency ts-mocha to v11 [balena-renovate[bot]]
+>>> 
+>>> #### balena-compose-7.3.1
+>>> ##### (2026-01-06)
+>>> 
+>>> * Set label values to stringified number [joshbwlng]
+>>> 
+>>> #### balena-compose-7.3.0
+>>> ##### (2025-12-19)
+>>> 
+>>> * Support sw.os and sw.kernel contract requirement variants, allow multiple variants [Christina Ying Wang]
+>>> 
+>> 
+>> </details>
+>> 
+>> 
+>> ### balena-supervisor-17.6.9
+>> #### (2026-03-17)
+>> 
+>> * Update alpine to 3.22 to get latest nodejs 22.x / npm 11.x [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.8
+>> #### (2026-03-16)
+>> 
+>> * Update @types/dockerode to 3.3.47 [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.7
+>> #### (2026-03-16)
+>> 
+>> * Relax UUID regex in deconstructDockerName [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.6.6
+>> #### (2026-03-16)
+>> 
+>> * Typings: replace `UnwrappedPromise` with typescript built-in `Awaited` [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.5
+>> #### (2026-03-16)
+>> 
+>> * Tests: add nodejs 24 to the automated nodejs test matrix [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.6.4
+>> #### (2026-03-11)
+>> 
+>> * mount-partitions: create data directory [Alex Gonzalez]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.12.3
+> ### (2026-03-26)
+> 
+> * initrdscripts: Unmount the state partition before kexec [Michal Toman]
+> 
+> ## meta-balena-6.12.2
+> ### (2026-03-20)
+> 
+> * balena-supervisor: remove redundant bind mounts and DOCKER_ROOT [Alex Gonzalez]
+> * balena-supervisor: remove apps.json initialization from start script [Alex Gonzalez]
+> * balena-supervisor: remove restart from engine run command [Alex Gonzalez]
+> 
+> ## meta-balena-6.12.1
+> ### (2026-03-18)
+> 
+> * os/tests: Fix sporadic failure in recover-sshd-socket [Alexandru Costache]
+> 
+> ## meta-balena-6.12.0
+> ### (2026-03-17)
+> 
+> * add flock and lockfile documentation [Yann CARDAILLAC]
+> 
+> ## meta-balena-6.11.14
+> ### (2026-03-16)
+> 
+> * wpa-supplicant: Align to recipe from Scarthgap [Florin Sarbu]
+> 
+> ## meta-balena-6.11.13
+> ### (2026-03-14)
+> 
+> * tcgtool: update to v0.1.4 [Michal Toman]
+> 
+> ## meta-balena-6.11.12
+> ### (2026-03-14)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 6430fad [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.101
+>> #### (2026-03-11)
+>> 
+>> * Update core/contracts digest to ab2042b [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.100
+>> #### (2026-03-09)
+>> 
+>> * Update core/contracts digest to 73054ac [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.99
+>> #### (2026-03-09)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.98
+>> #### (2026-03-07)
+>> 
+>> * Update docker/setup-buildx-action action to v4 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.97
+>> #### (2026-03-02)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.11.11
+> ### (2026-03-10)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.6.3 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.6.3
+>> #### (2026-03-10)
+>> 
+>> * Only report download progress if service status is `Downloading` [Felipe Lalanne]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.11.10
+> ### (2026-03-05)
+> 
+> * efitools: update to master [Michal Toman]
+> 
+> ## meta-balena-6.11.9
+> ### (2026-03-04)
+> 
+> * recipes-support/hostapp-update-hooks: Deploy blacklisted bootloader files [Alexandru Costache]
+> 
+> ## meta-balena-6.11.8
+> ### (2026-03-03)
+> 
+> * hostapp-update-hooks: allow GRUB downgrade during secure boot rollbacks [Michal Toman]
+> 
+> ## meta-balena-6.11.7
+> ### (2026-03-02)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.6.2 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.6.2
+>> #### (2026-02-25)
+>> 
+>> * Fix storage usage over-reporting caused by duplicate mount points [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.6.1
+>> #### (2026-02-19)
+>> 
+>> * Update systeminformation to v5.30.8 [SECURITY] [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-17.6.0
+>> #### (2026-02-17)
+>> 
+>> * Rewrite lock mechanism doc to include flock as well [Yann CARDAILLAC]
+>> 
+>> ### balena-supervisor-17.5.3
+>> #### (2026-02-15)
+>> 
+>> * Update webpack to v5.104.1 [SECURITY] [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-17.5.2
+>> #### (2026-02-10)
+>> 
+>> * Preserve unmanaged fields in extra_uEnv.txt [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.5.1
+>> #### (2026-02-10)
+>> 
+>> * Do not rely on container timestamps to check for dependency start [felipe]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.11.6
+> ### (2026-02-28)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 4ac50e6 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.96
+>> #### (2026-02-28)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.29 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.95
+>> #### (2026-02-28)
+>> 
+>> * Update actions/upload-artifact action to v7 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.94
+>> #### (2026-02-25)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.27 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.93
+>> #### (2026-02-23)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.92
+>> #### (2026-02-16)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.91
+>> #### (2026-02-09)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.26 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.90
+>> #### (2026-02-09)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.25 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.89
+>> #### (2026-02-09)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.88
+>> #### (2026-02-07)
+>> 
+>> * Update actions/checkout digest to de0fac2 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.87
+>> #### (2026-02-02)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.24 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.86
+>> #### (2026-02-02)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.85
+>> #### (2026-01-27)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.23 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.84
+>> #### (2026-01-26)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.83
+>> #### (2026-01-20)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.22 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.82
+>> #### (2026-01-19)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.81
+>> #### (2026-01-12)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.80
+>> #### (2026-01-05)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.11.5
+> ### (2026-02-25)
+> 
+> * kernel-balena.bbclass: Enable support for traditional iptables backends for newer kernels [Florin Sarbu]
+> 
+> ## meta-balena-6.11.4
+> ### (2026-02-23)
+> 
+> * tests/modem: Skip modem test on unsupported Orin device-type [Alexandru]
+> 
+> ## meta-balena-6.11.3
+> ### (2026-02-20)
+> 
+> * balena-bootloader.bbclass: disable more unnecessary drivers [Michal Toman]
+> * balena-bootloader.bbclass: add spaces to BALENA_CONFIGS appends [Michal Toman]
+> 
+> ## meta-balena-6.11.2
+> ### (2026-02-18)
+> 
+> * tests:modem: Disable for kontron-come-xelx [Florin Sarbu]
+> 
+> ## meta-balena-6.11.1
+> ### (2026-02-17)
+> 
+> * peak: Update to version 9.0 [Florin Sarbu]
+> 
+> ## meta-balena-6.11.0
+> ### (2026-02-11)
+> 
+> * openssh: Add sshd.socket burst protection recovery timer [Kyle Harding]
+> 
+> ## meta-balena-6.10.26
+> ### (2026-02-10)
+> 
+> * kernel-devsrc.bb: Use recipe from OpenEmbedded Core layer for 6.18+ kernels [Florin Sarbu]
+> 
+> ## meta-balena-6.10.25
+> ### (2026-02-03)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.5.0 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.5.0
+>> #### (2026-02-03)
+>> 
+>> * Make withExclusive always cancel pending and running calls [Christina Ying Wang]
+>> * Remove usingInferStepsLock [Christina Ying Wang]
+>> * Don't generate redundant kill steps for services already stopping [Christina Ying Wang]
+>> * Don't retry fetch if aborted [Christina Ying Wang]
+>> * Bump docker-progress to 5.4.1 [Christina Ying Wang]
+>> * Replace applyIntermediateTarget with ExclusiveRunner [Christina Ying Wang]
+>> * Use ExclusiveRunner for triggerApplyTarget [Christina Ying Wang]
+>> * ExclusiveRunner: Add pending call cancellation [Christina Ying Wang]
+>> * ExclusiveRunner: Add running call cancellation to trigger() [Christina Ying Wang]
+>> * Implement ExclusiveRunner class with mutual exclusion & priority [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.4.6
+>> #### (2026-02-03)
+>> 
+>> * Remove reference links in update-locking.md [Jonathan Berger]
+>> 
+>> ### balena-supervisor-17.4.5
+>> #### (2026-01-22)
+>> 
+>> * Remove object-capturing closure in triggerFetch abortSignal [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.4.4
+>> #### (2026-01-22)
+>> 
+>> * Update lodash to v4.17.23 [SECURITY] [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-17.4.3
+>> #### (2026-01-22)
+>> 
+>> * Update @balena/sbvr-types to v11 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.10.24
+> ### (Invalid date)
+> 
+> * extra firmware test fix bbb kernel module [Yann CARDAILLAC]
+> 
+> ## meta-balena-6.10.23
+> ### (2026-01-29)
+> 
+> * Revert "packagegroup-resin: Add systemd-analyze to production images as well" [Kyle Harding]
+> 
+> ## meta-balena-6.10.22
+> ### (2026-01-27)
+> 
+> * tests: Update kernel-module-build submodule [Alexandru Costache]
+> 
+> ## meta-balena-6.10.21
+> ### (2026-01-26)
+> 
+> * classes/kernel-balena: Fix typo in kernel-balena.bbclass [Alexandru Costache]
+> * Fix type allSetConfigs -> allSetKernelConfigs [Christina Ying Wang]
+> 
+> ## meta-balena-6.10.20
+> ### (2026-01-26)
+> 
+> * Update actions/setup-python digest to a309ff8 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.10.19
+> ### (2026-01-23)
+> 
+> * Further reduce the size of the balena bootloader by removing PTP clock support [Florin Sarbu]
+> 
+> ## meta-balena-6.10.18
+> ### (2026-01-21)
+> 
+> * initrdscripts: export IS_ROLLBACK and ROOT_PART flags from abroot script [Michal Toman]
+> * initrdscripts: add extrafw script [Michal Toman]
+> * initrdscripts: separate mounting boot partition from abroot [Michal Toman]
+> 
+> ## meta-balena-6.10.17
+> ### (2026-01-21)
+> 
+> * Update vacuum-size to 128M to match vacuum.conf and journald-balena-os.conf [Chris Sawer]
+> 
+> ## meta-balena-6.10.16
+> ### (2026-01-20)
+> 
+> * os-helpers: safe-reboot: always sync filesystem before reboot [Alex Gonzalez]
+> 
+> ## meta-balena-6.10.15
+> ### (2026-01-12)
+> 
+> * os-helpers/os-helpers-bootloader-config: Add support for whitelisted cmdline args [Alexandru Costache]
+> 
+> ## meta-balena-6.10.14
+> ### (2026-01-09)
+> 
+> * initrdscripts: Unlock mutex if regenerate_uuid fails in fsuuidsinit [Michal Toman]
+> 
+> ## meta-balena-6.10.13
+> ### (2026-01-08)
+> 
+> * tests/extra-firmware: Skip post-reboot extra-firmware check for a specific device [Alexandru Costache]
+> 
+> ## meta-balena-6.10.12
+> ### (2026-01-08)
+> 
+> * Reduce the size of the balena bootloader by removing unused functionality [Florin Sarbu]
+> 
+> ## meta-balena-6.10.11
+> ### (2026-01-07)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.4.2 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.4.2
+>> #### (2026-01-06)
+>> 
+>> * Parse multiple child contracts listed under an `or` clause [Christina Ying Wang]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.10.10
+> ### (2026-01-06)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.4.1 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.4.1
+>> #### (2026-01-05)
+>> 
+>> * backends: Enable configurable power modes and fan profiles for all Jetson Orin devices [Alexandru Costache]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.10.9
+> ### (2026-01-04)
+> 
+> * kernel-balena.bbclass: Enable DMA-BUF memory heaps [Michal Toman]
+> 
+> ## meta-balena-6.10.8
+> ### (2026-01-01)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to c2b518d [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.79
+>> #### (2025-12-29)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.78
+>> #### (2025-12-22)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.10.7
+> ### (Invalid date)
+> 
+> * add extra firmware tests [Yann CARDAILLAC]
+> * recipes-support/os-extra-firmware: Extract extra-firmware volume data path [Alexandru Costache]
+> 
+> ## meta-balena-6.10.6
+> ### (2025-12-24)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.4.0 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.4.0
+>> #### (2025-12-19)
+>> 
+>> * Support sw.kernel version and slug requirements for container contracts [Christina Ying Wang]
+>> * Support sw.os version and slug requirements for container contracts [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.3.6
+>> #### (2025-12-18)
+>> 
+>> * Update systeminformation to v5.27.14 [SECURITY] [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-17.3.5
+>> #### (2025-12-18)
+>> 
+>> * patch: only apply noop for download-then-kill strategy and fix integration tests [Rob Thein]
+>> * patch: Fix premature locking for metadata-only changes [Rob Thein]
+>> 
+>> ### balena-supervisor-17.3.4
+>> #### (2025-12-18)
+>> 
+>> * Update tsconfig.module to node20 and TS to 5.9.x [felipe]
+>> 
+>> ### balena-supervisor-17.3.3
+>> #### (2025-12-16)
+>> 
+>> * Log errors and warnings to stderr [felipe]
+>> * Revert moduleResolution to node16 [felipe]
+>> 
+>> ### balena-supervisor-17.3.2
+>> #### (2025-12-16)
+>> 
+>> * Update tsconfig targets for node22 [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.3.1
+>> #### (2025-12-15)
+>> 
+>> * Remove unused direct dependency on pinejs-client-core [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-17.3.0
+>> #### (2025-12-15)
+>> 
+>> * Purge extra-firmware system volume with purge action [Christina Ying Wang]
+>> * Configure services to use extra-firmware volume if feature label present [Christina Ying Wang]
+>> * Create extra firmware volume on startup and write volume to config.json [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.2.5
+>> #### (2025-12-15)
+>> 
+>> * Update lint-staged to v16 [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-17.2.4
+>> #### (2025-12-15)
+>> 
+>> * Update @types/sinon to v21 [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-17.2.3
+>> #### (2025-12-15)
+>> 
+>> * Update @balena/compose to v7 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.10.5
+> ### (2025-12-23)
+> 
+> * classes/kernel-balena: Enable support for xz firmware compression [Alexandru]
+> 
+> ## meta-balena-6.10.4
+> ### (2025-12-20)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to c80702b [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.77
+>> #### (2025-12-20)
+>> 
+>> * Update docker/setup-buildx-action digest to 8d2750c [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.76
+>> #### (2025-12-19)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.20 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.75
+>> #### (2025-12-19)
+>> 
+>> * Core: worker: enable configurable flashing timeout [Ryan Cooke]
+>> 
+>> ### leviathan-2.36.74
+>> #### (2025-12-16)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.18 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.73
+>> #### (2025-12-15)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.72
+>> #### (2025-12-13)
+>> 
+>> * Update actions/upload-artifact action to v6 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.10.3
+> ### (2025-12-15)
+> 
+> * remove disk watchdog logs [Yann CARDAILLAC]
+> 
+> ## meta-balena-6.10.2
+> ### (2025-12-13)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.2.2 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.2.2
+>> #### (2025-12-11)
+>> 
+>> * Improve issue of very early container logs potentially being dropped [Pagan Gazzard]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.10.1
+> ### (2025-12-11)
+> 
+> * balena-os.inc: Enable firmware compression by default [Michal Toman]
+> 
+> ## meta-balena-6.10.0
+> ### (2025-12-11)
+> 
+> * networkmanager: update to 1.52.0 [Michal Toman]
+> 
+> ## meta-balena-6.9.6
+> ### (2025-12-11)
+> 
+> * renovate.json: Remove custom balena-git package rules [Kyle Harding]
+> 
+> ## meta-balena-6.9.5
+> ### (2025-12-10)
+> 
+> * fix initramfs rootfs script wrong indent [Yann CARDAILLAC]
+> 
+> ## meta-balena-6.9.4
+> ### (2025-12-10)
+> 
+> * Update actions/checkout action to v6 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.9.3
+> ### (2025-12-09)
+> 
+> * Update actions/setup-python digest to 83679a8 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.9.2
+> ### (2025-12-08)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 0545105 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.71
+>> #### (2025-12-08)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.70
+>> #### (2025-12-06)
+>> 
+>> * Update actions/checkout digest to 8e8c483 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.69
+>> #### (2025-12-01)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.17 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.68
+>> #### (2025-12-01)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.16 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.67
+>> #### (2025-12-01)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.15 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.66
+>> #### (2025-12-01)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.65
+>> #### (2025-11-22)
+>> 
+>> * Update actions/checkout action to v6 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.64
+>> #### (2025-11-14)
+>> 
+>> * Update balena-io/balena-cli to v22.5.5 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.63
+>> #### (2025-11-11)
+>> 
+>> * Update balena-io/balena-cli to v22.4.17 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.9.1
+> ### (2025-12-08)
+> 
+> * peak: Update to version 8.20.0 [Florin Sarbu]
+> 
+> ## meta-balena-6.9.0
+> ### (2025-12-07)
+> 
+> * Update ModemManager to 1.24.2 [Florin Sarbu]
+> 
+> ## meta-balena-6.8.7
+> ### (2025-12-04)
+> 
+> * linux-firmware: Revert packaging i915 firmware by SoC generations [Florin Sarbu]
+> 
+> ## meta-balena-6.8.6
+> ### (2025-12-04)
+> 
+> * tests: os: secureboot: skip bootloader integrity for imx8mp-var-dart-pl1000pp [Alex Gonzalez]
+> 
+> ## meta-balena-6.8.5
+> ### (2025-12-03)
+> 
+> * recipes-support/os-extra-firmware: Add service for configuring extra fw search path [Alexandru Costache]
+> 
+> ## meta-balena-6.8.4
+> ### (2025-12-03)
+> 
+> * linux-firmware_20240909.bb: Fix packaging amdgpu and various other firmware [Florin Sarbu]
+> 
+> ## meta-balena-6.8.3
+> ### (2025-12-02)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.2.1 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.2.1
+>> #### (2025-11-19)
+>> 
+>> * Fix state engine tests failing with newer version of docker [felipe]
+>> * Await provisioning on error before continuing [felipe]
+>> 
+>> ### balena-supervisor-17.2.0
+>> #### (2025-11-03)
+>> 
+>> * Support io.balena.features.host-os.board-rev feature label [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.1.10
+>> #### (Invalid date)
+>> 
+>> * Stream logs from host os-update.service [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.1.9
+>> #### (2025-10-18)
+>> 
+>> * Update balena-io/deploy-to-balena-action action to v2.0.136 [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-17.1.8
+>> #### (2025-10-17)
+>> 
+>> * Do not block calls to dbus reboot/shutdown [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-17.1.7
+>> #### (2025-10-16)
+>> 
+>> * Update deep-object-diff to v1.1.9 [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-17.1.6
+>> #### (2025-10-16)
+>> 
+>> * Add back python3 distutils with py3-setuptools [Christina Ying Wang]
+>> * Bump dependencies [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.1.5
+>> #### (2025-10-16)
+>> 
+>> * fix(2433): Fix redaction of secrets in env variables logging [Tomas Mella]
+>> 
+>> ### balena-supervisor-17.1.4
+>> #### (2025-10-15)
+>> 
+>> * Only publish + finalize arm64 & amd64 for staging [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.1.3
+>> #### (2025-09-29)
+>> 
+>> * Clarify that a process should hold a lockfile [Christina Ying Wang]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.8.2
+> ### (2025-12-02)
+> 
+> * usb-modeswitch-data: Fix packaging for merged usr [Florin Sarbu]
+> 
+> ## meta-balena-6.8.1
+> ### (2025-11-27)
+> 
+> * Upgrade linux-firmware from 20230404 to 20240909 [Florin Sarbu]
+> 
+> ## meta-balena-6.8.0
+> ### (2025-11-21)
+> 
+> * balena: disable buildkit and dependencies with no_buildkit tag [Kyle Harding]
+> * balena: Rebase patches onto upstream Moby v20.10.27 [Kyle Harding]
+> * go: Update to 1.22.12 for compatibility with balena v20.10.27 [Kyle Harding]
+> 
+> ## meta-balena-6.7.8
+> ### (2025-11-21)
+> 
+> * os-helpers: generalize get_sector_size [Alex Gonzalez]
+> * tests: secureboot: generalize U-boot binary naming [Alex Gonzalez]
+> 
+> ## meta-balena-6.7.7
+> ### (2025-11-18)
+> 
+> * simplify disk watchdog tests [Yann CARDAILLAC]
+> 
+> ## meta-balena-6.7.6
+> ### (2025-11-13)
+> 
+> * Update actions/setup-python action to v6 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.7.5
+> ### (2025-11-12)
+> 
+> * kernel-balena.bbclass: Enable required CONFIG_CGROUP_BPF [Florin Sarbu]
+> 
+> ## meta-balena-6.7.4
+> ### (2025-11-08)
+> 
+> * add CONFIG_DM_FLAKEY for disk-watchdog testing [Yann CARDAILLAC]
+> 
+> ## meta-balena-6.7.3
+> ### (2025-11-07)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to c549c54 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.62
+>> #### (2025-11-06)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.14 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.7.2
+> ### (2025-11-07)
+> 
+> * balena-os.inc: Enforce PACKAGE_CLASSES to package_ipk [Florin Sarbu]
+> 
+> ## meta-balena-6.7.1
+> ### (2025-11-06)
+> 
+> * packagegroups/packagegroup-resin-flasher: Set PACKAGE_ARCH [Alexandru Costache]
+> * tests/suites: Use USB relay to toggle boot switch on certain devices [Alexandru Costache]
+> 
+> ## meta-balena-6.7.0
+> ### (2025-11-05)
+> 
+> * add disk-watchdog daemon [Yann CARDAILLAC]
+> 
+> ## meta-balena-6.6.17
+> ### (2025-11-03)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 2a3a310 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.61
+>> #### (2025-11-03)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.60
+>> #### (2025-11-01)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.12 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.59
+>> #### (Invalid date)
+>> 
+>> * Update balena-io/balena-cli to v22.4.16 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.58
+>> #### (2025-10-27)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.57
+>> #### (2025-10-25)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.11 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.56
+>> #### (2025-10-25)
+>> 
+>> * Update actions/upload-artifact action to v5 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.55
+>> #### (2025-10-21)
+>> 
+>> * Update balena-io/balena-cli to v22.4.15 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.6.16
+> ### (2025-10-29)
+> 
+> * recipes-support/balena-config-vars: Avoid failure caused by race in cache file creation [Alexandru Costache]
+> 
+> ## meta-balena-6.6.15
+> ### (2025-10-28)
+> 
+> * Remove non-autokit DTs from build list [Ryan Cooke]
+> 
+> ## meta-balena-6.6.14
+> ### (2025-10-20)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 19c382d [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.54
+>> #### (2025-10-20)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.53
+>> #### (2025-10-17)
+>> 
+>> * Update balena-io/balena-cli to v22.4.14 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.52
+>> #### (2025-10-14)
+>> 
+>> * Update balena-io/balena-cli to v22.4.13 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.6.13
+> ### (2025-10-16)
+> 
+> * kernel-balena.bbclass: Fix zram failure when setting algorithm [Alexandru]
+> 
+> ## meta-balena-6.6.12
+> ### (2025-10-14)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 8a590d2 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.51
+>> #### (2025-10-13)
+>> 
+>> * Update balena-io/balena-cli to v22.4.12 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.50
+>> #### (2025-10-13)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.10 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.49
+>> #### (2025-10-13)
+>> 
+>> * Update balena-io/balena-cli to v22.4.11 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.48
+>> #### (2025-10-13)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.6.11
+> ### (2025-10-10)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 9cb148e [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.47
+>> #### (2025-10-09)
+>> 
+>> * Update balena-io/balena-cli to v22.4.10 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.46
+>> #### (2025-10-06)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.9 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.45
+>> #### (2025-10-06)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.6.10
+> ### (2025-10-03)
+> 
+> * meta-balena-common: Consistently prepend spaces when using append [Alexandru Costache]
+> 
+> ## meta-balena-6.6.9
+> ### (2025-09-29)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.1.2 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.1.2
+>> #### (2025-07-28)
+>> 
+>> * config/backends/power-fan: Enable configurable power and fan for Forecr DSBOARD ORNX Nano 8GB [Alexandru Costache]
+>> 
+>> ### balena-supervisor-17.1.1
+>> #### (2025-06-09)
+>> 
+>> * Remove memory healthcheck [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.1.0
+>> #### (2025-05-28)
+>> 
+>> * Support target state apply cancellation [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.0.5
+>> #### (2025-05-27)
+>> 
+>> * Exclude reclaimable slab memory from used memory metric [Ken Bannister]
+>> 
+>> ### balena-supervisor-17.0.4
+>> #### (2025-05-22)
+>> 
+>> * Remove unsupported fields from contract requirements [Felipe Lalanne]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.6.8
+> ### (2025-09-29)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 73d4851 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.44
+>> #### (2025-09-29)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.8 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.43
+>> #### (2025-09-29)
+>> 
+>> * Update balena-io/balena-cli to v22.4.9 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.42
+>> #### (2025-09-29)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.41
+>> #### (2025-09-23)
+>> 
+>> * Update balena-io/balena-cli to v22.4.8 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.40
+>> #### (2025-09-23)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.7 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.39
+>> #### (2025-09-22)
+>> 
+>> * Update balena-io/balena-cli to v22.4.7 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.38
+>> #### (2025-09-22)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.6.7
+> ### (2025-09-19)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to d9e2486 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.37
+>> #### (2025-09-18)
+>> 
+>> * Update balena-io/balena-cli to v22.4.6 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.36
+>> #### (2025-09-17)
+>> 
+>> * Update balena-io/balena-cli to v22.4.5 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.6.6
+> ### (2025-09-17)
+> 
+> * Condition the start of update-balena-supervisor.service after internet connectivity [Florin Sarbu]
+> 
+> ## meta-balena-6.6.5
+> ### (2025-09-15)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 3e61af4 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.35
+>> #### (2025-09-15)
+>> 
+>> * Update balena-io/balena-cli to v22.4.4 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.34
+>> #### (2025-09-15)
+>> 
+>> * worker: extend total flashing timeout to 25 minutes [Alex Gonzalez]
+>> 
+>> ### leviathan-2.36.33
+>> #### (2025-09-15)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.32
+>> #### (2025-09-11)
+>> 
+>> * Core: worker: remove exponential backoff on flash status check [Ryan Cooke]
+>> 
+>> ### leviathan-2.36.31
+>> #### (2025-09-10)
+>> 
+>> * Update balena-io/balena-cli to v22.4.3 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.30
+>> #### (2025-09-10)
+>> 
+>> * Update balena-io/balena-cli to v22.4.2 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.29
+>> #### (2025-09-08)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.28
+>> #### (2025-09-02)
+>> 
+>> * Update balena-io/balena-cli to v22.4.1 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.27
+>> #### (2025-09-02)
+>> 
+>> * Update balena-io/balena-cli to v22.4.0 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.26
+>> #### (2025-09-02)
+>> 
+>> * Update balena-io/balena-cli to v22.3.4 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.25
+>> #### (2025-09-02)
+>> 
+>> * Update balena-io/balena-cli to v22.3.3 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.24
+>> #### (2025-09-02)
+>> 
+>> * Update balena-io/balena-cli to v22.3.1 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.23
+>> #### (2025-09-01)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.22
+>> #### (2025-08-29)
+>> 
+>> * Update balena-io/balena-cli to v22.3.0 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.21
+>> #### (2025-08-25)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.6 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.20
+>> #### (2025-08-25)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.19
+>> #### (2025-08-18)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.5 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.18
+>> #### (2025-08-18)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.4 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.17
+>> #### (2025-08-18)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.6.4
+> ### (2025-09-03)
+> 
+> * Fail if IOMMU is disabled on secure boot systems [Michal Toman]
+> 
+> ## meta-balena-6.6.3
+> ### (2025-08-29)
+> 
+> * recipes-connectivity/libnss-ato: Do not hardcode the homedir for user root [Florin Sarbu]
+> 
+> ## meta-balena-6.6.2
+> ### (2025-08-26)
+> 
+> * linux-firmware: Ensure Intel AX210 firmware can be installed [Alexandru Costache]
+> 
+> ## meta-balena-6.6.1
+> ### (2025-08-25)
+> 
+> * Remove the AX102 requirement for secure boot tests [Kyle Harding]
+> 
+> ## meta-balena-6.6.0
+> ### (2025-08-23)
+> 
+> * minor: remove ssh service from os-config.json [Edwin Joassart]
+> 
+> ## meta-balena-6.5.55
+> ### (2025-08-22)
+> 
+> * patch: add metadata to improve balena-engine cve tracking [Edwin Joassart]
+> 
+> ## meta-balena-6.5.54
+> ### (2025-08-21)
+> 
+> * recipes-connectivity/balena-proxy-config: Clean-up redsocks rules by index [Alexandru Costache]
+> 
+> ## meta-balena-6.5.53
+> ### (2025-08-17)
+> 
+> * recipes-core/packagegroup-resin: Set PACKAGE_ARCH [Alexandru Costache]
+> 
+> ## meta-balena-6.5.52
+> ### (2025-08-16)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to f8b1a87 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.16
+>> #### (2025-08-11)
+>> 
+>> * Update actions/checkout action to v5 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.15
+>> #### (2025-08-11)
+>> 
+>> * Update actions/checkout digest to 08eba0b [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.14
+>> #### (2025-08-11)
+>> 
+>> * core/lib: Specify partition index for a TX2 NX based device type [Alexandru]
+>> 
+>> ### leviathan-2.36.13
+>> #### (2025-08-11)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.3 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.12
+>> #### (2025-08-11)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.11
+>> #### (2025-08-11)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.2 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.10
+>> #### (2025-08-11)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.9
+>> #### (2025-08-09)
+>> 
+>> * Update balena-io/balena-cli to v22.2.4 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.8
+>> #### (2025-08-08)
+>> 
+>> * Update balena-io/balena-cli to v22.2.3 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.7
+>> #### (2025-08-07)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.1 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.6
+>> #### (2025-08-06)
+>> 
+>> * Update balena-io/balena-cli to v22.2.2 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.5
+>> #### (2025-08-06)
+>> 
+>> * Update balena-io/balena-cli to v22.2.1 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.4
+>> #### (2025-08-05)
+>> 
+>> * Update balena-io/balena-cli to v22.2.0 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.3
+>> #### (2025-08-04)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.51
+> ### (2025-08-15)
+> 
+> * Updated contributing-device-support.md Part of https://balena.fibery.io/Work/Project/Update-Device-Support-Docs-1641 [Ryan]
+> 
+> ## meta-balena-6.5.50
+> ### (2025-08-13)
+> 
+> * wpa_supplicant: Enable SAE to support WPA3 personal [Michal Toman]
+> 
+> ## meta-balena-6.5.49
+> ### (2025-08-11)
+> 
+> * kernel-balena.bbclass: Remove references to disabling CONFIG_RTL8192CU [Florin Sarbu]
+> 
+> ## meta-balena-6.5.48
+> ### (2025-08-02)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 9df0f9b [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.36.2
+>> #### (2025-08-01)
+>> 
+>> * Core: sdk: Fix error handling on fetchOS function [Ryan Cooke]
+>> 
+>> ### leviathan-2.36.1
+>> #### (2025-08-01)
+>> 
+>> * Update balena-io/balena-cli to v22.1.5 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.36.0
+>> #### (2025-08-01)
+>> 
+>> * Core: worker: update flashing method to use native fetch API [Ryan Cooke]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.47
+> ### (2025-07-29)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to b33ddb7 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.35.3
+>> #### (2025-07-28)
+>> 
+>> * Bind mount private contracts in the core service [Kyle Harding]
+>> 
+>> ### leviathan-2.35.2
+>> #### (2025-07-28)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.46
+> ### (2025-07-25)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 353d77d [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.35.1
+>> #### (2025-07-24)
+>> 
+>> * Ensure we always pass the BALENA_ARCH worker build arg [Kyle Harding]
+>> 
+>> ### leviathan-2.35.0
+>> #### (2025-07-24)
+>> 
+>> * Core: worker: use polling to track flashing [Ryan Cooke]
+>> 
+>> ### leviathan-2.34.4
+>> #### (2025-07-24)
+>> 
+>> * Update balena-io/balena-cli to v22.1.4 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.34.3
+>> #### (2025-07-24)
+>> 
+>> * tests/e2e: switch to self hosted runners [Ryan Cooke]
+>> 
+>> ### leviathan-2.34.2
+>> #### (2025-07-23)
+>> 
+>> * Update core/contracts digest to fc76558 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.34.1
+>> #### (2025-07-23)
+>> 
+>> * Update balena-os/leviathan-worker to v2.10.0 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.34.0
+>> #### (2025-07-22)
+>> 
+>> * Prefer image pull when running from GitHub Actions [Kyle Harding]
+>> * Publish core and client docker images to ghcr.io [Kyle Harding]
+>> 
+>> ### leviathan-2.33.9
+>> #### (2025-07-22)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.33.8
+>> #### (Invalid date)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.33.7
+>> #### (2025-06-23)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.33.6
+>> #### (2025-06-23)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.33.5
+>> #### (2025-06-19)
+>> 
+>> * Update docker/setup-buildx-action digest to e468171 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.33.4
+>> #### (2025-06-19)
+>> 
+>> * Update balena-io/balena-cli to v22.1.1 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.33.3
+>> #### (2025-06-16)
+>> 
+>> * Update balena-io/balena-cli to v22.1.0 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.33.2
+>> #### (2025-06-16)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.45
+> ### (2025-07-23)
+> 
+> * grub-conf: Don't sign non-luks grub.cfg [Michal Toman]
+> 
+> ## meta-balena-6.5.44
+> ### (2025-07-09)
+> 
+> * meta-balena-YOCTO_RELEASE: update bmap-tools branch name [Ryan Cooke]
+> 
+> ## meta-balena-6.5.43
+> ### (2025-07-07)
+> 
+> * meta-balena-esr: fall back to current minor [Ryan Cooke]
+> 
+> ## meta-balena-6.5.42
+> ### (2025-07-03)
+> 
+> * Enable zram zstd compression for 6.12+ kernels [Florin Sarbu]
+> 
+> ## meta-balena-6.5.41
+> ### (2025-07-02)
+> 
+> * Update outdated context of efitools patches [Florin Sarbu]
+> 
+> ## meta-balena-6.5.40
+> ### (2025-06-26)
+> 
+> * busybox: add conv support in dd [Alex Gonzalez]
+> * initrdscripts: cryptsetup-efi-tmp: use common encrypted partition asserts [Alex Gonzalez]
+> * os-helpers-fs: move logic to assert luks encrypted partitions [Alex Gonzalez]
+> * initrdscripts: migrate: use an estimated compressed size for raw image [Alex Gonzalez]
+> * os-helpers-fs: add a function to estimate zram compression sizes [Alex Gonzalez]
+> 
+> ## meta-balena-6.5.39
+> ### (2025-06-20)
+> 
+> * workflows: remove Jetson Xavier AGX [Alex Gonzalez]
+> 
+> ## meta-balena-6.5.38
+> ### (2025-06-12)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 473af4b [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.33.1
+>> #### (2025-06-10)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.33.0
+>> #### (2025-06-10)
+>> 
+>> * minor: Upgrade Typedoc to v0.26.11 [Vipul Gupta (@vipulgupta2048)]
+>> 
+>> ### leviathan-2.32.9
+>> #### (2025-06-09)
+>> 
+>> * Update balena-os/leviathan-worker to v2.9.60 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.32.8
+>> #### (2025-06-09)
+>> 
+>> * Update balena-io/balena-cli to v22.0.6 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.32.7
+>> #### (2025-06-09)
+>> 
+>> * core/lib: Specify partition indexes for Jetson Nano eMMC and JN30B Nano [Alexandru]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.37
+> ### (2025-06-09)
+> 
+> * Update tests/leviathan digest to 2c6c6ef [balena-renovate[bot]]
+> * tests: hup: enable specifying image type [Ryan Cooke]
+> 
+> ## meta-balena-6.5.36
+> ### (2025-06-04)
+> 
+> * classes: Make sure we disable debug info for newer kernels [Florin Sarbu]
+> 
+> ## meta-balena-6.5.35
+> ### (2025-06-03)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 17aa86b [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.32.2
+>> #### (2025-05-27)
+>> 
+>> * Update balena-io/balena-cli to v22 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.32.1
+>> #### (2025-05-23)
+>> 
+>> * Update Lock file maintenance [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.32.0
+>> #### (2025-05-23)
+>> 
+>> * Remove custom compose binary installation from Make [Kyle Harding]
+>> 
+>> ### leviathan-2.31.111
+>> #### (2025-05-23)
+>> 
+>> * Update balena-io/balena-cli to v21.1.14 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.110
+>> #### (2025-05-23)
+>> 
+>> * Core: update to node 22 [Ryan Cooke]
+>> 
+>> ### leviathan-2.31.109
+>> #### (2025-05-21)
+>> 
+>> * Update balena-io/balena-cli to v21.1.13 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.108
+>> #### (2025-05-14)
+>> 
+>> * Update core/contracts digest to 417aec2 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.107
+>> #### (2025-05-06)
+>> 
+>> * Update balena-io/balena-cli to v21.1.11 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> * tests: update for node 22 [Ryan Cooke]
+> 
+> ## meta-balena-6.5.34
+> ### (2025-05-23)
+> 
+> * Increases persistent logs size to 128M [Alex Gonzalez]
+> 
+> ## meta-balena-6.5.33
+> ### (2025-05-21)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17.0.3 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.0.3
+>> #### (2025-05-13)
+>> 
+>> * Simplify contract validation module [Felipe Lalanne]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.32
+> ### (2025-05-17)
+> 
+> * kernel-balena.bbclass: Include 802.1q VLAN driver [Michal Toman]
+> 
+> ## meta-balena-6.5.31
+> ### (2025-05-16)
+> 
+> * .github/workflows: Change meta-balena ref to last commit of the pull request [Florin Sarbu]
+> 
+> ## meta-balena-6.5.30
+> ### (2025-05-09)
+> 
+> * conf: set INIT_MANAGER to disable sysvinit scripts [Joseph Kogut]
+> * openvpn: fix systemd-tmpfiles legacy path warning [Joseph Kogut]
+> * common: image_types: backport nanbield+ image output naming [Joseph Kogut]
+> * common: networkmanager: fix postinst script failure [Joseph Kogut]
+> * common: systemd: fix QA issue [Joseph Kogut]
+> * rust: Replace references to deprecated distutils python module [Joseph Kogut]
+> * meta-balena-rust: add balena_ prefix to classes [Joseph Kogut]
+> * resin-sanity: get datastore from event [Joseph Kogut]
+> * common: bluez: bump from 5.66 to 5.72 [Joseph Kogut]
+> * scarthgap: enable usrmerge distro feature [Joseph Kogut]
+> * common: systemd: prepare for merged usr [Joseph Kogut]
+> * common: usb-modeswitch-data: prepare for merged usr [Joseph Kogut]
+> * common: usb-modeswitch: prepare for merged usr [Joseph Kogut]
+> * common: libnss-ato: prepare for merged usr [Joseph Kogut]
+> * common: base-files: prepare for merged usr [Joseph Kogut]
+> * common: peak: prepare for merged usr [Joseph Kogut]
+> * meta-balena-common: add scarthgap to LAYERSERIES_COMPAT [Joseph Kogut]
+> * meta-balena-rust: add scarthgap to LAYERSERIES_COMPAT [Joseph Kogut]
+> * common: adjust bmaptool name for scarthgap [Joseph Kogut]
+> * scarthgap: busybox: fix QA issue in patch [Joseph Kogut]
+> * os-config: add checksums [Joseph Kogut]
+> * bindmount: add checksums [Joseph Kogut]
+> * healthdog: add checksums [Joseph Kogut]
+> * fatrw: add checksums [Joseph Kogut]
+> * meta-balena-scarthgap: Add integration layer [Joseph Kogut]
+> 
+> ## meta-balena-6.5.29
+> ### (2025-05-08)
+> 
+> * tests: cloud: Don't disable DUT internet access if secureboot enabled [Ryan Cooke]
+> 
+> ## meta-balena-6.5.28
+> ### (2025-05-07)
+> 
+> * Do not include in the rootfs the test binaries from the nss package [Florin Sarbu]
+> 
+> ## meta-balena-6.5.27
+> ### (2025-05-06)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 81e581a [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.106
+>> #### (2025-05-05)
+>> 
+>> * Update balena-io/balena-cli to v21.1.10 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.26
+> ### (2025-05-05)
+> 
+> * tests/os: Add regdb load failure test [Alexandru Costache]
+> 
+> ## meta-balena-6.5.25
+> ### (2025-05-04)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 769d8e6 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.105
+>> #### (Invalid date)
+>> 
+>> * Update core/contracts digest to a1e8b75 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.24
+> ### (2025-04-24)
+> 
+> * Update actions/setup-python digest to a26af69 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.5.23
+> ### (2025-04-22)
+> 
+> * Update actions/setup-python digest to 8d9ed9a [balena-renovate[bot]]
+> 
+> ## meta-balena-6.5.22
+> ### (2025-04-21)
+> 
+> * Use workflow_call for balena-generic device type tests [Kyle Harding]
+> 
+> ## meta-balena-6.5.21
+> ### (2025-04-19)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 5ecdcd3 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.104
+>> #### (2025-04-16)
+>> 
+>> * Update balena-os/leviathan-worker to v2.9.59 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.20
+> ### (2025-04-19)
+> 
+> * kernel-balena: add aufs commit for v6.6.84 [Alex Gonzalez]
+> 
+> ## meta-balena-6.5.19
+> ### (2025-04-17)
+> 
+> * os-helpers-tpm2: Always use password protection for TPM NVRAM writes [Michal Toman]
+> 
+> ## meta-balena-6.5.18
+> ### (2025-04-15)
+> 
+> * hostapp-update-hooks: make rollback possible when migrating to TPM NVRAM [Michal Toman]
+> 
+> ## meta-balena-6.5.17
+> ### (2025-04-09)
+> 
+> * tests: os: secureboot: update kernel-module-build to v3.0.2 [Alex Gonzalez]
+> * tests: secureboot: adapt kernel modules test to private device types [Alex Gonzalez]
+> 
+> ## meta-balena-6.5.16
+> ### (2025-04-09)
+> 
+> * os-helpers: tpm_nvram_store_passphrase: remove tpm2_shutdown [Joseph Kogut]
+> 
+> ## meta-balena-6.5.15
+> ### (2025-04-09)
+> 
+> * initrdscripts: mount securityfs in migrate script [Michal Toman]
+> 
+> ## meta-balena-6.5.14
+> ### (2025-04-09)
+> 
+> * tests: whitelist extra PCR2 events by default [Michal Toman]
+> 
+> ## meta-balena-6.5.13
+> ### (2025-04-09)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v17 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-17.0.2
+>> #### (2025-04-02)
+>> 
+>> * Fix search for app leftover locks [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-17.0.1
+>> #### (2025-03-25)
+>> 
+>> * Clarify firewall docs on behavior with host network containers [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-17.0.0
+>> #### (2025-03-24)
+>> 
+>> * Add Docker network label if custom ipam config [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-16.12.9
+>> #### (2025-03-20)
+>> 
+>> * Start a dependent if all dependencies are started [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-16.12.8
+>> #### (2025-03-12)
+>> 
+>> * Remove GOT retries on state poll [Felipe Lalanne]
+>> * Ensure poll socket timeout is defined early [Felipe Lalanne]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.12
+> ### (2025-04-08)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to b8e76d7 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.103
+>> #### (2025-04-08)
+>> 
+>> * Add kernel headers artifacts [Alex Gonzalez]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.11
+> ### (2025-04-08)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 8b32739 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.102
+>> #### (2025-04-07)
+>> 
+>> * Update core/contracts digest to 34033e6 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.101
+>> #### (2025-04-07)
+>> 
+>> * Update balena-io/balena-cli to v21.1.9 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.100
+>> #### (2025-04-02)
+>> 
+>> * Update core/contracts digest to d077818 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.99
+>> #### (2025-04-02)
+>> 
+>> * Update balena-io/balena-cli to v21.1.4 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.98
+>> #### (2025-04-01)
+>> 
+>> * Update balena-io/balena-cli to v21.1.3 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.97
+>> #### (2025-04-01)
+>> 
+>> * Update balena-os/leviathan-worker to v2.9.58 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.96
+>> #### (2025-03-27)
+>> 
+>> * Improve device selection logs [Alex Gonzalez]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.10
+> ### (2025-04-08)
+> 
+> * resin-init-flasher: Sleep before SysRq to let shutdown properly execute if need be [Florin Sarbu]
+> 
+> ## meta-balena-6.5.9
+> ### (2025-04-03)
+> 
+> * balena-unique-key: Fix dependency on /home/root/.rnd mount point [Florin Sarbu]
+> 
+> ## meta-balena-6.5.8
+> ### (2025-04-02)
+> 
+> * resin-init-flasher: Do not check exitcode of reboot, halt or poweroff [Michal Toman]
+> * Replace the usage of /dev/fd/1 by /proc/self/fd/1 [Michal Toman]
+> * balena-init-flasher-efi: look for kernel in both / and /tmp [Michal Toman]
+> 
+> ## meta-balena-6.5.7
+> ### (2025-04-01)
+> 
+> * kernel-balena.bbclass: enable multipath TCP [Joseph Kogut]
+> 
+> ## meta-balena-6.5.6
+> ### (2025-04-01)
+> 
+> * tests: os: modem: Skip modem test if no SIM detected [Ryan Cooke]
+> 
+> ## meta-balena-6.5.5
+> ### (Invalid date)
+> 
+> * initrdscripts: Force migration with secure boot enabled [Michal Toman]
+> 
+> ## meta-balena-6.5.4
+> ### (2025-03-27)
+> 
+> * classes: kernel-balena: enable CONFIG_MEMCG_V1 when needed [Alex Gonzalez]
+> 
+> ## meta-balena-6.5.3
+> ### (2025-03-27)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to c3c6661 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.95
+>> #### (2025-03-25)
+>> 
+>> * Update balena-io/balena-cli to v21 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.94
+>> #### (2025-03-25)
+>> 
+>> * Extend selection of devices to run secureboot tests [Alex Gonzalez]
+>> 
+>> ### leviathan-2.31.93
+>> #### (2025-03-19)
+>> 
+>> * Update balena-io/balena-cli to v20.2.10 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.92
+>> #### (2025-03-19)
+>> 
+>> * Update docker/setup-buildx-action digest to b5ca514 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.91
+>> #### (2025-03-19)
+>> 
+>> * Update actions/upload-artifact digest to ea165f8 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.2
+> ### (2025-03-19)
+> 
+> * kernel-balena: enable CONFIG_MODULE_COMPRESS as needed [Joseph Kogut]
+> 
+> ## meta-balena-6.5.1
+> ### (2025-03-14)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 81e7f26 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.90
+>> #### (2025-02-25)
+>> 
+>> * Update balena-io/balena-cli to v20.2.7 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.5.0
+> ### (2025-03-13)
+> 
+> * resin-init-flasher: Support devices using 3rd party UEFI drivers [Michal Toman]
+> * efitools: Allow building an ESL from a list of hashes [Michal Toman]
+> 
+> ## meta-balena-6.4.4
+> ### (2025-03-12)
+> 
+> * Differentiate MACHINE from DEVICE_TYPE [Alex Gonzalez]
+> 
+> ## meta-balena-6.4.3
+> ### (2025-03-10)
+> 
+> * secureboot: imx: program bootloader in integrity check [Alex Gonzalez]
+> * secureboot: imx: increase kernel headers required version [Alex Gonzalez]
+> 
+> ## meta-balena-6.4.2
+> ### (2025-03-07)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v16.12.7 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-16.12.7
+>> #### (2025-03-06)
+>> 
+>> * Release locks when removing apps [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-16.12.6
+>> #### (2025-03-04)
+>> 
+>> * Log non-API errors during state poll [Felipe Lalanne]
+>> * Fix target poll healthcheck [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-16.12.5
+>> #### (2025-03-04)
+>> 
+>> * Decrease balenaCloud api request timeout from 15m to 59s [Pagan Gazzard]
+>> 
+>> ### balena-supervisor-16.12.4
+>> #### (2025-03-03)
+>> 
+>> * Don't revert to regular pull if delta server 401 [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-16.12.3
+>> #### (2025-02-19)
+>> 
+>> * Retry DELTA_APPLY_RETRY_COUNT (3) times during delta apply fail before reverting to regular pull [Christina Ying Wang]
+>> * Revert to regular pull immediately on delta server failure (code 400s) [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-16.12.2
+>> #### (2025-02-11)
+>> 
+>> * Update balena-io/deploy-to-balena-action action to v2.0.92 [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-16.12.1
+>> #### (2025-02-10)
+>> 
+>> * Pin io-ts version to v2.2.20 [Felipe Lalanne]
+>> * Update network-manager to v1 [Felipe Lalanne]
+>> * Update balena-request and balena-register-device [Felipe Lalanne]
+>> * Update pinejs-client-request to v8 [Felipe Lalanne]
+>> * Update chai utility modules [Felipe Lalanne]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.4.1
+> ### (2025-02-28)
+> 
+> * tests/device-tree: Rework test to not use the sysfs gpio interface [Florin Sarbu]
+> 
+> ## meta-balena-6.4.0
+> ### (2025-02-27)
+> 
+> * hup: hooks: silence tpm2_flushcontext trap while updating policy [Joseph Kogut]
+> * hup: hooks: update passphrase in TPM NVRAM [Joseph Kogut]
+> * os-helpers-tpm2: lowercase vars in print_pcr_val_bin [Joseph Kogut]
+> * hup: signed-update: store passphrase in TPM [Joseph Kogut]
+> * hostapp-update-hooks: use generate_pcr_digests [Joseph Kogut]
+> * balena-init-flasher-tpm: use generate_pcr_digests [Joseph Kogut]
+> * balena-init-flasher-tpm: write LUKS passphrase to TPM nvram [Joseph Kogut]
+> * os-helpers-tpm2: add generate_pcr_digests [Joseph Kogut]
+> * os-helpers-tpm2: add tpm_nvram_store_passphrase [Joseph Kogut]
+> * os-helpers-tpm2: add size param to hw_gen_passphrase [Joseph Kogut]
+> * cryptsetup-efi-tpm: retrieve passphrase from TPM [Joseph Kogut]
+> * os-helpers-tpm2: add tpm_nvram_retrieve_passphrase [Joseph Kogut]
+> 
+> ## meta-balena-6.3.23
+> ### (2025-02-25)
+> 
+> * modemmanager: patch for Cinterion port types [Kirill Zabelin]
+> 
+> ## meta-balena-6.3.22
+> ### (2025-02-24)
+> 
+> * kernel-devsrc.bb: Use recipe from Poky for 6.12+ kernels [Florin Sarbu]
+> 
+> ## meta-balena-6.3.21
+> ### (2025-02-21)
+> 
+> * kernel-balena.bbclass: Add aufs patches for 6.12 kernels [Florin Sarbu]
+> 
+> ## meta-balena-6.3.20
+> ### (2025-02-18)
+> 
+> * resin-mounts: only run non-encrypted mount if partition exists [Alex Gonzalez]
+> 
+> ## meta-balena-6.3.19
+> ### (2025-02-13)
+> 
+> * wpa-supplicant: Update to recipe from Kirkstone [Florin Sarbu]
+> 
+> ## meta-balena-6.3.18
+> ### (2025-02-07)
+> 
+> * Update actions/setup-python digest to 4237552 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.3.17
+> ### (2025-02-07)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to ae96a7e [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.89
+>> #### (2025-02-06)
+>> 
+>> * Update balena-os/leviathan-worker to v2.9.57 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.88
+>> #### (2025-02-06)
+>> 
+>> * Fix running tests over local worker IP [Ryan Cooke]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.3.16
+> ### (2025-02-06)
+> 
+> * tests: os: swap: increase wiggle room in swap check [Ryan Cooke]
+> 
+> ## meta-balena-6.3.15
+> ### (2025-02-06)
+> 
+> * tests: cloud: env vars: restart supervisor to speed up tests [Ryan Cooke]
+> 
+> ## meta-balena-6.3.14
+> ### (2025-02-05)
+> 
+> * tests: secureboot: remove preload test for secureboot enabled DUTs [Ryan Cooke]
+> 
+> ## meta-balena-6.3.13
+> ### (2025-02-01)
+> 
+> * tests: secureboot: fix reference to unavailable kernel-module-headers [Ryan Cooke]
+> 
+> ## meta-balena-6.3.12
+> ### (Invalid date)
+> 
+> * kernel-balena.bbclass: silence regex escape warnings [Michal Toman]
+> * kernel-balena.bbclass: Add aufs patches for 6.6 kernels [Michal Toman]
+> 
+> ## meta-balena-6.3.11
+> ### (2025-01-27)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v16.12.0 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-16.12.0
+>> #### (2025-01-20)
+>> 
+>> * Update contrato to v0.12.0 [Felipe Lalanne]
+>> * Update alpine base image to 3.21 [Felipe Lalanne]
+>> * Update Node support to v22 [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-16.11.0
+>> #### (2025-01-14)
+>> 
+>> * Add support for `io.balena.update.requires-reboot` [Felipe Lalanne]
+>> * Move reboot breadcrumb check to device-state [Felipe Lalanne]
+>> * Refactor device-config as part of device-state [Felipe Lalanne]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.3.10
+> ### (2025-01-27)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 25370da [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.87
+>> #### (2025-01-26)
+>> 
+>> * Update actions/upload-artifact digest to 65c4c4a [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.86
+>> #### (2025-01-26)
+>> 
+>> * Fix extractVersion renovate template [Kyle Harding]
+>> 
+>> ### leviathan-2.31.85
+>> #### (2025-01-24)
+>> 
+>> * Update core/contracts digest to cde8b88 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.84
+>> #### (2025-01-23)
+>> 
+>> * lib/components: Add partition index for Jetson TX2 NX types [Alexandru Costache]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.3.9
+> ### (2025-01-27)
+> 
+> * workflows: iot-gate-imx8plus: add custom template path [Alexandru Costache]
+> 
+> ## meta-balena-6.3.8
+> ### (2025-01-22)
+> 
+> * resin-init-flasher: add openssl dependency [Alex Gonzalez]
+> * initrdscript: copy image signature to memory if required [Alex Gonzalez]
+> 
+> ## meta-balena-6.3.7
+> ### (2025-01-20)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 03a7057 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.83
+>> #### (2025-01-09)
+>> 
+>> * Update balena-io/balena-cli to v20.2.1 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.82
+>> #### (2025-01-09)
+>> 
+>> * patch: Add retention & compression to Leviathan action artifacts [Vipul Gupta]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.3.6
+> ### (2025-01-17)
+> 
+> * images: balena-image*: Set balenaos-img.sig image type for signed builds [Alex Gonzalez]
+> * classes: balenaos-img.sig: Rename the sign image type to balenaos-img.sig [Alex Gonzalez]
+> * image_types_balena.bbclass: Move image signing code here [Florin Sarbu]
+> 
+> ## meta-balena-6.3.5
+> ### (2025-01-16)
+> 
+> * classes/kernel-balena: Avoid re-building kernel modules when not signed [Alexandru Costache]
+> 
+> ## meta-balena-6.3.4
+> ### (2025-01-16)
+> 
+> * workflows: iot-gate-imx8: add custom template path [Alex Gonzalez]
+> 
+> ## meta-balena-6.3.3
+> ### (2025-01-15)
+> 
+> * tests: hup: rollback-altboot: replace while loop over SSH to speed up tests [Ryan Cooke]
+> 
+> ## meta-balena-6.3.2
+> ### (2025-01-14)
+> 
+> * tests: secureboot: imx: refactor bootloader config integrity tests [Alex Gonzalez]
+> * tests: secureboot: imx: refactor bootloader integrity test [Alex Gonzalez]
+> * tests: secureboot: imx: support compressed files pattern replacement [Alex Gonzalez]
+> * tests: secureboot: fix function that confirms a failed boot [Alex Gonzalez]
+> 
+> ## meta-balena-6.3.1
+> ### (2025-01-13)
+> 
+> * peak: Update to version 8.19.0 [Florin Sarbu]
+> 
+> ## meta-balena-6.3.0
+> ### (2025-01-09)
+> 
+> * Update usb-modeswitch to version 2.6.1 [Florin Sarbu]
+> 
+> ## meta-balena-6.2.8
+> ### (2025-01-08)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 6652ce0 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.81
+>> #### (2025-01-07)
+>> 
+>> * Update core/contracts digest to b7d2bb8 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.80
+>> #### (2025-01-06)
+>> 
+>> * Update core/contracts digest to 44bbd40 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.79
+>> #### (2025-01-06)
+>> 
+>> * Update balena-io/balena-cli to v20.1.6 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.78
+>> #### (2025-01-06)
+>> 
+>> * core: ssh tunnels: fix auth errors when worker is in prod mode [rcooke-warwick]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.2.7
+> ### (2025-01-08)
+> 
+> * balena-image-flasher: depend on balena-image:do_image_complete [Michal Toman]
+> 
+> ## meta-balena-6.2.6
+> ### (2025-01-03)
+> 
+> * workflows/meta-balena-esr: fix version array bash [Ryan Cooke]
+> 
+> ## meta-balena-6.2.5
+> ### (Invalid date)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to c4feff6 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.77
+>> #### (Invalid date)
+>> 
+>> * Update core/contracts digest to 8bd5651 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.2.4
+> ### (2024-12-26)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v16.10.3 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-16.10.3
+>> #### (2024-12-20)
+>> 
+>> * Update systeminformation to v5.23.8 [SECURITY] [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-16.10.2
+>> #### (2024-12-18)
+>> 
+>> * Wait for service dependencies to be running [Felipe Lalanne]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.2.3
+> ### (2024-12-21)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 2a609bc [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.76
+>> #### (2024-12-19)
+>> 
+>> * lib/components/os: Add SRD3 JP4 and JP5 device type boot partition indexes [Alexandru Costache]
+>> 
+>> ### leviathan-2.31.75
+>> #### (2024-12-19)
+>> 
+>> * Update balena-io/balena-cli to v20.1.2 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.74
+>> #### (2024-12-19)
+>> 
+>> * Update docker/setup-buildx-action digest to 6524bf6 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.73
+>> #### (2024-12-18)
+>> 
+>> * Update core/contracts digest to 9383b36 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.72
+>> #### (2024-12-18)
+>> 
+>> * Update actions/upload-artifact digest to 6f51ac0 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.71
+>> #### (2024-12-17)
+>> 
+>> * Enable selection of workers with locked DUT in secureboot tests [Ryan Cooke]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.2.2
+> ### (2024-12-20)
+> 
+> * hostapp-update-hooks: fix path for grub_extraenv in blacklist [Alex Gonzalez]
+> 
+> ## meta-balena-6.2.1
+> ### (2024-12-19)
+> 
+> * classes: kernel-balena: configure reset on oops [Alex Gonzalez]
+> 
+> ## meta-balena-6.2.0
+> ### (2024-12-16)
+> 
+> * resin-init-flasher: with secure boot, authenticate the inner image [Michal Toman]
+> 
+> ## meta-balena-6.1.27
+> ### (2024-12-14)
+> 
+> * README: Add fan profile and power mode info to docs [Alexandru Costache]
+> 
+> ## meta-balena-6.1.26
+> ### (2024-12-12)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to f308947 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.70
+>> #### (2024-12-12)
+>> 
+>> * Update balena-io/balena-cli to v20.1.0 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.1.25
+> ### (2024-12-11)
+> 
+> * github/workflows: Add yocto label to runs_on [Alexandru Costache]
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 3a37005 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.69
+>> #### (2024-12-10)
+>> 
+>> * os/balenaos: Update Xavier and Xavier NX boot partitions for JP5 [Alexandru]
+>> 
+>> ### leviathan-2.31.68
+>> #### (2024-12-07)
+>> 
+>> * Update balena-io/balena-cli to v20.0.9 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.67
+>> #### (2024-12-06)
+>> 
+>> * Make leviathan worker ref configurable via env var [Ryan Cooke]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.1.24
+> ### (2024-12-11)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v16.10.1 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-16.10.1
+>> #### (2024-12-11)
+>> 
+>> * Specify `/tmp/balena|resin` directories as necessary [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-16.10.0
+>> #### (2024-12-10)
+>> 
+>> * Add PowerFanConfig config backend [Christina Ying Wang]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.1.23
+> ### (2024-12-06)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v16.9.0 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-16.9.0
+>> #### (2024-12-06)
+>> 
+>> * Add ability to stream logs from host services to cloud [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-16.8.0
+>> #### (2024-12-05)
+>> 
+>> * Take update locks for host-config changes [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-16.7.8
+>> #### (2024-11-28)
+>> 
+>> * Clean up remaining locks on state settle [Felipe Lalanne]
+>> * Refactor update-locks implementation [Felipe Lalanne]
+>> * Refactor lockfile module [Felipe Lalanne]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.1.22
+> ### (2024-12-05)
+> 
+> * os-helpers-fs: add function to erase disks [Alex Gonzalez]
+> 
+> ## meta-balena-6.1.21
+> ### (2024-12-04)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 90d1685 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.66
+>> #### (2024-12-04)
+>> 
+>> * Update core/contracts digest to 474ab2d [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.1.20
+> ### (2024-12-04)
+> 
+> * kernel-module-build: update to 3.0.1 [Alex Gonzalez]
+> * tests: secureboot: fix passing of kernel headers version [Alex Gonzalez]
+> * tests: secureboot: add dm devices support in FDE test [Alex Gonzalez]
+> * tests: secureboot: add imx specialization [Alex Gonzalez]
+> 
+> ## meta-balena-6.1.19
+> ### (2024-12-03)
+> 
+> * balena-image-initramfs: add zram module [Alex Gonzalez]
+> * initrdscripts: add zram module [Alex Gonzalez]
+> * resin-init-flasher: search /tmp explicitly [Joseph Kogut]
+> * kernel-balena: enable CRYPTO_ZSTD for zram [Joseph Kogut]
+> 
+
+</details>
+
+* Update to Scarthgap [Florin Sarbu]
+* Switch BSP repo over to https://github.com/radxa/meta-rockchip.git as per the vendor recommendation and move to Scarthgap [Florin Sarbu]
+
+# v6.1.18+rev100
+## (2026-03-09)
+
+
+<details>
+<summary> Update contracts to 73054ac4debf63ab177d662ece5d43deb11364c6 [balena-renovate[bot]] </summary>
+
+> ## contracts-2.0.138
+> ### (2026-03-09)
+> 
+> * contracts/raspberrypi5: Update device name to mention CM5 support [Alexandru]
+> 
+
+</details>
+
+# v6.1.18+rev99
+## (2026-01-14)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 9f18bf21add2a8a3ffa0b96aba7416ba2d752e27 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.39.12
+> ### (2026-01-14)
+> 
+> * Update aws/aws-cli to v2.32.34 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.11
+> ### (2026-01-14)
+> 
+> * Update actions/upload-artifact action to v6 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.10
+> ### (2026-01-13)
+> 
+> * yocto-build-deploy.yml: Search for build logs only in the location where they are produced [Florin Sarbu]
+> 
+
+</details>
+
+# v6.1.18+rev98
+## (2026-01-03)
+
+
+<details>
+<summary> Update balena-yocto-scripts to bf41c3ab59edafcb639f490752f7008d8a2d3c0d [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.39.9
+> ### (2026-01-03)
+> 
+> * Update actions/download-artifact action to v7 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.8
+> ### (2026-01-02)
+> 
+> * Update balena-io/balena-cli to v23.2.14 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev97
+## (2025-12-31)
+
+
+<details>
+<summary> Update balena-yocto-scripts to d8ce8169949e64dbf2bf58aa9f10ac4b7103076d [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.39.7
+> ### (Invalid date)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev96
+## (2025-12-31)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 6ed7f28e2ad3c545946bfcebfc29b25e3359d63a [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.39.6
+> ### (Invalid date)
+> 
+> * Fix condition to check for test suites in workflow [Kyle Harding]
+> 
+
+</details>
+
+# v6.1.18+rev95
+## (2025-12-30)
+
+
+<details>
+<summary> Update balena-yocto-scripts to cf231fff5d7dad80a5c081fae27205f4c1be46fd [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.39.5
+> ### (2025-12-29)
+> 
+> * Update aws/aws-cli to v2.32.25 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.4
+> ### (2025-12-29)
+> 
+> * Update GitHub Actions [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev94
+## (2025-12-20)
+
+
+<details>
+<summary> Update balena-yocto-scripts to ea6132dc7a5e420392215ce41d19b1617f793af8 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.39.3
+> ### (2025-12-19)
+> 
+> * Update aws/aws-cli to v2.32.21 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.2
+> ### (2025-12-17)
+> 
+> * Update aws/aws-cli to v2.32.18 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.1
+> ### (2025-12-11)
+> 
+> * Update aws/aws-cli to v2.32.15 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.39.0
+> ### (2025-12-03)
+> 
+> * verify that keys from SIGN_KMOD_KEY_APPEND ends up properly in kernel [Yann CARDAILLAC]
+> 
+
+</details>
+
+# v6.1.18+rev93
+## (2025-12-03)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 47c09dfe0998e580adaefd83713a6e38466d0455 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.99
+> ### (2025-12-03)
+> 
+> * Update aws/aws-cli to v2.32.8 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev92
+## (2025-12-03)
+
+
+<details>
+<summary> Update balena-yocto-scripts to faac8aa73d42ccb9b14c3c86ecc7419776cd83ce [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.98
+> ### (2025-12-02)
+> 
+> * Update balena-io/balena-cli to v23.2.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.97
+> ### (2025-11-29)
+> 
+> * Update GitHub Actions [balena-renovate[bot]]
+> * Update aws/aws-cli to v2.32.4 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev91
+## (2025-11-25)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 2b1cf90fb0333b1d8cdb2c3dbf041fd109e563a2 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.96
+> ### (2025-11-24)
+> 
+> * workflows: Add Generic x86_64 (GPT) and Generic AARCH64 device tests [Kyle Harding]
+> * Dockerfile_yocto-build-env: Avoid balena CLI duplicate install [Kyle Harding]
+> 
+
+</details>
+
+# v6.1.18+rev90
+## (2025-11-22)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 6a399312257153d5bc3577e9e7120acdf68a4f1a [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.95
+> ### (2025-11-22)
+> 
+> * Update actions/create-github-app-token action to v2.2.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.94
+> ### (2025-11-22)
+> 
+> * Update actions/checkout action to v6 [balena-renovate[bot]]
+> * Update balena-io/balena-cli to v23.2.0 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev89
+## (2025-11-22)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 212a9f0e011e0fa95b34bb71e3eadac4d60665f4 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.93
+> ### (2025-11-22)
+> 
+> * Update aws/aws-cli to v2.32.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.92
+> ### (2025-11-20)
+> 
+> * Update aws/aws-cli to v2.32.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.91
+> ### (2025-11-19)
+> 
+> * Update aws/aws-cli to v2.31.39 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev88
+## (2025-11-19)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 6c829e8ed3fd5307f40fc001075aa2dcdba6b94c [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.90
+> ### (2025-11-19)
+> 
+> * Update balena-io/balena-cli to v23.1.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.89
+> ### (2025-11-18)
+> 
+> * Update balena-io/balena-cli to v23.1.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.88
+> ### (2025-11-18)
+> 
+> * Update balena-io/balena-cli to v23.0.1 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev87
+## (2025-11-18)
+
+
+<details>
+<summary> Update balena-yocto-scripts to c2ecdef3af72f719f6dd3aec53ccc593cea1b4d9 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.87
+> ### (2025-11-18)
+> 
+> * Update aws/aws-cli to v2.31.38 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.86
+> ### (2025-11-17)
+> 
+> * Update balena-io/balena-cli to v23 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev86
+## (2025-11-15)
+
+
+<details>
+<summary> Update balena-yocto-scripts to aa3c5b3056ba6bb612ed8f0fa372d31d7857e572 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.85
+> ### (2025-11-15)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.60 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev85
+## (2025-11-15)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 646d5e4f6bcc6b4403595dceb58440ea0fd2c58b [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.84
+> ### (2025-11-14)
+> 
+> * Update aws/aws-cli to v2.31.37 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.83
+> ### (2025-11-14)
+> 
+> * Update balena-io/balena-cli to v22.5.5 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.82
+> ### (2025-11-14)
+> 
+> * Update aws/aws-cli to v2.31.36 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev84
+## (2025-11-14)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 3340f57f091c22cd00aafe15c2d4fa17661afe2c [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.81
+> ### (2025-11-13)
+> 
+> * Update balena-io/balena-cli to v22.5.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.80
+> ### (2025-11-13)
+> 
+> * balena-build: Fix typo [Atanas Bunchev]
+> 
+> ## balena-yocto-scripts-1.38.79
+> ### (2025-11-13)
+> 
+> * Update balena-io/balena-cli to v22.5.0 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev83
+## (2025-11-13)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 8e8aa1b8652199dd7947437a7e20ca46d0bc825c [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.78
+> ### (2025-11-13)
+> 
+> * Update aws/aws-cli to v2.31.35 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.77
+> ### (2025-11-12)
+> 
+> * Update balena-io/balena-cli to v22.4.17 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev82
+## (2025-11-12)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 052ceda565407997d0e1f8b4addee1ca657ccd4a [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.76
+> ### (2025-11-11)
+> 
+> * Update aws/aws-cli to v2.31.34 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.75
+> ### (2025-11-07)
+> 
+> * Update aws/aws-cli to v2.31.32 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev81
+## (2025-11-07)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 59b2fdf6877cab30725bf57e04c307648a1bcb20 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.74
+> ### (2025-11-06)
+> 
+> * Update aws/aws-cli to v2.31.31 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.73
+> ### (2025-11-04)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.53 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.72
+> ### (2025-11-03)
+> 
+> * Update aws/aws-cli to v2.31.28 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.71
+> ### (2025-11-01)
+> 
+> * Update Pin actions/download-artifact action to 018cc2c [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.70
+> ### (2025-11-01)
+> 
+> * Update aws/aws-cli to v2.31.27 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev80
+## (2025-11-01)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 03ec60707e750f75c7e16d94b86b9e10468cd340 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.69
+> ### (2025-11-01)
+> 
+> * Switch back to official actions/download-artifact action @ v6.0.0 [Kyle Harding]
+> 
+
+</details>
+
+# v6.1.18+rev79
+## (2025-10-31)
+
+
+<details>
+<summary> Update balena-yocto-scripts to a2d744e2c9766a60b88e4446e61b68286a625ad8 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.68
+> ### (Invalid date)
+> 
+> * Update aws/aws-cli to v2.31.26 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.67
+> ### (Invalid date)
+> 
+> * Update balena-io/balena-cli to v22.4.16 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.66
+> ### (2025-10-29)
+> 
+> * Update aws/aws-cli to v2.31.25 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.65
+> ### (2025-10-29)
+> 
+> * Update aws/aws-cli to v2.31.24 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev78
+## (2025-10-29)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 157ae82bf37b6258655a9a3a30c2bfee884cbb72 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.64
+> ### (2025-10-29)
+> 
+> * Use the target deploy env to preload the supervisor [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.38.63
+> ### (2025-10-25)
+> 
+> * Update aws/aws-cli to v2.31.22 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.62
+> ### (2025-10-25)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.52 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.61
+> ### (2025-10-25)
+> 
+> * Update actions/upload-artifact action to v5 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev77
+## (2025-10-24)
+
+
+<details>
+<summary> Update balena-yocto-scripts to efb708e449d5c8acffe00ae4d2511ae702ba8b68 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.60
+> ### (2025-10-23)
+> 
+> * Update aws/aws-cli to v2.31.21 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.59
+> ### (2025-10-23)
+> 
+> * Update aws/aws-cli to v2.31.20 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.58
+> ### (2025-10-23)
+> 
+> * Update balena-io/balena-cli to v22.4.15 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev76
+## (2025-10-23)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 2b9aeef2c735d83d69ad4e8c6720c32f5869926e [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.57
+> ### (2025-10-23)
+> 
+> * Check test_matrix is non-null before transforming as JSON [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.38.56
+> ### (2025-10-21)
+> 
+> * Update aws/aws-cli to v2.31.19 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev75
+## (2025-10-21)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 3225b1b19f1386f2b8f43692eef8ebf4eef5c5a8 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.55
+> ### (2025-10-21)
+> 
+> * Update aws/aws-cli to v2.31.18 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.54
+> ### (2025-10-20)
+> 
+> * Update acceptable states for previous test runs [Kyle Harding]
+> * Fix AMI decrypt step paths [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.38.53
+> ### (2025-10-18)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.51 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev74
+## (2025-10-17)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 465c7787b611921682388ca4772e8ea0e0c57150 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.52
+> ### (2025-10-17)
+> 
+> * Update balena-io/balena-cli to v22.4.14 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.51
+> ### (2025-10-16)
+> 
+> * Update aws/aws-cli to v2.31.17 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.50
+> ### (2025-10-15)
+> 
+> * Update aws/aws-cli to v2.31.16 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.49
+> ### (2025-10-15)
+> 
+> * Update balena-io/balena-cli to v22.4.13 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev73
+## (2025-10-15)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 4df9438689853635105e784d54d1e0a854be6781 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.48
+> ### (2025-10-14)
+> 
+> * Update aws/aws-cli to v2.31.15 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev72
+## (2025-10-14)
+
+
+<details>
+<summary> Update balena-yocto-scripts to fa7ef10ddba1892ffc0ab49e14169c2d5725f229 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.47
+> ### (2025-10-13)
+> 
+> * Update aws/aws-cli to v2.31.14 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev71
+## (2025-10-11)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 4984392b01b955e6ff75a616941f36e0fc5fb511 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.46
+> ### (2025-10-11)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.48 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.45
+> ### (2025-10-11)
+> 
+> * Update aws/aws-cli to v2.31.13 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev70
+## (2025-10-11)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 5025a39fadf2c4f71561512b0b0d9b415958f389 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.44
+> ### (2025-10-10)
+> 
+> * Update balena-io/balena-cli to v22.4.11 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.43
+> ### (2025-10-09)
+> 
+> * Update balena-io/balena-cli to v22.4.10 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev69
+## (2025-10-09)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 42a3124eae2ff7cb313e48163fa5f9dafbf74348 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.42
+> ### (2025-10-08)
+> 
+> * Update aws/aws-cli to v2.31.11 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev68
+## (2025-10-08)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 558629f7ee193dfa3a920376f095410df9241a0c [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.41
+> ### (2025-10-08)
+> 
+> * Update GitHub Actions [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev67
+## (2025-10-08)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 48aa3346df05d6c758c666d2102f82b3c6ed80cb [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.40
+> ### (2025-10-08)
+> 
+> * Update balena-io/balena-cli to v22.4.9 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.39
+> ### (2025-10-08)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.46 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.38
+> ### (2025-10-07)
+> 
+> * Update aws/aws-cli to v2.31.10 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.37
+> ### (2025-10-07)
+> 
+> * Update aws/aws-cli to v2.30.7 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.36
+> ### (2025-10-07)
+> 
+> * Fix check for present test matrix when checking test results [Ryan Cooke]
+> 
+
+</details>
+
+# v6.1.18+rev66
+## (2025-09-25)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 4802bd82ff77b1ed887563e676e8ed32f6f2304d [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.35
+> ### (2025-09-25)
+> 
+> * Update balena-io/balena-cli to v22.4.8 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.34
+> ### (2025-09-22)
+> 
+> * Update balena-io/balena-cli to v22.4.7 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.33
+> ### (2025-09-18)
+> 
+> * Update balena-io/balena-cli to v22.4.6 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.32
+> ### (2025-09-18)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.42 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev65
+## (2025-09-17)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 59b3f3e5df5480fc2f26b93482af390f3f7dee8c [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.31
+> ### (2025-09-17)
+> 
+> * Update balena-io/balena-cli to v22.4.5 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev64
+## (2025-09-17)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 7084f3fe4ba0a5f088379cbc269d13b80babe873 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.30
+> ### (2025-09-16)
+> 
+> * Update aws/aws-cli to v2.30.3 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev63
+## (2025-09-16)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 1cc4ee6817c0bc1ebac5eacad0e05f0bed28bb99 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.29
+> ### (2025-09-16)
+> 
+> * Update balena-io/balena-cli to v22.4.4 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.28
+> ### (2025-09-16)
+> 
+> * Update aws/aws-cli to v2.30.2 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev62
+## (2025-09-16)
+
+
+<details>
+<summary> Update balena-yocto-scripts to af421d84813223b14a9607ad3bc3925c94a4d01f [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.27
+> ### (2025-09-15)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.40 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev61
+## (2025-09-13)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 4ea0596b9497846b61bc62f6df87b790128297e7 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.26
+> ### (2025-09-13)
+> 
+> * Update aws/aws-cli to v2.30.1 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev60
+## (2025-09-13)
+
+
+<details>
+<summary> Update balena-yocto-scripts to d094a6bb64db28f2261caa833f9d469d1102a520 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.25
+> ### (2025-09-13)
+> 
+> * Update actions/create-github-app-token action to v2.1.4 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.24
+> ### (2025-09-12)
+> 
+> * Update GitHub Actions [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev59
+## (2025-09-12)
+
+
+<details>
+<summary> Update balena-yocto-scripts to d13b10b485deddf5c63267fccfbee881363af6eb [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.23
+> ### (2025-09-11)
+> 
+> * Update aws/aws-cli to v2.30.0 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev58
+## (2025-09-11)
+
+
+<details>
+<summary> Update balena-yocto-scripts to fcf64ffbb43f40b397b6ff6c03522ff2787f2f6d [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.22
+> ### (2025-09-11)
+> 
+> * Update aws/aws-cli to v2.29.1 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev57
+## (2025-09-11)
+
+
+<details>
+<summary> Update balena-yocto-scripts to d381c72cdd7936878ca09c94c5e4d6fc93fffd5e [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.21
+> ### (2025-09-10)
+> 
+> * Update balena-io/balena-cli to v22.4.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.20
+> ### (2025-09-08)
+> 
+> * Update aws/aws-cli to v2.28.26 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev56
+## (2025-09-08)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 99fda7aeef94ebc3dbb66a9a0920002d5003dc8e [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.19
+> ### (2025-09-08)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.18
+> ### (2025-09-04)
+> 
+> * Update aws/aws-cli to v2.28.24 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.17
+> ### (2025-09-04)
+> 
+> * Update actions/github-script action to v8 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.16
+> ### (2025-09-04)
+> 
+> * Update aws/aws-cli to v2.28.23 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.15
+> ### (2025-09-04)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.37 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.14
+> ### (2025-09-03)
+> 
+> * Update aws-actions/configure-aws-credentials action to v5 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.13
+> ### (2025-09-03)
+> 
+> * Update balena-io/balena-cli to v22.4.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.12
+> ### (2025-09-02)
+> 
+> * Update aws/aws-cli to v2.28.22 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.11
+> ### (2025-09-02)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.35 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.10
+> ### (Invalid date)
+> 
+> * Update balena-io/balena-cli to v22.3.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.9
+> ### (Invalid date)
+> 
+> * Update balena-io/upload-balena-release-asset action to v0.1.5 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev55
+## (2025-08-30)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 5e0136af5bcb7074b7d49de3e2dd3f8a5abcb1e6 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.8
+> ### (Invalid date)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.31 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.7
+> ### (2025-08-29)
+> 
+> * Update aws/aws-cli to v2.28.21 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.6
+> ### (2025-08-26)
+> 
+> * Update aws/aws-cli to v2.28.18 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.5
+> ### (2025-08-25)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev54
+## (2025-08-23)
+
+
+<details>
+<summary> Update balena-yocto-scripts to db2ff5e0c3c5fa09ea62a166365ea1fe9e946c7a [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.4
+> ### (2025-08-22)
+> 
+> * Update aws/aws-cli to v2.28.16 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev53
+## (2025-08-20)
+
+
+<details>
+<summary> Update balena-yocto-scripts to fc8c535752ed62f8c141dc792b17bffe305b5386 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.3
+> ### (2025-08-20)
+> 
+> * Update aws/aws-cli to v2.28.13 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev52
+## (2025-08-19)
+
+
+<details>
+<summary> Update balena-yocto-scripts to d2b30dabd4df9ded5a2d0f4250a09e2516eda209 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.2
+> ### (2025-08-19)
+> 
+> * Update actions/checkout action to v5 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.38.1
+> ### (2025-08-18)
+> 
+> * Update balena-io/balena-cli to v22.2.4 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev51
+## (2025-08-18)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 8621547e6855b99d63471cb66fce8cc943f64553 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.38.0
+> ### (2025-08-18)
+> 
+> * Split testing artifacts into individual files [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.37.20
+> ### (2025-08-18)
+> 
+> * barys: default to highest priority layers for template paths [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.37.19
+> ### (2025-08-15)
+> 
+> * Update aws/aws-cli to v2.28.10 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev50
+## (2025-08-14)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 52e5d372d55e8515f171f7b4902ba26cbe684c12 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.37.18
+> ### (2025-08-14)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.30 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev49
+## (2025-08-14)
+
+
+<details>
+<summary> Update balena-yocto-scripts to cce76299ea245be363d7029e037ced97f26b5266 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.37.17
+> ### (2025-08-14)
+> 
+> * Update actions/checkout action to v4.3.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.37.16
+> ### (2025-08-13)
+> 
+> * Update aws/aws-cli to v2.28.9 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev48
+## (2025-08-12)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 75df416fd02fe21ec54ae5ddeae9fdee8f13ca76 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.37.15
+> ### (2025-08-11)
+> 
+> * Update actions/create-github-app-token action to v2.1.1 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev47
+## (2025-08-09)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 0cac2709cce34581cad24a40a6e0388ece5aff5f [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.37.14
+> ### (2025-08-08)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.29 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev46
+## (2025-08-07)
+
+
+<details>
+<summary> Update balena-yocto-scripts to b3ac171bd72f031b9701c875650bf6bec908414d [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.37.13
+> ### (2025-08-07)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.27 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev45
+## (2025-08-07)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 6ba82990b88ae8f7118da324b35f091c30d59c33 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.37.12
+> ### (2025-08-06)
+> 
+> * Update balena-io/balena-cli to v22.2.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.37.11
+> ### (2025-08-06)
+> 
+> * Update balena-io/balena-cli to v22.2.0 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev44
+## (2025-08-06)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 038c41d84383f46176a2e70c84f4a0f1da4a9489 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.37.10
+> ### (2025-08-06)
+> 
+> * Update aws/aws-cli to v2.28.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.37.9
+> ### (2025-08-06)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.25 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.37.8
+> ### (2025-08-05)
+> 
+> * Update aws/aws-cli to v2.28.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.37.7
+> ### (2025-08-05)
+> 
+> * Update aws-actions/configure-aws-credentials action to v4.3.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.37.6
+> ### (2025-08-04)
+> 
+> * Update docker/login-action action to v3.5.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.37.5
+> ### (2025-08-02)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.24 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.37.4
+> ### (2025-08-01)
+> 
+> * Update balena-io/balena-cli to v22.1.5 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev43
+## (2025-08-01)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 812fd7e6368327bf33e5804163d1d44f342b61d8 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.37.3
+> ### (2025-08-01)
+> 
+> * Update aws/aws-cli to v2.28.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.37.2
+> ### (Invalid date)
+> 
+> * Update aws/aws-cli to v2.27.63 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.37.1
+> ### (2025-07-29)
+> 
+> * Update aws/aws-cli to v2.27.61 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev42
+## (2025-07-25)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 31279c7fb29974fd2238f2ad78649acf8c3ab082 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.37.0
+> ### (2025-07-24)
+> 
+> * Use the leviathan action from the submodule in meta-balena [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.36.21
+> ### (2025-07-24)
+> 
+> * upload hostapp artifacts: include encrypted manifest [Ryan Cooke]
+> 
+
+</details>
+
+# v6.1.18+rev41
+## (2025-07-24)
+
+
+<details>
+<summary> Update balena-yocto-scripts to dfc70e70fb6758de592d3cad7531d2f1241cfdcf [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.20
+> ### (2025-07-24)
+> 
+> * Update balena-os/leviathan action to v2.34.4 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev40
+## (2025-07-24)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 80684fb1a29b96849b2d8bf6693ea1eb2d3f9acb [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.19
+> ### (2025-07-23)
+> 
+> * Update aws/aws-cli to v2.27.58 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev39
+## (2025-07-23)
+
+
+<details>
+<summary> Update balena-yocto-scripts to f4f2a60ca96b6e2cf3a7fd941ad072fc29b21da9 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.18
+> ### (2025-07-23)
+> 
+> * Update aws/aws-cli to v2.27.57 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.36.17
+> ### (2025-07-23)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.23 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev38
+## (2025-07-23)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 28b2ad800da685c4a32e6f64c783e3a82d425931 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.16
+> ### (2025-07-22)
+> 
+> * Update balena-io/balena-cli to v22.1.4 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.36.15
+> ### (2025-07-22)
+> 
+> * Update balena-os/leviathan action to v2.34.0 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev37
+## (2025-07-22)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 10be3067ac041b8ad965b774c86c48c11bd3a4ac [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.14
+> ### (2025-07-22)
+> 
+> * Update aws/aws-cli to v2.27.56 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.36.13
+> ### (2025-07-22)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.22 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.36.12
+> ### (2025-07-21)
+> 
+> * Update balena-io/balena-cli to v22.1.3 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev36
+## (2025-07-21)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 91e8f9506150d9a944717d4d7b77e382c9d4e8ca [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.11
+> ### (2025-07-21)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev35
+## (2025-07-19)
+
+
+<details>
+<summary> Update balena-yocto-scripts to a78462c0fcb2f580b80734d9a0900cc72fa180f2 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.10
+> ### (2025-07-19)
+> 
+> * Update aws/aws-cli to v2.27.55 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev34
+## (2025-07-18)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 7b93474962f3c9ebd516402869077a4aad560834 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.9
+> ### (2025-07-18)
+> 
+> * Update unfor19/install-aws-cli-action digest to f5b46b7 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev33
+## (2025-07-18)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 9d6705528d41d637d2e9291978b682cb856a4f65 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.8
+> ### (2025-07-17)
+> 
+> * Update aws/aws-cli to v2.27.54 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev32
+## (2025-07-17)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 972d8235cfde35394f24df80486c6e8ba5e056e5 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.7
+> ### (2025-07-16)
+> 
+> * Update aws/aws-cli to v2.27.53 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev31
+## (2025-07-16)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 74743103b342599005dfa40f64850cdec2ccee68 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.6
+> ### (2025-07-16)
+> 
+> * Update aws/aws-cli to v2.27.52 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.36.5
+> ### (2025-07-15)
+> 
+> * Update aws/aws-cli to v2.27.51 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev30
+## (2025-07-15)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 145071d2de92dfc79e548b5ef8810cd30afd0f43 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.36.4
+> ### (2025-07-15)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.21 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.36.3
+> ### (2025-07-15)
+> 
+> * Update balena-io/balena-cli to v22.1.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.36.2
+> ### (2025-07-10)
+> 
+> * Update aws/aws-cli to v2.27.50 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.36.1
+> ### (2025-07-10)
+> 
+> * Update balena-io/upload-balena-release-asset action to v0.1.4 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.36.0
+> ### (2025-07-09)
+> 
+> * minor: upload cyclonedx bom.json and vex.json as independend files [Edwin Joassart]
+> * Generate SBOM and VEX (cycloneDX) [Edwin Joassart]
+> 
+
+</details>
+
+# v6.1.18+rev29
+## (2025-07-04)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 76b9918f23e4b100bef64a2ce4ecb3bca70ee5fa [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.35.5
+> ### (2025-07-04)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev28
+## (2025-07-04)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 81e74066e57a1994324bc3b4dc8e3e1390613909 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.35.4
+> ### (2025-07-03)
+> 
+> * Update aws/aws-cli to v2.27.49 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.35.3
+> ### (2025-07-03)
+> 
+> * Update Pin balena-io/upload-balena-release-asset action to ad48340 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.35.2
+> ### (2025-07-03)
+> 
+> * Update balena-os/leviathan action to v2.33.8 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev27
+## (2025-07-02)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 8d43b5b5bec783ee6e65d6e784e83023139f8147 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.35.1
+> ### (2025-07-02)
+> 
+> * workflows: yocto-build-deploy: pass RSA key if available [Alex Gonzalez]
+> * workflows: yocto-build-deploy: deploy RPI locking artifacts as assets if available [Alex Gonzalez]
+> * balena-deploy: compress RPI secure boot locking artifacts [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.35.0
+> ### (2025-07-02)
+> 
+> * Remove .img and .img.zip files from hostapp artifacts [Kyle Harding]
+> * Remove old manual uploads of licenses and changelog [Kyle Harding]
+> * Upload release assets to hostapp on merge [Kyle Harding]
+> 
+
+</details>
+
+# v6.1.18+rev26
+## (2025-07-02)
+
+
+<details>
+<summary> Update contracts to fc76558c384c10bf228b10909eca346ee9d6b564 [balena-renovate[bot]] </summary>
+
+> ## contracts-2.0.137
+> ### (2025-07-02)
+> 
+> * hw.device-type: Update J4012 device type name [Alexandru]
+> 
+
+</details>
+
+# v6.1.18+rev25
+## (2025-07-02)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 654190bb76676ef6cd25f50791ec6ce678eae789 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.34.15
+> ### (2025-07-01)
+> 
+> * Update aws/aws-cli to v2.27.47 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.34.14
+> ### (Invalid date)
+> 
+> * Update aws/aws-cli to v2.27.46 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev24
+## (2025-06-27)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 88de5690d31ba3bd1c9fb661b59e538785eadaec [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.34.13
+> ### (2025-06-26)
+> 
+> * Update aws/aws-cli to v2.27.44 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.34.12
+> ### (2025-06-25)
+> 
+> * Update aws/aws-cli to v2.27.43 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.34.11
+> ### (2025-06-23)
+> 
+> * Update balena-os/leviathan action to v2.33.7 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev23
+## (2025-06-23)
+
+
+<details>
+<summary> Update balena-yocto-scripts to de58928838ce21f8534efd428d3825da1f29f77e [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.34.10
+> ### (2025-06-23)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev22
+## (2025-06-21)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 1e29b4fb3762d557e3a5883329fcced76815ca7c [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.34.9
+> ### (2025-06-21)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.20 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.34.8
+> ### (2025-06-20)
+> 
+> * Update aws/aws-cli to v2.27.40 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.34.7
+> ### (2025-06-20)
+> 
+> * Update balena-os/leviathan action to v2.33.5 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev21
+## (2025-06-20)
+
+
+<details>
+<summary> Update balena-yocto-scripts to cc79c251d6f033344d81ffd649ae8b5e28e4d156 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.34.6
+> ### (2025-06-20)
+> 
+> * Update aws/aws-cli to v2.27.39 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev20
+## (2025-06-19)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 120d062f60dbaa5c6b43b56ed71478cdb584498b [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.34.5
+> ### (2025-06-19)
+> 
+> * Update balena-io/balena-cli to v22.1.1 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev19
+## (2025-06-18)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 137906a06beca7bf54684be79b7e891ead6090de [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.34.4
+> ### (2025-06-18)
+> 
+> * prepare deflate artifacts even on PRs [Ryan Cooke]
+> 
+
+</details>
+
+# v6.1.18+rev18
+## (2025-06-18)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 12e1c0ebd66b9e6813979ab4ee291512f2d7365b [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.34.3
+> ### (2025-06-17)
+> 
+> * Update aws/aws-cli to v2.27.37 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.34.2
+> ### (2025-06-16)
+> 
+> * Update balena-os/leviathan action to v2.33.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.34.1
+> ### (2025-06-12)
+> 
+> * Update aws/aws-cli to v2.27.35 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.34.0
+> ### (2025-06-12)
+> 
+> * Remove docker-image deploy type and only upload artifacts when needed [Kyle Harding]
+> * Update all jobs to use new artifact format and paths [Kyle Harding]
+> * Split artifact uploads into hostapp and testing artifacts [Kyle Harding]
+> * Refactor artifact preparation and encryption [Kyle Harding]
+> * Add S3_DEPLOY_PATH environment variable [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.33.25
+> ### (2025-06-11)
+> 
+> * Update aws/aws-cli to v2.27.34 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev17
+## (2025-06-11)
+
+
+<details>
+<summary> Update balena-yocto-scripts to c386861b60d4aac0cd28c534933d97887c5b7a7c [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.33.24
+> ### (2025-06-11)
+> 
+> * Update balena-os/leviathan action to v2.33.1 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev16
+## (2025-06-11)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 0402d0439cfa0dcc10e24e6ad0497ba133cbe8f3 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.33.23
+> ### (2025-06-11)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.19 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.22
+> ### (2025-06-10)
+> 
+> * Update aws/aws-cli to v2.27.33 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.21
+> ### (2025-06-10)
+> 
+> * Update balena-io/balena-cli to v22.1.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.20
+> ### (2025-06-09)
+> 
+> * Remove deprecated poll-interval input from review-commit-action [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.33.19
+> ### (2025-06-09)
+> 
+> * Update balena-os/leviathan action to v2.32.8 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.18
+> ### (2025-06-06)
+> 
+> * Update aws/aws-cli to v2.27.31 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.17
+> ### (2025-06-06)
+> 
+> * Leviathan: Configure image type for hup suite [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.33.16
+> ### (2025-06-05)
+> 
+> * Update aws/aws-cli to v2.27.30 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.15
+> ### (2025-06-05)
+> 
+> * Update balena-os/leviathan action to v2.32.6 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.14
+> ### (2025-06-04)
+> 
+> * Update aws/aws-cli to v2.27.29 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.13
+> ### (2025-06-04)
+> 
+> * AMI deploy: remove secureboot reference from AMI name [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.33.12
+> ### (2025-06-03)
+> 
+> * Update aws/aws-cli to v2.27.28 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.11
+> ### (2025-06-03)
+> 
+> * Update aws/aws-cli to v2.27.27 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.10
+> ### (2025-06-02)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.18 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.9
+> ### (2025-06-02)
+> 
+> * Update balena-io/balena-cli to v22.0.6 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.8
+> ### (2025-06-02)
+> 
+> * Update aws/aws-cli to v2.27.26 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.7
+> ### (2025-06-02)
+> 
+> * Update balena-os/leviathan action to v2.32.5 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev15
+## (2025-05-30)
+
+
+<details>
+<summary> Update balena-yocto-scripts to d1ffa042930b908a8bc38758a068e8d348ebc6de [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.33.6
+> ### (Invalid date)
+> 
+> * Update product-os/review-commit-action action to v0.3.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.5
+> ### (Invalid date)
+> 
+> * Update balena-io/balena-cli to v22.0.5 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.4
+> ### (Invalid date)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.17 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.3
+> ### (2025-05-29)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.16 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.2
+> ### (2025-05-28)
+> 
+> * Update aws/aws-cli to v2.27.24 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.1
+> ### (2025-05-28)
+> 
+> * Update balena-io/balena-cli to v22.0.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.33.0
+> ### (2025-05-28)
+> 
+> * Make hostapp-deploy depend on a successful s3-deploy [Kyle Harding]
+> 
+
+</details>
+
+# v6.1.18+rev14
+## (2025-05-28)
+
+
+<details>
+<summary> Update contracts to 417aec2b1a551295d855acd551cd810d2b69420e [balena-renovate[bot]] </summary>
+
+> ## contracts-2.0.136
+> ### (2025-05-14)
+> 
+> * patch: Add deprecation notice for balenalib base images [Vipul Gupta (@vipulgupta2048)]
+> 
+> ## contracts-2.0.135
+> ### (2025-05-14)
+> 
+> * patch: Add deprecation notice to balenalib readme [Vipul Gupta (@vipulgupta2048)]
+> 
+> ## contracts-2.0.134
+> ### (2025-05-07)
+> 
+> * Remove Ubuntu Lunar 23.04 leftovers from dotnet & python contracts [Thodoris Greasidis]
+> 
+> ## contracts-2.0.133
+> ### (2025-05-07)
+> 
+> * Remove Ubuntu Xenial from supported distros [Kyle Harding]
+> * Remove Ubuntu Bionic from supported distros [Kyle Harding]
+> * Remove Ubuntu Focal from supported distros [Kyle Harding]
+> 
+
+</details>
+
+# v6.1.18+rev13
+## (2025-05-28)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 474c4d804d8278dd10d4506278a8d656e53775fe [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.32.30
+> ### (2025-05-28)
+> 
+> * Update aws/aws-cli to v2.27.23 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev12
+## (2025-05-28)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 96b4f9bae3d3869a76c9c404e4e92aaf804ca783 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.32.29
+> ### (2025-05-27)
+> 
+> * Update balena-io/balena-cli to v22 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.28
+> ### (2025-05-27)
+> 
+> * Update balena-os/leviathan action to v2.32.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.27
+> ### (2025-05-27)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev11
+## (2025-05-27)
+
+
+<details>
+<summary> Update balena-yocto-scripts to b6d772187d0debf4c0433a5faf4a74bd81536eeb [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.32.26
+> ### (2025-05-26)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.12 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev10
+## (2025-05-26)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 679fc3f94f0a5a73444566942ce241b8b2d6658c [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.32.25
+> ### (2025-05-26)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.10 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.24
+> ### (2025-05-24)
+> 
+> * Update balena-io/balena-cli to v21.1.14 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.23
+> ### (2025-05-24)
+> 
+> * Update balena-io-examples/setup-balena-action action to v0.0.9 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.22
+> ### (2025-05-24)
+> 
+> * Update balena-os/leviathan action to v2.32.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.21
+> ### (2025-05-24)
+> 
+> * Update balena-os/leviathan action to v2.31.111 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.20
+> ### (2025-05-23)
+> 
+> * Update aws/aws-cli to v2.27.22 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.19
+> ### (2025-05-22)
+> 
+> * Update aws/aws-cli to v2.27.20 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.18
+> ### (2025-05-21)
+> 
+> * Update balena-os/leviathan action to v2.31.109 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.17
+> ### (2025-05-21)
+> 
+> * Update balena-io/balena-cli to v21.1.13 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.16
+> ### (2025-05-20)
+> 
+> * Update tespkg/actions-cache action to v1.9.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.15
+> ### (2025-05-19)
+> 
+> * Update aws/aws-cli to v2.27.18 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.14
+> ### (2025-05-19)
+> 
+> * grant actions: read permissions to jobs needing to download build artifacts [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.32.13
+> ### (2025-05-17)
+> 
+> * Update balena-os/leviathan action to v2.31.108 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.12
+> ### (2025-05-17)
+> 
+> * Update aws/aws-cli to v2.27.17 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.11
+> ### (2025-05-16)
+> 
+> * Update balena-io/balena-cli to v21.1.12 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.10
+> ### (2025-05-16)
+> 
+> * Remove the old grep for build errors [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.32.9
+> ### (2025-05-16)
+> 
+> * Update aws/aws-cli to v2.27.16 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.8
+> ### (2025-05-15)
+> 
+> * Update aws-actions/configure-aws-credentials action to v4.2.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.7
+> ### (2025-05-14)
+> 
+> * Update aws/aws-cli to v2.27.15 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.6
+> ### (2025-05-14)
+> 
+> * AMI deploy: parameterise test org + use TEST api key [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.32.5
+> ### (2025-05-13)
+> 
+> * Update aws/aws-cli to v2.27.14 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.4
+> ### (2025-05-12)
+> 
+> * Update aws/aws-cli to v2.27.13 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.3
+> ### (2025-05-09)
+> 
+> * Update aws/aws-cli to v2.27.11 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.2
+> ### (2025-05-09)
+> 
+> * Use GH CLI to download build artifacts [Kyle Harding]
+> * Disable GHA compression for build artifacts [Kyle Harding]
+> * Provide yocto scripts ref to test build pipeline [Kyle Harding]
+> * Remove leviathan test suites from build artifacts [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.32.1
+> ### (2025-05-07)
+> 
+> * Update aws/aws-cli to v2.27.10 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.32.0
+> ### (2025-05-07)
+> 
+> * Remove legacy Jenkins deploy scripts [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.31.97
+> ### (2025-05-07)
+> 
+> * Update balena-io/balena-cli to v21.1.11 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.96
+> ### (2025-05-07)
+> 
+> * Update aws-actions/configure-aws-credentials action to v4.2.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.95
+> ### (2025-05-06)
+> 
+> * Update balena-os/leviathan action to v2.31.107 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.94
+> ### (2025-05-06)
+> 
+> * Update balena-os/leviathan action to v2.31.106 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.93
+> ### (2025-05-05)
+> 
+> * Update aws/aws-cli to v2.27.8 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.92
+> ### (2025-05-05)
+> 
+> * Update balena-io/balena-cli to v21.1.10 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev9
+## (2025-05-16)
+
+* Update Radxa binary loader to new revision for supporting newer ROCK 4B SKUs [Florin Sarbu]
+
+# v6.1.18+rev8
+## (2025-05-04)
+
+
+<details>
+<summary> Update balena-yocto-scripts to d56cc30ad2bebfaa1b0d62be569cf98b4d845d5e [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.31.91
+> ### (2025-05-03)
+> 
+> * Update actions/create-github-app-token action to v2.0.6 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev7
+## (2025-05-03)
+
+
+<details>
+<summary> Update balena-yocto-scripts to da8e6b4ea5726dd96e35e44deacd2f18e73420e5 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.31.90
+> ### (2025-05-03)
+> 
+> * Update aws/aws-cli to v2.27.7 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.89
+> ### (2025-05-03)
+> 
+> * Update balena-os/leviathan action to v2.31.105 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.88
+> ### (2025-05-02)
+> 
+> * Update actions/create-github-app-token action to v2.0.5 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev6
+## (2025-05-02)
+
+
+<details>
+<summary> Update balena-yocto-scripts to f82136ae1c5d5550ee18f105a5d8552433fe1932 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.31.87
+> ### (2025-05-01)
+> 
+> * Update aws/aws-cli to v2.27.6 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev5
+## (2025-05-02)
+
+
+<details>
+<summary> Update contracts to a1e8b75d3ed6714ac854a9d95cd4fc458ca33646 [balena-renovate[bot]] </summary>
+
+> ## contracts-2.0.132
+> ### (Invalid date)
+> 
+> * imx6ul-var-dart: Update provisioning instructions [Alexandru]
+> 
+> ## contracts-2.0.131
+> ### (2025-04-03)
+> 
+> * Add EDATEC Sensing contract and logo [RayX123456]
+> 
+> ## contracts-2.0.130
+> ### (2025-03-28)
+> 
+> * hw.device-type: Update links to docs for UEFI version checking [Alexandru Costache]
+> 
+> ## contracts-2.0.129
+> ### (2025-03-14)
+> 
+> * Mark Bookworm as the default version for Debian [Thodoris Greasidis]
+> 
+> ## contracts-2.0.128
+> ### (2025-02-05)
+> 
+> * Improve testing of contracts [Felipe Lalanne]
+> * Remove unused sw.os-image contracts [Felipe Lalanne]
+> 
+> ## contracts-2.0.127
+> ### (2025-01-28)
+> 
+> * Mark alpine 3.21 as the default alpine version [Thodoris Greasidis]
+> 
+> ## contracts-2.0.126
+> ### (2025-01-28)
+> 
+> * Add alpine 3.21 [Felipe Lalanne]
+> 
+> ## contracts-2.0.125
+> ### (2025-01-15)
+> 
+> * hw.device-type: Switch to using markdown for links [Alexandru Costache]
+> 
+
+</details>
+
+# v6.1.18+rev4
+## (2025-05-01)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 6d772f30f595a64350a9f181162c9ff86e5391e8 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.31.86
+> ### (2025-05-01)
+> 
+> * Update actions/create-github-app-token action to v2.0.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.85
+> ### (Invalid date)
+> 
+> * Update actions/download-artifact digest to d3f86a1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.84
+> ### (Invalid date)
+> 
+> * Update aws/aws-cli to v2.27.4 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.83
+> ### (2025-04-29)
+> 
+> * Update balena-os/leviathan action to v2.31.104 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.82
+> ### (2025-04-28)
+> 
+> * Update aws/aws-cli to v2.27.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.81
+> ### (2025-04-25)
+> 
+> * Update aws/aws-cli to v2.27.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.80
+> ### (2025-04-22)
+> 
+> * Update aws/aws-cli to v2.26.7 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.79
+> ### (2025-04-21)
+> 
+> * Update aws/aws-cli to v2.26.6 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.78
+> ### (2025-04-18)
+> 
+> * Update aws/aws-cli to v2.26.5 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.77
+> ### (2025-04-15)
+> 
+> * Leviathan: Add aarch64 testbot fleet to worker pool [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.31.76
+> ### (2025-04-14)
+> 
+> * Update aws/aws-cli to v2.26.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.75
+> ### (2025-04-14)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.74
+> ### (2025-04-11)
+> 
+> * Update aws/aws-cli to v2.26.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.73
+> ### (2025-04-10)
+> 
+> * Update aws/aws-cli to v2.26.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.72
+> ### (2025-04-09)
+> 
+> * Update aws/aws-cli to v2.25.14 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.71
+> ### (2025-04-09)
+> 
+> * Update aws/aws-cli to v2.25.13 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.70
+> ### (2025-04-08)
+> 
+> * Update balena-os/leviathan action to v2.31.103 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.69
+> ### (2025-04-08)
+> 
+> * Update aws/aws-cli to v2.25.12 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.68
+> ### (2025-04-08)
+> 
+> * build/barys: Fix builds for older Poky variants [Alexandru Costache]
+> 
+> ## balena-yocto-scripts-1.31.67
+> ### (2025-04-07)
+> 
+> * Update balena-io/balena-cli to v21.1.9 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.66
+> ### (2025-04-07)
+> 
+> * workflows: yocto-build-deploy: provide header files to test suite [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.31.65
+> ### (2025-04-07)
+> 
+> * Update balena-os/leviathan action to v2.31.101 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.64
+> ### (2025-04-04)
+> 
+> * Update aws/aws-cli to v2.25.11 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.63
+> ### (2025-04-04)
+> 
+> * Update aws/aws-cli to v2.25.10 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.62
+> ### (2025-04-04)
+> 
+> * Update actions/create-github-app-token action to v2.0.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.61
+> ### (2025-04-03)
+> 
+> * Update actions/create-github-app-token action to v2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.60
+> ### (2025-04-03)
+> 
+> * Update balena-io/balena-cli to v21.1.8 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.59
+> ### (2025-04-03)
+> 
+> * Update balena-os/leviathan action to v2.31.100 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.58
+> ### (2025-04-02)
+> 
+> * Update balena-io/balena-cli to v21.1.4 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.57
+> ### (2025-04-01)
+> 
+> * Update balena-os/leviathan action to v2.31.97 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.56
+> ### (2025-04-01)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.55
+> ### (Invalid date)
+> 
+> * Update aws/aws-cli to v2.25.6 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.54
+> ### (2025-03-29)
+> 
+> * Update balena-io/balena-cli to v21.1.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.53
+> ### (2025-03-28)
+> 
+> * Update easimon/maximize-build-space digest to c28619d [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.52
+> ### (2025-03-28)
+> 
+> * Update aws/aws-cli to v2.25.5 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.51
+> ### (2025-03-28)
+> 
+> * Update balena-os/leviathan action to v2.31.96 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.50
+> ### (2025-03-28)
+> 
+> * Leviathan: Allow specifying alternative image to test [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.31.49
+> ### (2025-03-27)
+> 
+> * Update actions/create-github-app-token action to v1.12.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.48
+> ### (2025-03-27)
+> 
+> * Update balena-io/balena-cli to v21.1.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.47
+> ### (2025-03-27)
+> 
+> * Update balena-io/balena-cli to v21.1.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.46
+> ### (2025-03-26)
+> 
+> * Update aws/aws-cli to v2.25.4 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.45
+> ### (2025-03-26)
+> 
+> * Update balena-os/leviathan action to v2.31.95 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.44
+> ### (2025-03-26)
+> 
+> * Update tespkg/actions-cache action to v1.8.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.43
+> ### (2025-03-25)
+> 
+> * Update balena-os/leviathan action to v2.31.94 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.42
+> ### (2025-03-24)
+> 
+> * Update aws/aws-cli to v2.25.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.41
+> ### (2025-03-20)
+> 
+> * Update aws/aws-cli to v2.25.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.40
+> ### (2025-03-20)
+> 
+> * Update actions/create-github-app-token action to v1.11.7 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.39
+> ### (2025-03-20)
+> 
+> * Update aws/aws-cli to v2.24.27 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.38
+> ### (2025-03-20)
+> 
+> * Update balena-os/leviathan action to v2.31.93 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.37
+> ### (2025-03-19)
+> 
+> * Update actions/download-artifact digest to 95815c3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.36
+> ### (2025-03-19)
+> 
+> * Update balena-os/leviathan action to v2.31.91 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.35
+> ### (2025-03-19)
+> 
+> * Update actions/upload-artifact action to v4.6.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.34
+> ### (2025-03-19)
+> 
+> * Update product-os/review-commit-action action to v0.2.5 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.33
+> ### (2025-03-18)
+> 
+> * Update aws/aws-cli to v2.24.26 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.32
+> ### (2025-03-18)
+> 
+> * Update actions/download-artifact digest to b14cf4c [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.31
+> ### (2025-03-17)
+> 
+> * Update aws/aws-cli to v2.24.25 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.30
+> ### (2025-03-17)
+> 
+> * Update product-os/review-commit-action action to v0.2.4 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.29
+> ### (2025-03-14)
+> 
+> * Update aws/aws-cli to v2.24.24 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.28
+> ### (2025-03-14)
+> 
+> * Update docker/login-action action to v3.4.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.27
+> ### (2025-03-13)
+> 
+> * Update aws/aws-cli to v2.24.23 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.26
+> ### (2025-03-12)
+> 
+> * Update balena-io/balena-cli to v21.1.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.25
+> ### (2025-03-11)
+> 
+> * Update aws/aws-cli to v2.24.22 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.24
+> ### (2025-03-11)
+> 
+> * Update balena-io/balena-cli to v21 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.23
+> ### (2025-03-11)
+> 
+> * workflows: yocto-build-deploy: pass device type to build [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.31.22
+> ### (2025-03-10)
+> 
+> * Update aws/aws-cli to v2.24.21 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.21
+> ### (2025-03-10)
+> 
+> * Update balena-io/balena-cli to v20.2.10 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.20
+> ### (2025-03-10)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.19
+> ### (2025-03-07)
+> 
+> * Update aws/aws-cli to v2.24.20 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.18
+> ### (2025-03-07)
+> 
+> * Update product-os/review-commit-action action to v0.2.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.17
+> ### (2025-03-07)
+> 
+> * Update product-os/review-commit-action action to v0.2.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.16
+> ### (2025-03-06)
+> 
+> * Update aws/aws-cli to v2.24.19 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.15
+> ### (2025-03-05)
+> 
+> * Update aws/aws-cli to v2.24.18 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.14
+> ### (2025-03-04)
+> 
+> * Update aws/aws-cli to v2.24.17 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.13
+> ### (2025-03-04)
+> 
+> * Add signing environment to All Jobs context [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.31.12
+> ### (2025-03-03)
+> 
+> * Update aws/aws-cli to v2.24.16 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.11
+> ### (2025-03-03)
+> 
+> * Update product-os/review-commit-action action to v0.2.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.10
+> ### (2025-03-03)
+> 
+> * Update aws-actions/configure-aws-credentials action to v4.1.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.9
+> ### (2025-03-03)
+> 
+> * Update aws/aws-cli to v2.24.15 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.8
+> ### (2025-03-03)
+> 
+> * Update balena-io/balena-cli to v20.2.9 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.7
+> ### (2025-03-03)
+> 
+> * Update actions/create-github-app-token action to v1.11.6 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.6
+> ### (2025-03-03)
+> 
+> * Update aws/aws-cli to v2.22.35 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.5
+> ### (2025-03-02)
+> 
+> * Update actions/download-artifact digest to cc20338 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.4
+> ### (2025-03-02)
+> 
+> * Unpack all artifacts for S3 upload [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.31.3
+> ### (2025-02-28)
+> 
+> * Rename build environment to signing environment [Kyle Harding]
+> * Do not allow changing the S3 deploy environment [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.31.2
+> ### (2025-02-27)
+> 
+> * Unset the new environment inputs until they have been deployed [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.31.1
+> ### (2025-02-27)
+> 
+> * Update Pin dependencies [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.31.0
+> ### (2025-02-27)
+> 
+> * Remove balena API key from yocto build step [Kyle Harding]
+> * Separate build jobs by environments [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.30.36
+> ### (2025-02-26)
+> 
+> * Update product-os/review-commit-action action to v0.1.12 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.35
+> ### (2025-02-26)
+> 
+> * Update balena-os/leviathan action to v2.31.90 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.34
+> ### (2025-02-25)
+> 
+> * Update product-os/review-commit-action action to v0.1.11 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.33
+> ### (2025-02-24)
+> 
+> * Remove legacy yocto NFS cache host setup [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.30.32
+> ### (2025-02-21)
+> 
+> * Update actions/upload-artifact action to v4.6.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.31
+> ### (2025-02-21)
+> 
+> * barys: build unique machine-image combinations [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.30.30
+> ### (2025-02-17)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.29
+> ### (2025-02-15)
+> 
+> * Update actions/create-github-app-token action to v1.11.5 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.28
+> ### (2025-02-11)
+> 
+> * Update aws-actions/configure-aws-credentials action to v4.1.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.27
+> ### (2025-02-06)
+> 
+> * Update balena-os/leviathan action to v2.31.89 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.26
+> ### (2025-02-06)
+> 
+> * Update actions/create-github-app-token action to v1.11.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.25
+> ### (2025-02-06)
+> 
+> * generate-oscontracts: remove sw.os-image selector [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.30.24
+> ### (2025-02-03)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.23
+> ### (2025-02-01)
+> 
+> * Update actions/create-github-app-token action to v1.11.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.22
+> ### (2025-01-28)
+> 
+> * Update balena-os/leviathan action to v2.31.87 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.21
+> ### (2025-01-27)
+> 
+> * Update aws-actions/configure-aws-credentials action to v4.0.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.20
+> ### (2025-01-26)
+> 
+> * Update balena-os/leviathan action to v2.31.86 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.19
+> ### (2025-01-24)
+> 
+> * Update balena-os/leviathan action to v2.31.85 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.18
+> ### (2025-01-23)
+> 
+> * barys: allow to specify custom templates paths directly [Alex Gonzalez]
+> * generate-conf-notes: simplify arguments [Alex Gonzalez]
+> * barys: do not build duplicated machines [Alex Gonzalez]
+> * workflows: yocto-build-deploy: distinguish machine from slug [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.30.17
+> ### (2025-01-20)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.16
+> ### (2025-01-13)
+> 
+> * workflows: yocto-build-deploy: allow to pass barys arguments [Alex Gonzalez]
+> * barys: allow for custom templates [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.30.15
+> ### (2025-01-13)
+> 
+> * revert to building secure boot with cache [Alex Gonzalez]
+> * workflows: yocto-build-deploy: allow to override SIGN_GRUB_KEY_ID [Alex Gonzalez]
+> * workflows: yocto-build-deploy: add PKI signing key ID [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.30.14
+> ### (2025-01-10)
+> 
+> * Update actions/upload-artifact action to v4.6.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.13
+> ### (2025-01-10)
+> 
+> * workflows: yocto-build-deploy: add SSH key to environment [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.30.12
+> ### (2025-01-09)
+> 
+> * Update balena-os/leviathan action to v2.31.83 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.11
+> ### (2025-01-09)
+> 
+> * Update balena-os/leviathan action to v2.31.82 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.10
+> ### (2025-01-09)
+> 
+> * Update tespkg/actions-cache action to v1.7.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.9
+> ### (2025-01-09)
+> 
+> * Update balena-os/leviathan action to v2.31.81 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.8
+> ### (2025-01-09)
+> 
+> * Upload yocto build logs even on failure [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.30.7
+> ### (2025-01-06)
+> 
+> * Update balena-os/leviathan action to v2.31.79 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.6
+> ### (2025-01-06)
+> 
+> * Update balena-os/leviathan action to v2.31.78 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.5
+> ### (2025-01-06)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.4
+> ### (Invalid date)
+> 
+> * Update actions/create-github-app-token action to v1.11.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.3
+> ### (Invalid date)
+> 
+> * Update balena-os/leviathan action to v2.31.77 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.2
+> ### (2024-12-20)
+> 
+> * Update actions/upload-artifact action to v4.5.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.1
+> ### (2024-12-19)
+> 
+> * Update balena-os/leviathan action to v2.31.76 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.30.0
+> ### (2024-12-19)
+> 
+> * Append to MIRRORS instead of PREMIRRORS to limit egress [Kyle Harding]
+> * Use dedicated AWS S3 buckets for download mirrors [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.29.10
+> ### (2024-12-19)
+> 
+> * Update balena-os/leviathan action to v2.31.75 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.29.9
+> ### (2024-12-19)
+> 
+> * Update balena-os/leviathan action to v2.31.73 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.29.8
+> ### (2024-12-18)
+> 
+> * Update balena-os/leviathan action to v2.31.72 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.29.7
+> ### (2024-12-17)
+> 
+> * Unset AWS credentials to avoid overriding MinIO credentials [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.29.6
+> ### (2024-12-17)
+> 
+> * Update balena-os/leviathan action to v2.31.71 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.29.5
+> ### (2024-12-16)
+> 
+> * Remove hostapp creation step [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.29.4
+> ### (2024-12-14)
+> 
+> * Compress artifacts with gzip and zstd before encrypting [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.29.3
+> ### (2024-12-13)
+> 
+> * Update Pin dependencies [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.29.2
+> ### (2024-12-13)
+> 
+> * Update balena-os/leviathan action to v2.31.70 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.29.1
+> ### (2024-12-13)
+> 
+> * re-enable AMI deploys [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.29.0
+> ### (2024-12-13)
+> 
+> * Use S3 sstate cache on self-hosted runners [Kyle Harding]
+> * Sync shared downloads to S3 to use as a sources mirror [Kyle Harding]
+> * Sync the shared sstate to github actions cache [Kyle Harding]
+> * Use legacy yocto NFS cache as a source mirror [Kyle Harding]
+> * Enable mirror tarballs bitbake feature [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.28.1
+> ### (2024-12-10)
+> 
+> * Update balena-os/leviathan action to v2.31.69 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.28.0
+> ### (2024-12-09)
+> 
+> * Update the App Id and Private Key for ephemeral app tokens [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.27.20
+> ### (2024-12-09)
+> 
+> * barys: add support for scarthgap [Joseph Kogut]
+> * barys: make honister+ syntax default [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.27.19
+> ### (2024-12-07)
+> 
+> * Update balena-os/leviathan action to v2.31.68 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.27.18
+> ### (2024-12-07)
+> 
+> * Update balena-os/leviathan action to v2.31.67 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.27.17
+> ### (2024-12-04)
+> 
+> * Update balena-os/leviathan action to v2.31.66 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.1.18+rev3
+## (2025-04-30)
+
+* Re-enable generation of kernel modules headers [Florin Sarbu]
+* Use nonarch_base_libdir to install files in /usr/lib instead of /lib for the bluetooth-broadcom recipe [Florin Sarbu]
+* Use nonarch_base_libdir to install files in /usr/lib instead of /lib for the rkwifibt-firmware recipe [Florin Sarbu]
+
+# v6.1.18+rev2
+## (2025-01-07)
+
+
+<details>
+<summary> Update contracts to b7d2bb88f3e7ca1aca02c0da5f358aaef4308189 [balena-renovate[bot]] </summary>
+
+> ## contracts-2.0.124
+> ### (2025-01-07)
+> 
+> * sw.os+hw.device-type: Add Forecr DSB Orin Nano 8GB and Orin NX 16GB distro tpl files [Alexandru Costache]
+> * forecr-dsb-ornx-lan-orin-nx-16gb: Add new public device type [Alexandru Costache]
+> 
+
+</details>
+
+# v6.1.18+rev1
+## (2025-01-06)
+
+
+<details>
+<summary> Update contracts to 44bbd40a79c8ec2c55db8a1b46cf7ad4c8262d78 [balena-renovate[bot]] </summary>
+
+> ## contracts-2.0.123
+> ### (2025-01-02)
+> 
+> * Forecr DSB ORNX: Update device name [Alexandru]
+> 
+> ## contracts-2.0.122
+> ### (2024-12-23)
+> 
+> * hw.device-type: add Forecr DSB ORNX entries [Alex Suykov]
+> 
+> ## contracts-2.0.121
+> ### (2024-12-18)
+> 
+> * hw.device-type: Fix compatibility with existing sdk structure [Alexandru Costache]
+> 
+> ## contracts-2.0.120
+> ### (2024-12-18)
+> 
+> * add eg5120-imx8mp contract [Ryan Cooke]
+> 
+> ## contracts-2.0.119
+> ### (2024-12-16)
+> 
+> * contracts/hw.device-type: Update instructions for Orin flasher types [Alexandru Costache]
+> 
+> ## contracts-2.0.118
+> ### (2024-12-04)
+> 
+> * hw.device-type: update logo for nitrogen8M Mini [Jonathan Berger]
+> 
+
+</details>
+
+# v6.1.18
+## (2024-12-03)
+
+
+<details>
+<summary> Update layers/meta-balena to 71b571836a27879545d0fbe42fc2803d829a4f02 [balena-renovate[bot]] </summary>
+
+> ## meta-balena-6.1.18
+> ### (2024-12-03)
+> 
+> * Explicitly set GITHUB_TOKEN permissions for yocto workflow [Ryan Cooke]
+> 
+
+</details>
+
+# v6.1.17
+## (2024-12-02)
+
+
+<details>
+<summary> Update layers/meta-balena to b6d27b0d06a7be0f47e42173627bdb8102938a52 [balena-renovate[bot]] </summary>
+
+> ## meta-balena-6.1.17
+> ### (2024-12-02)
+> 
+> * resin-init-flasher: adapt EFI snippets to non-LUKS devices support [Alex Gonzalez]
+> * balena-config-vars: adapt to flasher non-LUKS device support [Alex Gonzalez]
+> * resin-init-flasher: add default LUKS configuration [Alex Gonzalez]
+> * hostapp-update-hooks: replace the identification of encrypted partitions [Alex Gonzalez]
+> 
+
+</details>
+
+# v6.1.16+rev1
+## (2024-11-29)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 3eebec1f898038f5bbee0fcccb62b7178db2ef47 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.27.16
+> ### (2024-11-29)
+> 
+> * Set additional github token permissions [Ryan Cooke]
+> 
+
+</details>
+
+# v6.1.16
+## (2024-11-29)
+
+
+<details>
+<summary> Update layers/meta-balena to 229a6ad1da498c4ce8aaa17501ddad3e99806f08 [balena-renovate[bot]] </summary>
+
+> ## meta-balena-6.1.16
+> ### (2024-11-27)
+> 
+> * classes/kernel-balena: Add aufs patches for 6.1 kernels [Florin Sarbu]
+> 
+
+</details>
+
+# v6.1.15+rev4
+## (2024-11-29)
+
+* Explicitly set GITHUB_TOKEN permissions for yocto workflow [Ryan Cooke]
+
+# v6.1.15+rev3
+## (2024-11-27)
+
+
+<details>
+<summary> Update contracts to 01757392e1088465b996fb9e92e1b6ab8a45d3b1 [balena-renovate[bot]] </summary>
+
+> ## contracts-2.0.117
+> ### (2024-11-25)
+> 
+> * hw.device-type: Rename Seeed J3010 and J4012 to include module name [Alexandru Costache]
+> 
+> ## contracts-2.0.116
+> ### (2024-10-17)
+> 
+> * Add alpine 3.20 [Otavio Jacobi]
+> 
+> ## contracts-2.0.115
+> ### (2024-10-17)
+> 
+> * Add alpine 3.19 [Otavio Jacobi]
+> 
+> ## contracts-2.0.114
+> ### (2024-10-09)
+> 
+> * sw.os+hw.device-type: Update all Orin devices to r36.3 in sources.list [Alexandru Costache]
+> * hw.device-type: Remove superfluous instructions for beagleplay [Alexandru]
+> 
+
+</details>
+
+# v6.1.15+rev2
+## (2024-11-27)
+
+* Update balena-os/balena-yocto-scripts to v1.27.15 [balena-renovate[bot]]
+
+# v6.1.15+rev1
+## (2024-11-27)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 05b373abd099d1862fdff51e96b0122940505756 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.27.15
+> ### (2024-11-23)
+> 
+> * Update balena-os/leviathan action to v2.31.65 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.27.14
+> ### (2024-11-20)
+> 
+> * Update balena-os/leviathan action to v2.31.62 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.27.13
+> ### (2024-11-18)
+> 
+> * Explicitly set GH_TOKEN permissions [Anton Belodedenko]
+> 
+> ## balena-yocto-scripts-1.27.12
+> ### (2024-11-18)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.27.11
+> ### (2024-11-17)
+> 
+> * github/workflows/yocto-build-deploy.yml: Add hostapp metadata to OS release [Florin Sarbu]
+> 
+> ## balena-yocto-scripts-1.27.10
+> ### (2024-11-11)
+> 
+> * Set explicit permissions at the job level [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.27.9
+> ### (2024-11-11)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.27.8
+> ### (2024-11-04)
+> 
+> * Update product-os/review-commit-action action to v0.1.7 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.27.7
+> ### (2024-11-04)
+> 
+> * Update Pin product-os/review-commit-action action to 81db18c [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.27.6
+> ### (2024-11-04)
+> 
+> * Use official aws cli binaries and commands [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.27.5
+> ### (2024-11-04)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.27.4
+> ### (2024-11-01)
+> 
+> * Update actions/checkout action to v4.2.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.27.3
+> ### (2024-10-29)
+> 
+> * Add pull request write permissions for workflow approvals [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.27.2
+> ### (2024-10-23)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.27.1
+> ### (2024-10-23)
+> 
+> * remove CLI check if not deploying [rcooke-warwick]
+> 
+> ## balena-yocto-scripts-1.27.0
+> ### (2024-10-23)
+> 
+> * add review-commit-action to wait for approvals on PRT events [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.26.0
+> ### (2024-10-15)
+> 
+> * Expose secure boot testing features via matrix input [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.25.63
+> ### (2024-10-11)
+> 
+> * Update balena-os/leviathan action to v2.31.60 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.62
+> ### (2024-10-11)
+> 
+> * Fix concurrency and cancel in progress contexts [Kyle Harding]
+> 
+
+</details>
+
+# v6.1.15
+## (2024-11-26)
+
+
+<details>
+<summary> Update layers/meta-balena to 1f2c1fb81b4845d841c216a0319193ee56cc151e [balena-renovate[bot]] </summary>
+
+> ## meta-balena-6.1.15
+> ### (2024-11-26)
+> 
+> * initrdscripts/migrate: Allow overriding of target internal devices [Alexandru Costache]
+> 
+> ## meta-balena-6.1.14
+> ### (2024-11-23)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 64ba6a3 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.65
+>> #### (2024-11-23)
+>> 
+>> * Update balena-os/leviathan-worker to v2.9.50 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.64
+>> #### (2024-11-23)
+>> 
+>> * Update core/contracts digest to 88fb8ad [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.63
+>> #### (2024-11-23)
+>> 
+>> * Update balena-io/balena-cli to v20 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.1.13
+> ### (2024-11-22)
+> 
+> * u-boot: env_resin: fix use of skip bootcount [Alex Gonzalez]
+> * initrdscripts: migrate: panic on installation failure [Alex Gonzalez]
+> 
+> ## meta-balena-6.1.12
+> ### (2024-11-21)
+> 
+> * balena-os: allow to specify early console for OS development builds [Alex Gonzalez]
+> 
+> ## meta-balena-6.1.11
+> ### (2024-11-20)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to ae505eb [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.62
+>> #### (2024-11-20)
+>> 
+>> * Update actions/checkout digest to 11bd719 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.61
+>> #### (2024-11-20)
+>> 
+>> * Update balena-io/balena-cli to v19.16.0 [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.1.10
+> ### (2024-11-15)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v16.7.7 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-16.7.7
+>> #### (2024-11-11)
+>> 
+>> * Firewall: allow DNS requests from custom Docker bridge networks [Christina Ying Wang]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.1.9
+> ### (2024-11-15)
+> 
+> * Update actions/setup-python digest to 0b93645 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.1.8
+> ### (2024-11-15)
+> 
+> * recipes-kernel/linux-firmware: Package Intel AX210 firmware [Alexandru Costache]
+> 
+> ## meta-balena-6.1.7
+> ### (2024-11-13)
+> 
+> * Update actions/checkout digest to 11bd719 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.1.6
+> ### (2024-11-13)
+> 
+> * Update balena-os/balena-yocto-scripts action to v1.27.10 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.1.5
+> ### (2024-11-13)
+> 
+> * recipes-support/os-fan-profile: Don't print logs unless configured [Alexandru Costache]
+> * Update tests/leviathan digest to 8234f44 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.1.4
+> ### (2024-11-12)
+> 
+> * os: test for rootfs by-state link uniqueness [Joseph Kogut]
+> * common: fix udev helper by-state link creation [Joseph Kogut]
+> 
+> ## meta-balena-6.1.3
+> ### (2024-11-11)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v16.7.6 [balena-renovate[bot]] </summary>
+> 
+>> ### balena-supervisor-16.7.6
+>> #### (2024-11-07)
+>> 
+>> * Update firewall documentation [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-16.7.5
+>> #### (2024-11-07)
+>> 
+>> * Delete apps not in target from db by appUuid instead of appId [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-16.7.4
+>> #### (2024-10-28)
+>> 
+>> * Update express to v4.20.0 [SECURITY] [balena-renovate[bot]]
+>> 
+>> ### balena-supervisor-16.7.3
+>> #### (2024-10-28)
+>> 
+>> * Add NXP support to balenaOS secure boot [Alex Gonzalez]
+>> 
+>> ### balena-supervisor-16.7.2
+>> #### (2024-10-18)
+>> 
+>> * Use bookworm image to source journalctl binaries [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-16.7.1
+>> #### (2024-09-26)
+>> 
+>> * Add support for init field from compose [Christina Ying Wang]
+>> 
+>> ### balena-supervisor-16.7.0
+>> #### (2024-09-02)
+>> 
+>> * Store rejected apps in the database [Felipe Lalanne]
+>> * Set the app update status when reporting state [Felipe Lalanne]
+>> * Add update status to types [Felipe Lalanne]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.1.2
+> ### (2024-11-11)
+> 
+> * modemmanager: Update outdated context of patches [Florin Sarbu]
+> 
+> ## meta-balena-6.1.1
+> ### (2024-11-07)
+> 
+> * README: format the supported Yocto versions for legibility [Alex Gonzalez]
+> * Extend README to add balena bootloader [Alex Gonzalez]
+> 
+> ## meta-balena-6.1.0
+> ### (2024-11-01)
+> 
+> * Add auth. header to /os/v1/config requests [Anton Belodedenko]
+> 
+> ## meta-balena-6.0.50
+> ### (2024-10-26)
+> 
+> * tests: secureboot: add test to ensure partition integrity [Joseph Kogut]
+> 
+
+</details>
+
+# v6.0.49
+## (2024-10-25)
+
+
+<details>
+<summary> Update layers/meta-balena to 1f8d8cd8886b4e78762eb491eb5b00be6400ad4d [balena-renovate[bot]] </summary>
+
+> ## meta-balena-6.0.49
+> ### (2024-10-25)
+> 
+> * tests/os: Add Jetson Orin device-specific fan and power mode smoke tests [Alexandru Costache]
+> 
+> ## meta-balena-6.0.48
+> ### (2024-10-24)
+> 
+> * os-helpers-fs: introduce a script to split boot partitions [Alex Gonzalez]
+> * os-helpers-fs: add a shared script to deploy non-encrypted boot file [Alex Gonzalez]
+> * systemd: disable systemd-gpt-generator [Alex Gonzalez]
+> * resin-mounts: generalize non-enc boot partition mounter [Alex Gonzalez]
+> * classes: kernel-balena: do not remove whole build directory [Alex Gonzalez]
+> * efitools: Fix syntax [Alex Gonzalez]
+> 
+> ## meta-balena-6.0.47
+> ### (2024-10-21)
+> 
+> * hostapp-update-hooks: remove alternative bootloader environment files [Alex Gonzalez]
+> 
+> ## meta-balena-6.0.46
+> ### (2024-10-19)
+> 
+> * balena-units-conf: Add os-fan-profile to units conf [Alexandru Costache]
+> 
+
+</details>
+
+# v6.0.45
+## (2024-10-18)
+
+
+<details>
+<summary> Update layers/meta-balena to 87424b9f02968562b06c0fdd360262b481e519ae [balena-renovate[bot]] </summary>
+
+> ## meta-balena-6.0.45
+> ### (2024-10-18)
+> 
+> * workflows/meta-balena-esr: fix version creation bash [Ryan Cooke]
+> 
+> ## meta-balena-6.0.44
+> ### (2024-10-10)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to cf58b57 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.59
+>> #### (2024-10-10)
+>> 
+>> * add secureboot identifier into report name [Ryan Cooke]
+>> 
+>> ### leviathan-2.31.58
+>> #### (2024-10-10)
+>> 
+>> * Update core/contracts digest to 5ac053b [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.57
+>> #### (2024-10-10)
+>> 
+>> * Update actions/upload-artifact digest to b4b15b8 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.56
+>> #### (2024-10-09)
+>> 
+>> * compose: map qemu volume into worker [Joseph Kogut]
+>> 
+>> ### leviathan-2.31.55
+>> #### (2024-10-08)
+>> 
+>> * Update actions/upload-artifact digest to 8448086 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.54
+>> #### (2024-10-08)
+>> 
+>> * Update balena-io/balena-cli to v19.0.18 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.53
+>> #### (2024-10-08)
+>> 
+>> * Update actions/checkout digest to eef6144 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.52
+>> #### (2024-10-08)
+>> 
+>> * Update balena-io/balena-cli to v19.0.17 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.51
+>> #### (2024-10-07)
+>> 
+>> * Update actions/upload-artifact digest to 604373d [balena-renovate[bot]]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.0.43
+> ### (2024-10-10)
+> 
+> * initrdscripts: Wait for boot partition in the abroot script [Michal Toman]
+> 
+> ## meta-balena-6.0.42
+> ### (2024-10-09)
+> 
+> * flasher: improve logging with secure boot [Joseph Kogut]
+> 
+> ## meta-balena-6.0.41
+> ### (2024-10-09)
+> 
+> * Update balena-os/balena-yocto-scripts action to v1.25.59 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.0.40
+> ### (2024-10-08)
+> 
+> * os-helpers-efi: silence secure boot variable checks [Joseph Kogut]
+> * os-helpers-efi: silence od stderr [Joseph Kogut]
+> 
+> ## meta-balena-6.0.39
+> ### (2024-10-07)
+> 
+> * tests: hup: login with sdk before fetching image [Ryan Cooke]
+> 
+> ## meta-balena-6.0.38
+> ### (2024-10-04)
+> 
+> * tpm2: ensure auth session contexts are flushed after use [Joseph Kogut]
+> 
+> ## meta-balena-6.0.37
+> ### (2024-10-04)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 3a1a989 [balena-renovate[bot]] </summary>
+> 
+>> ### leviathan-2.31.50
+>> #### (2024-10-04)
+>> 
+>> * Update ubuntu to v24 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.49
+>> #### (2024-10-04)
+>> 
+>> * Update docker/setup-buildx-action digest to c47758b [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.48
+>> #### (2024-10-03)
+>> 
+>> * Update balena-io/balena-cli to v19.0.13 [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.47
+>> #### (2024-10-03)
+>> 
+>> * Update docker/setup-buildx-action digest to 8026d2b [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.46
+>> #### (2024-10-03)
+>> 
+>> * Update core/contracts digest to 1fb0b0c [balena-renovate[bot]]
+>> 
+>> ### leviathan-2.31.45
+>> #### (2024-10-03)
+>> 
+>> * add .git to dockerignore [rcooke-warwick]
+>> * remove pull request target trigger from workflows [rcooke-warwick]
+>> 
+> 
+> </details>
+> 
+> 
+> ## meta-balena-6.0.36
+> ### (2024-10-01)
+> 
+> * Update balena-os/balena-yocto-scripts action to v1.25.49 [balena-renovate[bot]]
+> 
+> ## meta-balena-6.0.35
+> ### (Invalid date)
+> 
+> * tests: cloud: prevent hanging in cloud suite teardown [rcooke-warwick]
+> 
+> ## meta-balena-6.0.34
+> ### (2024-09-27)
+> 
+> * CI: Update checkout settings [Pagan Gazzard]
+> 
+
+</details>
+
+# v6.0.33+rev4
+## (2024-10-10)
+
+
+<details>
+<summary> Update balena-yocto-scripts to b5db1b7f9267c3dcbe515e2841747ef3a0409278 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.25.61
+> ### (2024-10-10)
+> 
+> * Update balena-os/leviathan action to v2.31.59 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.60
+> ### (2024-10-09)
+> 
+> * Update actions/upload-artifact action to v4.4.3 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.59
+> ### (2024-10-09)
+> 
+> * Update actions/upload-artifact action to v4.4.2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.58
+> ### (2024-10-09)
+> 
+> * Update balena-os/leviathan action to v2.31.56 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.57
+> ### (2024-10-08)
+> 
+> * Update balena-os/leviathan action to v2.31.54 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.56
+> ### (2024-10-07)
+> 
+> * Update actions/upload-artifact action to v4.4.1 [balena-renovate[bot]]
+> 
+
+</details>
+
+# v6.0.33+rev3
+## (2024-10-08)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 6d5800219967b58c9b63d1ddef1b7b29f652b7b6 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.25.55
+> ### (2024-10-07)
+> 
+> * Update balena-os/leviathan action to v2.31.51 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.54
+> ### (2024-10-07)
+> 
+> * Update actions/checkout action to v4.2.1 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.53
+> ### (2024-10-07)
+> 
+> * fix balena deploy quotes [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.25.52
+> ### (2024-10-07)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.51
+> ### (2024-10-04)
+> 
+> * Update balena-os/leviathan action to v2.31.50 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.50
+> ### (2024-10-02)
+> 
+> * use github app installation token for device repository cloning [Ryan Cooke]
+> 
+> ## balena-yocto-scripts-1.25.49
+> ### (2024-10-01)
+> 
+> * Only attempt to decrypt if we have encrypted in the build step [Ryan Cooke]
+> * Fetch full depth in order to checkout custom meta-balena-refs [Kyle Harding]
+> * Encrypt balenaOS artifacts at rest in GitHub [Anton Belodedenko]
+> 
+> ## balena-yocto-scripts-1.25.48
+> ### (2024-10-01)
+> 
+> * Update actions/checkout action to v4.2.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.47
+> ### (Invalid date)
+> 
+> * patch: Stop persisting credentials in actions/checkout [Vipul Gupta (@vipulgupta2048)]
+> 
+> ## balena-yocto-scripts-1.25.46
+> ### (2024-09-27)
+> 
+> * use genericx86-64-ext image for testing the workflow [rcooke-warwick]
+> 
+
+</details>
+
+# v6.0.33+rev2
+## (2024-10-02)
+
+* Add GHA Built Test Deploy workflows [rcooke-warwick]
+
+# v6.0.33+rev1
+## (2024-09-23)
 
 
 <details>
@@ -60,16 +7628,127 @@ Change log
 > * fix check of finalize value [rcooke-warwick]
 > * Improve checking of previous test results [Kyle Harding]
 > 
+> ## balena-yocto-scripts-1.25.44
+> ### (2024-09-18)
+> 
+> * Update balena-os/leviathan action to v2.31.44 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.43
+> ### (2024-09-18)
+> 
+> * Update balena-os/leviathan action to v2.31.43 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.42
+> ### (2024-09-18)
+> 
+> * only upload artifacts when test_matrix is defined [rcooke-warwick]
+> 
+> ## balena-yocto-scripts-1.25.41
+> ### (2024-09-12)
+> 
+> * Update balena-os/leviathan action to v2.31.40 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.40
+> ### (2024-09-12)
+> 
+> * Update balena-os/leviathan action to v2.31.37 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.39
+> ### (2024-09-11)
+> 
+> * Update actions/create-github-app-token action to v1.11.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.38
+> ### (2024-09-09)
+> 
+> * Include semver when bumping leviathan action [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.25.37
+> ### (2024-09-05)
+> 
+> * Update balena-os/leviathan digest to 8fb47f2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.36
+> ### (2024-09-05)
+> 
+> * Update balena-os/leviathan digest to 5db2b5d [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.35
+> ### (2024-09-04)
+> 
+> * Update balena-os/leviathan digest to da52396 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.34
+> ### (2024-09-04)
+> 
+> * Update actions/create-github-app-token action to v1.10.4 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.33
+> ### (2024-09-02)
+> 
+> * Update balena-os/leviathan digest to d8572e2 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.32
+> ### (2024-09-02)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.31
+> ### (2024-09-01)
+> 
+> * Update actions/upload-artifact action to v4.4.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.30
+> ### (2024-09-01)
+> 
+> * Update balena-os/leviathan digest to ff6a079 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.29
+> ### (2024-09-01)
+> 
+> * Restrict runners via yocto label, not 16cpu [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.25.28
+> ### (Invalid date)
+> 
+> * checkout private contracts for test job [rcooke-warwick]
+> 
+> ## balena-yocto-scripts-1.25.27
+> ### (2024-08-29)
+> 
+> * use apt-get to install s4cmd instead of pip [rcooke-warwick]
+> 
+> ## balena-yocto-scripts-1.25.26
+> ### (2024-08-27)
+> 
+> * Fix if condition for checking merge commit test results [rcooke-warwick]
+> 
 
 </details>
 
-# v6.0.30
-## (2024-09-19)
+# v6.0.33
+## (2024-09-23)
 
 
 <details>
-<summary> Update layers/meta-balena to 9a9378bb245dbf1de3aca1fe69b92bb4d462e087 [balena-renovate[bot]] </summary>
+<summary> Update layers/meta-balena to f2c72d6bbd312821f0bb97897fe7836c525950f7 [balena-renovate[bot]] </summary>
 
+> ## meta-balena-6.0.33
+> ### (2024-09-22)
+> 
+> * Override the default commit body for digest updates [Kyle Harding]
+> 
+> ## meta-balena-6.0.32
+> ### (2024-09-21)
+> 
+> * kernel-headers-test: update dockerfile to bullseye [Alex Gonzalez]
+> 
+> ## meta-balena-6.0.31
+> ### (2024-09-20)
+> 
+> * mkfs-hostapp-native: update Dockerfile to using trixie [Alex Gonzalez]
+> * meta-balena-rust: rust-llvm: backport a fix for build with gcc-13 [Alex Gonzalez]
+> 
 > ## meta-balena-6.0.30
 > ### (2024-09-18)
 > 
@@ -86,106 +7765,21 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v6.0.29+rev2
-## (2024-09-19)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 659a7ebd075bb77fb46422d377a68458acbc646d [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.44
-> ### (2024-09-18)
-> 
-> * Update balena-os/leviathan action to v2.31.44 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.29+rev1
-## (2024-09-18)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 18a3783b983fcb706390a59c3287a071bcacf485 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.43
-> ### (2024-09-18)
-> 
-> * Update balena-os/leviathan action to v2.31.43 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.29
-## (2024-09-18)
-
-
-<details>
-<summary> Update layers/meta-balena to c702e9376d4424d8df32dff465a4e17ebdf009a9 [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.29
 > ### (2024-09-18)
 > 
 > * modemmanager: Fix SIM7100E crash [Florin Sarbu]
 > 
-
-</details>
-
-# v6.0.28+rev1
-## (2024-09-18)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 8082486ee52f464cb11d9c7abc2c3654445087b3 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.42
-> ### (2024-09-18)
-> 
-> * only upload artifacts when test_matrix is defined [rcooke-warwick]
-> 
-
-</details>
-
-# v6.0.28
-## (2024-09-18)
-
-
-<details>
-<summary> Update layers/meta-balena to 7c61b0f1e4af295d412a00d7965b106f4922d4f0 [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.28
 > ### (2024-09-18)
 > 
 > * initrdscripts: replace cut by awk for parsing lsblk in cryptsetup hook [Michal Toman]
 > 
-
-</details>
-
-# v6.0.27
-## (2024-09-17)
-
-
-<details>
-<summary> Update layers/meta-balena to 4beee6b7c22d2950e4d49c620c1a5fbea7a36f02 [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.27
 > ### (2024-09-17)
 > 
 > * tests:os: Use writeConfigJsonProp helper function [Kyle Harding]
 > 
-
-</details>
-
-# v6.0.26
-## (2024-09-17)
-
-
-<details>
-<summary> Update layers/meta-balena to 466cedd7e77f1d63c2d9ec1595f73cd103495d16 [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.26
 > ### (2024-09-16)
 > 
@@ -267,291 +7861,36 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v6.0.25
-## (2024-09-13)
-
-
-<details>
-<summary> Update layers/meta-balena to 743309ff6019a6b956ad21f73ced5ae5673f2b1b [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.25
 > ### (2024-09-13)
 > 
 > * initrdscripts: Make cryptsetup fail hard in unexpected conditions [Michal Toman]
 > 
-
-</details>
-
-# v6.0.24
-## (2024-09-13)
-
-
-<details>
-<summary> Update layers/meta-balena to 99684cda8ebe27dc5c5882ebc410b525d606b632 [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.24
 > ### (2024-09-13)
 > 
 > * common: fix return in commit_apply-dbx HUP hook [Joseph Kogut]
 > 
-
-</details>
-
-# v6.0.23+rev1
-## (2024-09-13)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 0684ef25f676baddd6c55a504b575776269588de [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.41
-> ### (2024-09-12)
-> 
-> * Update balena-os/leviathan action to v2.31.40 [balena-renovate[bot]]
-> 
-> ## balena-yocto-scripts-1.25.40
-> ### (2024-09-12)
-> 
-> * Update balena-os/leviathan action to v2.31.37 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.23
-## (2024-09-12)
-
-
-<details>
-<summary> Update layers/meta-balena to b81a2d7084cb519aa78b5d56a96ca571150df63b [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.23
 > ### (2024-09-12)
 > 
 > * tests:os: Avoid setting apiEndpoint for unmanaged tests [Kyle Harding]
 > 
-
-</details>
-
-# v6.0.22
-## (2024-09-12)
-
-
-<details>
-<summary> Update layers/meta-balena to c210599ad8e55675a29fe24800b7046eb260f397 [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.22
 > ### (2024-09-12)
 > 
 > * Update balena-os/balena-yocto-scripts action to v1.25.39 [balena-renovate[bot]]
 > 
-
-</details>
-
-# v6.0.21+rev9
-## (2024-09-12)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 80a157ec0c2ec3f5b8bc4f9041eb27f9e31233f7 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.39
-> ### (2024-09-11)
-> 
-> * Update actions/create-github-app-token action to v1.11.0 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.21+rev8
-## (2024-09-09)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 2fc3e95d8c64dd36f963fda5a2f770ef8cd350f0 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.38
-> ### (2024-09-09)
-> 
-> * Include semver when bumping leviathan action [Kyle Harding]
-> 
-
-</details>
-
-# v6.0.21+rev7
-## (2024-09-06)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 4f3072e342756e45ed206dc659f125b3ab000a59 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.37
-> ### (2024-09-05)
-> 
-> * Update balena-os/leviathan digest to 8fb47f2 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.21+rev6
-## (2024-09-05)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 0f0b5cc033b03b5535c13082000225f179a60758 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.36
-> ### (2024-09-05)
-> 
-> * Update balena-os/leviathan digest to 5db2b5d [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.21+rev5
-## (2024-09-04)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 511c58dfa068d2fab2c8340c7fc2f6edb12b2f09 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.35
-> ### (2024-09-04)
-> 
-> * Update balena-os/leviathan digest to da52396 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.21+rev4
-## (2024-09-04)
-
-
-<details>
-<summary> Update balena-yocto-scripts to df4ce150ec4c99fc78ce61f78d6efca4061e6adb [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.34
-> ### (2024-09-04)
-> 
-> * Update actions/create-github-app-token action to v1.10.4 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.21+rev3
-## (2024-09-02)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 99c07ec07449e1705be38f48c8fe6a914b5ecb3b [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.33
-> ### (2024-09-02)
-> 
-> * Update balena-os/leviathan digest to d8572e2 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.21+rev2
-## (2024-09-02)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 11f6becf05ead40e926a52022b9fca763b49eebe [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.32
-> ### (2024-09-02)
-> 
-> * Update Lock file maintenance [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.21+rev1
-## (2024-09-02)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 578161cba337cccf1a23a2b4b8a5f45cbb16abb2 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.31
-> ### (2024-09-01)
-> 
-> * Update actions/upload-artifact action to v4.4.0 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.21
-## (2024-09-01)
-
-
-<details>
-<summary> Update layers/meta-balena to 5310f76b1f409f6fc164ab3f307b381250ff8f5a [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.21
 > ### (2024-09-01)
 > 
 > * Update balena-os/balena-yocto-scripts action to v1.25.30 [balena-renovate[bot]]
 > 
-
-</details>
-
-# v6.0.20+rev2
-## (2024-09-01)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 654a03a6680847519b6d9a1de29c39eec2e0083b [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.30
-> ### (2024-09-01)
-> 
-> * Update balena-os/leviathan digest to ff6a079 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.20+rev1
-## (2024-09-01)
-
-
-<details>
-<summary> Update balena-yocto-scripts to cc1d2e4eec194181974a018588d154c41d7cd040 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.29
-> ### (2024-09-01)
-> 
-> * Restrict runners via yocto label, not 16cpu [Kyle Harding]
-> 
-
-</details>
-
-# v6.0.20
-## (2024-08-31)
-
-
-<details>
-<summary> Update layers/meta-balena to 5e5235368b985d34d1efbedb7ba95951b547dd1b [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.20
 > ### (2024-09-01)
 > 
 > * tests: config: restore both network options to false [Kyle Harding]
 > 
-
-</details>
-
-# v6.0.19
-## (2024-08-31)
-
-
-<details>
-<summary> Update layers/meta-balena to 782207a721f505e9e414c7a79259c407e2d6c445 [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.19
 > ### (2024-09-01)
 > 
@@ -578,31 +7917,11 @@ Change log
 > 
 > * Update balena-os/balena-yocto-scripts action to v1.25.28 [balena-renovate[bot]]
 > 
-
-</details>
-
-# v6.0.17
-## (2024-08-31)
-
-
-<details>
-<summary> Update layers/meta-balena to 4d52567497a62652b38bd7233097e7337516aacf [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.17
 > ### (2024-09-01)
 > 
 > * Update Pin balena-os/balena-yocto-scripts action to a3dfa26 [balena-renovate[bot]]
 > 
-
-</details>
-
-# v6.0.16
-## (2024-08-30)
-
-
-<details>
-<summary> Update layers/meta-balena to ff036025013fc850f9293e3ff590ea467543172f [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.16
 > ### (2024-08-29)
 > 
@@ -636,62 +7955,12 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v6.0.15+rev2
-## (2024-08-30)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 5c8805dcd0013ca3aab6ec82e094595ad8f6780b [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.28
-> ### (Invalid date)
-> 
-> * checkout private contracts for test job [rcooke-warwick]
-> 
-
-</details>
-
-# v6.0.15+rev1
-## (2024-08-29)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 6270e6a763450e7bd98e08b699dc22ea55a19bc5 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.27
-> ### (2024-08-29)
-> 
-> * use apt-get to install s4cmd instead of pip [rcooke-warwick]
-> 
-
-</details>
-
-# v6.0.15
-## (2024-08-29)
-
-
-<details>
-<summary> Update layers/meta-balena to 651d5bb6f5a5a437198bef1f188913a2ef68c7bd [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.15
 > ### (2024-08-29)
 > 
 > * remove up-board and cl-som-imx8 [rcooke-warwick]
 > * Add GHA workflows for additional device types [Kyle Harding]
 > 
-
-</details>
-
-# v6.0.14
-## (2024-08-28)
-
-
-<details>
-<summary> Update layers/meta-balena to b42b3484ad1fd0f71224d70b08d40bf8e3bef784 [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.14
 > ### (2024-08-28)
 > 
@@ -754,21 +8023,6 @@ Change log
 
 </details>
 
-# v6.0.13+rev1
-## (2024-08-27)
-
-
-<details>
-<summary> Update balena-yocto-scripts to a3dfa265480986251193a989b1077939f38c4dc3 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.26
-> ### (2024-08-27)
-> 
-> * Fix if condition for checking merge commit test results [rcooke-warwick]
-> 
-
-</details>
-
 # v6.0.13
 ## (2024-08-26)
 
@@ -780,6 +8034,21 @@ Change log
 > ### (2024-08-26)
 > 
 > * classes/image_types_balena: Add support for device specific boot filesystem options [Alexandru Costache]
+> 
+
+</details>
+
+# v6.0.12+rev1
+## (2024-08-24)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 58b4dd401dd6dd27262675b8061c7fddf5a593d4 [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.25.25
+> ### (2024-08-23)
+> 
+> * Add unique unique identifiers to summary job [Kyle Harding]
 > 
 
 </details>
@@ -796,31 +8065,6 @@ Change log
 > 
 > * Update balena-os/balena-yocto-scripts action to v1.25.25 [balena-renovate[bot]]
 > 
-
-</details>
-
-# v6.0.11+rev1
-## (2024-08-23)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 58b4dd401dd6dd27262675b8061c7fddf5a593d4 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.25
-> ### (2024-08-23)
-> 
-> * Add unique unique identifiers to summary job [Kyle Harding]
-> 
-
-</details>
-
-# v6.0.11
-## (2024-08-22)
-
-
-<details>
-<summary> Update layers/meta-balena to 84be7f22fd833843f48ea1d755af1c1c05c4fd4e [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.11
 > ### (2024-08-21)
 > 
@@ -829,7 +8073,7 @@ Change log
 
 </details>
 
-# v6.0.10+rev3
+# v6.0.10+rev4
 ## (2024-08-21)
 
 
@@ -847,10 +8091,15 @@ Change log
 > * rename "envinroment" input to "deploy-environment" for clarity [rcooke-warwick]
 > * remove os-dev input [rcooke-warwick]
 > 
+> ## balena-yocto-scripts-1.25.23
+> ### (2024-08-15)
+> 
+> * Add mermaid flowchart to yocto workflow README [Kyle Harding]
+> 
 
 </details>
 
-# v6.0.10+rev2
+# v6.0.10+rev3
 ## (2024-08-20)
 
 
@@ -865,7 +8114,7 @@ Change log
 
 </details>
 
-# v6.0.10+rev1
+# v6.0.10+rev2
 ## (2024-08-19)
 
 
@@ -880,8 +8129,48 @@ Change log
 
 </details>
 
+# v6.0.10+rev1
+## (2024-08-15)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 8450f5dfee536fe1cc26fda70916875857a7106f [balena-renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.25.22
+> ### (2024-08-12)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.21
+> ### (2024-08-06)
+> 
+> * Update balena-os/leviathan digest to f4e9332 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.20
+> ### (2024-08-06)
+> 
+> * Update actions/upload-artifact action to v4.3.6 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.19
+> ### (2024-08-06)
+> 
+> * Update balena-os/leviathan digest to a16cf0f [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.18
+> ### (2024-08-05)
+> 
+> * Update actions/upload-artifact action to v4.3.5 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.17
+> ### (2024-08-05)
+> 
+> * Update Lock file maintenance [balena-renovate[bot]]
+> 
+
+</details>
+
 # v6.0.10
-## (2024-08-16)
+## (2024-08-15)
 
 
 <details>
@@ -912,16 +8201,26 @@ Change log
 </details>
 
 # v6.0.9+rev1
-## (2024-08-15)
+## (2024-08-14)
 
 
 <details>
-<summary> Update balena-yocto-scripts to 87762ec55616db7a361d41ae0fb115f8a9d4e034 [balena-renovate[bot]] </summary>
+<summary> Update contracts to bb77690aa0498f1060b64bebc183aea4fafb57e7 [balena-renovate[bot]] </summary>
 
-> ## balena-yocto-scripts-1.25.23
-> ### (2024-08-15)
+> ## contracts-2.0.111
+> ### (2024-08-08)
 > 
-> * Add mermaid flowchart to yocto workflow README [Kyle Harding]
+> * patch: Add versionList to OpenJDK [Vipul Gupta (@vipulgupta2048)]
+> 
+> ## contracts-2.0.110
+> ### (2024-08-07)
+> 
+> * Add CompuLab iotdin-imx8p to harware contract. [Valentin Raevsky]
+> 
+> ## contracts-2.0.109
+> ### (2024-08-06)
+> 
+> * hw.device-type: Update provisioning instructions for AGX Orin 64GB [Alexandru]
 > 
 
 </details>
@@ -969,323 +8268,21 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v6.0.8
-## (2024-08-14)
-
-
-<details>
-<summary> Update layers/meta-balena to ed18e751ab21b245070bd4db35f68aa2925add94 [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.8
 > ### (2024-08-14)
 > 
 > * tests: os: add check for iptables rules [rcooke-warwick]
 > 
-
-</details>
-
-# v6.0.7+rev1
-## (2024-08-12)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 8450f5dfee536fe1cc26fda70916875857a7106f [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.22
-> ### (2024-08-12)
-> 
-> * Update Lock file maintenance [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.7
-## (2024-08-09)
-
-
-<details>
-<summary> Update layers/meta-balena to cd2ee87b79d8b8edadc424084593a4ad9b69cb4f [balena-renovate[bot]] </summary>
-
 > ## meta-balena-6.0.7
 > ### (2024-08-09)
 > 
 > * modemmanager: Fix Quectel modems initialization bug [Florin Sarbu]
 > 
-
-</details>
-
-# v6.0.6+rev14
-## (2024-08-08)
-
-
-<details>
-<summary> Update contracts to bb77690aa0498f1060b64bebc183aea4fafb57e7 [balena-renovate[bot]] </summary>
-
-> ## contracts-2.0.111
-> ### (2024-08-08)
-> 
-> * patch: Add versionList to OpenJDK [Vipul Gupta (@vipulgupta2048)]
-> 
-
-</details>
-
-# v6.0.6+rev13
-## (2024-08-07)
-
-
-<details>
-<summary> Update contracts to 1663445fde467777e3d878e76193ea6fe9c1aefe [balena-renovate[bot]] </summary>
-
-> ## contracts-2.0.110
-> ### (2024-08-07)
-> 
-> * Add CompuLab iotdin-imx8p to harware contract. [Valentin Raevsky]
-> 
-
-</details>
-
-# v6.0.6+rev12
-## (2024-08-06)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 7d0bda80dd3e21bef15fe91b085fe183923c1c94 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.21
-> ### (2024-08-06)
-> 
-> * Update balena-os/leviathan digest to f4e9332 [balena-renovate[bot]]
-> 
-> ## balena-yocto-scripts-1.25.20
-> ### (2024-08-06)
-> 
-> * Update actions/upload-artifact action to v4.3.6 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.6+rev11
-## (2024-08-06)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 582a8eaa60b4a6eb6a3ec5d60013e7b2e6850ddb [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.19
-> ### (2024-08-06)
-> 
-> * Update balena-os/leviathan digest to a16cf0f [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.6+rev10
-## (2024-08-06)
-
-
-<details>
-<summary> Update contracts to 6d69a05508a9232ba593962c62dc9dd133dee616 [balena-renovate[bot]] </summary>
-
-> ## contracts-2.0.109
-> ### (2024-08-06)
-> 
-> * hw.device-type: Update provisioning instructions for AGX Orin 64GB [Alexandru]
-> 
-
-</details>
-
-# v6.0.6+rev9
-## (2024-08-05)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 730286256ce2ff6db73bce2b8289d2199596269e [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.18
-> ### (2024-08-05)
-> 
-> * Update actions/upload-artifact action to v4.3.5 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.6+rev8
-## (2024-08-05)
-
-
-<details>
-<summary> Update balena-yocto-scripts to b97db01f749f1b731160dc4d3fa72301a4d4b3ce [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.17
-> ### (2024-08-05)
-> 
-> * Update Lock file maintenance [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.6+rev7
-## (2024-07-30)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 7736d3807540afb6646b435117bffa2377ac0156 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.16
-> ### (Invalid date)
-> 
-> * Update docker/login-action action to v3.3.0 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.6+rev6
-## (2024-07-30)
-
-
-<details>
-<summary> Update balena-yocto-scripts to c26623b4d09e6453244d6782c00756c4de60a53f [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.15
-> ### (Invalid date)
-> 
-> * Update actions/upload-artifact action to v4.3.4 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.6+rev5
-## (2024-07-30)
-
-
-<details>
-<summary> Update balena-yocto-scripts to ef6b7efa3a4f697e835412e6012a2f8bbeb94d37 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.14
-> ### (2024-07-29)
-> 
-> * Update balena-os/leviathan digest to 36aafe0 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.6+rev4
-## (2024-07-29)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 6053c5a45a392dd85789fc46815506e57219bf29 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.13
-> ### (2024-07-29)
-> 
-> * Update actions/checkout action to v4.1.7 [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.6+rev3
-## (2024-07-29)
-
-
-<details>
-<summary> Update balena-yocto-scripts to aaf04d274adcfe3dc408f0bec4db51c199c131b4 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.12
-> ### (2024-07-29)
-> 
-> * Update Pin dependencies [balena-renovate[bot]]
-> 
-
-</details>
-
-# v6.0.6+rev2
-## (2024-07-29)
-
-
-<details>
-<summary> Update balena-yocto-scripts to cdc09006ec79c82efe149abfc8eb8b932924ef89 [balena-renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.25.11
-> ### (2024-07-29)
-> 
-> * revovate: change config to use balena-io template [rcooke-warwick]
-> 
-
-</details>
-
-# v6.0.6+rev1
-## (2024-07-25)
-
-
-<details>
-<summary> Update contracts to 1d499fe7d33791e1ac6dccfe031e178b7d520bb4 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.108
-> ### (2024-07-25)
-> 
-> * hw.device-type: Add new device-type Jetson AGX Orin 64GB Devkit [Alexandru Costache]
-> 
-
-</details>
-
-# v6.0.6
-## (2024-07-25)
-
-
-<details>
-<summary> Update layers/meta-balena to 137a7882c5f56d505ee5c757cedfb27ab20d89a8 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-6.0.6
 > ### (2024-07-25)
 > 
 > * patch: Fix broken links in CDS Docs [Vipul Gupta]
 > 
-
-</details>
-
-# v6.0.5+rev2
-## (2024-07-23)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 34b4ee6c3aeabd21b9bb7b90536d837dbf465730 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.25.10
-> ### (2024-07-23)
-> 
-> * By default, deploy hostapp on push only [Leandro Motta Barros]
-> 
-
-</details>
-
-# v6.0.5+rev1
-## (2024-07-22)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 7b65acc0280a2239d7f8fcfd7260151d97b6f3d5 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.25.9
-> ### (2024-07-22)
-> 
-> * use token to fetch private contracts [rcooke-warwick]
-> * unroll balena_lib_build_contract function [rcooke-warwick]
-> * unroll balena_api_is_dt_private function [rcooke-warwick]
-> 
-
-</details>
-
-# v6.0.5
-## (2024-07-22)
-
-
-<details>
-<summary> Update layers/meta-balena to 7c9d2c889576bf75a7b90fcbe3502541df286fe3 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-6.0.5
 > ### (2024-07-22)
 > 
@@ -1325,16 +8322,6 @@ Change log
 > * Update docker API version to match the v20.10 engine version [Alex Gonzalez]
 > * conf: distro: set default docker API version [Alex Gonzalez]
 > 
-
-</details>
-
-# v6.0.2
-## (2024-07-20)
-
-
-<details>
-<summary> Update layers/meta-balena to ba25d479aec53db0a1f20667026e57fe47461ebb [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-6.0.2
 > ### (2024-07-19)
 > 
@@ -1361,21 +8348,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v6.0.1+rev1
-## (2024-07-19)
-
-* Update layers/meta-rockchip to cbe47c2efd996c7857d91e23bb15e5e31b950ee3 [Self-hosted Renovate Bot]
-
-# v6.0.1
-## (2024-07-19)
-
-
-<details>
-<summary> Update layers/meta-balena to 477bcf8a89128df43feca7e201bb4a5aac0e4dae [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-6.0.1
 > ### (2024-07-19)
 > 
@@ -1389,31 +8361,6 @@ Change log
 > * image-balena: support zst compressed modules [Joseph Kogut]
 > * kmod: enable zstd [Joseph Kogut]
 > 
-
-</details>
-
-# v5.4.1+rev1
-## (2024-07-17)
-
-
-<details>
-<summary> Update balena-yocto-scripts to d59fac4cce1dcff0b423ac97aeccbd7f4486b9c2 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.25.8
-> ### (2024-07-17)
-> 
-> * Use env vars BALENA_HOST and BALENACLOUD_SSH_URL when provided [Kyle Harding]
-> 
-
-</details>
-
-# v5.4.1
-## (2024-07-17)
-
-
-<details>
-<summary> Update layers/meta-balena to eefb5c821b33171a468cd30e4de51e710a36ae7d [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.4.1
 > ### (2024-07-17)
 > 
@@ -1423,46 +8370,168 @@ Change log
 </details>
 
 # v5.4.0+rev3
-## (2024-07-16)
+## (2024-08-09)
 
-
-<details>
-<summary> Update balena-yocto-scripts to ba3794d7321f5a126dd19a840fe7109b5e0ee40d [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.25.7
-> ### (2024-07-16)
-> 
-> * Fix handling of empty test matrix input [Kyle Harding]
-> 
-
-</details>
+* Fix kernel dtc-lexer build error for rockpi-4b-rk3399 [Florin Sarbu]
+* Fix u-boot dtc-lexer build error for rockpi-4b-rk3399 [Florin Sarbu]
 
 # v5.4.0+rev2
-## (2024-07-15)
+## (2024-07-31)
 
 
 <details>
-<summary> Update balena-yocto-scripts to 7c73eefe9aac870b5fd9050e5d429dd56b0ab4ff [Self-hosted Renovate Bot] </summary>
+<summary> Update contracts to 1d499fe7d33791e1ac6dccfe031e178b7d520bb4 [Self-hosted Renovate Bot] </summary>
 
-> ## balena-yocto-scripts-1.25.6
+> ## contracts-2.0.108
+> ### (2024-07-25)
+> 
+> * hw.device-type: Add new device-type Jetson AGX Orin 64GB Devkit [Alexandru Costache]
+> 
+> ## contracts-2.0.107
 > ### (2024-07-15)
 > 
-> * Use App Installation tokens so we can clone private submodules [Kyle Harding]
+> * beagleplay: Fix provisioning instructions [Alexandru]
 > 
 
 </details>
 
 # v5.4.0+rev1
-## (2024-07-15)
+## (2024-07-31)
 
 
 <details>
-<summary> Update contracts to 17b44ca078f3bca2193858559d1276cc48680531 [Self-hosted Renovate Bot] </summary>
+<summary> Update balena-yocto-scripts to 7736d3807540afb6646b435117bffa2377ac0156 [balena-renovate[bot]] </summary>
 
-> ## contracts-2.0.107
+> ## balena-yocto-scripts-1.25.16
+> ### (Invalid date)
+> 
+> * Update docker/login-action action to v3.3.0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.15
+> ### (Invalid date)
+> 
+> * Update actions/upload-artifact action to v4.3.4 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.14
+> ### (2024-07-29)
+> 
+> * Update balena-os/leviathan digest to 36aafe0 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.13
+> ### (2024-07-29)
+> 
+> * Update actions/checkout action to v4.1.7 [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.12
+> ### (2024-07-29)
+> 
+> * Update Pin dependencies [balena-renovate[bot]]
+> 
+> ## balena-yocto-scripts-1.25.11
+> ### (2024-07-29)
+> 
+> * revovate: change config to use balena-io template [rcooke-warwick]
+> 
+> ## balena-yocto-scripts-1.25.10
+> ### (2024-07-23)
+> 
+> * By default, deploy hostapp on push only [Leandro Motta Barros]
+> 
+> ## balena-yocto-scripts-1.25.9
+> ### (2024-07-22)
+> 
+> * use token to fetch private contracts [rcooke-warwick]
+> * unroll balena_lib_build_contract function [rcooke-warwick]
+> * unroll balena_api_is_dt_private function [rcooke-warwick]
+> 
+> ## balena-yocto-scripts-1.25.8
+> ### (2024-07-17)
+> 
+> * Use env vars BALENA_HOST and BALENACLOUD_SSH_URL when provided [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.25.7
+> ### (2024-07-16)
+> 
+> * Fix handling of empty test matrix input [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.25.6
 > ### (2024-07-15)
 > 
-> * beagleplay: Fix provisioning instructions [Alexandru]
+> * Use App Installation tokens so we can clone private submodules [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.25.5
+> ### (2024-07-08)
+> 
+> * only login to s3 if deploying to s3 [rcooke-warwick]
+> 
+> ## balena-yocto-scripts-1.25.4
+> ### (2024-07-06)
+> 
+> * balena-deploy: deploy secure boot lock artifacts if available [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.25.3
+> ### (2024-07-05)
+> 
+> * use workflow run of PR head instead of statuses to determine test results [rcooke-warwick]
+> 
+> ## balena-yocto-scripts-1.25.2
+> ### (2024-07-03)
+> 
+> * Remove dry-run flag from S3 upload [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.25.1
+> ### (2024-07-03)
+> 
+> * Fix actionlint errors and warnings in shell steps [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.25.0
+> ### (2024-07-03)
+> 
+> * Do not run any tests by default unless provided by calling workflow [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.24.3
+> ### (2024-07-02)
+> 
+> * patch: No upload to GH artifacts when PR is closed [Vipul Gupta (@vipulgupta2048)]
+> 
+> ## balena-yocto-scripts-1.24.2
+> ### (2024-07-02)
+> 
+> * Fix quoting of $GITHUB_OUTPUT [Leandro Motta Barros]
+> 
+> ## balena-yocto-scripts-1.24.1
+> ### (2024-06-27)
+> 
+> * Simplify check for secure boot [Leandro Motta Barros]
+> 
+> ## balena-yocto-scripts-1.24.0
+> ### (2024-06-26)
+> 
+> * Support runner selection in the test matrix [Kyle Harding]
+> * Allow both combinatorial and include syntax for test_matrix [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.23.1
+> ### (2024-06-26)
+> 
+> * Refactor secrets and variables to use environments [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.23.0
+> ### (2024-06-19)
+> 
+> * Dockerfiles: update balenaCLI version to 18.2.2 [Joseph Kogut]
+> * Dockerfile_yocto-build-env: bump base image to 22.04 [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.22.4
+> ### (2024-06-14)
+> 
+> * Update job conditions to allow non-PR events for internal branches [Kyle Harding]
+> * Hardcode environment paths at the job level [Kyle Harding]
+> * Replace test inputs with a single JSON matrix input [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.22.3
+> ### (2024-06-13)
+> 
+> * jenkins_generate_ami: pass yocto scripts version as an env var to helper container [rcooke-warwick]
 > 
 
 </details>
@@ -1486,23 +8555,8 @@ Change log
 
 </details>
 
-# v5.3.28+rev1
-## (2024-07-12)
-
-
-<details>
-<summary> Update contracts to 773c77cc902a5896a8fa75663d2aa661c0f4e1e3 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.106
-> ### (2024-07-12)
-> 
-> * hw.device-type: Disable bluetooth until this feature is officially supported [delhiryder]
-> 
-
-</details>
-
 # v5.3.28
-## (2024-07-11)
+## (2024-07-12)
 
 
 <details>
@@ -1513,31 +8567,6 @@ Change log
 > 
 > * Add GHA yocto workflows for common device types [Kyle Harding]
 > 
-
-</details>
-
-# v5.3.27+rev1
-## (2024-07-08)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 09a174bf33ea56788ac4b483fdf1b7828c118f23 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.25.5
-> ### (2024-07-08)
-> 
-> * only login to s3 if deploying to s3 [rcooke-warwick]
-> 
-
-</details>
-
-# v5.3.27
-## (2024-07-07)
-
-
-<details>
-<summary> Update layers/meta-balena to a082a0906b82328f752dc041e0d0fdbd244523f6 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.27
 > ### (2024-07-07)
 > 
@@ -1694,47 +8723,12 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.3.26
-## (2024-07-07)
-
-
-<details>
-<summary> Update layers/meta-balena to 5d566dff6a713596ef0b62a3ef1677c4251893d8 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.26
 > ### (2024-07-07)
 > 
 > * tests: secureboot: rename resetWorker() to resetDUT() [Alex Gonzalez]
 > * tests: secureboot: refactor to facilitate extension [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.3.25+rev1
-## (2024-07-06)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 3b4142ba334b6b1c767a6755c2742c980d2e6b16 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.25.4
-> ### (2024-07-06)
-> 
-> * balena-deploy: deploy secure boot lock artifacts if available [Alex Gonzalez]
-> 
-
-</details>
-
-# v5.3.25
-## (2024-07-06)
-
-
-<details>
-<summary> Update layers/meta-balena to 6d368bce75115252c2a9253aebd3444d19771595 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.25
 > ### (2024-07-06)
 > 
@@ -1757,106 +8751,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.3.24+rev1
-## (2024-07-05)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 7e492de8e573786e21bb2dc14c7d2af89f6b1d54 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.25.3
-> ### (2024-07-05)
-> 
-> * use workflow run of PR head instead of statuses to determine test results [rcooke-warwick]
-> 
-
-</details>
-
-# v5.3.24
-## (2024-07-04)
-
-
-<details>
-<summary> Update layers/meta-balena to e1d709a6f00e8dd3271a3c84d9fb6430cedec485 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.24
 > ### (2024-07-04)
 > 
 > * workflows: fix linter errors [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.3.23+rev4
-## (2024-07-04)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 32b15f1729158dec8046b9861da37062c68ff292 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.25.2
-> ### (2024-07-03)
-> 
-> * Remove dry-run flag from S3 upload [Kyle Harding]
-> 
-
-</details>
-
-# v5.3.23+rev3
-## (2024-07-03)
-
-
-<details>
-<summary> Update balena-yocto-scripts to f7894d49a4f5e56fbf570e2ce81bb7c0f8743e61 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.25.1
-> ### (2024-07-03)
-> 
-> * Fix actionlint errors and warnings in shell steps [Kyle Harding]
-> 
-
-</details>
-
-# v5.3.23+rev2
-## (2024-07-03)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 5469d877de428856cd630f2a18bc39edefdb924d [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.25.0
-> ### (2024-07-03)
-> 
-> * Do not run any tests by default unless provided by calling workflow [Kyle Harding]
-> 
-
-</details>
-
-# v5.3.23+rev1
-## (2024-07-03)
-
-
-<details>
-<summary> Update balena-yocto-scripts to da6fe23e89509549866b16cbc6ff404980a189c0 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.24.3
-> ### (2024-07-02)
-> 
-> * patch: No upload to GH artifacts when PR is closed [Vipul Gupta (@vipulgupta2048)]
-> 
-
-</details>
-
-# v5.3.23
-## (2024-07-02)
-
-
-<details>
-<summary> Update layers/meta-balena to e6c2037615db74af70250c5d3351c44e2ee31fbb [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.23
 > ### (2024-07-02)
 > 
@@ -1878,31 +8777,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.3.22+rev1
-## (2024-07-02)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 64c93852695af74dc1ddb355da0c8e2ff464638c [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.24.2
-> ### (2024-07-02)
-> 
-> * Fix quoting of $GITHUB_OUTPUT [Leandro Motta Barros]
-> 
-
-</details>
-
-# v5.3.22
-## (2024-07-01)
-
-
-<details>
-<summary> Update layers/meta-balena to 5e157d7d2954d406666df9d0681c2fbe63a838fa [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.22
 > ### (2024-07-01)
 > 
@@ -1911,96 +8785,17 @@ Change log
 
 </details>
 
-# v5.3.21+rev6
-## (2024-06-27)
-
-
-<details>
-<summary> Update balena-yocto-scripts to a880342e40fe05d00a0f1cf2582a0699921152e0 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.24.1
-> ### (2024-06-27)
-> 
-> * Simplify check for secure boot [Leandro Motta Barros]
-> 
-
-</details>
-
-# v5.3.21+rev5
-## (2024-06-27)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 7fa652ca218ce38ec260360c01064b483fa4dc8d [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.24.0
-> ### (2024-06-26)
-> 
-> * Support runner selection in the test matrix [Kyle Harding]
-> * Allow both combinatorial and include syntax for test_matrix [Kyle Harding]
-> 
-
-</details>
-
-# v5.3.21+rev4
-## (2024-06-26)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 0bd64809b2cce6833f8732eecdd64d32921f1b4d [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.23.1
-> ### (2024-06-26)
-> 
-> * Refactor secrets and variables to use environments [Kyle Harding]
-> 
-
-</details>
-
-# v5.3.21+rev3
-## (2024-06-19)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 0164431c7032e80f145464e8cc7becfe8bb8597c [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.23.0
-> ### (2024-06-19)
-> 
-> * Dockerfiles: update balenaCLI version to 18.2.2 [Joseph Kogut]
-> * Dockerfile_yocto-build-env: bump base image to 22.04 [Joseph Kogut]
-> 
-
-</details>
-
-# v5.3.21+rev2
-## (2024-06-14)
-
-
-<details>
-<summary> Update balena-yocto-scripts to bdd131fd36a3edcc9a1bb2af493794ced60379a6 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.22.4
-> ### (2024-06-14)
-> 
-> * Update job conditions to allow non-PR events for internal branches [Kyle Harding]
-> * Hardcode environment paths at the job level [Kyle Harding]
-> * Replace test inputs with a single JSON matrix input [Kyle Harding]
-> 
-
-</details>
-
 # v5.3.21+rev1
-## (2024-06-13)
+## (2024-07-12)
 
 
 <details>
-<summary> Update balena-yocto-scripts to cd813faad0e261ad00f791c8788c8f70a0a32a2d [Self-hosted Renovate Bot] </summary>
+<summary> Update contracts to 773c77cc902a5896a8fa75663d2aa661c0f4e1e3 [Self-hosted Renovate Bot] </summary>
 
-> ## balena-yocto-scripts-1.22.3
-> ### (2024-06-13)
+> ## contracts-2.0.106
+> ### (2024-07-12)
 > 
-> * jenkins_generate_ami: pass yocto scripts version as an env var to helper container [rcooke-warwick]
+> * hw.device-type: Disable bluetooth until this feature is officially supported [delhiryder]
 > 
 
 </details>
@@ -2016,6 +8811,21 @@ Change log
 > ### (2024-06-13)
 > 
 > * initrdscripts: Allow passing extra kernel arguments to kexec [Michal Toman]
+> 
+
+</details>
+
+# v5.3.20+rev2
+## (2024-06-13)
+
+
+<details>
+<summary> Update contracts to 8adfb6d81fb673d26e3ab7038b3ef2264c1d1fe7 [Self-hosted Renovate Bot] </summary>
+
+> ## contracts-2.0.105
+> ### (2024-06-06)
+> 
+> * sw.os+hw.device-type: Update Jetson Orin distro configs for L4T 35.5.0 repositories [Alexandru Costache]
 > 
 
 </details>
@@ -2050,8 +8860,29 @@ Change log
 
 </details>
 
+# v5.3.19+rev1
+## (2024-06-11)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 2bb54e7c3c715176446a895ed765346c52d480b2 [Self-hosted Renovate Bot] </summary>
+
+> ## balena-yocto-scripts-1.22.1
+> ### (2024-06-07)
+> 
+> * Prevent duplicate workflow runs for multiple triggers [Kyle Harding]
+> * Add catchall job to yocto-build-deploy for merge requirements [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.22.0
+> ### (2024-06-06)
+> 
+> * Create workflow to build and deploy balenaOS [Kyle Harding]
+> 
+
+</details>
+
 # v5.3.19
-## (2024-06-10)
+## (2024-06-11)
 
 
 <details>
@@ -2062,16 +8893,6 @@ Change log
 > 
 > * kernel-balena: do not use cache for signed kernel modules [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.3.18
-## (2024-06-10)
-
-
-<details>
-<summary> Update layers/meta-balena to 7ae1b014fb202189c2003f35df578bf461a039eb [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.18
 > ### (2024-06-10)
 > 
@@ -2088,16 +8909,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.3.17
-## (2024-06-09)
-
-
-<details>
-<summary> Update layers/meta-balena to 58189230b05719e0df1c8921391474ecd6a2ea9d [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.17
 > ### (2024-06-09)
 > 
@@ -2126,66 +8937,10 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.3.16+rev1
-## (2024-06-07)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 2bb54e7c3c715176446a895ed765346c52d480b2 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.22.1
-> ### (2024-06-07)
-> 
-> * Prevent duplicate workflow runs for multiple triggers [Kyle Harding]
-> * Add catchall job to yocto-build-deploy for merge requirements [Kyle Harding]
-> 
-
-</details>
-
-# v5.3.16
-## (2024-06-07)
-
-
-<details>
-<summary> Update layers/meta-balena to 5285b94cc7d728fc9487609e25ad8bc8e82267c8 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.16
 > ### (2024-06-06)
 > 
 > * Work around uuid file corruption in balenaEngine health check [Leandro Motta Barros]
-> 
-
-</details>
-
-# v5.3.15+rev2
-## (2024-06-06)
-
-
-<details>
-<summary> Update balena-yocto-scripts to b5b12bc2f8e08f90634d766afe30623c9899f323 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.22.0
-> ### (2024-06-06)
-> 
-> * Create workflow to build and deploy balenaOS [Kyle Harding]
-> 
-
-</details>
-
-# v5.3.15+rev1
-## (2024-06-06)
-
-
-<details>
-<summary> Update contracts to 8adfb6d81fb673d26e3ab7038b3ef2264c1d1fe7 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.105
-> ### (2024-06-06)
-> 
-> * sw.os+hw.device-type: Update Jetson Orin distro configs for L4T 35.5.0 repositories [Alexandru Costache]
 > 
 
 </details>
@@ -2205,16 +8960,6 @@ Change log
 > * rollback-health: mount securityfs in old_rootfs [Joseph Kogut]
 > * os-helpers-tpm2: compute_pcr7 w/ events post separator [Joseph Kogut]
 > 
-
-</details>
-
-# v5.3.14
-## (2024-06-02)
-
-
-<details>
-<summary> Update layers/meta-balena to 9e95be489587395fec796dc6969fc7d78cf81f77 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.14
 > ### (2024-06-02)
 > 
@@ -2223,24 +8968,8 @@ Change log
 
 </details>
 
-# v5.3.13+rev1
-## (2024-06-02)
-
-
-<details>
-<summary> Update contracts to 94c4f90e950560f6287a87bea93a7a250c942665 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.104
-> ### (2024-06-02)
-> 
-> * jetson-orin-nano-seeed-j3010: Specify RAM size for the Seeed J3010 [Alexandru Costache]
-> * jetson-orin-nano-seeed-j3010: add Seeed J3010 device-type [Alex Suykov]
-> 
-
-</details>
-
 # v5.3.13
-## (2024-06-01)
+## (2024-06-02)
 
 
 <details>
@@ -2268,20 +8997,26 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.3.12
-## (2024-05-31)
-
-
-<details>
-<summary> Update layers/meta-balena to 18061427fa1560355eb5911dc2c309024153680b [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.12
 > ### (2024-06-01)
 > 
 > * patch: Add Test Suite specific config for GHA [Vipul Gupta (@vipulgupta2048)]
+> 
+
+</details>
+
+# v5.3.11+rev1
+## (2024-06-02)
+
+
+<details>
+<summary> Update contracts to 94c4f90e950560f6287a87bea93a7a250c942665 [Self-hosted Renovate Bot] </summary>
+
+> ## contracts-2.0.104
+> ### (2024-06-02)
+> 
+> * jetson-orin-nano-seeed-j3010: Specify RAM size for the Seeed J3010 [Alexandru Costache]
+> * jetson-orin-nano-seeed-j3010: add Seeed J3010 device-type [Alex Suykov]
 > 
 
 </details>
@@ -2380,31 +9115,11 @@ Change log
 > 
 > * tests: safe-reboot: fetch and modify target state [rcooke-warwick]
 > 
-
-</details>
-
-# v5.3.7
-## (2024-05-22)
-
-
-<details>
-<summary> Update layers/meta-balena to 98a8dc813fb1df71c510732e14fa31446ef883e6 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.7
 > ### (2024-05-22)
 > 
 > * tests: os: modem: fix curl command [rcooke-warwick]
 > 
-
-</details>
-
-# v5.3.6
-## (2024-05-20)
-
-
-<details>
-<summary> Update layers/meta-balena to c7d68bb9a14aba972c692212dd41264f78527c38 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.6
 > ### (2024-05-20)
 > 
@@ -2412,6 +9127,46 @@ Change log
 > 
 
 </details>
+
+# v5.3.5+rev2
+## (2024-05-17)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 466d6ec592656bb950a393fc1c7a5d5ff4cf3455 [Self-hosted Renovate Bot] </summary>
+
+> ## balena-yocto-scripts-1.21.10
+> ### (2024-05-02)
+> 
+> * balena-deploy: deploy usbboot if available [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.21.9
+> ### (Invalid date)
+> 
+> * balena-lib: improve base tag detection [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.21.8
+> ### (2024-04-29)
+> 
+> * Support commit tags when extracting version tag from git [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.21.7
+> ### (2024-04-19)
+> 
+> * Add missing $select for release_asset.asset_key [Thodoris Greasidis]
+> 
+> ## balena-yocto-scripts-1.21.6
+> ### (2024-03-25)
+> 
+> * Revert "balena-build: avoid using device-type as a prefix in yocto sstate" [Kyle Harding]
+> 
+
+</details>
+
+# v5.3.5+rev1
+## (2024-05-16)
+
+* Update layers/meta-openembedded to 01358b6d705071cc0ac5aefa7670ab235709729a [Self-hosted Renovate Bot]
 
 # v5.3.5
 ## (2024-05-16)
@@ -2668,7 +9423,7 @@ Change log
 </details>
 
 # v5.3.4
-## (2024-05-12)
+## (2024-05-13)
 
 
 <details>
@@ -2705,23 +9460,8 @@ Change log
 
 </details>
 
-# v5.3.3+rev1
-## (2024-05-02)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 466d6ec592656bb950a393fc1c7a5d5ff4cf3455 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.21.10
-> ### (2024-05-02)
-> 
-> * balena-deploy: deploy usbboot if available [Alex Gonzalez]
-> 
-
-</details>
-
 # v5.3.3
-## (2024-05-01)
+## (2024-05-10)
 
 
 <details>
@@ -2732,76 +9472,16 @@ Change log
 > 
 > * docs: elaborate automated testing requirement in board support guide [rcooke-warwick]
 > 
-
-</details>
-
-# v5.3.2+rev2
-## (2024-04-30)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 019219edcbd508bdb1027bf56f20f8696fddba83 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.21.9
-> ### (Invalid date)
-> 
-> * balena-lib: improve base tag detection [Alex Gonzalez]
-> 
-
-</details>
-
-# v5.3.2+rev1
-## (2024-04-29)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 9467c78fa81511321fe952477b316e830742760c [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.21.8
-> ### (2024-04-29)
-> 
-> * Support commit tags when extracting version tag from git [Kyle Harding]
-> 
-
-</details>
-
-# v5.3.2
-## (2024-04-25)
-
-
-<details>
-<summary> Update layers/meta-balena to f212a46b75701da1ad174eaca183c5b9f55075ec [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.2
 > ### (2024-04-25)
 > 
 > * contributing-device-support.md: Rework repo transfer and autokit requirement steps [Florin Sarbu]
 > 
-
-</details>
-
-# v5.3.1
-## (2024-04-24)
-
-
-<details>
-<summary> Update layers/meta-balena to 2e58bc5bb95af8ab7f27a3943ebb34761424445c [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.1
 > ### (2024-04-24)
 > 
 > * tests: os: address race in internet con. sharing tests [rcooke-warwick]
 > 
-
-</details>
-
-# v5.3.0
-## (2024-04-24)
-
-
-<details>
-<summary> Update layers/meta-balena to 02acc2b2f2337154e79825e21fc5a517a1f97315 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.3.0
 > ### (2024-04-24)
 > 
@@ -2817,31 +9497,11 @@ Change log
 > * hostapp-update-hooks: signed-update: fix exit code conditional [Joseph Kogut]
 > * os-helpers-tpm2: fix awk syntax error causing unbootable machines [Joseph Kogut]
 > 
-
-</details>
-
-# v5.2.10
-## (2024-04-23)
-
-
-<details>
-<summary> Update layers/meta-balena to 5618489132d1e31652f7e018da32bdd5b7492e64 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.2.10
 > ### (2024-04-23)
 > 
 > * hostapp-update-hooks: check for logging helper [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.2.9
-## (2024-04-22)
-
-
-<details>
-<summary> Update layers/meta-balena to 09f97ae4e491700fc458672c94fd7170b37551e1 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.2.9
 > ### (2024-04-22)
 > 
@@ -2863,61 +9523,16 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.2.8+rev1
-## (2024-04-19)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 45b33b1ab2a550bd8292e61139c7e1316d75219c [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.21.7
-> ### (2024-04-19)
-> 
-> * Add missing $select for release_asset.asset_key [Thodoris Greasidis]
-> 
-
-</details>
-
-# v5.2.8
-## (2024-04-17)
-
-
-<details>
-<summary> Update layers/meta-balena to 5d7a7ecfdc69c481e6e762e38e66b8b291a70e32 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.2.8
 > ### (2024-04-17)
 > 
 > * Test: Unmanaged: Replace ping command in tests with curl [Vipul Gupta (@vipulgupta2048)]
 > 
-
-</details>
-
-# v5.2.7
-## (2024-04-17)
-
-
-<details>
-<summary> Update layers/meta-balena to edcdfc634c0b32648f5c27aeaef156ebc39c9e7c [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.2.7
 > ### (2024-04-16)
 > 
 > * packagegroup-resin: Install ldd script in balenaOS images [Alexandru]
 > 
-
-</details>
-
-# v5.2.6
-## (2024-04-16)
-
-
-<details>
-<summary> Update layers/meta-balena to 1ea5660da7fd05d03197753e4735b71ef77d2d3d [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.2.6
 > ### (2024-04-16)
 > 
@@ -2997,23 +9612,18 @@ Change log
 
 </details>
 
-# v5.2.5
-## (2024-04-12)
+# v5.2.5+rev4
+## (2024-05-10)
 
+* linux-rockpi: Add scsi-generic driver [Alexandru]
 
-<details>
-<summary> Update layers/meta-balena to a7fe21a582d79c7086ecada4b670348b43804cdb [Self-hosted Renovate Bot] </summary>
+# v5.2.5+rev3
+## (2024-04-16)
 
-> ## meta-balena-5.2.5
-> ### (2024-04-12)
-> 
-> * classes: sign-rsa: add class for RSA artifact signing [Alex Gonzalez]
-> 
+* Update layers/poky to 63d05fc061006bf1a88630d6d91cdc76ea33fbf2 [Self-hosted Renovate Bot]
 
-</details>
-
-# v5.2.4+rev4
-## (2024-04-11)
+# v5.2.5+rev2
+## (2024-04-14)
 
 
 <details>
@@ -3029,16 +9639,6 @@ Change log
 > 
 > * Remove Fedora 36 since it's EOL [Thodoris Greasidis]
 > 
-
-</details>
-
-# v5.2.4+rev3
-## (2024-04-10)
-
-
-<details>
-<summary> Update contracts to 619554d6126d299a8349a065e49bcdbe855f3293 [Self-hosted Renovate Bot] </summary>
-
 > ## contracts-2.0.101
 > ### (2024-04-10)
 > 
@@ -3046,31 +9646,11 @@ Change log
 > * Remove python 3.7.16 since it's in EOL [Thodoris Greasidis]
 > * Remove node v14 & v16 since they are EOL [Thodoris Greasidis]
 > 
-
-</details>
-
-# v5.2.4+rev2
-## (2024-04-08)
-
-
-<details>
-<summary> Update contracts to 928d8e7a5295414c87548e8eca8ddea88205fb10 [Self-hosted Renovate Bot] </summary>
-
 > ## contracts-2.0.100
 > ### (2024-04-08)
 > 
 > * Add Advantech ECU1370 to hardware contract. [Lisandro Pérez Meyer]
 > 
-
-</details>
-
-# v5.2.4+rev1
-## (2024-04-08)
-
-
-<details>
-<summary> Update contracts to cb7b2220f327c5a21c1c0ab193ac03016537c05a [Self-hosted Renovate Bot] </summary>
-
 > ## contracts-2.0.99
 > ### (2024-04-07)
 > 
@@ -3084,8 +9664,28 @@ Change log
 
 </details>
 
+# v5.2.5+rev1
+## (2024-04-14)
+
+* Update layers/poky to 99a2caf71e6c7e5be682a591a48f107157460b54 [Self-hosted Renovate Bot]
+
+# v5.2.5
+## (2024-04-12)
+
+
+<details>
+<summary> Update layers/meta-balena to a7fe21a582d79c7086ecada4b670348b43804cdb [Self-hosted Renovate Bot] </summary>
+
+> ## meta-balena-5.2.5
+> ### (2024-04-12)
+> 
+> * classes: sign-rsa: add class for RSA artifact signing [Alex Gonzalez]
+> 
+
+</details>
+
 # v5.2.4
-## (2024-04-03)
+## (2024-04-08)
 
 
 <details>
@@ -3127,36 +9727,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.2.3+rev2
-## (2024-03-26)
-
-* Update contracts to 8631765cc3b0b4c6fde0941b896dbfb1b8373455 [Self-hosted Renovate Bot]
-
-# v5.2.3+rev1
-## (2024-03-25)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 35108dbe920e2b96e976065df205e265d19d86a5 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.21.6
-> ### (2024-03-25)
-> 
-> * Revert "balena-build: avoid using device-type as a prefix in yocto sstate" [Kyle Harding]
-> 
-
-</details>
-
-# v5.2.3
-## (2024-03-22)
-
-
-<details>
-<summary> Update layers/meta-balena to 90d838ae943ffa72108522bfcc4370105a3be40c [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.2.3
 > ### (2024-03-22)
 > 
@@ -3205,16 +9775,6 @@ Change log
 > 
 > * Update contributing-device-support with balena-info documentation [Alexandru]
 > 
-
-</details>
-
-# v5.2.1
-## (2024-03-18)
-
-
-<details>
-<summary> Update layers/meta-balena to 74e89b4f4904b418882cb3dd9ef2c0bd360d8713 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.2.1
 > ### (2024-03-18)
 > 
@@ -3238,8 +9798,8 @@ Change log
 
 </details>
 
-# v5.1.54+rev2
-## (2024-03-14)
+# v5.1.54+rev3
+## (2024-03-15)
 
 
 <details>
@@ -3253,7 +9813,7 @@ Change log
 
 </details>
 
-# v5.1.54+rev1
+# v5.1.54+rev2
 ## (2024-03-14)
 
 
@@ -3268,23 +9828,8 @@ Change log
 
 </details>
 
-# v5.1.54
+# v5.1.54+rev1
 ## (2024-03-14)
-
-
-<details>
-<summary> Update layers/meta-balena to 2cef02167e0e780d1e96da0f801f1f4d5e27e79f [Self-hosted Renovate Bot] </summary>
-
-> ## meta-balena-5.1.54
-> ### (2024-03-13)
-> 
-> * mkfs-hostapp-native: Disable iptables features in yocto balena daemon [Kyle Harding]
-> 
-
-</details>
-
-# v5.1.53+rev1
-## (2024-03-13)
 
 
 <details>
@@ -3298,8 +9843,23 @@ Change log
 
 </details>
 
+# v5.1.54
+## (2024-03-13)
+
+
+<details>
+<summary> Update layers/meta-balena to 2cef02167e0e780d1e96da0f801f1f4d5e27e79f [Self-hosted Renovate Bot] </summary>
+
+> ## meta-balena-5.1.54
+> ### (2024-03-13)
+> 
+> * mkfs-hostapp-native: Disable iptables features in yocto balena daemon [Kyle Harding]
+> 
+
+</details>
+
 # v5.1.53
-## (2024-03-12)
+## (2024-03-13)
 
 
 <details>
@@ -3398,7 +9958,7 @@ Change log
 </details>
 
 # v5.1.49
-## (2024-03-06)
+## (2024-03-07)
 
 
 <details>
@@ -3439,7 +9999,7 @@ Change log
 </details>
 
 # v5.1.47
-## (2024-03-03)
+## (2024-03-04)
 
 
 <details>
@@ -3459,18 +10019,23 @@ Change log
 
 </details>
 
+# v5.1.46+rev3
+## (2024-03-04)
+
+* Update layers/poky to 54d8a1f631543ce01ba513e7cdae756e2a8e1968 [Self-hosted Renovate Bot]
+
 # v5.1.46+rev2
-## (2024-03-02)
+## (2024-03-04)
+
+* Update layers/meta-openembedded to c74ebbddfd9dbe02d3f7422016324451eb218e1e [Self-hosted Renovate Bot]
+
+# v5.1.46+rev1
+## (2024-03-03)
 
 * Update balena-os/github-workflows to v0.0.27 [Self-hosted Renovate Bot]
 
-# v5.1.46+rev1
-## (2024-03-02)
-
-* Update balena-os/github-workflows to v0.0.25 [Self-hosted Renovate Bot]
-
 # v5.1.46
-## (2024-03-02)
+## (2024-03-03)
 
 
 <details>
@@ -3481,6 +10046,16 @@ Change log
 > 
 > * resin_update_state_probe: ignore RAID members when looking for root [Michal Toman]
 > 
+
+</details>
+
+# v5.1.45
+## (2024-03-01)
+
+
+<details>
+<summary> Update layers/meta-balena to 7f676ac7bcb5e0b066aa8f20de1b5c7d20e5843f [Self-hosted Renovate Bot] </summary>
+
 > ## meta-balena-5.1.45
 > ### (2024-02-29)
 > 
@@ -3497,16 +10072,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.44
-## (2024-02-29)
-
-
-<details>
-<summary> Update layers/meta-balena to 64cd9e85978a6148a5b0f9231edab4fe42db9c33 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.44
 > ### (2024-02-29)
 > 
@@ -3516,7 +10081,7 @@ Change log
 </details>
 
 # v5.1.43
-## (2024-02-28)
+## (2024-02-29)
 
 
 <details>
@@ -3527,16 +10092,6 @@ Change log
 > 
 > * Start os-config service after extracting CA [jaomaloy]
 > 
-
-</details>
-
-# v5.1.42
-## (2024-02-28)
-
-
-<details>
-<summary> Update layers/meta-balena to 086ba32588bb45247bc4785eafcb6540115bbf2e [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.42
 > ### (2024-02-28)
 > 
@@ -3579,16 +10134,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.41
-## (2024-02-27)
-
-
-<details>
-<summary> Update layers/meta-balena to 61a61111139e34f6c2f5c2f096dfb65cc37405b4 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.41
 > ### (2024-02-27)
 > 
@@ -3596,16 +10141,6 @@ Change log
 > * tests: cloud : use secondary antenna for revpi4 [rcooke-warwick]
 > * tests: os: use secondary antenna for revpi4 [rcooke-warwick]
 > 
-
-</details>
-
-# v5.1.40
-## (2024-02-26)
-
-
-<details>
-<summary> Update layers/meta-balena to 53ff24d92800474ad310af81129aef2c4d9d2809 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.40
 > ### (2024-02-26)
 > 
@@ -3625,8 +10160,18 @@ Change log
 
 </details>
 
-# v5.1.39+rev1
-## (2024-02-26)
+# v5.1.39+rev4
+## (2024-02-29)
+
+* Update layers/poky to 6289654c3067ce0485f3dc84677d4bbeeeb3b01c [Self-hosted Renovate Bot]
+
+# v5.1.39+rev3
+## (2024-02-28)
+
+* Update layers/meta-openembedded to daa4619fe3fbf8c28f342c4a7163a84a330f7653 [Self-hosted Renovate Bot]
+
+# v5.1.39+rev2
+## (2024-02-28)
 
 
 <details>
@@ -3640,6 +10185,11 @@ Change log
 > 
 
 </details>
+
+# v5.1.39+rev1
+## (2024-02-27)
+
+* Update layers/poky to b110cd3d821b6d0ef310fb05465087255c7bdca3 [Self-hosted Renovate Bot]
 
 # v5.1.39
 ## (2024-02-26)
@@ -3669,16 +10219,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.38
-## (2024-02-23)
-
-
-<details>
-<summary> Update layers/meta-balena to 50a4fedb26b91e66e5c6fc15246822936c9eab09 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.38
 > ### (2024-02-23)
 > 
@@ -3706,8 +10246,367 @@ Change log
 
 </details>
 
+# v5.1.37+rev2
+## (2024-02-26)
+
+
+<details>
+<summary> Update contracts to 0c54ce2d25baac5485f3828dbfed58c33f881256 [Self-hosted Renovate Bot] </summary>
+
+> ## contracts-2.0.94
+> ### (2024-02-14)
+> 
+> * odyssey-x86: Update icon to latest revision [Alexandru Costache]
+> 
+> ## contracts-2.0.93
+> ### (2024-02-08)
+> 
+> * hw.device-type: Add Kontron i.MX8M Mini device [joris-bright]
+> 
+> ## contracts-2.0.92
+> ### (2024-02-01)
+> 
+> * hw.device-type: Add phyboard-lyra-am62xx-2 device [Atanas Bunchev]
+> 
+> ## contracts-2.0.91
+> ### (2024-02-01)
+> 
+> * Remove generic-amd64-fde device type [Michal Toman]
+> 
+> ## contracts-2.0.90
+> ### (2024-01-10)
+> 
+> * hw.device-type: Update svg icon for seeed-j4012 [Alexandru Costache]
+> 
+> ## contracts-2.0.89
+> ### (2024-01-05)
+> 
+> * hw.device-type: Fix hyperlinks in provisioning instructions [Alexandru Costache]
+> 
+> ## contracts-2.0.88
+> ### (2024-01-03)
+> 
+> * jetson-orin-nx-seeed-j4012: Add Seeed J4012 device-type [Alexandru Costache]
+> 
+> ## contracts-2.0.87
+> ### (2023-12-29)
+> 
+> * hw.device-type: Fix device type is_private flag for imx8mp-var-dart [Florin Sarbu]
+> 
+> ## contracts-2.0.86
+> ### (2023-12-28)
+> 
+> * hw.device-type: Add Variscite DART-MX8M-PLUS [Florin Sarbu]
+> 
+> ## contracts-2.0.85
+> ### (2023-12-21)
+> 
+> * patch: Remove wiki link reference to flash Tinker Board [Vipul Gupta (@vipulgupta2048)]
+> 
+> ## contracts-2.0.84
+> ### (2023-12-13)
+> 
+> * iot-gate-imx8plus: Update flashing instructions and name [Alexandru Costache]
+> 
+> ## contracts-2.0.83
+> ### (2023-11-24)
+> 
+> * revpi-connect-4: Added contract files for revpi-connect-4 [Waqar Rashid]
+> 
+> ## contracts-2.0.82
+> ### (2023-11-22)
+> 
+> * lcbzu9: boot from internal storage [Francois Loubser]
+> 
+> ## contracts-2.0.81
+> ### (2023-10-26)
+> 
+> * hw.device-type: Add imx8mm-lpddr4-evk device [Alex J Lennon]
+> 
+> ## contracts-2.0.80
+> ### (2023-10-20)
+> 
+> * hw.device-type: Modify bluechiptechnology-tm3 [crichardson]
+> 
+> ## contracts-2.0.79
+> ### (2023-10-19)
+> 
+> * device: Add Compulab UCM-iMX93 [Alexandru Costache]
+> 
+> ## contracts-2.0.78
+> ### (2023-10-19)
+> 
+> * hw.device-type: Modify bluechiptechnology-tm3 [crichardson]
+> 
+> ## contracts-2.0.77
+> ### (2023-10-09)
+> 
+> * hw.device-type: Add bluechiptechnology-tm3 [crichardson]
+> 
+> ## contracts-2.0.76
+> ### (2023-10-02)
+> 
+> * hw.device-type: Add Eurotec Lowpad lcbzu9 device [Francois Loubser]
+> 
+> ## contracts-2.0.75
+> ### (2023-09-28)
+> 
+> * raspberrypi5: remove reference to 64bits in display name [Alex Gonzalez]
+> 
+> ## contracts-2.0.74
+> ### (2023-09-28)
+> 
+> * raspberrypi5: Explicitly flag as public for the switch to apply [Alex Gonzalez]
+> 
+> ## contracts-2.0.73
+> ### (2023-09-28)
+> 
+> * raspberrypi5: Add new device type [Florin Sarbu]
+> 
+> ## contracts-2.0.72
+> ### (2023-09-04)
+> 
+> * raspberrypi4-unipi-neuron: Add new device type [Florin Sarbu]
+> 
+> ## contracts-2.0.71
+> ### (2023-08-29)
+> 
+> * Add the BeagleBone AI-64. [Lisandro Damián Nicanor Pérez Meyer]
+> 
+> ## contracts-2.0.70
+> ### (2023-08-23)
+> 
+> * Add alpine 3.18 [Kyle Harding]
+> 
+> ## contracts-2.0.69
+> ### (2023-08-22)
+> 
+> * Remove Ubuntu Impish and Kinetic and add Lunar [Kyle Harding]
+> 
+> ## contracts-2.0.68
+> ### (2023-08-15)
+> 
+> * iot-gate-imx8plus: Improve provisioning instructions for Windows [Alexandru Costache]
+> 
+> ## contracts-2.0.67
+> ### (2023-08-03)
+> 
+> * Fix conditional when installing libssl1.1 [Kyle Harding]
+> 
+> ## contracts-2.0.66
+> ### (2023-08-03)
+> 
+> * Fix a condition where /etc/nsswitch.conf exists and the build fails [Kyle Harding]
+> 
+> ## contracts-2.0.65
+> ### (2023-08-02)
+> 
+> * Replace ifupdown with ifupdown-ng for alpine edge [Kyle Harding]
+> 
+> ## contracts-2.0.64
+> ### (2023-08-02)
+> 
+> * Remove OpenJDK v7 as it has been removed from alpine edge [Kyle Harding]
+> 
+> ## contracts-2.0.63
+> ### (2023-06-29)
+> 
+> * sw.os+hw.device-type: Add ubuntu and debian distro configs for Orin Nano [Alexandru Costache]
+> 
+> ## contracts-2.0.62
+> ### (2023-06-27)
+> 
+> * hw.device-type: Add Jetson Orin Nano Devkit 8GB (SD) module [Alexandru Costache]
+> 
+> ## contracts-2.0.61
+> ### (2023-06-14)
+> 
+> * hw/device-type: Update contract.json for iot-gate-imx8 [Alexandru Costache]
+> 
+> ## contracts-2.0.60
+> ### (2023-05-04)
+> 
+> * Fix LED support for ISG-503 [Alexandru Costache]
+> 
+> ## contracts-2.0.59
+> ### (2023-05-03)
+> 
+> * hw.device-type: Add revpi-connect-s [Obaid Ch]
+> 
+> ## contracts-2.0.58
+> ### (2023-04-27)
+> 
+> * jetson-agx-orin-devkit: Mention the RAM configuration in the device name [Alexandru Costache]
+> 
+> ## contracts-2.0.57
+> ### (2023-04-07)
+> 
+> * debian/ubuntu jetson-orin-nx-xavier-nx-devkit: Add distro configs [Alexandru Costache]
+> * Orin NX: Update flashing steps [Alexandru Costache]
+> 
+> ## contracts-2.0.56
+> ### (2023-04-04)
+> 
+> * jetson-orin-nx-xavier-nx-devkit: Add contract for device type [Alexandru Costache]
+> 
+> ## contracts-2.0.55
+> ### (2023-03-29)
+> 
+> * iot-gate-imx8plus: Update provisioning instructions [Alexandru]
+> 
+> ## contracts-2.0.54
+> ### (2023-03-16)
+> 
+> * patch: Remove CircleCI in favor of Flowzone [Vipul Gupta (@vipulgupta2048)]
+> 
+> ## contracts-2.0.53
+> ### (2023-03-16)
+> 
+> * patch: Fix fluid tags for revpi-core-3 [Vipul Gupta (@vipulgupta2048)]
+> 
+> ## contracts-2.0.52
+> ### (2023-03-16)
+> 
+> * patch: Fix punctuation in partials [Vipul Gupta (@vipulgupta2048)]
+> * patch: Fix spelling of eMMC [Vipul Gupta (@vipulgupta2048)]
+> * patch: Fix spelling of while [Vipul Gupta (@vipulgupta2048)]
+> 
+> ## contracts-2.0.51
+> ### (2023-02-24)
+> 
+> * node: do not set unsafe-perm with npm 9 and newer [Michal Toman]
+> 
+
+</details>
+
+# v5.1.37+rev1
+## (2024-02-23)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 0cb57aede8dea798c14ddfc6546525b920504970 [Self-hosted Renovate Bot] </summary>
+
+> ## balena-yocto-scripts-1.21.3
+> ### (2024-02-11)
+> 
+> * Enable S3 Server Side Encryption flags [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.21.2
+> ### (2024-02-08)
+> 
+> * automation/include: Pass helper image version [Florin Sarbu]
+> 
+> ## balena-yocto-scripts-1.21.1
+> ### (2024-02-07)
+> 
+> * balena-deploy: Remove docker.io when pulling image [Alexandru]
+> 
+> ## balena-yocto-scripts-1.21.0
+> ### (2024-02-02)
+> 
+> * Return image id after pulling helper images [Kyle Harding]
+> * Build and publish helper images with Flowzone [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.20.0
+> ### (2024-02-02)
+> 
+> * Remove unused block-build functions [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.19.41
+> ### (2023-12-22)
+> 
+> * automation/balena-deploy: Pin to known working version of balena-img [Alexandru Costache]
+> 
+> ## balena-yocto-scripts-1.19.40
+> ### (2023-11-13)
+> 
+> * Dockerfiles: update balenaCLI version to 17.2.2 [Alex Gonzalez]
+> * balena-deploy-block.sh: deploy licenses and changelog as release assets [Alex Gonzalez]
+> * balena-deploy: Add changelog to deployed artifacts [Alex Gonzalez]
+> * balena-api: add release assets helper functions [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.39
+> ### (2023-10-20)
+> 
+> * Dockerfile_yocto-build-env: Install rsync and uudecode host dependencies [Alexandru Costache]
+> 
+> ## balena-yocto-scripts-1.19.38
+> ### (2023-10-11)
+> 
+> * README.md ChangeType is needed for PR so add to README example [Alex J Lennon]
+> 
+> ## balena-yocto-scripts-1.19.37
+> ### (2023-10-10)
+> 
+> * Dockerfile_yocto-build-env: Add screen [Alex J Lennon]
+> 
+> ## balena-yocto-scripts-1.19.36
+> ### (2023-10-10)
+> 
+> * flowzone: allow external contributions [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.35
+> ### (2023-09-28)
+> 
+> * balena-deploy: fail if device type not found [rcooke-warwick]
+> * balena-api: Dont assume private if can't get DT [rcooke-warwick]
+> 
+> ## balena-yocto-scripts-1.19.34
+> ### (2023-07-12)
+> 
+> * Remove all traces of --skip-discontinued [Florin Sarbu]
+> * barys: Remove documenting the --skip-discontinued option [Florin Sarbu]
+> 
+> ## balena-yocto-scripts-1.19.33
+> ### (2023-07-10)
+> 
+> * Update device-types package from v10.3.0 to v10.5.1 [Alex Gonzalez]
+> * barys: remove option to skip discontinued device types [Alex Gonzalez]
+> * balena-lib: remove balena_lib_get_dt_state [Alex Gonzalez]
+> * jenkins_build: remove discontinued device check [Alex Gonzalez]
+> * balena-deploy: remove discontinued check [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.32
+> ### (2023-06-19)
+> 
+> * balena-deploy: Newer meta-balena do not create a kernel_source tarball [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.31
+> ### (2023-06-05)
+> 
+> * balena-deploy: add a compressed licenses tarball to the deploy artifacts [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.30
+> ### (2023-05-23)
+> 
+> * generate_ami: opt-in secure boot when using signed images [Alex Gonzalez]
+> * balena-generate-ami: comply with default AMI quotas [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.29
+> ### (2023-05-19)
+> 
+> * balena-deploy: add secureBoot feature into contract [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.28
+> ### (2023-05-06)
+> 
+> * jenkins_build: accept bitbake extra arguments [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.27
+> ### (2023-04-21)
+> 
+> * barys: fix removal of equals sign from argval [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.19.26
+> ### (2023-04-12)
+> 
+> * balena-lib: Do not return error if no balena user token is available [Alex Gonzalez]
+> 
+
+</details>
+
 # v5.1.37
-## (2024-02-22)
+## (2024-02-23)
 
 
 <details>
@@ -3724,7 +10623,7 @@ Change log
 </details>
 
 # v5.1.36
-## (2024-02-21)
+## (2024-02-22)
 
 
 <details>
@@ -3738,8 +10637,13 @@ Change log
 
 </details>
 
+# v5.1.35+rev1
+## (2024-02-22)
+
+* Set the boot partition as bootable for flasher images [Florin Sarbu]
+
 # v5.1.35
-## (2024-02-19)
+## (2024-02-20)
 
 
 <details>
@@ -3766,61 +10670,16 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.34
-## (2024-02-15)
-
-
-<details>
-<summary> Update layers/meta-balena to b72d2791eb6b8e7a8fbb7b25cc43649a6c5cc281 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.34
 > ### (2024-02-14)
 > 
 > * resin-init-flasher: add jq dependency [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.1.33+rev1
-## (2024-02-14)
-
-
-<details>
-<summary> Update contracts to 0c54ce2d25baac5485f3828dbfed58c33f881256 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.94
-> ### (2024-02-14)
-> 
-> * odyssey-x86: Update icon to latest revision [Alexandru Costache]
-> 
-
-</details>
-
-# v5.1.33
-## (2024-02-14)
-
-
-<details>
-<summary> Update layers/meta-balena to 905446e98206f871145d1c70107c01d567e1303d [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.33
 > ### (2024-02-14)
 > 
 > * tests: cloud: if no existing release, create generic fleet [rcooke-warwick]
 > 
-
-</details>
-
-# v5.1.32
-## (2024-02-13)
-
-
-<details>
-<summary> Update layers/meta-balena to 9cacd8fbca660d61433e0b01a2beb0e515ea5a51 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.32
 > ### (2024-02-13)
 > 
@@ -3837,16 +10696,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.31
-## (2024-02-13)
-
-
-<details>
-<summary> Update layers/meta-balena to 71c5240fd2c9d26e7773c1ed4b3dc67f7fa4f9c7 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.31
 > ### (2024-02-13)
 > 
@@ -3868,31 +10717,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.30
-## (2024-02-12)
-
-
-<details>
-<summary> Update layers/meta-balena to c9e64a42b8de857356e587b551fc25e83df441a1 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.30
 > ### (2024-02-12)
 > 
 > * balena-image-bootloader-initramfs.bb: Add fsck module [Florin Sarbu]
 > 
-
-</details>
-
-# v5.1.29
-## (2024-02-12)
-
-
-<details>
-<summary> Update layers/meta-balena to 679f15cf90432172438f84e8f99fc4db2c6150f1 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.29
 > ### (2024-02-12)
 > 
@@ -3929,31 +10758,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.28+rev1
-## (2024-02-11)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 0cb57aede8dea798c14ddfc6546525b920504970 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.21.3
-> ### (2024-02-11)
-> 
-> * Enable S3 Server Side Encryption flags [Kyle Harding]
-> 
-
-</details>
-
-# v5.1.28
-## (2024-02-11)
-
-
-<details>
-<summary> Update layers/meta-balena to 4b70a3a329ce5e6749b32e49f87ef0093ee2d2c6 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.28
 > ### (2024-02-11)
 > 
@@ -3970,77 +10774,12 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.27
-## (2024-02-09)
-
-
-<details>
-<summary> Update layers/meta-balena to cb86da70496b25de7b826abbacd7c7feedf2fa54 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.27
 > ### (2024-02-09)
 > 
 > * patch: upgrade recipes/devtools/go to 1.17.13 [JOASSART Edwin]
 > * patch: removes recipes/devtools/go to 1.16 [JOASSART Edwin]
 > 
-
-</details>
-
-# v5.1.26+rev3
-## (2024-02-08)
-
-
-<details>
-<summary> Update contracts to 4f7dba1c6408a17c5a07e353443b068410fd8aa2 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.93
-> ### (2024-02-08)
-> 
-> * hw.device-type: Add Kontron i.MX8M Mini device [joris-bright]
-> 
-
-</details>
-
-# v5.1.26+rev2
-## (2024-02-08)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 6ccd3b1013b6d25ea9990a07a06bee864fe0a172 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.21.2
-> ### (2024-02-08)
-> 
-> * automation/include: Pass helper image version [Florin Sarbu]
-> 
-
-</details>
-
-# v5.1.26+rev1
-## (2024-02-07)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 57b2f7c97e4d95e74b76a0827e910d46e3b3ce2f [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.21.1
-> ### (2024-02-07)
-> 
-> * balena-deploy: Remove docker.io when pulling image [Alexandru]
-> 
-
-</details>
-
-# v5.1.26
-## (2024-02-06)
-
-
-<details>
-<summary> Update layers/meta-balena to cde215eca198fddfd900cf481ed5cc3f26d901ab [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.26
 > ### (2024-02-06)
 > 
@@ -4057,16 +10796,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.25
-## (2024-02-06)
-
-
-<details>
-<summary> Update layers/meta-balena to 77dc93411fffa0cc71dcc36e447cbfa9170f909d [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.25
 > ### (2024-02-06)
 > 
@@ -4083,16 +10812,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.24
-## (2024-02-06)
-
-
-<details>
-<summary> Update layers/meta-balena to e3519f1960bc68e72abf3ec052564cbf5878629f [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.24
 > ### (2024-02-05)
 > 
@@ -4114,67 +10833,16 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.23
-## (2024-02-05)
-
-
-<details>
-<summary> Update layers/meta-balena to aa6c72f952fa9f9a7428e0bf445b98a5023f8a60 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.23
 > ### (2024-02-05)
 > 
 > * tests: cloud: disable dut internet after flashing [rcooke-warwick]
 > 
-
-</details>
-
-# v5.1.22+rev1
-## (2024-02-02)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 0ba4bf5f5c4597b21628dfb6206304d1f889468f [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.21.0
-> ### (2024-02-02)
-> 
-> * Return image id after pulling helper images [Kyle Harding]
-> * Build and publish helper images with Flowzone [Kyle Harding]
-> 
-> ## balena-yocto-scripts-1.20.0
-> ### (2024-02-02)
-> 
-> * Remove unused block-build functions [Kyle Harding]
-> 
-
-</details>
-
-# v5.1.22
-## (2024-02-02)
-
-
-<details>
-<summary> Update layers/meta-balena to 2ba79c7ce73fde702831a041729da21bdff65627 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.22
 > ### (2024-02-02)
 > 
 > * balena-rollback/rollback-health: Allow old OS hooks to access efivars [Alexandru Costache]
 > 
-
-</details>
-
-# v5.1.21
-## (2024-02-01)
-
-
-<details>
-<summary> Update layers/meta-balena to 282df4bf06581eb6224ecd0eadfc53c0ec078907 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.21
 > ### (2024-02-01)
 > 
@@ -4206,31 +10874,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.20+rev1
-## (2024-02-01)
-
-
-<details>
-<summary> Update contracts to 75a97647a44cfe534f93926ab039afca6570cb86 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.92
-> ### (2024-02-01)
-> 
-> * hw.device-type: Add phyboard-lyra-am62xx-2 device [Atanas Bunchev]
-> 
-
-</details>
-
-# v5.1.20
-## (2024-02-01)
-
-
-<details>
-<summary> Update layers/meta-balena to cb6fcbc870bbb5c3a39a36647fb3c91747718a93 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.20
 > ### (2024-02-01)
 > 
@@ -4251,62 +10894,17 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.19
-## (2024-02-01)
-
-
-<details>
-<summary> Update layers/meta-balena to 03a97aa37d6dd74ad0c18e944d7dc6022b5851b1 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.19
 > ### (2024-02-01)
 > 
 > * Add balena bootloader class [Michal Toman]
 > * initrdscripts: remove nr_cpus kernel arg before kexec [Michal Toman]
 > 
-
-</details>
-
-# v5.1.18+rev1
-## (2024-01-31)
-
-
-<details>
-<summary> Update contracts to 8dfe06b57576e15e8579d4083bb316c9c7671488 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.91
-> ### (2024-02-01)
-> 
-> * Remove generic-amd64-fde device type [Michal Toman]
-> 
-
-</details>
-
-# v5.1.18
-## (2024-01-29)
-
-
-<details>
-<summary> Update layers/meta-balena to 926c556a680f3d42118f2f8cb5c5cd67b1f79c3c [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.18
 > ### (2024-01-29)
 > 
 > * classes: kernel-balena: expose watchdog in sysfs [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.1.17
-## (2024-01-29)
-
-
-<details>
-<summary> Update layers/meta-balena to 10c68e5f01bbb3f6d2866f11a934635129ed3b0e [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.17
 > ### (2024-01-29)
 > 
@@ -4323,16 +10921,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.16
-## (2024-01-27)
-
-
-<details>
-<summary> Update layers/meta-balena to 0acd247aa20716b1ceda746e5ff5b7a2634ff427 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.16
 > ### (2024-01-27)
 > 
@@ -4349,31 +10937,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.15
-## (2024-01-26)
-
-
-<details>
-<summary> Update layers/meta-balena to ce995ef6820181ce652fee2358913203e7a7b183 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.15
 > ### (2024-01-26)
 > 
 > * networkmanager: make FORWARD rules for shared interfaces last in chain [Michal Toman]
 > 
-
-</details>
-
-# v5.1.14
-## (2024-01-24)
-
-
-<details>
-<summary> Update layers/meta-balena to 2868aa1385bcbf6fe885e76872c2015de209d710 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.14
 > ### (2024-01-24)
 > 
@@ -4395,31 +10963,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.13
-## (2024-01-23)
-
-
-<details>
-<summary> Update layers/meta-balena to 72975c8ab3de26d6a1a861c7c2d56a88e20b4a29 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.13
 > ### (2024-01-23)
 > 
 > * Start extract-balena-ca before os-config update [jaomaloy]
 > 
-
-</details>
-
-# v5.1.12
-## (2024-01-19)
-
-
-<details>
-<summary> Update layers/meta-balena to 5da94ac4606e72b1499ae2398515e7463f977870 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.12
 > ### (2024-01-19)
 > 
@@ -4446,16 +10994,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.11
-## (2024-01-19)
-
-
-<details>
-<summary> Update layers/meta-balena to 7be5554073bebd092da8199c89094ccbfa87b2cb [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.11
 > ### (2024-01-18)
 > 
@@ -4468,31 +11006,11 @@ Change log
 > * balena-image-flasher: only add grub configuration for EFI devices [Alex Gonzalez]
 > * balena-image: only add grub configuration for EFI machines [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.1.10
-## (2024-01-12)
-
-
-<details>
-<summary> Update layers/meta-balena to d4e80942c09f500b3f6272395b29f8b13faa9253 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.10
 > ### (2024-01-12)
 > 
 > * tests/bluetooth: Leave Autokit host discoverable on BT for a longer period of time [Alexandru Costache]
 > 
-
-</details>
-
-# v5.1.9
-## (2024-01-11)
-
-
-<details>
-<summary> Update layers/meta-balena to 7322b033dd6efde288f564e657df0f1c1f217b7e [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.9
 > ### (2024-01-11)
 > 
@@ -4514,31 +11032,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.8+rev1
-## (2024-01-10)
-
-
-<details>
-<summary> Update contracts to 14a10d925b56660c59471447ca74ae324da68f79 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.90
-> ### (2024-01-10)
-> 
-> * hw.device-type: Update svg icon for seeed-j4012 [Alexandru Costache]
-> 
-
-</details>
-
-# v5.1.8
-## (2024-01-10)
-
-
-<details>
-<summary> Update layers/meta-balena to afa34852ba91dc6e720ae90890c095b73a1f8882 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.8
 > ### (2024-01-09)
 > 
@@ -4582,16 +11075,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.6
-## (2024-01-08)
-
-
-<details>
-<summary> Update layers/meta-balena to 18da0e4751bacb78b3da4e95d58a466e32b36faf [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.6
 > ### (2024-01-08)
 > 
@@ -4613,46 +11096,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.5+rev2
-## (2024-01-05)
-
-
-<details>
-<summary> Update contracts to b469f315f2dc5dbd396cbeab6fe3577b948af945 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.89
-> ### (2024-01-05)
-> 
-> * hw.device-type: Fix hyperlinks in provisioning instructions [Alexandru Costache]
-> 
-
-</details>
-
-# v5.1.5+rev1
-## (2024-01-03)
-
-
-<details>
-<summary> Update contracts to 802e95f85092e2bacc14014823b8167add968edd [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.88
-> ### (2024-01-03)
-> 
-> * jetson-orin-nx-seeed-j4012: Add Seeed J4012 device-type [Alexandru Costache]
-> 
-
-</details>
-
-# v5.1.5
-## (2024-01-01)
-
-
-<details>
-<summary> Update layers/meta-balena to aa9cd7315d801b22635e8468a0341d5dd7182a11 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.5
 > ### (2024-01-01)
 > 
@@ -4674,46 +11117,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.4+rev2
-## (2023-12-29)
-
-
-<details>
-<summary> Update contracts to dd3614e53254562a7f93415de7e7aaaf73637a96 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.87
-> ### (2023-12-29)
-> 
-> * hw.device-type: Fix device type is_private flag for imx8mp-var-dart [Florin Sarbu]
-> 
-
-</details>
-
-# v5.1.4+rev1
-## (2023-12-28)
-
-
-<details>
-<summary> Update contracts to b0c1495877e23b27af209082e6cc9959b94fd541 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.86
-> ### (2023-12-28)
-> 
-> * hw.device-type: Add Variscite DART-MX8M-PLUS [Florin Sarbu]
-> 
-
-</details>
-
-# v5.1.4
-## (2023-12-25)
-
-
-<details>
-<summary> Update layers/meta-balena to b1ad16750b2392ca2301e0a85c272fb4a3ebbde8 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.4
 > ### (2023-12-25)
 > 
@@ -4730,16 +11133,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.3
-## (2023-12-23)
-
-
-<details>
-<summary> Update layers/meta-balena to e84aa3890d7eaa439e8e0e64d98a62dd3f33b672 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.3
 > ### (2023-12-22)
 > 
@@ -4776,61 +11169,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.2+rev2
-## (2023-12-22)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 0008306e565a95aa51d04a8a0fcc318df3df59a2 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.41
-> ### (2023-12-22)
-> 
-> * automation/balena-deploy: Pin to known working version of balena-img [Alexandru Costache]
-> 
-
-</details>
-
-# v5.1.2+rev1
-## (2023-12-21)
-
-
-<details>
-<summary> Update contracts to 31188f585dc7d7f9e58c138e4c3257e9c2c274c0 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.85
-> ### (2023-12-21)
-> 
-> * patch: Remove wiki link reference to flash Tinker Board [Vipul Gupta (@vipulgupta2048)]
-> 
-
-</details>
-
-# v5.1.2
-## (2023-12-21)
-
-
-<details>
-<summary> Update layers/meta-balena to a3b1dd7c9cb8bf593ead65b5c41d5977ad020ab7 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.2
 > ### (2023-12-21)
 > 
 > * balena-config-vars: increase config.json parsing resilience [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.1.1
-## (2023-12-20)
-
-
-<details>
-<summary> Update layers/meta-balena to 66bfc4c87173155d21d2f82a6888f67f1009ccd8 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.1
 > ### (2023-12-20)
 > 
@@ -4847,92 +11190,27 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.1.0
-## (2023-12-19)
-
-
-<details>
-<summary> Update layers/meta-balena to d80ee36afa682981b8acce253e28c8237ed8166a [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.1.0
 > ### (2023-12-19)
 > 
 > * migrate: check for mount point before umounting [Alex Gonzalez]
 > * initrdscripts: move mounting of log mounts to finish module [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.0.11
-## (2023-12-14)
-
-
-<details>
-<summary> Update layers/meta-balena to 6a73c51909f49e11abbce78ba645eb80d91d4bba [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.0.11
 > ### (2023-12-14)
 > 
 > * update-balena-supervisor: fix supervisor.conf when image already downloaded [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.0.10
-## (2023-12-14)
-
-
-<details>
-<summary> Update layers/meta-balena to 3f7d62c3108cf8852fc22f67fd2ed910ef12ed19 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.0.10
 > ### (2023-12-13)
 > 
 > * hostapp-update-hooks: add debug mode [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.0.9+rev1
-## (2023-12-13)
-
-
-<details>
-<summary> Update contracts to 591fda9174610519f89842e651f3186eac8862eb [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.84
-> ### (2023-12-13)
-> 
-> * iot-gate-imx8plus: Update flashing instructions and name [Alexandru Costache]
-> 
-
-</details>
-
-# v5.0.9
-## (2023-12-12)
-
-
-<details>
-<summary> Update layers/meta-balena to 77ede04d006fc181647691958da41161e4f8402e [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.0.9
 > ### (2023-12-12)
 > 
 > * timesync-https: increase default connection max time to 10s [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.0.8
-## (2023-12-11)
-
-
-<details>
-<summary> Update layers/meta-balena to e7a8680cc8db8bd7529ed389dd59999a1492c1aa [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.0.8
 > ### (2023-12-11)
 > 
@@ -4964,31 +11242,11 @@ Change log
 > 
 > * Update actions/setup-python action to v5 [Self-hosted Renovate Bot]
 > 
-
-</details>
-
-# v5.0.6
-## (2023-12-05)
-
-
-<details>
-<summary> Update layers/meta-balena to 3617c776ed31ef47429bb266d4276d63f19a2d58 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.0.6
 > ### (2023-12-05)
 > 
 > * os-helpers-logging: replace broken container check [Alex Gonzalez]
 > 
-
-</details>
-
-# v5.0.5
-## (2023-12-02)
-
-
-<details>
-<summary> Update layers/meta-balena to 11ab946c68bc4245e2449ebf4765ecfc1c73831d [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.0.5
 > ### (2023-12-02)
 > 
@@ -5005,16 +11263,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.0.4
-## (2023-12-02)
-
-
-<details>
-<summary> Update layers/meta-balena to b33a629f6582bf749164fa40e33b992fa3054e51 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.0.4
 > ### (2023-12-01)
 > 
@@ -5031,16 +11279,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.0.3
-## (2023-12-01)
-
-
-<details>
-<summary> Update layers/meta-balena to 0e2ba69c8a8d7c6b67ec8536f5c84bbd245ac220 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.0.3
 > ### (Invalid date)
 > 
@@ -5063,46 +11301,16 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v5.0.2
-## (2023-11-30)
-
-
-<details>
-<summary> Update layers/meta-balena to 4e89f786a171b42546c254557c5f1283c71e9503 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.0.2
 > ### (Invalid date)
 > 
 > * balena-rollback: If applicable, run device specific healthchecks [Alexandru Costache]
 > 
-
-</details>
-
-# v5.0.1
-## (2023-11-29)
-
-
-<details>
-<summary> Update layers/meta-balena to 0fed99ef0c338962d463b38eb58cd64cdf5804ae [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.0.1
 > ### (2023-11-29)
 > 
 > * Make Engine healthcheck performance test aware of device type [Leandro Motta Barros]
 > 
-
-</details>
-
-# v5.0.0
-## (2023-11-28)
-
-
-<details>
-<summary> Update layers/meta-balena to a4097f3317ad9b74ad237239b6b6552da75eeaf9 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-5.0.0
 > ### (2023-11-28)
 > 
@@ -5129,31 +11337,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.1.11
-## (2023-11-27)
-
-
-<details>
-<summary> Update layers/meta-balena to cb75bf3ef0719cac2b8b080dd99f90d4f6c95705 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.1.11
 > ### (2023-11-27)
 > 
 > * tests: os: safe-reboot: wait for SV to start [rcooke-warwick]
 > 
-
-</details>
-
-# v4.1.10
-## (2023-11-27)
-
-
-<details>
-<summary> Update layers/meta-balena to 06288522295690b4722b094098433e5d3cbbd50a [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.1.10
 > ### (2023-11-27)
 > 
@@ -5175,46 +11363,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.1.9
-## (2023-11-24)
-
-
-<details>
-<summary> Update layers/meta-balena to ea2f9c49095dcc6cfb2ad7289780a7b84f32d031 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.1.9
 > ### (2023-11-24)
 > 
 > * tests: allow for multiple worker fleets [rcooke-warwick]
 > 
-
-</details>
-
-# v4.1.8+rev1
-## (2023-11-24)
-
-
-<details>
-<summary> Update contracts to 9a8805526c0fbe4aa1477f32b23c3d0e3647792a [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.83
-> ### (2023-11-24)
-> 
-> * revpi-connect-4: Added contract files for revpi-connect-4 [Waqar Rashid]
-> 
-
-</details>
-
-# v4.1.8
-## (2023-11-22)
-
-
-<details>
-<summary> Update layers/meta-balena to 3d7cb3b819e6ac6636b7db302dcfc6be0d7c3aed [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.1.8
 > ### (2023-11-22)
 > 
@@ -5236,31 +11389,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.1.7+rev1
-## (2023-11-22)
-
-
-<details>
-<summary> Update contracts to c45079c380048f9f65967a68cf30f1654195384f [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.82
-> ### (2023-11-22)
-> 
-> * lcbzu9: boot from internal storage [Francois Loubser]
-> 
-
-</details>
-
-# v4.1.7
-## (2023-11-17)
-
-
-<details>
-<summary> Update layers/meta-balena to d40a0ca5875c474752cd94aae4e4fd9754b4781f [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.1.7
 > ### (2023-11-17)
 > 
@@ -5297,34 +11425,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.1.5+rev1
-## (2023-11-13)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 84d8d394f158be4490628d7ca65a50e90667fa4b [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.40
-> ### (2023-11-13)
-> 
-> * Dockerfiles: update balenaCLI version to 17.2.2 [Alex Gonzalez]
-> * balena-deploy-block.sh: deploy licenses and changelog as release assets [Alex Gonzalez]
-> * balena-deploy: Add changelog to deployed artifacts [Alex Gonzalez]
-> * balena-api: add release assets helper functions [Alex Gonzalez]
-> 
-
-</details>
-
-# v4.1.5
-## (2023-11-10)
-
-
-<details>
-<summary> Update layers/meta-balena to 53a1e875f6a48f891d26b5edb9295fc6486ab4e8 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.1.5
 > ### (2023-11-10)
 > 
@@ -5334,16 +11434,6 @@ Change log
 > * hostapp-update-hooks: surface logs to journal [Alex Gonzalez]
 > * os-helpers-logging: skip logging to journal from a container [Alex Gonzalez]
 > 
-
-</details>
-
-# v4.1.4
-## (2023-11-10)
-
-
-<details>
-<summary> Update layers/meta-balena to 96b949b1282438824db7b960413407401a8512ea [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.1.4
 > ### (2023-11-10)
 > 
@@ -5360,16 +11450,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.1.3
-## (2023-11-06)
-
-
-<details>
-<summary> Update layers/meta-balena to 6fcf0103c06b9a20d5fbc06e1433cce71145bb2f [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.1.3
 > ### (2023-11-06)
 > 
@@ -5401,16 +11481,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.1.2
-## (2023-11-01)
-
-
-<details>
-<summary> Update layers/meta-balena to 1f878fc282e911950df09d5af3eb6b61a12d6c48 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.1.2
 > ### (2023-11-01)
 > 
@@ -5418,46 +11488,11 @@ Change log
 > * initrdscripts: unlock LUKS partitions only in user mode [Joseph Kogut]
 > * os-helpers: add secure boot helpers [Joseph Kogut]
 > 
-
-</details>
-
-# v4.1.1+rev1
-## (2023-10-26)
-
-
-<details>
-<summary> Update contracts to 109179385bb4b862cd7572be14d4c5edddbd93c9 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.81
-> ### (2023-10-26)
-> 
-> * hw.device-type: Add imx8mm-lpddr4-evk device [Alex J Lennon]
-> 
-
-</details>
-
-# v4.1.1
-## (2023-10-25)
-
-
-<details>
-<summary> Update layers/meta-balena to 0608f561a79e1b4b2ba5e83a10c4b9d2010a00cd [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.1.1
 > ### (2023-10-25)
 > 
 > * plymouth: Remove --retain-splash flag from plymouth quit [Kyle Harding]
 > 
-
-</details>
-
-# v4.1.0
-## (2023-10-25)
-
-
-<details>
-<summary> Update layers/meta-balena to 6d41111f954f5c2f080b6f01b37634814b5bc84f [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.1.0
 > ### (2023-10-25)
 > 
@@ -5466,31 +11501,11 @@ Change log
 > * os-helpers-logging: output script logging to journald [Alex Gonzalez]
 > * os-helpers: add safe_reboot function [Alex Gonzalez]
 > 
-
-</details>
-
-# v4.0.31
-## (2023-10-24)
-
-
-<details>
-<summary> Update layers/meta-balena to 88fa82e720d8cff1a8e9221703661cb3eee4ad6f [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.31
 > ### (2023-10-24)
 > 
 > * Revert "kernel-balena: Remove apparmor support" [Alex Gonzalez]
 > 
-
-</details>
-
-# v4.0.30
-## (2023-10-23)
-
-
-<details>
-<summary> Update layers/meta-balena to ff47baf219489312903ecbfe52f6f16a2cb284bb [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.30
 > ### (2023-10-23)
 > 
@@ -5507,46 +11522,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.29
-## (2023-10-23)
-
-
-<details>
-<summary> Update layers/meta-balena to c1ed98a9e945d0f1ba684204c2fc10d3fdf59072 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.29
 > ### (2023-10-23)
 > 
 > * resin-device-progress: Add status code check and error reporting [Alex Gonzalez]
 > 
-
-</details>
-
-# v4.0.28+rev1
-## (2023-10-20)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 39430b27390c28c4b055fb8711005600112a6951 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.39
-> ### (2023-10-20)
-> 
-> * Dockerfile_yocto-build-env: Install rsync and uudecode host dependencies [Alexandru Costache]
-> 
-
-</details>
-
-# v4.0.28
-## (2023-10-20)
-
-
-<details>
-<summary> Update layers/meta-balena to caa8a7842e0680a4f3a2a51d6b81017ff08fb390 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.28
 > ### (2023-10-20)
 > 
@@ -5578,61 +11558,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.27+rev3
-## (2023-10-20)
-
-
-<details>
-<summary> Update contracts to 42e712dfe54929870e1ef51fc95cff10f760ab08 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.80
-> ### (2023-10-20)
-> 
-> * hw.device-type: Modify bluechiptechnology-tm3 [crichardson]
-> 
-
-</details>
-
-# v4.0.27+rev2
-## (2023-10-19)
-
-
-<details>
-<summary> Update contracts to 2d44c9cb5c64b185fed20caf59d846de4d4b8280 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.79
-> ### (2023-10-19)
-> 
-> * device: Add Compulab UCM-iMX93 [Alexandru Costache]
-> 
-
-</details>
-
-# v4.0.27+rev1
-## (2023-10-19)
-
-
-<details>
-<summary> Update contracts to 97f176d005a5d91542ac4278ce7dc8eb52dd3e46 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.78
-> ### (2023-10-19)
-> 
-> * hw.device-type: Modify bluechiptechnology-tm3 [crichardson]
-> 
-
-</details>
-
-# v4.0.27
-## (2023-10-18)
-
-
-<details>
-<summary> Update layers/meta-balena to 2afcf8f6657947fea0ddc5a34fc7c8773b1cfb24 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.27
 > ### (2023-10-18)
 > 
@@ -5704,16 +11629,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.26
-## (2023-10-17)
-
-
-<details>
-<summary> Update layers/meta-balena to b4ba19cb95af296ddb8a4c9998cc741ec9562659 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.26
 > ### (2023-10-17)
 > 
@@ -5750,151 +11665,31 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.25
-## (2023-10-12)
-
-
-<details>
-<summary> Update layers/meta-balena to 4b47f04ece3742de572dd04180e1e30744ed3980 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.25
 > ### (2023-10-11)
 > 
 > * Update Pin dependencies [Self-hosted Renovate Bot]
 > 
-
-</details>
-
-# v4.0.24
-## (2023-10-11)
-
-
-<details>
-<summary> Update layers/meta-balena to f98f94b3181bfd112b2b88287ae29b134bb4c1ab [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.24
 > ### (2023-10-11)
 > 
 > * classes: image_types_balena: do not hardcode path to data image [Alex Gonzalez]
 > 
-
-</details>
-
-# v4.0.23+rev1
-## (2023-10-11)
-
-
-<details>
-<summary> Update balena-yocto-scripts to c9f72aa9d032ab2281b918dab5970f18568a7644 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.38
-> ### (2023-10-11)
-> 
-> * README.md ChangeType is needed for PR so add to README example [Alex J Lennon]
-> 
-
-</details>
-
-# v4.0.23
-## (2023-10-11)
-
-
-<details>
-<summary> Update layers/meta-balena to 2a57fb406f8ddf36f1e907c1b7c236fed64574be [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.23
 > ### (2023-10-10)
 > 
 > * os-helpers-fs: fix returning multiple matching devices [Joseph Kogut]
 > 
-
-</details>
-
-# v4.0.22+rev2
-## (2023-10-10)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 37a4aa0421848226b41dda508e5fc05fdcc01389 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.37
-> ### (2023-10-10)
-> 
-> * Dockerfile_yocto-build-env: Add screen [Alex J Lennon]
-> 
-
-</details>
-
-# v4.0.22+rev1
-## (2023-10-10)
-
-
-<details>
-<summary> Update balena-yocto-scripts to e26625baaf2c9cca33933e4baac7b448d644ee30 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.36
-> ### (2023-10-10)
-> 
-> * flowzone: allow external contributions [Alex Gonzalez]
-> 
-
-</details>
-
-# v4.0.22
-## (2023-10-10)
-
-
-<details>
-<summary> Update layers/meta-balena to 010ff351b1875554aa86fbaa4f1ac5b8f865cc7f [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.22
 > ### (2023-10-09)
 > 
 > * Update tibdex/github-app-token action to v2.1.0 [Self-hosted Renovate Bot]
 > 
-
-</details>
-
-# v4.0.21
-## (2023-10-09)
-
-
-<details>
-<summary> Update layers/meta-balena to 9fe2ab5faca6323fa188bdc3145511083085ffc9 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.21
 > ### (2023-10-09)
 > 
 > * Update backports with current 2.112.x [BalenaCI github workflow]
 > 
-
-</details>
-
-# v4.0.20+rev1
-## (2023-10-09)
-
-
-<details>
-<summary> Update contracts to a06c0ccb61620b3a805339c523f85f69a780b6a5 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.77
-> ### (2023-10-09)
-> 
-> * hw.device-type: Add bluechiptechnology-tm3 [crichardson]
-> 
-
-</details>
-
-# v4.0.20
-## (2023-10-05)
-
-
-<details>
-<summary> Update layers/meta-balena to dda681a93a1e2459925d36fabcb8bd4c6f68363a [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.20
 > ### (2023-10-05)
 > 
@@ -5941,56 +11736,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.17
-## (2023-10-03)
-
-
-<details>
-<summary> Update layers/meta-balena to b1e2d7f34e4bffe2c6149b0a360cb226c6f644a7 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.17
 > ### (2023-10-02)
 > 
 > * workflows: Switch to balenaOS ESR [bot] for authentication [Kyle Harding]
 > 
-
-</details>
-
-# v4.0.16+rev3
-## (2023-10-02)
-
-* Update balena-os/github-workflows to [Self-hosted Renovate Bot]
-
-# v4.0.16+rev2
-## (2023-10-02)
-
-* Update balena-os/github-workflows to v0.0.24 [Self-hosted Renovate Bot]
-
-# v4.0.16+rev1
-## (2023-10-02)
-
-
-<details>
-<summary> Update contracts to d68265ebeac98e7814829da7e7f6bb2a9aff8e39 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.76
-> ### (2023-10-02)
-> 
-> * hw.device-type: Add Eurotec Lowpad lcbzu9 device [Francois Loubser]
-> 
-
-</details>
-
-# v4.0.16
-## (2023-09-28)
-
-
-<details>
-<summary> Update layers/meta-balena to 1c9c4813033186cefde51b9639edf7035f070c9d [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.16
 > ### (2023-09-28)
 > 
@@ -6007,67 +11757,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.15+rev3
-## (2023-09-28)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 29e8e0678085db54226956617ae66b59f5a28f8d [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.35
-> ### (2023-09-28)
-> 
-> * balena-deploy: fail if device type not found [rcooke-warwick]
-> * balena-api: Dont assume private if can't get DT [rcooke-warwick]
-> 
-
-</details>
-
-# v4.0.15+rev2
-## (2023-09-28)
-
-
-<details>
-<summary> Update contracts to 12fb777da3f386501d3fa386b9ac9319afd9a424 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.75
-> ### (2023-09-28)
-> 
-> * raspberrypi5: remove reference to 64bits in display name [Alex Gonzalez]
-> 
-> ## contracts-2.0.74
-> ### (2023-09-28)
-> 
-> * raspberrypi5: Explicitly flag as public for the switch to apply [Alex Gonzalez]
-> 
-
-</details>
-
-# v4.0.15+rev1
-## (2023-09-28)
-
-
-<details>
-<summary> Update contracts to 27ea28be5e65c06cac559ab5bddeccf77d13830f [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.73
-> ### (2023-09-28)
-> 
-> * raspberrypi5: Add new device type [Florin Sarbu]
-> 
-
-</details>
-
-# v4.0.15
-## (2023-09-28)
-
-
-<details>
-<summary> Update layers/meta-balena to 44da832b8ba67e5889f8c0d09cea7372ca0b7c09 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.15
 > ### (2023-09-27)
 > 
@@ -6084,31 +11773,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.14
-## (2023-09-27)
-
-
-<details>
-<summary> Update layers/meta-balena to 57aaaf0107f42f88956e9216dfb497bbf5c1d38e [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.14
 > ### (2023-09-27)
 > 
 > * patch: Add custom build docs [Vipul Gupta (@vipulgupta2048)]
 > 
-
-</details>
-
-# v4.0.13
-## (2023-09-26)
-
-
-<details>
-<summary> Update layers/meta-balena to 57352e943a786ab900f9dd9d07fcd39963babdf6 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.13
 > ### (2023-09-26)
 > 
@@ -6119,42 +11788,12 @@ Change log
 > * initrdscripts: add missing dependencies to rootfs script [Michal Toman]
 > * balena-image-bootloader-initramfs: Add balena bootloader [Alex Gonzalez]
 > 
-
-</details>
-
-# v4.0.12+rev2
-## (2023-09-25)
-
-* Update layers/poky to fd00d74f47ceb57a619c4d0a0553ff0a30bbb7a4 [Self-hosted Renovate Bot]
-
-# v4.0.12+rev1
-## (2023-09-25)
-
-* Update layers/meta-openembedded to 0e6c34f82ca4d43cbca3754c5fe37c5b3bdd0f37 [Self-hosted Renovate Bot]
-
-# v4.0.12
-## (2023-09-25)
-
-
-<details>
-<summary> Update layers/meta-balena to 4fe79e7ee65f47c0a5baebbd82b35aec71d92fbd [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.12
 > ### (2023-09-25)
 > 
 > * Check if SUPERVISOR_OVERRIDE_LOCK is set [jaomaloy]
 > * Check and get service lockfiles on HUP reboot [jaomaloy]
 > 
-
-</details>
-
-# v4.0.11
-## (2023-09-21)
-
-
-<details>
-<summary> Update layers/meta-balena to 2afff0f8f102e7525f41c81c6c41d0c184a6e5be [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.11
 > ### (2023-09-21)
 > 
@@ -6172,16 +11811,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.10
-## (2023-09-20)
-
-
-<details>
-<summary> Update layers/meta-balena to 966f4447225b4d7def470789ca6239067c22591d [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.10
 > ### (2023-09-20)
 > 
@@ -6198,26 +11827,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.9+rev2
-## (2023-09-19)
-
-* Update .gitmodules with submodule branch information [Kyle Harding]
-
-# v4.0.9+rev1
-## (2023-09-18)
-
-* Update balena-os/github-workflows to v0.0.22 [Self-hosted Renovate Bot]
-
-# v4.0.9
-## (2023-09-16)
-
-
-<details>
-<summary> Update layers/meta-balena to 8f952b7a5c8db38d6c674c2a0bef577c743ba2f0 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.9
 > ### (2023-09-15)
 > 
@@ -6239,46 +11848,16 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.8
-## (2023-09-15)
-
-
-<details>
-<summary> Update layers/meta-balena to 3282f57a59799111d7f68c13013f6324aa65c966 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.8
 > ### (2023-09-15)
 > 
 > * Enable back ModemManager AT commands through D-Bus and	mmcli [Zahari Petkov]
 > 
-
-</details>
-
-# v4.0.7
-## (2023-09-14)
-
-
-<details>
-<summary> Update layers/meta-balena to 3c2bfbdb10a51ef5b3fd3f7e59888645f2029ecc [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.7
 > ### (2023-09-14)
 > 
 > * Update tibdex/github-app-token action to v2 [Self-hosted Renovate Bot]
 > 
-
-</details>
-
-# v4.0.6
-## (2023-09-13)
-
-
-<details>
-<summary> Update layers/meta-balena to 6b39839656ee335e08081474e0c528978fdcae6c [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.6
 > ### (2023-09-13)
 > 
@@ -6296,46 +11875,16 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.5
-## (2023-09-13)
-
-
-<details>
-<summary> Update layers/meta-balena to cd6279920e902422377cd21d81584ccf1791676c [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.5
 > ### (2023-09-13)
 > 
 > * tests: os: retry healthcheck disable [rcooke-warwick]
 > 
-
-</details>
-
-# v4.0.4
-## (2023-09-11)
-
-
-<details>
-<summary> Update layers/meta-balena to 5ebb6671a99eaaa577e03fd16290d25493d05ee2 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.4
 > ### (2023-09-11)
 > 
 > * renovate updates patch only [ab77]
 > 
-
-</details>
-
-# v4.0.3
-## (2023-09-09)
-
-
-<details>
-<summary> Update layers/meta-balena to 3cdf98b11926bdbf27fb7870326a3f5d05e67e11 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.3
 > ### (2023-09-09)
 > 
@@ -6357,16 +11906,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.2
-## (2023-09-08)
-
-
-<details>
-<summary> Update layers/meta-balena to 5e772f467a81643ad3b78007ce9662df03782bc1 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.2
 > ### (2023-09-08)
 > 
@@ -6383,46 +11922,16 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v4.0.1
-## (2023-09-08)
-
-
-<details>
-<summary> Update layers/meta-balena to 6db6c7c9774bf58dc4676816280f81fae83df78e [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.1
 > ### (2023-09-08)
 > 
 > * classes: sign: add a retry to the signing call [Alex Gonzalez]
 > 
-
-</details>
-
-# v4.0.0
-## (2023-09-06)
-
-
-<details>
-<summary> Update layers/meta-balena to b85be94a14e77496ff21e131642f596a247efd59 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-4.0.0
 > ### (2023-09-06)
 > 
 > * Update actions/checkout action to v4 [Self-hosted Renovate Bot]
 > 
-
-</details>
-
-# v3.2.12
-## (2023-09-06)
-
-
-<details>
-<summary> Update layers/meta-balena to c0508d3c1ae14f7f4c80312b044cc4a1efa46c60 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.12
 > ### (2023-09-06)
 > 
@@ -6432,23 +11941,30 @@ Change log
 
 </details>
 
+# v3.2.11+rev4
+## (2024-02-20)
+
+* Fix extlinux.conf creation for Rock Pi 4 flasher images [Florin Sarbu]
+
+# v3.2.11+rev3
+## (2024-02-20)
+
+* Load extlinux.conf from the root partition for Rock Pi 4 [Florin Sarbu]
+* Remove redundant u-boot kconfig integration patch [Florin Sarbu]
+* Update poky to dunfell-23.0.21 [Florin Sarbu]
+
+# v3.2.11+rev2
+## (2024-02-20)
+
+* Update balena-os/github-workflows to v0.0.24 [Self-hosted Renovate Bot]
+
 # v3.2.11+rev1
-## (2023-09-04)
+## (2023-09-19)
 
-
-<details>
-<summary> Update contracts to 518a1d424f09a11dc1b60a16026bfe8ffe07ca78 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.72
-> ### (2023-09-04)
-> 
-> * raspberrypi4-unipi-neuron: Add new device type [Florin Sarbu]
-> 
-
-</details>
+* Update .gitmodules with submodule branch information [Kyle Harding]
 
 # v3.2.11
-## (2023-09-01)
+## (2023-09-05)
 
 
 <details>
@@ -6459,31 +11975,11 @@ Change log
 > 
 > * Update tibdex/github-app-token action to v1.8.2 [Self-hosted Renovate Bot]
 > 
-
-</details>
-
-# v3.2.10
-## (2023-09-01)
-
-
-<details>
-<summary> Update layers/meta-balena to cacbac0f5dc91de46ab61fcb1f517390dc4724ed [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.10
 > ### (2023-09-01)
 > 
 > * meta-resin-pyro: do not apply further modemmanager updates [Alex Gonzalez]
 > 
-
-</details>
-
-# v3.2.9
-## (2023-08-31)
-
-
-<details>
-<summary> Update layers/meta-balena to 3e9aa973067758b0424798dba9e9b9bdaf33a9d3 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.9
 > ### (2023-09-01)
 > 
@@ -6560,31 +12056,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.2.8+rev1
-## (2023-08-29)
-
-
-<details>
-<summary> Update contracts to ca46c341b263adfd70071288d669f7479983f326 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.71
-> ### (2023-08-29)
-> 
-> * Add the BeagleBone AI-64. [Lisandro Damián Nicanor Pérez Meyer]
-> 
-
-</details>
-
-# v3.2.8
-## (2023-08-24)
-
-
-<details>
-<summary> Update layers/meta-balena to 9b15abeeb36a1e2a8e1b382a1f9b00b3c034371c [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.8
 > ### (2023-08-24)
 > 
@@ -6592,16 +12063,6 @@ Change log
 > * meta-balena-warrior: libmqmi: use v 1.30.2 [Alex Gonzalez]
 > * meta-balena-warrior: libmbim: use v 1.26.2 [Alex Gonzalez]
 > 
-
-</details>
-
-# v3.2.7
-## (2023-08-24)
-
-
-<details>
-<summary> Update layers/meta-balena to d0fb824dca1869d27592e5c48b757cbf95ae106f [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.7
 > ### (2023-08-24)
 > 
@@ -6618,91 +12079,21 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.2.6
-## (2023-08-23)
-
-
-<details>
-<summary> Update layers/meta-balena to e390695280de65b7e451afe624daaeea31dde595 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.6
 > ### (2023-08-23)
 > 
 > * resin-u-boot.class: Fix for older u-boot versions [Alex Gonzalez]
 > 
-
-</details>
-
-# v3.2.5+rev2
-## (2023-08-23)
-
-
-<details>
-<summary> Update contracts to d61d9118688241409d15a3ba10e963f9a202e347 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.70
-> ### (2023-08-23)
-> 
-> * Add alpine 3.18 [Kyle Harding]
-> 
-
-</details>
-
-# v3.2.5+rev1
-## (2023-08-22)
-
-
-<details>
-<summary> Update contracts to 10b9852d5826601854c35be13555647ca65bdb54 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.69
-> ### (2023-08-22)
-> 
-> * Remove Ubuntu Impish and Kinetic and add Lunar [Kyle Harding]
-> 
-
-</details>
-
-# v3.2.5
-## (2023-08-22)
-
-
-<details>
-<summary> Update layers/meta-balena to b65f4a096bfae592e7f02acf7dd0be2110c84ae9 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.5
 > ### (2023-08-22)
 > 
 > * contributing-device-support.md: Clarify repo set-up in balenaOS org for private device types [Florin Sarbu]
 > 
-
-</details>
-
-# v3.2.4
-## (2023-08-21)
-
-
-<details>
-<summary> Update layers/meta-balena to ab712a25ab4b9747037fc2a20f76e1d0b6f49e5e [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.4
 > ### (2023-08-21)
 > 
 > * tests: cloud: lockfile: change test order [rcooke-warwick]
 > 
-
-</details>
-
-# v3.2.3
-## (2023-08-21)
-
-
-<details>
-<summary> Update layers/meta-balena to ab4a4bdbce4c33a63a24f9d969f18711ddbfdc96 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.3
 > ### (2023-08-21)
 > 
@@ -6729,16 +12120,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.2.2
-## (2023-08-18)
-
-
-<details>
-<summary> Update layers/meta-balena to ba317bb80bb108576d8421a81547bf9cfdad1faf [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.2
 > ### (2023-08-18)
 > 
@@ -6746,31 +12127,11 @@ Change log
 > * meta-balena-thud: libqmi: Use v1.26.0 [Alex Gonzalez]
 > * meta-balena-thud: libmbim: use v 1.24.2 [Alex Gonzalez]
 > 
-
-</details>
-
-# v3.2.1
-## (2023-08-17)
-
-
-<details>
-<summary> Update layers/meta-balena to ec885550473b00b86e986f84bfd74f06a137fd24 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.1
 > ### (2023-08-17)
 > 
 > * meta-balena-thud: adapt migrate module dependencies [Alex Gonzalez]
 > 
-
-</details>
-
-# v3.2.0
-## (2023-08-17)
-
-
-<details>
-<summary> Update layers/meta-balena to 87546c158a40798749c94fdab9355e3c39920490 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.2.0
 > ### (2023-08-17)
 > 
@@ -6790,46 +12151,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.1.13
-## (2023-08-16)
-
-
-<details>
-<summary> Update layers/meta-balena to eeb57a87d32b9dafb4656a5a598a57da425892e4 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.13
 > ### (2023-08-16)
 > 
 > * Integration layers: mobile-broadband-provider: fix fetch failure [Alex Gonzalez]
 > 
-
-</details>
-
-# v3.1.12+rev1
-## (2023-08-15)
-
-
-<details>
-<summary> Update contracts to d09ff464591acafff8da686110ecc315f94745fa [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.68
-> ### (2023-08-15)
-> 
-> * iot-gate-imx8plus: Improve provisioning instructions for Windows [Alexandru Costache]
-> 
-
-</details>
-
-# v3.1.12
-## (2023-08-15)
-
-
-<details>
-<summary> Update layers/meta-balena to 07e9c06daa0b46154a241b448569c89ab307b6e7 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.12
 > ### (2023-08-15)
 > 
@@ -6846,16 +12172,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.1.11
-## (2023-08-12)
-
-
-<details>
-<summary> Update layers/meta-balena to 096a3557f96faa00ae018d3aebc7e272949f9e9e [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.11
 > ### (2023-08-12)
 > 
@@ -6872,171 +12188,41 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.1.10
-## (2023-08-12)
-
-
-<details>
-<summary> Update layers/meta-balena to e6802f52d479d4ac76622dc6049740c03b0172c2 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.10
 > ### (2023-08-12)
 > 
 > * hostapp-update: bind-mount /sys for Jetson efivars [Alexandru Costache]
 > 
-
-</details>
-
-# v3.1.9
-## (2023-08-10)
-
-
-<details>
-<summary> Update layers/meta-balena to b7d25711fe3895125b92a0ff2852aa82f5c75cee [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.9
 > ### (2023-08-10)
 > 
 > * tests: secureboot: add test for module signing [Joseph Kogut]
 > 
-
-</details>
-
-# v3.1.8+rev1
-## (2023-08-10)
-
-* Update build instructions in README [Alex Gonzalez]
-
-# v3.1.8
-## (2023-08-09)
-
-
-<details>
-<summary> Update layers/meta-balena to b64d73fcc51374ed90f2ede803b3efee13351d30 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.8
 > ### (2023-08-09)
 > 
 > * tests: hup: retry sending image if fails [rcooke-warwick]
 > 
-
-</details>
-
-# v3.1.7
-## (2023-08-08)
-
-
-<details>
-<summary> Update layers/meta-balena to a54f1b2a8253d564634789283980d54004201bdf [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.7
 > ### (2023-08-08)
 > 
 > * tests: os: eng. healthcheck: retry timeout change [rcooke-warwick]
 > 
-
-</details>
-
-# v3.1.6+rev2
-## (2023-08-03)
-
-
-<details>
-<summary> Update contracts to bd81b500fe74976567485afa39f6bbab3e60dd77 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.67
-> ### (2023-08-03)
-> 
-> * Fix conditional when installing libssl1.1 [Kyle Harding]
-> 
-> ## contracts-2.0.66
-> ### (2023-08-03)
-> 
-> * Fix a condition where /etc/nsswitch.conf exists and the build fails [Kyle Harding]
-> 
-
-</details>
-
-# v3.1.6+rev1
-## (2023-08-02)
-
-
-<details>
-<summary> Update contracts to bf0ec3d5a42dae4babeed8485030a0ca50f6fde3 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.65
-> ### (2023-08-02)
-> 
-> * Replace ifupdown with ifupdown-ng for alpine edge [Kyle Harding]
-> 
-> ## contracts-2.0.64
-> ### (2023-08-02)
-> 
-> * Remove OpenJDK v7 as it has been removed from alpine edge [Kyle Harding]
-> 
-
-</details>
-
-# v3.1.6
-## (2023-08-02)
-
-
-<details>
-<summary> Update layers/meta-balena to a84dc6fbc5967f67acf0d12f4fe5a9081a70cb63 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.6
 > ### (2023-08-02)
 > 
 > * resin-init-flasher: Allow background device registration [Michal Toman]
 > 
-
-</details>
-
-# v3.1.5
-## (2023-08-01)
-
-
-<details>
-<summary> Update layers/meta-balena to a71647f35b7987e21887d7cf0d0f6a883662ff5b [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.5
 > ### (2023-08-01)
 > 
 > * Reduce scope of app token used for backports and ESR [Kyle Harding]
 > 
-
-</details>
-
-# v3.1.4+rev1
-## (2023-08-01)
-
-* Update balena-os/github-workflows to v0.0.21 [Self-hosted Renovate Bot]
-
-# v3.1.4
-## (2023-07-30)
-
-
-<details>
-<summary> Update layers/meta-balena to 3ee7dc32110f9da60a088b5bd4bb39642d901bb5 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.4
 > ### (Invalid date)
 > 
 > * kernel-balena: remove mispelled config setting [Alex Gonzalez]
 > 
-
-</details>
-
-# v3.1.3
-## (2023-07-28)
-
-
-<details>
-<summary> Update layers/meta-balena to 3df341dcfa5681fc27d0713814635ddfe20d6a17 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.3
 > ### (2023-07-28)
 > 
@@ -7044,46 +12230,16 @@ Change log
 > * balena-net-config: populate the dispatcher bind mount [Alex Gonzalez]
 > * resin-mounts: add dispatcher.d bind mount [Alex Gonzalez]
 > 
-
-</details>
-
-# v3.1.2
-## (2023-07-27)
-
-
-<details>
-<summary> Update layers/meta-balena to 5dbd59262ff28b0036e2730d428499e134343c36 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.2
 > ### (2023-07-27)
 > 
 > * grub-conf: Do not hardcode the path for grub_extraenv [Michal Toman]
 > 
-
-</details>
-
-# v3.1.1
-## (2023-07-26)
-
-
-<details>
-<summary> Update layers/meta-balena to ced059b1f06281129434311dddc8ddab3d65fb5b [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.1
 > ### (2023-07-26)
 > 
 > * linux/kernel-devsrc: Fix aarch64 kernel-headers-test build [Alexandru Costache]
 > 
-
-</details>
-
-# v3.1.0
-## (2023-07-25)
-
-
-<details>
-<summary> Update layers/meta-balena to 76a64e46ebf953fba9e78aa7e60892113ccb9ad7 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.1.0
 > ### (2023-07-25)
 > 
@@ -7093,47 +12249,17 @@ Change log
 > * compat: connectivity: drop deprecated iwlwifi files [Joseph Kogut]
 > * compat: install linux-firmware-iwlwifi-3160 [Joseph Kogut]
 > 
-
-</details>
-
-# v3.0.17
-## (2023-07-25)
-
-
-<details>
-<summary> Update layers/meta-balena to 424c259104716586e450738c7de6fb7ef3472a02 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.17
 > ### (2023-07-25)
 > 
 > * balena-image: Install extra_uEnv for all boards that use u-boot [Alexandru Costache]
 > 
-
-</details>
-
-# v3.0.16
-## (2023-07-22)
-
-
-<details>
-<summary> Update layers/meta-balena to e1f474a9b8d28d5b0a0b993dd52108c214a376ea [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.16
 > ### (2023-07-22)
 > 
 > * modemmanager: increase qmi port open timeout [Alexandru Costache]
 > * Update ModemManager to v1.20.6 [Zahari Petkov]
 > 
-
-</details>
-
-# v3.0.15
-## (2023-07-20)
-
-
-<details>
-<summary> Update layers/meta-balena to a20f839eb56d1636e9905c4809e27c4c318977e8 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.15
 > ### (2023-07-20)
 > 
@@ -7142,16 +12268,6 @@ Change log
 > * tests: cloud: remove preload log check [rcooke-warwick]
 > * tests: allow for configurable BC env [rcooke-warwick]
 > 
-
-</details>
-
-# v3.0.14
-## (2023-07-20)
-
-
-<details>
-<summary> Update layers/meta-balena to e378e5c5ac8186c1d8164a05f8aa669c1fe97ed9 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.14
 > ### (2023-07-20)
 > 
@@ -7173,16 +12289,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.0.13
-## (2023-07-19)
-
-
-<details>
-<summary> Update layers/meta-balena to 8d432e761bf29b2f9f3f8f9f711b087f9133cfa6 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.13
 > ### (2023-07-19)
 > 
@@ -7205,66 +12311,21 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.0.12
-## (2023-07-16)
-
-
-<details>
-<summary> Update layers/meta-balena to 31843b108269c3147c8ae14b75ec533ea1b52ca5 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.12
 > ### (2023-07-16)
 > 
 > * tests/os: skip boot switch during provisioning [Alexandru Costache]
 > 
-
-</details>
-
-# v3.0.11
-## (2023-07-14)
-
-
-<details>
-<summary> Update layers/meta-balena to 146e74b5bc28ae5ed734835a4d5a71cb974f51c6 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.11
 > ### (2023-07-14)
 > 
 > * .github/workflows: Replace GitHub PAT with ephemeral app tokens [Kyle Harding]
 > 
-
-</details>
-
-# v3.0.10+rev1
-## (2023-07-14)
-
-* Update balena-os/github-workflows to [Self-hosted Renovate Bot]
-
-# v3.0.10
-## (2023-07-14)
-
-
-<details>
-<summary> Update layers/meta-balena to 4a4b8ff5a7447c4eb4a0cd9a0caddc542384142b [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.10
 > ### (2023-07-14)
 > 
 > * initrdscripts: make initramfs-module-cryptsetup pull libgcc in [Michal Toman]
 > 
-
-</details>
-
-# v3.0.9
-## (2023-07-13)
-
-
-<details>
-<summary> Update layers/meta-balena to cd6d6ef437a25ada9a03029367e3b6f36c2b4f6d [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.9
 > ### (2023-07-13)
 > 
@@ -7286,41 +12347,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.0.8+rev1
-## (2023-07-12)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 45e32821ac6e3efba81e24a21e417a375da5e154 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.34
-> ### (2023-07-12)
-> 
-> * Remove all traces of --skip-discontinued [Florin Sarbu]
-> * barys: Remove documenting the --skip-discontinued option [Florin Sarbu]
-> 
-> ## balena-yocto-scripts-1.19.33
-> ### (2023-07-10)
-> 
-> * Update device-types package from v10.3.0 to v10.5.1 [Alex Gonzalez]
-> * barys: remove option to skip discontinued device types [Alex Gonzalez]
-> * balena-lib: remove balena_lib_get_dt_state [Alex Gonzalez]
-> * jenkins_build: remove discontinued device check [Alex Gonzalez]
-> * balena-deploy: remove discontinued check [Alex Gonzalez]
-> 
-
-</details>
-
-# v3.0.8
-## (2023-07-10)
-
-
-<details>
-<summary> Update layers/meta-balena to d36ec27a6f467d936e93a0f4c64f59cd917a00a2 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.8
 > ### (2023-07-10)
 > 
@@ -7342,31 +12368,11 @@ Change log
 > 
 > * bail out in kexec initramfs hook on failure [Joseph Kogut]
 > 
-
-</details>
-
-# v3.0.6
-## (2023-07-06)
-
-
-<details>
-<summary> Update layers/meta-balena to f7963b6b6d2cafd4d2b9ab4cfb12052d1afa0e53 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.6
 > ### (2023-07-06)
 > 
 > * kernel-devsrc: fix for v6.1+ [Alex Gonzalez]
 > 
-
-</details>
-
-# v3.0.5
-## (2023-07-06)
-
-
-<details>
-<summary> Update layers/meta-balena to 5fca7f6bd85c00824689bedb2ceb4ee3fb5faad2 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.5
 > ### (2023-07-06)
 > 
@@ -7383,16 +12389,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.0.4
-## (2023-07-05)
-
-
-<details>
-<summary> Update layers/meta-balena to 6a3ed9d310f41d687c9751f8e3e8c37604195cd4 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.4
 > ### (2023-07-05)
 > 
@@ -7409,16 +12405,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.0.3
-## (2023-07-05)
-
-
-<details>
-<summary> Update layers/meta-balena to 744eb2021a797c2e2b116e791c395cd0e6b133d7 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.3
 > ### (2023-07-05)
 > 
@@ -7435,16 +12421,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.0.2
-## (2023-07-05)
-
-
-<details>
-<summary> Update layers/meta-balena to fac2a045b028c533f12b67712d663cfd3a360649 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.2
 > ### (2023-07-05)
 > 
@@ -7476,32 +12452,12 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v3.0.1
-## (2023-07-05)
-
-
-<details>
-<summary> Update layers/meta-balena to 0232d66721fc127cc14e5078bbc811d50b3cf7a4 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.1
 > ### (2023-07-04)
 > 
 > * docs: Explain TPM ownership and possible TPM fill-up with secure boot [Michal Toman]
 > * docs: Recommend BIOS password and no F-key shortcuts with secure boot [Michal Toman]
 > 
-
-</details>
-
-# v3.0.0
-## (2023-07-04)
-
-
-<details>
-<summary> Update layers/meta-balena to 05dfed30f590eb14e1721a471262d64e798dea46 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-3.0.0
 > ### (2023-07-04)
 > 
@@ -7511,61 +12467,16 @@ Change log
 > * kernel-headers-test: Allow network access for compile task [Alex Gonzalez]
 > * kernel-modules-headers: use kernel-devsrc to provide kernel headers [Alex Gonzalez]
 > 
-
-</details>
-
-# v2.115.18+rev1
-## (2023-06-29)
-
-
-<details>
-<summary> Update contracts to 6e3d563f610303a24d0cbf43839919e451879899 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.63
-> ### (2023-06-29)
-> 
-> * sw.os+hw.device-type: Add ubuntu and debian distro configs for Orin Nano [Alexandru Costache]
-> 
-
-</details>
-
-# v2.115.18
-## (2023-06-29)
-
-
-<details>
-<summary> Update layers/meta-balena to c087c2dbcff4ed666bbad7901fe0f28794c99bc0 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.18
 > ### (2023-06-29)
 > 
 > * resin-init-flasher: Increase size of LUKS header to 16MB [Michal Toman]
 > 
-
-</details>
-
-# v2.115.17
-## (2023-06-28)
-
-
-<details>
-<summary> Update layers/meta-balena to 2df4a2410980aa482ebc6355e329a055917fa09d [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.17
 > ### (2023-06-28)
 > 
 > * balena-keys: add SIGN_KMOD_KEY_APPEND [Joseph Kogut]
 > 
-
-</details>
-
-# v2.115.16
-## (2023-06-28)
-
-
-<details>
-<summary> Update layers/meta-balena to c2004fe8aea1c95bccb4151079cbfb63c07e864c [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.16
 > ### (2023-06-28)
 > 
@@ -7582,16 +12493,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.115.15
-## (2023-06-28)
-
-
-<details>
-<summary> Update layers/meta-balena to c2e6ca9d57fd7214fe7c078591741a9c0fa6de73 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.15
 > ### (2023-06-28)
 > 
@@ -7609,16 +12510,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.115.14
-## (2023-06-27)
-
-
-<details>
-<summary> Update layers/meta-balena to 515a2063746f0a5a1aea47cd6064673f7e80a716 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.14
 > ### (2023-06-27)
 > 
@@ -7645,46 +12536,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.115.13+rev1
-## (2023-06-27)
-
-
-<details>
-<summary> Update contracts to 6c4386a7b918796f26b7e06e8ee5585403330e4f [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.62
-> ### (2023-06-27)
-> 
-> * hw.device-type: Add Jetson Orin Nano Devkit 8GB (SD) module [Alexandru Costache]
-> 
-
-</details>
-
-# v2.115.13
-## (2023-06-26)
-
-
-<details>
-<summary> Update layers/meta-balena to 87c91cdae3ca87e44a9417627c260701a5f85df9 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.13
 > ### (2023-06-26)
 > 
 > * os-helpers: Fix os-helpers-api build warnings [Alex Gonzalez]
 > 
-
-</details>
-
-# v2.115.12
-## (2023-06-23)
-
-
-<details>
-<summary> Update layers/meta-balena to f50614c3a4c7e6db317d4404368827508d8fce82 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.12
 > ### (2023-06-23)
 > 
@@ -7721,11 +12577,11 @@ Change log
 </details>
 
 # v2.115.11
-## (2023-06-21)
+## (2023-09-05)
 
 
 <details>
-<summary> Update layers/meta-balena to 2d298dfd21cc69271a25642a74608ff39c9ca33f [Self-hosted Renovate Bot] </summary>
+<summary> Update layers/meta-balena to 2d298dfd21cc69271a25642a74608ff39c9ca33f [Florin Sarbu] </summary>
 
 > ## meta-balena-2.115.11
 > ### (2023-06-21)
@@ -7769,31 +12625,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.115.10
-## (2023-06-21)
-
-
-<details>
-<summary> Update layers/meta-balena to f420c91e38843f5cf9b3f68122ee8cb71f9f605f [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.10
 > ### (2023-06-21)
 > 
 > * resin-init-flasher: Format encrypted partitions as LUKS2 [Michal Toman]
 > 
-
-</details>
-
-# v2.115.9
-## (2023-06-19)
-
-
-<details>
-<summary> Update layers/meta-balena to 4a9a1b6ce3abacf025fe01b5b4292be2f791c13b [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.9
 > ### (2023-06-15)
 > 
@@ -7810,76 +12646,16 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.115.8+rev2
-## (2023-06-19)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 91474e62b74d6390c285d1033b34f77092fe1824 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.32
-> ### (2023-06-19)
-> 
-> * balena-deploy: Newer meta-balena do not create a kernel_source tarball [Alex Gonzalez]
-> 
-
-</details>
-
-# v2.115.8+rev1
-## (2023-06-14)
-
-
-<details>
-<summary> Update contracts to c777910763b2476da6648200ab00629755b24da2 [Self-hosted Renovate Bot] </summary>
-
-> ## contracts-2.0.61
-> ### (2023-06-14)
-> 
-> * hw/device-type: Update contract.json for iot-gate-imx8 [Alexandru Costache]
-> 
-
-</details>
-
-# v2.115.8
-## (2023-06-14)
-
-
-<details>
-<summary> Update layers/meta-balena to 9760ab707b5c48d9a67ccacee61eacb063e14ac0 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.8
 > ### (2023-06-14)
 > 
 > * balena_check_crc: Add helper u-boot command for crc manipulation [Alexandru Costache]
 > 
-
-</details>
-
-# v2.115.7
-## (2023-06-09)
-
-
-<details>
-<summary> Update layers/meta-balena to d6546982c2e7777336a00b4d7e289cadc3efb714 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.7
 > ### (2023-06-09)
 > 
 > * README: Add bootloader section [Alexandru Costache]
 > 
-
-</details>
-
-# v2.115.6
-## (2023-06-08)
-
-
-<details>
-<summary> Update layers/meta-balena to 92a2e312bc49b6c35402efc528b035a66d9969ef [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.6
 > ### (2023-06-08)
 > 
@@ -7906,16 +12682,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.115.5
-## (2023-06-08)
-
-
-<details>
-<summary> Update layers/meta-balena to 7c31e98312e50f7cc6380b00701c6ed8ff3da216 [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.5
 > ### (2023-06-08)
 > 
@@ -7932,51 +12698,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.115.4+rev1
-## (2023-06-05)
-
-
-<details>
-<summary> Update balena-yocto-scripts to e9f9ef5b729ac01f0b8efe0a16187fbb00d0bf54 [Self-hosted Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.31
-> ### (2023-06-05)
-> 
-> * balena-deploy: add a compressed licenses tarball to the deploy artifacts [Alex Gonzalez]
-> 
-
-</details>
-
-# v2.115.4
-## (2023-06-01)
-
-
-<details>
-<summary> Update layers/meta-balena to f06ec1fc32f6c5baa0c734eaf9e94ee88f7993bb [Self-hosted Renovate Bot] </summary>
-
 > ## meta-balena-2.115.4
 > ### (2023-06-01)
 > 
 > * docs: Make secure boot docs more detailed [Michal Toman]
 > 
-
-</details>
-
-# v2.115.3+rev1
-## (2023-05-31)
-
-* Update balena-os/github-workflows to [Self-hosted Renovate Bot]
-
-# v2.115.3
-## (2023-05-29)
-
-
-<details>
-<summary> Update layers/meta-balena to 60cfd8a3761501274de5f189fd8d52dd75cfbe42 [Renovate Bot] </summary>
-
 > ## meta-balena-2.115.3
 > ### (2023-05-29)
 > 
@@ -7987,37 +12713,6 @@ Change log
 > 
 > * os-helpers: do not fail build if API tests fail [Alex Gonzalez]
 > 
-
-</details>
-
-# v2.115.1+rev1
-## (2023-05-24)
-
-
-<details>
-<summary> Update balena-yocto-scripts to f2a164e0acaaa66795d5f31af248f1743dd0ffb7 [Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.30
-> ### (2023-05-23)
-> 
-> * generate_ami: opt-in secure boot when using signed images [Alex Gonzalez]
-> * balena-generate-ami: comply with default AMI quotas [Alex Gonzalez]
-> 
-> ## balena-yocto-scripts-1.19.29
-> ### (2023-05-19)
-> 
-> * balena-deploy: add secureBoot feature into contract [Alex Gonzalez]
-> 
-
-</details>
-
-# v2.115.1
-## (2023-05-17)
-
-
-<details>
-<summary> Update layers/meta-balena to 5bf3a7b37f4e33264629144c9bf355b4d81c1dee [Renovate Bot] </summary>
-
 > ## meta-balena-2.115.1
 > ### (2023-05-17)
 > 
@@ -8026,16 +12721,6 @@ Change log
 > * tests: cloud: use contract to configure network [rcooke-warwick]
 > * tests: os: use contract to configure network [rcooke-warwick]
 > 
-
-</details>
-
-# v2.115.0
-## (2023-05-12)
-
-
-<details>
-<summary> Update layers/meta-balena to e86e103292e67dda18ca243e46721e65cd89c577 [Renovate Bot] </summary>
-
 > ## meta-balena-2.115.0
 > ### (2023-05-12)
 > 
@@ -8065,16 +12750,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.114.25
-## (2023-05-12)
-
-
-<details>
-<summary> Update layers/meta-balena to 39982e107a500e0ebdacfd0d5ae33576cf2e24b4 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.25
 > ### (2023-05-12)
 > 
@@ -8092,8 +12767,19 @@ Change log
 
 </details>
 
+# v2.114.23+rev2
+## (2023-08-11)
+
+* Update build instructions in README [Alex Gonzalez]
+
+# v2.114.23+rev1
+## (2023-06-26)
+
+* Update balena-os/github-workflows to [Self-hosted Renovate Bot]
+* Remove pull_request_target event run for ESR targets [Alex Gonzalez]
+
 # v2.114.23
-## (2023-05-06)
+## (2023-05-09)
 
 
 <details>
@@ -8108,31 +12794,6 @@ Change log
 > * tests: move installerForceMigration suite configuration to balenaOS section [Alex Gonzalez]
 > * tests: simplify accessing config.json data [Alex Gonzalez]
 > 
-
-</details>
-
-# v2.114.22+rev1
-## (2023-05-06)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 57226ffa5abafc3001cb275ad6520895c938842a [Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.28
-> ### (2023-05-06)
-> 
-> * jenkins_build: accept bitbake extra arguments [Alex Gonzalez]
-> 
-
-</details>
-
-# v2.114.22
-## (2023-05-05)
-
-
-<details>
-<summary> Update layers/meta-balena to ddaac0ccf50d22ac8d0ed6c73022edd40c68b58e [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.22
 > ### (2023-05-05)
 > 
@@ -8149,16 +12810,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.114.21
-## (2023-05-05)
-
-
-<details>
-<summary> Update layers/meta-balena to 0f0fec2a68746d8616cc55a06cf636363786bdca [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.21
 > ### (2023-05-05)
 > 
@@ -8175,46 +12826,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.114.20
-## (2023-05-05)
-
-
-<details>
-<summary> Update layers/meta-balena to e2ce4a7a054624967941f4b96500b5bb79c36d1e [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.20
 > ### (2023-05-04)
 > 
 > * Updated the CDS link [Ryan]
 > 
-
-</details>
-
-# v2.114.19+rev1
-## (2023-05-04)
-
-
-<details>
-<summary> Update contracts to fd4af4e5694608cc0c87d9bff2a5b27b2c5f2f39 [Renovate Bot] </summary>
-
-> ## contracts-2.0.60
-> ### (2023-05-04)
-> 
-> * Fix LED support for ISG-503 [Alexandru Costache]
-> 
-
-</details>
-
-# v2.114.19
-## (2023-05-04)
-
-
-<details>
-<summary> Update layers/meta-balena to 35a34d76f441fe37ea3d2cbd911558973fdec30c [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.19
 > ### (2023-05-04)
 > 
@@ -8276,16 +12892,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.114.18
-## (2023-05-03)
-
-
-<details>
-<summary> Update layers/meta-balena to 0d43fec5037b2b4be928647e9b626c62c794c6f0 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.18
 > ### (2023-05-03)
 > 
@@ -8307,77 +12913,22 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.114.17
-## (2023-05-03)
-
-
-<details>
-<summary> Update layers/meta-balena to fa0106adb36432f5538f908304e9967c827dcfd4 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.17
 > ### (2023-05-03)
 > 
 > * test: append installer configuration instead of replacing it [Alex Gonzalez]
 > * test: os: use boolean for installer migration flag [Alex Gonzalez]
 > 
-
-</details>
-
-# v2.114.16+rev1
-## (2023-05-03)
-
-
-<details>
-<summary> Update contracts to 75cd5e9f19d49b8723b7e39033763ca698e1254f [Renovate Bot] </summary>
-
-> ## contracts-2.0.59
-> ### (2023-05-03)
-> 
-> * hw.device-type: Add revpi-connect-s [Obaid Ch]
-> 
-
-</details>
-
-# v2.114.16
-## (2023-05-03)
-
-
-<details>
-<summary> Update layers/meta-balena to 43bf9f98db7de74bce36141f5e55c4dcffb7e060 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.16
 > ### (2023-05-02)
 > 
 > * initrdscripts: give the root device a chance to come up before cryptsetup [Michal Toman]
 > 
-
-</details>
-
-# v2.114.15
-## (2023-04-28)
-
-
-<details>
-<summary> Update layers/meta-balena to 6dea3e6c37f789704d95485ed1ddab2b63226111 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.15
 > ### (2023-04-28)
 > 
 > * patch: Add additional logs when logging in using balenaSDK [Vipul Gupta (@vipulgupta2048)]
 > 
-
-</details>
-
-# v2.114.14
-## (2023-04-27)
-
-
-<details>
-<summary> Update layers/meta-balena to e610a1f7d15aaf3795b335e0773680561bee054b [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.14
 > ### (2023-04-27)
 > 
@@ -8399,47 +12950,12 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.114.13
-## (2023-04-27)
-
-
-<details>
-<summary> Update layers/meta-balena to 90dd8d13b6e4015fa4fb8a3407ddf37eab443cd6 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.13
 > ### (2023-04-27)
 > 
 > * hostapp-update-hooks: use unsafe fatrw copy for bootfiles [Alex Gonzalez]
 > * balena-config-vars: introduce unsafe fatrw copy [Alex Gonzalez]
 > 
-
-</details>
-
-# v2.114.12+rev1
-## (2023-04-27)
-
-
-<details>
-<summary> Update contracts to 6c6ed28d459bc48102a69cdf0850d2eb4c778ce7 [Renovate Bot] </summary>
-
-> ## contracts-2.0.58
-> ### (2023-04-27)
-> 
-> * jetson-agx-orin-devkit: Mention the RAM configuration in the device name [Alexandru Costache]
-> 
-
-</details>
-
-# v2.114.12
-## (2023-04-26)
-
-
-<details>
-<summary> Update layers/meta-balena to 0396b07b2119b2c1a3cdf2bbd107e08de2110671 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.12
 > ### (2023-04-26)
 > 
@@ -8447,16 +12963,6 @@ Change log
 > * balena-keys: make tasks depends on signing variables [Alex Gonzalez]
 > * classes: sign: make signing task depends on signing variables [Alex Gonzalez]
 > 
-
-</details>
-
-# v2.114.11
-## (2023-04-24)
-
-
-<details>
-<summary> Update layers/meta-balena to 945c6af54ac4f637418ec812747e4fe4e43e8844 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.11
 > ### (2023-04-24)
 > 
@@ -8473,47 +12979,17 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.114.10
-## (2023-04-24)
-
-
-<details>
-<summary> Update layers/meta-balena to 6f38c16dea7e006ee20b90a089574505fbce4a25 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.10
 > ### (2023-04-24)
 > 
 > * mkfs-hostapp-native: Update base image in Dockerfile [Alexandru Costache]
 > 
-
-</details>
-
-# v2.114.9
-## (2023-04-22)
-
-
-<details>
-<summary> Update layers/meta-balena to e2663a747325b2cb71476fde889244ad424ec8a4 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.9
 > ### (2023-04-22)
 > 
 > * tests: os: configure to use installer's migrator [Alex Gonzalez]
 > * test: os: add installer migration test [Alex Gonzalez]
 > 
-
-</details>
-
-# v2.114.8
-## (2023-04-22)
-
-
-<details>
-<summary> Update layers/meta-balena to f7fe9a9bb773aa19cee244ab6f1b275ff182d40d [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.8
 > ### (2023-04-22)
 > 
@@ -8540,36 +13016,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.114.7+rev2
-## (2023-04-22)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 34c8434ffcaeeeb14853082bbf2b4ecc5e0ec769 [Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.27
-> ### (2023-04-21)
-> 
-> * barys: fix removal of equals sign from argval [Joseph Kogut]
-> 
-
-</details>
-
-# v2.114.7+rev1
-## (2023-04-21)
-
-* Compress the kernel since we are running low on space in the rootfs partition [Florin Sarbu]
-
-# v2.114.7
-## (2023-04-20)
-
-
-<details>
-<summary> Update layers/meta-balena to f2637a0d4cf774ed903613dd058ff9db037ad23e [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.7
 > ### (2023-04-20)
 > 
@@ -8591,16 +13037,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.114.6
-## (2023-04-20)
-
-
-<details>
-<summary> Update layers/meta-balena to ac3e9193544d0bc3188473f725e3d88495caed75 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.6
 > ### (2023-04-20)
 > 
@@ -8608,31 +13044,11 @@ Change log
 > * balena-db-hashes: ship both db and dbx updates [Michal Toman]
 > * Use hashes instead of certificates for secure boot image validation [Michal Toman]
 > 
-
-</details>
-
-# v2.114.5
-## (2023-04-19)
-
-
-<details>
-<summary> Update layers/meta-balena to cca4a5e7e9523bbe5892af3846ff8b3f03d6c749 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.5
 > ### (2023-04-19)
 > 
 > * Ship separate GRUB images for secure boot [Michal Toman]
 > 
-
-</details>
-
-# v2.114.4
-## (2023-04-18)
-
-
-<details>
-<summary> Update layers/meta-balena to 1264f58c432b7d87523a59ff27e246c2d6a3f903 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.4
 > ### (2023-04-18)
 > 
@@ -8643,31 +13059,6 @@ Change log
 > * initrdscripts: migrate: correctly identify boot device [Alex Gonzalez]
 > * distro: balena-os: update GRUB key id for signature [Alex Gonzalez]
 > 
-
-</details>
-
-# v2.114.3+rev1
-## (2023-04-12)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 66e817cc08c391f06d0cf16dded7e6cf2082d0ca [Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.26
-> ### (2023-04-12)
-> 
-> * balena-lib: Do not return error if no balena user token is available [Alex Gonzalez]
-> 
-
-</details>
-
-# v2.114.3
-## (2023-04-12)
-
-
-<details>
-<summary> Update layers/meta-balena to 9197a215577fd82110fc3c0a863a25fa9ec3cfcc [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.3
 > ### (2023-04-12)
 > 
@@ -8689,16 +13080,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.114.2
-## (2023-04-12)
-
-
-<details>
-<summary> Update layers/meta-balena to af7446b3723221a5dbaa6e979c57e305d481f2d3 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.2
 > ### (2023-04-12)
 > 
@@ -8711,16 +13092,6 @@ Change log
 > * tests: hup: convert initial SSH attempt into test [rcooke-warwick]
 > * tests: os: convert initial SSH attempt into test [rcooke-warwick]
 > 
-
-</details>
-
-# v2.114.1
-## (2023-04-07)
-
-
-<details>
-<summary> Update layers/meta-balena to aa8a58d761c11e9ed875d78e74f6838cb4e2ff02 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.1
 > ### (2023-04-07)
 > 
@@ -8737,32 +13108,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.114.0+rev1
-## (2023-04-07)
-
-
-<details>
-<summary> Update contracts to 777cd35ffb8bebb2a9d8a2ec6b88a45b2c937193 [Renovate Bot] </summary>
-
-> ## contracts-2.0.57
-> ### (2023-04-07)
-> 
-> * debian/ubuntu jetson-orin-nx-xavier-nx-devkit: Add distro configs [Alexandru Costache]
-> * Orin NX: Update flashing steps [Alexandru Costache]
-> 
-
-</details>
-
-# v2.114.0
-## (2023-04-07)
-
-
-<details>
-<summary> Update layers/meta-balena to 3f0e4743516442227387bb9fc55d97fdf7d57a12 [Renovate Bot] </summary>
-
 > ## meta-balena-2.114.0
 > ### (2023-04-07)
 > 
@@ -8784,16 +13129,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.113.35
-## (2023-04-05)
-
-
-<details>
-<summary> Update layers/meta-balena to e2c8c03322c0321c77d28f9691438876c097eacf [Renovate Bot] </summary>
-
 > ## meta-balena-2.113.35
 > ### (2023-04-05)
 > 
@@ -8810,16 +13145,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.113.34
-## (2023-04-05)
-
-
-<details>
-<summary> Update layers/meta-balena to c2d483b3e07138f6b0f34cd2b32c916133a5929d [Renovate Bot] </summary>
-
 > ## meta-balena-2.113.34
 > ### (2023-04-04)
 > 
@@ -8861,16 +13186,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.113.33
-## (2023-04-04)
-
-
-<details>
-<summary> Update layers/meta-balena to 98b6efa43d3d83df72b49b4caed6ade5b5326fa9 [Renovate Bot] </summary>
-
 > ## meta-balena-2.113.33
 > ### (2023-03-28)
 > 
@@ -8916,43 +13231,6 @@ Change log
 > 
 > </details>
 > 
-> 
-
-</details>
-
-# v2.113.29+rev1
-## (2023-04-04)
-
-
-<details>
-<summary> Update contracts to a7fa4ca620414f2a2742210c5f97e0c207fa660b [Renovate Bot] </summary>
-
-> ## contracts-2.0.56
-> ### (2023-04-04)
-> 
-> * jetson-orin-nx-xavier-nx-devkit: Add contract for device type [Alexandru Costache]
-> 
-> ## contracts-2.0.55
-> ### (2023-03-29)
-> 
-> * iot-gate-imx8plus: Update provisioning instructions [Alexandru]
-> 
-> ## contracts-2.0.54
-> ### (2023-03-16)
-> 
-> * patch: Remove CircleCI in favor of Flowzone [Vipul Gupta (@vipulgupta2048)]
-> 
-> ## contracts-2.0.53
-> ### (2023-03-16)
-> 
-> * patch: Fix fluid tags for revpi-core-3 [Vipul Gupta (@vipulgupta2048)]
-> 
-> ## contracts-2.0.52
-> ### (2023-03-16)
-> 
-> * patch: Fix punctuation in partials [Vipul Gupta (@vipulgupta2048)]
-> * patch: Fix spelling of eMMC [Vipul Gupta (@vipulgupta2048)]
-> * patch: Fix spelling of while [Vipul Gupta (@vipulgupta2048)]
 > 
 
 </details>
@@ -9063,16 +13341,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.113.25
-## (2023-03-23)
-
-
-<details>
-<summary> Update layers/meta-balena to 71c0d9581c2d5285b91c66675317edbcbb7b8ef9 [Renovate Bot] </summary>
-
 > ## meta-balena-2.113.25
 > ### (2023-03-23)
 > 
@@ -9176,7 +13444,7 @@ Change log
 * Prevent duplicate CI workflow executions [Kyle Harding]
 
 # v2.113.14
-## (2023-03-15)
+## (2023-03-16)
 
 
 <details>
@@ -9294,21 +13562,6 @@ Change log
 > ### (2023-02-24)
 > 
 > * os-helpers-fs: add dependency on util-linux fdisk [Alex Gonzalez]
-> 
-
-</details>
-
-# v2.112.14+rev1
-## (2023-03-15)
-
-
-<details>
-<summary> Update contracts to 40d6eaa3f0455babd1abcc1d11a6e6db60387797 [Renovate Bot] </summary>
-
-> ## contracts-2.0.51
-> ### (2023-02-24)
-> 
-> * node: do not set unsafe-perm with npm 9 and newer [Michal Toman]
 > 
 
 </details>
@@ -9447,6 +13700,16 @@ Change log
 > </details>
 > 
 > 
+
+</details>
+
+# v2.112.10
+## (2023-02-20)
+
+
+<details>
+<summary> Update layers/meta-balena to c7ef4ad6fe401699d0c24960ab27a8d10511697f [Renovate Bot] </summary>
+
 > ## meta-balena-2.112.10
 > ### (2023-02-20)
 > 
@@ -9483,6 +13746,46 @@ Change log
 > </details>
 > 
 > 
+
+</details>
+
+# v2.112.8+rev2
+## (2023-02-20)
+
+
+<details>
+<summary> Update contracts to 93ba80ca1ffeced474d0567cc58703cdbeb629d5 [Renovate Bot] </summary>
+
+> ## contracts-2.0.46
+> ### (2023-02-20)
+> 
+> * <owa5X logo> Updated owa5X logo. [Alvaro Guzman]
+> 
+
+</details>
+
+# v2.112.8+rev1
+## (2023-02-18)
+
+
+<details>
+<summary> Update contracts to 103037ca9624070c01ed388e8fd425bef609e924 [Renovate Bot] </summary>
+
+> ## contracts-2.0.45
+> ### (2023-02-18)
+> 
+> * Add node v19.6.1 v18.14.1 v16.19.1 and v14.21.3 [Trong Nghia Nguyen]
+> 
+
+</details>
+
+# v2.112.8
+## (2023-02-17)
+
+
+<details>
+<summary> Update layers/meta-balena to 70d37200e8af95b6a784ead0682708c7e7f3acfb [Renovate Bot] </summary>
+
 > ## meta-balena-2.112.8
 > ### (2023-02-17)
 > 
@@ -9498,36 +13801,6 @@ Change log
 > 
 > </details>
 > 
-> 
-
-</details>
-
-# v2.112.7+rev2
-## (2023-02-20)
-
-
-<details>
-<summary> Update contracts to 93ba80ca1ffeced474d0567cc58703cdbeb629d5 [Renovate Bot] </summary>
-
-> ## contracts-2.0.46
-> ### (2023-02-20)
-> 
-> * <owa5X logo> Updated owa5X logo. [Alvaro Guzman]
-> 
-
-</details>
-
-# v2.112.7+rev1
-## (2023-02-18)
-
-
-<details>
-<summary> Update contracts to 103037ca9624070c01ed388e8fd425bef609e924 [Renovate Bot] </summary>
-
-> ## contracts-2.0.45
-> ### (2023-02-18)
-> 
-> * Add node v19.6.1 v18.14.1 v16.19.1 and v14.21.3 [Trong Nghia Nguyen]
 > 
 
 </details>
@@ -9800,7 +14073,7 @@ Change log
 
 </details>
 
-# v2.110.3+rev1
+# v2.110.3+rev2
 ## (2023-02-10)
 
 
@@ -9812,6 +14085,49 @@ Change log
 > 
 > * Add Fedora 37 (latest) and 38 [Trong Nghia Nguyen]
 > * Add Python v3.11.2 and v3.10.10 [Trong Nghia Nguyen]
+> 
+
+</details>
+
+# v2.110.3+rev1
+## (2023-02-09)
+
+
+<details>
+<summary> Update balena-yocto-scripts to fe6beafdcfa7406b20257cf67a6b74cd8f59142f [Renovate Bot] </summary>
+
+> ## balena-yocto-scripts-1.19.23
+> ### (2023-01-28)
+> 
+> * balena-generate-ami: increase import snapshot timeout [Alex Gonzalez]
+> * balena-generate-ami: remove s3 temporary image if snapshot import times out [Alex Gonzalez]
+> * balena-generate-ami: match instance type with image type [Alex Gonzalez]
+> * balena-generate-ami: fix linter warnings [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.22
+> ### (2023-01-25)
+> 
+> * balena-generate-ami: allow for staging deployments [Alex Gonzalez]
+> * jenkins_generate_ami: allow for staging deployment [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.21
+> ### (2023-01-19)
+> 
+> * balene-generate-ami: remove key name [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.20
+> ### (2023-01-18)
+> 
+> * jenkins_generate_ami: default to pull cloud-config apps from balena_os [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.19
+> ### (2023-01-14)
+> 
+> * balena-generate-ami: do not remove AMI snapshot [Alex Gonzalez]
+> * jenkins_generate_ami: use balena_os tokens instead of org specific token [Alex Gonzalez]
+> * jenkins_build: respect the preserve build flag [Alex Gonzalez]
+> * balena-generate-ami: cleanup images after deployment [Alex Gonzalez]
+> * balena-generate-ami: test image before making it public [Alex Gonzalez]
 > 
 
 </details>
@@ -9840,6 +14156,16 @@ Change log
 > * initrdscript: resindataexpander: skip for flasher images [Alex Gonzalez]
 > * docs: add initramfs overview [Alex Gonzalez]
 > 
+
+</details>
+
+# v2.110.2
+## (2023-02-08)
+
+
+<details>
+<summary> Update layers/meta-balena to c005b8bf80326b05d3e7605bdcfda43433232679 [Renovate Bot] </summary>
+
 > ## meta-balena-2.110.2
 > ### (2023-02-07)
 > 
@@ -9872,11 +14198,31 @@ Change log
 > </details>
 > 
 > 
+
+</details>
+
+# v2.110.1
+## (2023-02-07)
+
+
+<details>
+<summary> Update layers/meta-balena to 22f6f33279e7d152dec60de927371312093396cd [Renovate Bot] </summary>
+
 > ## meta-balena-2.110.1
 > ### (2023-02-07)
 > 
 > * renovate: Include to and from versions for supervisor and engine [Kyle Harding]
 > 
+
+</details>
+
+# v2.110.0
+## (2023-02-07)
+
+
+<details>
+<summary> Update layers/meta-balena to 28f9159565cc5576669b7a327a9239a4020df973 [Renovate Bot] </summary>
+
 > ## meta-balena-2.110.0
 > ### (2023-02-07)
 > 
@@ -9999,27 +14345,95 @@ Change log
 > 
 > * tests: os: skip persistent logging test for pi0 [rcooke-warwick]
 > 
+
+</details>
+
+# v2.108.32+rev1
+## (2023-02-07)
+
+
+<details>
+<summary> Update contracts to 79998a238ca981b890dfb9206f50bde2d367ff7c [Renovate Bot] </summary>
+
+> ## contracts-2.0.42
+> ### (2023-02-06)
+> 
+> * Add golang v1.20 [Trong Nghia Nguyen]
+> * Add node v19.6.0 and v18.14.0 [Trong Nghia Nguyen]
+> 
+> ## contracts-2.0.41
+> ### (2023-02-01)
+> 
+> * Add support for latest dotnet releases v7 (7.0.102) and v6 (6.0.113) [Trong Nghia Nguyen]
+> * Add node v19.5.0 [Trong Nghia Nguyen]
+> 
+
+</details>
+
+# v2.108.32
+## (2023-01-31)
+
+
+<details>
+<summary> Update layers/meta-balena to ccab7759d432f7be780c194087c38eca7e02084d [Renovate Bot] </summary>
+
 > ## meta-balena-2.108.32
 > ### (2023-02-01)
 > 
 > * efitools: Allow builds for ARM architecture [Alex Gonzalez]
 > 
+
+</details>
+
+# v2.108.31
+## (2023-01-31)
+
+
+<details>
+<summary> Update layers/meta-balena to c3560cf861dbd8505adecd0e12b280c85a0eac88 [Renovate Bot] </summary>
+
 > ## meta-balena-2.108.31
 > ### (2023-02-01)
 > 
 > * rollback-health: bind-mount EFI partition when split from boot [Michal Toman]
 > 
-> ## meta-balena-2.108.30
-> ### (Invalid date)
+
+</details>
+
+
+<details>
+<summary> Update layers/meta-balena to e7ea08bd6459cb8a0c0c59b61ef3a46caaeaaa68 [Renovate Bot] </summary>
+
+> ## meta-balena-2.108.31
+> ### (2023-02-01)
 > 
-> * redsocks: Deploy README and sample configration file [Alexandru Costache]
-> * recipes-bsp/u-boot: Import extra uboot environment from scanned devices [Alexandru Costache]
+> * rollback-health: bind-mount EFI partition when split from boot [Michal Toman]
 > 
+
+</details>
+
+# v2.108.29
+## (2023-01-28)
+
+
+<details>
+<summary> Update layers/meta-balena to bdfe242725e83784931987d85f83a35e861683d8 [Renovate Bot] </summary>
+
 > ## meta-balena-2.108.29
 > ### (2023-01-28)
 > 
 > * bluez: Update to v5.66 [Alex Gonzalez]
 > 
+
+</details>
+
+# v2.108.28
+## (2023-01-26)
+
+
+<details>
+<summary> Update layers/meta-balena to 00324bf0a842b63ee46b24ab5a19bff68d4b3799 [Renovate Bot] </summary>
+
 > ## meta-balena-2.108.28
 > ### (2023-01-26)
 > 
@@ -10030,11 +14444,41 @@ Change log
 > 
 > * tests: os: fix tests that use glider on rpi0 [rcooke-warwick]
 > 
+
+</details>
+
+# v2.108.26+rev1
+## (2023-01-26)
+
+* add meta-perl to bblayers.conf [Alex Gonzalez]
+
+# v2.108.26
+## (2023-01-20)
+
+
+<details>
+<summary> Update layers/meta-balena to 1d7b7e3bd6cd3bc1bbf4bd698a0b946bff498659 [Renovate Bot] </summary>
+
 > ## meta-balena-2.108.26
 > ### (2023-01-20)
 > 
 > * Enable back connectivity check in NetworkManager [Zahari Petkov]
 > 
+
+</details>
+
+# v2.108.25+rev1
+## (2023-01-20)
+
+* Fix typo for Radxa CM3 provisioning instructions [Florin Sarbu]
+
+# v2.108.25
+## (2023-01-19)
+
+
+<details>
+<summary> Update layers/meta-balena to b1bc70d3819c8c27041f843bccd82405a7832134 [renovate[bot]] </summary>
+
 > ## meta-balena-2.108.25
 > ### (2023-01-18)
 > 
@@ -10051,6 +14495,46 @@ Change log
 > * balena-keys: rebuild if keys change [Alex Gonzalez]
 > * classes: sign-*: resign if keys change [Alex Gonzalez]
 > 
+
+</details>
+
+# v2.108.22+rev2
+## (2023-01-18)
+
+
+<details>
+<summary> Update contracts to 8392bb27f12919d33534f01c28c8ece7c49a7975 [renovate[bot]] </summary>
+
+> ## contracts-2.0.40
+> ### (2023-01-18)
+> 
+> * Add golang v1.19.5 and v1.18.10 [Trong Nghia Nguyen]
+> 
+
+</details>
+
+# v2.108.22+rev1
+## (2023-01-17)
+
+
+<details>
+<summary> Update contracts to 2038ce46b972842522e8fff42312b996167d70ed [renovate[bot]] </summary>
+
+> ## contracts-2.0.39
+> ### (2023-01-12)
+> 
+> * hw.device-type: Add Radxa CM3 on Raspberry Pi Compute Module 4 IO Board [Florin Sarbu]
+> 
+
+</details>
+
+# v2.108.22
+## (2023-01-16)
+
+
+<details>
+<summary> Update layers/meta-balena to 5a845504b79eb76e00b6ba4a09a4813d47520923 [renovate[bot]] </summary>
+
 > ## meta-balena-2.108.22
 > ### (2023-01-16)
 > 
@@ -10069,88 +14553,13 @@ Change log
 
 </details>
 
-# v2.108.19+rev4
-## (2023-02-09)
-
-
-<details>
-<summary> Update contracts to 79998a238ca981b890dfb9206f50bde2d367ff7c [Renovate Bot] </summary>
-
-> ## contracts-2.0.42
-> ### (2023-02-06)
-> 
-> * Add golang v1.20 [Trong Nghia Nguyen]
-> * Add node v19.6.0 and v18.14.0 [Trong Nghia Nguyen]
-> 
-> ## contracts-2.0.41
-> ### (2023-02-01)
-> 
-> * Add support for latest dotnet releases v7 (7.0.102) and v6 (6.0.113) [Trong Nghia Nguyen]
-> * Add node v19.5.0 [Trong Nghia Nguyen]
-> 
-> ## contracts-2.0.40
-> ### (2023-01-18)
-> 
-> * Add golang v1.19.5 and v1.18.10 [Trong Nghia Nguyen]
-> 
-> ## contracts-2.0.39
-> ### (2023-01-12)
-> 
-> * hw.device-type: Add Radxa CM3 on Raspberry Pi Compute Module 4 IO Board [Florin Sarbu]
-> 
-
-</details>
-
-# v2.108.19+rev3
-## (2023-02-09)
-
-
-<details>
-<summary> Update balena-yocto-scripts to fe6beafdcfa7406b20257cf67a6b74cd8f59142f [Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.23
-> ### (2023-01-28)
-> 
-> * balena-generate-ami: increase import snapshot timeout [Alex Gonzalez]
-> * balena-generate-ami: remove s3 temporary image if snapshot import times out [Alex Gonzalez]
-> * balena-generate-ami: match instance type with image type [Alex Gonzalez]
-> * balena-generate-ami: fix linter warnings [Alex Gonzalez]
-> 
-> ## balena-yocto-scripts-1.19.22
-> ### (2023-01-25)
-> 
-> * balena-generate-ami: allow for staging deployments [Alex Gonzalez]
-> * jenkins_generate_ami: allow for staging deployment [Alex Gonzalez]
-> 
-> ## balena-yocto-scripts-1.19.21
-> ### (2023-01-19)
-> 
-> * balene-generate-ami: remove key name [Alex Gonzalez]
-> 
-> ## balena-yocto-scripts-1.19.20
-> ### (2023-01-18)
-> 
-> * jenkins_generate_ami: default to pull cloud-config apps from balena_os [Alex Gonzalez]
-> 
-> ## balena-yocto-scripts-1.19.19
-> ### (2023-01-14)
-> 
-> * balena-generate-ami: do not remove AMI snapshot [Alex Gonzalez]
-> * jenkins_generate_ami: use balena_os tokens instead of org specific token [Alex Gonzalez]
-> * jenkins_build: respect the preserve build flag [Alex Gonzalez]
-> * balena-generate-ami: cleanup images after deployment [Alex Gonzalez]
-> * balena-generate-ami: test image before making it public [Alex Gonzalez]
-> 
-
-</details>
-
 # v2.108.19+rev2
-## (2023-01-26)
+## (2023-01-16)
 
-* add meta-perl to bblayers.conf [Alex Gonzalez]
+* Add support for Radxa CM3 on Raspberry Pi Compute Module 4 IO Board [Florin Sarbu]
 
 # v2.108.19+rev1
-## (2023-01-12)
+## (2023-01-13)
 
 * Add ESR workflow [Alex Gonzalez]
 
@@ -10170,7 +14579,7 @@ Change log
 </details>
 
 # v2.108.18
-## (2023-01-09)
+## (2023-01-10)
 
 
 <details>
@@ -10181,78 +14590,16 @@ Change log
 > 
 > * Revert "flasher: output logs to serial console" [Joseph Kogut]
 > 
-
-</details>
-
-# v2.108.17
-## (2023-01-09)
-
-
-<details>
-<summary> Update layers/meta-balena to 8347887ab69018c1e4bcf0a7aecbf6faf85af2bd [renovate[bot]] </summary>
-
 > ## meta-balena-2.108.17
 > ### (2023-01-09)
 > 
 > * Update balena-os/balena-supervisor to v14.4.10 [renovate[bot]]
 > 
-
-</details>
-
-# v2.108.16
-## (2023-01-09)
-
-
-<details>
-<summary> Update layers/meta-balena to 610fc18f387665f4077ce1bed538bd2da4ba516b [renovate[bot]] </summary>
-
 > ## meta-balena-2.108.16
 > ### (2023-01-09)
 > 
 > * balena-supervisor: Set the supervisor package version [Kyle Harding]
 > 
-
-</details>
-
-# v2.108.15+rev2
-## (2023-01-09)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 56bb055d91481023a6b6cff92d61ebfffa884139 [renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.19.18
-> ### (2023-01-09)
-> 
-> * balena-generate-ami: Enable TPM support on x86_64 only [Michal Toman]
-> 
-
-</details>
-
-* Update contracts to cbc450a40296e716e50344b3d625fb9a9b6975f6 [renovate[bot]]
-
-# v2.108.15+rev1
-## (2023-01-07)
-
-
-<details>
-<summary> Update contracts to d647331a48dfbc6d398139831054d41fa52f79da [renovate[bot]] </summary>
-
-> ## contracts-2.0.37
-> ### (2023-01-07)
-> 
-> * Add node v18.13.0 and v19.4.0 [Trong Nghia Nguyen]
-> 
-
-</details>
-
-# v2.108.15
-## (2023-01-05)
-
-
-<details>
-<summary> Update layers/meta-balena to b75d73b4811e1bc37546d0e2329b6acb758852da [renovate[bot]] </summary>
-
 > ## meta-balena-2.108.15
 > ### (2023-01-05)
 > 
@@ -10290,31 +14637,11 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.108.14
-## (2023-01-04)
-
-
-<details>
-<summary> Update layers/meta-balena to 91b8ee4980b559c90ae3330bf8ebe1c526b26728 [renovate[bot]] </summary>
-
 > ## meta-balena-2.108.14
 > ### (2023-01-04)
 > 
 > * tests: os: chrony: disable NTP w/ dnsmasq dbus API [Joseph Kogut]
 > 
-
-</details>
-
-# v2.108.13
-## (2023-01-04)
-
-
-<details>
-<summary> Update layers/meta-balena to 7aaa2abec902574d9e777a88464eda5be2810666 [renovate[bot]] </summary>
-
 > ## meta-balena-2.108.13
 > ### (2023-01-04)
 > 
@@ -10348,56 +14675,27 @@ Change log
 > 
 > * tests/hup: Avoid an old engine bug when pulling multiarch images on rpi [Kyle Harding]
 > 
-
-</details>
-
-
-<details>
-<summary> Update layers/meta-balena to df321d4ad4831d27188ac9bf538600ccaaabc9b3 [renovate[bot]] </summary>
-
-> ## meta-balena-2.108.13
-> ### (2023-01-04)
+> ## meta-balena-2.108.11
+> ### (2023-01-03)
 > 
 > 
 > <details>
-> <summary> Update tests/leviathan digest to 44dceb4 [renovate[bot]] </summary>
+> <summary> Update tests/leviathan digest to d3485ab [renovate[bot]] </summary>
 > 
->> ### leviathan-2.14.3
->> #### (2023-01-04)
+>> ### leviathan-2.13.0
+>> #### (2023-01-03)
 >> 
->> * chore(deps): update dependency eslint to 8.31.0 [renovate[bot]]
+>> * Revert "minor: Add @balena/leviathan-test-helpers package" [Kyle Harding]
+>> 
+>> ### leviathan-2.12.4
+>> #### (Invalid date)
+>> 
+>> * chore(deps): update dependency eslint-plugin-standard to 4.1.0 [renovate[bot]]
 >> 
 > 
 > </details>
 > 
 > 
-> <details>
-> <summary> Update tests/leviathan digest to 4383482 [renovate[bot]] </summary>
-> 
->> ### leviathan-2.14.3
->> #### (2023-01-04)
->> 
->> * chore(deps): update dependency eslint to 8.31.0 [renovate[bot]]
->> 
-> 
-> </details>
-> 
-> 
-> ## meta-balena-2.108.12
-> ### (2023-01-04)
-> 
-> * tests/hup: Avoid an old engine bug when pulling multiarch images on rpi [Kyle Harding]
-> 
-
-</details>
-
-# v2.108.10
-## (2022-12-30)
-
-
-<details>
-<summary> Update layers/meta-balena to ef1c2dd3af72fcf8d9ac8b8df74caae0d59f4db3 [renovate[bot]] </summary>
-
 > ## meta-balena-2.108.10
 > ### (Invalid date)
 > 
@@ -10434,16 +14732,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.108.9
-## (2022-12-29)
-
-
-<details>
-<summary> Update layers/meta-balena to 95d8b0c5bfb36a164081f417b52c8de16f2dc474 [renovate[bot]] </summary>
-
 > ## meta-balena-2.108.9
 > ### (2022-12-29)
 > 
@@ -10460,16 +14748,6 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.108.8
-## (2022-12-28)
-
-
-<details>
-<summary> Update layers/meta-balena to e45cf66e8d8f7145127614153a2694c9a9850ed7 [renovate[bot]] </summary>
-
 > ## meta-balena-2.108.8
 > ### (2022-12-28)
 > 
@@ -10486,36 +14764,80 @@ Change log
 > </details>
 > 
 > 
-
-</details>
-
-# v2.108.7
-## (2022-12-28)
-
-
-<details>
-<summary> Update layers/meta-balena to 68ec8ca1388c8e442acf1235dc573aeb12ff385a [renovate[bot]] </summary>
-
 > ## meta-balena-2.108.7
 > ### (2022-12-28)
 > 
 > * tests: os: fix modem test teardown [rcooke-warwick]
 > 
-
-</details>
-
-# v2.108.6
-## (2022-12-28)
-
-
-<details>
-<summary> Update layers/meta-balena to 3a45aa111217e64ef6ab8cbd16d34a12ece49a3c [renovate[bot]] </summary>
-
 > ## meta-balena-2.108.6
 > ### (2022-12-27)
 > 
 > * flasher: output logs to serial console [Joseph Kogut]
 > 
+
+</details>
+
+# v2.108.5+rev3
+## (2023-01-09)
+
+
+<details>
+<summary> Update contracts to cbc450a40296e716e50344b3d625fb9a9b6975f6 [renovate[bot]] </summary>
+
+> ## contracts-2.0.38
+> ### (2023-01-07)
+> 
+> * Forecr DSBOARD NX2 Xavier NX eMMC: Add community device-type [Alexandru Costache]
+> 
+
+</details>
+
+# v2.108.5+rev2
+## (2023-01-09)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 56bb055d91481023a6b6cff92d61ebfffa884139 [renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.19.18
+> ### (2023-01-09)
+> 
+> * balena-generate-ami: Enable TPM support on x86_64 only [Michal Toman]
+> 
+> ## balena-yocto-scripts-1.19.17
+> ### (2022-12-23)
+> 
+> * jenkins_generate_ami: support using both live and installer images as AMIs [Alex Gonzalez]
+> * balena-generate-ami: Enable nitroTPM support [Alex Gonzalez]
+> * jenkins_build: add argument to build OS development images [Alex Gonzalez]
+> 
+
+</details>
+
+* Update contracts to d647331a48dfbc6d398139831054d41fa52f79da [renovate[bot]]
+
+# v2.108.5+rev1
+## (2022-12-22)
+
+
+<details>
+<summary> Update contracts to 4698e4ef55fdc61aa3df8d8494f2cbbd306b26c9 [renovate[bot]] </summary>
+
+> ## contracts-2.0.36
+> ### (2022-12-22)
+> 
+> * Fix owa5x slug [Trong Nghia Nguyen]
+> 
+
+</details>
+
+# v2.108.5
+## (2022-12-22)
+
+
+<details>
+<summary> Update layers/meta-balena to 4f5dc08a949432990996fbb0e9955d261c1282b3 [renovate[bot]] </summary>
+
 > ## meta-balena-2.108.5
 > ### (2022-12-21)
 > 
@@ -10526,6 +14848,31 @@ Change log
 > 
 > * distro: For OS development, enable serial console [Alex Gonzalez]
 > 
+
+</details>
+
+# v2.108.3+rev1
+## (2022-12-20)
+
+
+<details>
+<summary> Update contracts to b65d5bd372587d4aaabba526d34f67c3f63ea90b [renovate[bot]] </summary>
+
+> ## contracts-2.0.35
+> ### (2022-12-20)
+> 
+> * hw.device-type: Add Owasys owa5X device [Alvaro Guzman]
+> 
+
+</details>
+
+# v2.108.3
+## (2022-12-20)
+
+
+<details>
+<summary> Update layers/meta-balena to 29f12b0d5adc6cdfa993f68e00422371708342d9 [renovate[bot]] </summary>
+
 > ## meta-balena-2.108.3
 > ### (2022-12-20)
 > 
@@ -10552,11 +14899,49 @@ Change log
 > </details>
 > 
 > 
-> ## meta-balena-2.108.2
-> ### (2022-12-19)
+
+</details>
+
+
+<details>
+<summary> Update layers/meta-balena to 749dd795aa3d3c79eee071a5c8c4fd2a305af08e [renovate[bot]] </summary>
+
+> ## meta-balena-2.108.3
+> ### (2022-12-20)
 > 
-> * Update balena-os/balena-supervisor to v14.4.9 [renovate[bot]]
 > 
+> <details>
+> <summary> Update tests/leviathan digest to f06d285 [renovate[bot]] </summary>
+> 
+>> ### leviathan-2.11.6
+>> #### (2022-12-16)
+>> 
+>> * Fix renovate extends syntax to include balena-io config [Kyle Harding]
+>> 
+>> ### leviathan-2.11.5
+>> #### (2022-12-16)
+>> 
+>> * renovate: Inherit settings from balena-io/renovate-config [Kyle Harding]
+>> 
+>> ### leviathan-2.11.4
+>> #### (2022-12-16)
+>> 
+>> * add logging and timeout to balena push [rcooke-warwick]
+>> 
+> 
+> </details>
+> 
+> 
+
+</details>
+
+# v2.108.1
+## (2022-12-18)
+
+
+<details>
+<summary> Update layers/meta-balena to 1d8c6eeed258f1205d6b1e0b78088ea867308b80 [renovate[bot]] </summary>
+
 > ## meta-balena-2.108.1
 > ### (2022-12-18)
 > 
@@ -10610,11 +14995,73 @@ Change log
 > </details>
 > 
 > 
+
+</details>
+
+# v2.107.38+rev2
+## (2022-12-17)
+
+
+<details>
+<summary> Update contracts to b6bdc537c9f9d224301152a0291682172320bf6a [renovate[bot]] </summary>
+
+> ## contracts-2.0.34
+> ### (2022-12-16)
+> 
+> * Flowzone: Allow external contributions [Florin Sarbu]
+> 
+> ## contracts-2.0.33
+> ### (2022-12-16)
+> 
+> * Flowzone: Use inherited secrets [Florin Sarbu]
+> 
+
+</details>
+
+# v2.107.38+rev1
+## (2022-12-16)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 67cb61f9209482ddd22b3f98ebf6cb3609f0acb7 [renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.19.16
+> ### (2022-12-16)
+> 
+> * dockerfile: balena-push-env: update balena CLI version to v14.5.15 [Alex Gonzalez]
+> * jenkins_generate_ami: add balena org for preloaded app [Alex Gonzalez]
+> * jenkins_generate_ami: distinguish between staging and production [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.15
+> ### (2022-12-16)
+> 
+> * workflows: add flowzone [Alex Gonzalez]
+> 
+
+</details>
+
+# v2.107.38
+## (2022-12-16)
+
+
+<details>
+<summary> Update layers/meta-balena to fb94465957a60691b15731b39b6b22ad616a62d4 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.38
 > ### (2022-12-16)
 > 
 > * Update balena-os/balena-supervisor to v14.4.8 [renovate[bot]]
 > 
+
+</details>
+
+# v2.107.37
+## (2022-12-15)
+
+
+<details>
+<summary> Update layers/meta-balena to 66694d0ba5536dfde9087c2aebc6785730414328 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.37
 > ### (2022-12-15)
 > 
@@ -10651,6 +15098,31 @@ Change log
 > 
 > * tests: hup: clean up inactive partition pre hup [rcooke-warwick]
 > 
+
+</details>
+
+# v2.107.32+rev1
+## (2022-12-15)
+
+
+<details>
+<summary> Update contracts to 08f029b5c82e71b9b25fbeef4805815bfa4c24aa [renovate[bot]] </summary>
+
+> ## contracts-2.0.32
+> ### (2022-12-15)
+> 
+> * Add node v19.3.0 v16.19.0 and v14.21.2 [Trong Nghia Nguyen]
+> 
+
+</details>
+
+# v2.107.32
+## (2022-12-14)
+
+
+<details>
+<summary> Update layers/meta-balena to 6dd2fc68bc13b2d8ad4527a1623da292828ed1c9 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.32
 > ### (2022-12-14)
 > 
@@ -10672,22 +15144,79 @@ Change log
 > </details>
 > 
 > 
-> ## meta-balena-2.107.30
-> ### (2022-12-13)
+
+</details>
+
+
+<details>
+<summary> Update layers/meta-balena to 654c0b9b5b019196e10b348471a50bc7e2e614a8 [renovate[bot]] </summary>
+
+> ## meta-balena-2.107.32
+> ### (2022-12-14)
 > 
-> * extra-udev-rules: Update teensy.rules [Alex Gonzalez]
-> * extra-udev-rules: Rename recipe [Alex Gonzalez]
+> * tests/cloud: Increase the wait time for services to start [Kyle Harding]
 > 
+> ## meta-balena-2.107.31
+> ### (2022-12-14)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 27b78a4 [renovate[bot]] </summary>
+> 
+>> ### leviathan-2.10.10
+>> #### (2022-12-13)
+>> 
+>> * Enable external contributions via flowzone [Kyle Harding]
+>> 
+> 
+> </details>
+> 
+> 
+
+</details>
+
+# v2.107.29+rev1
+## (2022-12-13)
+
+* Update post-provisioning instructions for Rock Pi 4B [Alex Bucknall]
+
+# v2.107.29
+## (2022-12-13)
+
+
+<details>
+<summary> Update layers/meta-balena to 79367a045b9e8d483e3d330b70d43cadc5462f78 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.29
 > ### (2022-12-13)
 > 
 > * balena-image-initramfs: disable redundant compression [Joseph Kogut]
 > 
+
+</details>
+
+# v2.107.28
+## (2022-12-13)
+
+
+<details>
+<summary> Update layers/meta-balena to 0359cad249077b459a6dbc7bb9ba026fcae91a15 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.28
 > ### (2022-12-12)
 > 
 > * initrdscripts: Only unlock LUKS partitions on the OS drive [Michal Toman]
 > 
+
+</details>
+
+# v2.107.27
+## (2022-12-12)
+
+
+<details>
+<summary> Update layers/meta-balena to 2ad93348592235ec26760b9f4e3f8b21f0d1d03f [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.27
 > ### (2022-12-12)
 > 
@@ -10698,6 +15227,39 @@ Change log
 > 
 > * connectivity: Add linux firmware for iwlwifi 9260 [Alex Gonzalez]
 > 
+
+</details>
+
+# v2.107.25+rev1
+## (2022-12-12)
+
+
+<details>
+<summary> Update contracts to 0357433005e9ea7ace7876530d910eeb8386c980 [renovate[bot]] </summary>
+
+> ## contracts-2.0.31
+> ### (2022-12-10)
+> 
+> * Add partials for dotnet v7 [Trong Nghia Nguyen]
+> 
+> ## contracts-2.0.30
+> ### (2022-12-09)
+> 
+> * Add support for Alpine Linux v3.17 [Trong Nghia Nguyen]
+> * Add dotnet v7, update v6.x and v3.x to latest versions [Trong Nghia Nguyen]
+> * Add Python v3.11.1 v3.10.9 v3.9.16 v3.8.16 and v3.7.16 [Trong Nghia Nguyen]
+> * Add Golang v1.19.4 and v1.18.9 [Trong Nghia Nguyen]
+> 
+
+</details>
+
+# v2.107.25
+## (2022-12-12)
+
+
+<details>
+<summary> Update layers/meta-balena to 1b077510cb474b222865c24677995d59687af06a [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.25
 > ### (2022-12-11)
 > 
@@ -10735,6 +15297,16 @@ Change log
 > * flasher: write disk image skipping sparse blocks [Joseph Kogut]
 > * image_types_balena: create sparse disk image [Joseph Kogut]
 > 
+
+</details>
+
+# v2.107.18
+## (2022-12-05)
+
+
+<details>
+<summary> Update layers/meta-balena to 1ca7d4bad4a759051bb8f30a284ed24070260790 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.18
 > ### (2022-12-04)
 > 
@@ -10747,7 +15319,6 @@ Change log
 >> 
 >> * Revert "docker-compose: stop using the default docker bridge" [Kyle Harding]
 >> 
-> 
 > </details>
 > 
 > 
@@ -10779,7 +15350,6 @@ Change log
 >> 
 >> * patch: Add debug: unstable to docs [Vipul Gupta (@vipulgupta2048)]
 >> 
-> 
 > </details>
 > 
 > 
@@ -10793,6 +15363,29 @@ Change log
 > 
 > * Updated CBS Docs Updated link to the CDS Product Repo [Ryan H]
 > 
+</details>
+
+# v2.107.14+rev1
+## (2022-12-01)
+
+
+<details>
+<summary> Update contracts to 5d83fa7ad3a0c95db49ee465c9a77845611f3a3b [renovate[bot]] </summary>
+
+> ## contracts-2.0.29
+> ### (Invalid date)
+> 
+> * Add node v19.2.0 [Trong Nghia Nguyen]
+> 
+</details>
+
+# v2.107.14
+## (2022-11-30)
+
+
+<details>
+<summary> Update layers/meta-balena to 8ea20f929eeb3f52b23874c3bd951c961329ad29 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.14
 > ### (Invalid date)
 > 
@@ -10820,7 +15413,6 @@ Change log
 >> 
 >> * On Apple Silicon we should install balena CLI via npm [Kyle Harding]
 >> 
-> 
 > </details>
 > 
 > 
@@ -10829,11 +15421,29 @@ Change log
 > 
 > * add os testing docs [rcooke-warwick]
 > 
+</details>
+
+# v2.107.10
+## (2022-11-25)
+
+
+<details>
+<summary> Update layers/meta-balena to fbf651fead37336e826d709f48255897962bdbd5 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.10
 > ### (2022-11-25)
 > 
 > * balena-image.bb: Include bits for LUKS when FDE is enabled [Michal Toman]
 > 
+</details>
+
+# v2.107.9
+## (2022-11-24)
+
+
+<details>
+<summary> Update layers/meta-balena to f54177209d23bcc33c32aac8dea7fa40273f3156 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.9
 > ### (2022-11-24)
 > 
@@ -10846,6 +15456,15 @@ Change log
 > * hostapp-update-hooks: Find following symlinks [Alex Gonzalez]
 > * hostapp-update-hooks: Fix partition index detection for luks devices [Alex Gonzalez]
 > 
+</details>
+
+# v2.107.8
+## (2022-11-24)
+
+
+<details>
+<summary> Update layers/meta-balena to ce3b3d7d17723fd03a4df278c6baff10b29be22e [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.8
 > ### (2022-11-24)
 > 
@@ -10863,7 +15482,6 @@ Change log
 >> 
 >> * Add conditions for Apple Silicon workstations [Kyle Harding]
 >> 
-> 
 > </details>
 > 
 > 
@@ -10874,21 +15492,57 @@ Change log
 > * ssh-auth: do not use a separate custom key [Alex Gonzalez]
 > * Revert "test: ssh-auth: fix test cases using custom keys" [Alex Gonzalez]
 > 
+</details>
+
+# v2.107.6
+## (2022-11-23)
+
+
+<details>
+<summary> Update layers/meta-balena to 1add3a4b003475a96b0414a5dec83152eab58bf3 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.6
 > ### (2022-11-22)
 > 
 > * Update balena-os/balena-supervisor to v14.4.4 [renovate[bot]]
 > 
+</details>
+
+# v2.107.5
+## (2022-11-22)
+
+
+<details>
+<summary> Update layers/meta-balena to d91e674a5bffd7f35944265d244b360bf6e3e8b9 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.5
 > ### (2022-11-22)
 > 
 > * Update balena-os/balena-supervisor to v14.4.2 [renovate[bot]]
 > 
+</details>
+
+# v2.107.4
+## (2022-11-20)
+
+
+<details>
+<summary> Update layers/meta-balena to 62205779cf90d2ea1c05e95c0a27074822e6e10f [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.4
 > ### (2022-11-19)
 > 
 > * Update balena-os/balena-supervisor to v14.4.1 [renovate[bot]]
 > 
+</details>
+
+# v2.107.3
+## (2022-11-19)
+
+
+<details>
+<summary> Update layers/meta-balena to 8aed005616dd0baa4605440cca234be049354070 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.3
 > ### (2022-11-19)
 > 
@@ -10900,190 +15554,80 @@ Change log
 > * chronyd: allow service status notification socket access to all [Alex Gonzalez]
 > * chrony: update to version 4.2 [Alex Gonzalez]
 > 
+</details>
+
+# v2.107.1
+## (2022-11-18)
+
+
+<details>
+<summary> Update layers/meta-balena to df352d2fcc6c70f7eb00e5276208510fe7ec9822 [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.1
 > ### (2022-11-17)
 > 
 > * docs: add RAID setup info [Joseph Kogut]
 > 
+</details>
+
+# v2.107.0
+## (2022-11-17)
+
+
+<details>
+<summary> Update layers/meta-balena to 7dd85ab83df0e2987cfecf4ea0cfcb9d96a020fc [renovate[bot]] </summary>
+
 > ## meta-balena-2.107.0
 > ### (2022-11-17)
 > 
 > * Update balena-os/balena-supervisor to v14.4.0 [renovate[bot]]
 > 
+</details>
+
+# v2.106.8
+## (2022-11-17)
+
+
+<details>
+<summary> Update layers/meta-balena to 8c48d6b05236f1ab2fe8b081181947ed8683b0f1 [renovate[bot]] </summary>
+
 > ## meta-balena-2.106.8
 > ### (2022-11-17)
 > 
 > * classes: kernel-balena: add wireguard module [Alex Gonzalez]
 > 
+</details>
+
+# v2.106.7
+## (2022-11-15)
+
+
+<details>
+<summary> Update layers/meta-balena to f64f63370e54d5ed14e124578ed9193c765ade92 [renovate[bot]] </summary>
+
 > ## meta-balena-2.106.7
 > ### (2022-11-15)
 > 
 > * test: ssh-auth: fix test cases using custom keys [Alex Gonzalez]
 > 
+</details>
+
+# v2.106.6
+## (2022-11-15)
+
+
+<details>
+<summary> Update layers/meta-balena to 0bcd2db1e6e5bf04ad2882028aa26cbab0ee49ea [renovate[bot]] </summary>
+
 > ## meta-balena-2.106.6
 > ### (2022-11-15)
 > 
 > * Update balena-os/balena-supervisor to v14.3.3 [renovate[bot]]
 > 
-> ## meta-balena-2.106.5
-> ### (2022-11-14)
-> 
-> * openvpn: fix a race condition that leaves system with no running supervisor [Alex Gonzalez]
-> 
-> ## meta-balena-2.106.4
-> ### (2022-11-12)
-> 
-> * ssh-auth: setConfig: run synchronously [Alex Gonzalez]
-> * cloud: ssh-auth: use custom path for custom key [Alex Gonzalez]
-> * balena-config-vars: Set permissions for cache file [Alex Gonzalez]
-> 
-
 </details>
 
-# v2.106.3+rev9
-## (2022-12-23)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 0f1d0265bbabdb2b869f6cf9363d418b52681ffc [renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.19.17
-> ### (2022-12-23)
-> 
-> * jenkins_generate_ami: support using both live and installer images as AMIs [Alex Gonzalez]
-> * balena-generate-ami: Enable nitroTPM support [Alex Gonzalez]
-> * jenkins_build: add argument to build OS development images [Alex Gonzalez]
-> 
-
-</details>
-
-# v2.106.3+rev8
-## (2022-12-22)
-
-
-<details>
-<summary> Update contracts to 4698e4ef55fdc61aa3df8d8494f2cbbd306b26c9 [renovate[bot]] </summary>
-
-> ## contracts-2.0.36
-> ### (2022-12-22)
-> 
-> * Fix owa5x slug [Trong Nghia Nguyen]
-> 
-
-</details>
-
-# v2.106.3+rev7
-## (2022-12-20)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 67cb61f9209482ddd22b3f98ebf6cb3609f0acb7 [renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.19.16
-> ### (2022-12-16)
-> 
-> * dockerfile: balena-push-env: update balena CLI version to v14.5.15 [Alex Gonzalez]
-> * jenkins_generate_ami: add balena org for preloaded app [Alex Gonzalez]
-> * jenkins_generate_ami: distinguish between staging and production [Alex Gonzalez]
-> 
-> ## balena-yocto-scripts-1.19.15
-> ### (2022-12-16)
-> 
-> * workflows: add flowzone [Alex Gonzalez]
-> 
-
-</details>
-
-# v2.106.3+rev6
-## (2022-12-20)
-
-
-<details>
-<summary> Update contracts to b65d5bd372587d4aaabba526d34f67c3f63ea90b [renovate[bot]] </summary>
-
-> ## contracts-2.0.35
-> ### (2022-12-20)
-> 
-> * hw.device-type: Add Owasys owa5X device [Alvaro Guzman]
-> 
-
-</details>
-
-# v2.106.3+rev5
-## (2022-12-16)
-
-
-<details>
-<summary> Update contracts to b6bdc537c9f9d224301152a0291682172320bf6a [renovate[bot]] </summary>
-
-> ## contracts-2.0.34
-> ### (2022-12-16)
-> 
-> * Flowzone: Allow external contributions [Florin Sarbu]
-> 
-> ## contracts-2.0.33
-> ### (2022-12-16)
-> 
-> * Flowzone: Use inherited secrets [Florin Sarbu]
-> 
-
-</details>
-
-# v2.106.3+rev4
-## (2022-12-15)
-
-
-<details>
-<summary> Update contracts to 08f029b5c82e71b9b25fbeef4805815bfa4c24aa [renovate[bot]] </summary>
-
-> ## contracts-2.0.32
-> ### (2022-12-15)
-> 
-> * Add node v19.3.0 v16.19.0 and v14.21.2 [Trong Nghia Nguyen]
-> 
-
-</details>
-
-# v2.106.3+rev3
-## (2022-12-10)
-
-
-<details>
-<summary> Update contracts to 0357433005e9ea7ace7876530d910eeb8386c980 [renovate[bot]] </summary>
-
-> ## contracts-2.0.31
-> ### (2022-12-10)
-> 
-> * Add partials for dotnet v7 [Trong Nghia Nguyen]
-> 
-
-</details>
-
-# v2.106.3+rev2
-## (2022-12-09)
-
-
-<details>
-<summary> Update contracts to 7038b0ce71daa96a832540d24fcad5bc5142ff13 [renovate[bot]] </summary>
-
-> ## contracts-2.0.30
-> ### (2022-12-09)
-> 
-> * Add support for Alpine Linux v3.17 [Trong Nghia Nguyen]
-> * Add dotnet v7, update v6.x and v3.x to latest versions [Trong Nghia Nguyen]
-> * Add Python v3.11.1 v3.10.9 v3.9.16 v3.8.16 and v3.7.16 [Trong Nghia Nguyen]
-> * Add Golang v1.19.4 and v1.18.9 [Trong Nghia Nguyen]
-> 
-> ## contracts-2.0.29
-> ### (Invalid date)
-> 
-> * Add node v19.2.0 [Trong Nghia Nguyen]
-> 
-
-</details>
-
-# v2.106.3+rev1
-## (2022-11-11)
+# v2.106.5+rev1
+## (2022-11-15)
 
 
 <details>
@@ -11096,13 +15640,34 @@ Change log
 > 
 </details>
 
-# v2.106.3
-## (2022-11-11)
+# v2.106.5
+## (2022-11-14)
 
 
 <details>
-<summary> Update layers/meta-balena to 78f01e464e2d1003d276539dfba87def9c91a16b [renovate[bot]] </summary>
+<summary> Update layers/meta-balena to af180bb6f4c61940cbf23d0b92dbceadea10aa3f [renovate[bot]] </summary>
 
+> ## meta-balena-2.106.5
+> ### (2022-11-14)
+> 
+> * openvpn: fix a race condition that leaves system with no running supervisor [Alex Gonzalez]
+> 
+</details>
+
+# v2.106.4
+## (2022-11-12)
+
+
+<details>
+<summary> Update layers/meta-balena to 5f789c7e57c7be71b8e333ac7127a809d2161935 [renovate[bot]] </summary>
+
+> ## meta-balena-2.106.4
+> ### (2022-11-12)
+> 
+> * ssh-auth: setConfig: run synchronously [Alex Gonzalez]
+> * cloud: ssh-auth: use custom path for custom key [Alex Gonzalez]
+> * balena-config-vars: Set permissions for cache file [Alex Gonzalez]
+> 
 > ## meta-balena-2.106.3
 > ### (2022-11-11)
 > 
@@ -11337,7 +15902,7 @@ Change log
 > 
 </details>
 
-# v2.105.21+rev2
+# v2.105.21+rev1
 ## (2022-10-31)
 
 
@@ -11349,15 +15914,6 @@ Change log
 > 
 > * Add Python v3.11.0 v3.10.8 v3.9.15 v3.8.15 and v3.7.15 [Trong Nghia Nguyen]
 > 
-</details>
-
-# v2.105.21+rev1
-## (2022-10-27)
-
-
-<details>
-<summary> Update contracts to 3690dee624859ed23f2ee9afaa112638cda5cee3 [renovate[bot]] </summary>
-
 > ## contracts-2.0.25
 > ### (2022-10-27)
 > 
@@ -11396,37 +15952,6 @@ Change log
 > 
 > * meta-resin-sumo: libical: Fix build QA error [Alex Gonzalez]
 > 
-</details>
-
-# v2.105.19+rev2
-## (2022-10-26)
-
-* add header to CHANGELOG file [Alex Gonzalez]
-
-# v2.94.5
-## (2022-04-01)
-
-# v2.105.19+rev1
-## (2022-10-26)
-
-
-<details>
-<summary> Update contracts to c311e6f8a9832587b3bb687b22a92574b790c688 [renovate[bot]] </summary>
-
-> ## contracts-2.0.23
-> ### (2022-10-25)
-> 
-> * sw.os+hw.device-type: Add distro-config.tpl for jetson-agx-orin-devkit [Alexandru Costache]
-> 
-</details>
-
-# v2.105.19
-## (2022-10-26)
-
-
-<details>
-<summary> Update layers/meta-balena to 38055be70d9113801797d97ddeac00012c5b151c [renovate[bot]] </summary>
-
 > ## meta-balena-2.105.19
 > ### (2022-10-26)
 > 
@@ -11449,8 +15974,22 @@ Change log
 > 
 </details>
 
+# v2.105.17+rev1
+## (2022-10-25)
+
+
+<details>
+<summary> Update contracts to c311e6f8a9832587b3bb687b22a92574b790c688 [renovate[bot]] </summary>
+
+> ## contracts-2.0.23
+> ### (2022-10-25)
+> 
+> * sw.os+hw.device-type: Add distro-config.tpl for jetson-agx-orin-devkit [Alexandru Costache]
+> 
+</details>
+
 # v2.105.17
-## (2022-10-24)
+## (2022-10-25)
 
 
 <details>
@@ -11464,6 +16003,20 @@ Change log
 </details>
 
 # v2.105.16+rev4
+## (2022-10-25)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 7c5b9c44fbd4039c3387c8b74e8efae8fa9f37d6 [renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.19.13
+> ### (2022-10-21)
+> 
+> * jenkins_build: Only deploy AMI after deploying a final release [Alex Gonzalez]
+> 
+</details>
+
+# v2.105.16+rev3
 ## (2022-10-24)
 
 
@@ -11474,20 +16027,6 @@ Change log
 > ### (2022-10-24)
 > 
 > * hw+device-type: Add jetson-agx-orin-devkit device type [Alexandru Costache]
-> 
-</details>
-
-# v2.105.16+rev3
-## (2022-10-21)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 7c5b9c44fbd4039c3387c8b74e8efae8fa9f37d6 [renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.19.13
-> ### (2022-10-21)
-> 
-> * jenkins_build: Only deploy AMI after deploying a final release [Alex Gonzalez]
 > 
 </details>
 
@@ -11580,33 +16119,13 @@ Change log
 > 
 </details>
 
-# v2.105.11+rev3
+# v2.105.11+rev1
 ## (2022-10-15)
 
 * Update build and deploy workflow to v0.0.12 [Alex Gonzalez]
 
-# v2.105.11+rev2
-## (2022-10-14)
-
-
-<details>
-<summary> Update contracts to f9e017074a7d7e26f5b56642fa86d2533f349f33 [renovate[bot]] </summary>
-
-> ## contracts-2.0.20
-> ### (2022-10-14)
-> 
-> * Add Golang v1.19.2 and v1.18.7 [Trong Nghia Nguyen]
-> * Add node v18.11.0 and v16.18.0 [Trong Nghia Nguyen]
-> 
-</details>
-
-# v2.105.11+rev1
-## (2022-10-14)
-
-* Switch from balenaCI to flowzone [Alex Gonzalez]
-
 # v2.105.11
-## (2022-10-14)
+## (2022-10-15)
 
 
 <details>
@@ -11622,15 +16141,30 @@ Change log
 > 
 > * classes: kernel-balena: improve aufs branch selection [Alex Gonzalez]
 > 
-> ## meta-balena-2.105.9
-> ### (2022-10-11)
+</details>
+
+# v2.105.9+rev3
+## (2022-10-15)
+
+
+<details>
+<summary> Update contracts to f9e017074a7d7e26f5b56642fa86d2533f349f33 [renovate[bot]] </summary>
+
+> ## contracts-2.0.20
+> ### (2022-10-14)
 > 
-> * meta-balena-rust: Fix ABI for arm [Alex Gonzalez]
+> * Add Golang v1.19.2 and v1.18.7 [Trong Nghia Nguyen]
+> * Add node v18.11.0 and v16.18.0 [Trong Nghia Nguyen]
 > 
 </details>
 
-# v2.105.8+rev1
-## (2022-10-11)
+# v2.105.9+rev2
+## (2022-10-14)
+
+* Switch from balenaCI to flowzone [Alex Gonzalez]
+
+# v2.105.9+rev1
+## (2022-10-12)
 
 
 <details>
@@ -11649,13 +16183,18 @@ Change log
 > 
 </details>
 
-# v2.105.8
-## (2022-10-11)
+# v2.105.9
+## (2022-10-12)
 
 
 <details>
-<summary> Update layers/meta-balena to ee77950ea892204938cf5681c9550952b423ede0 [renovate[bot]] </summary>
+<summary> Update layers/meta-balena to cf01401eff54d9fd3a4fd1247f4d3f059619c2d3 [renovate[bot]] </summary>
 
+> ## meta-balena-2.105.9
+> ### (2022-10-11)
+> 
+> * meta-balena-rust: Fix ABI for arm [Alex Gonzalez]
+> 
 > ## meta-balena-2.105.8
 > ### (2022-10-11)
 > 
@@ -11717,7 +16256,7 @@ Change log
 </details>
 
 # v2.105.2+rev1
-## (2022-09-28)
+## (2022-09-27)
 
 
 <details>
@@ -11784,7 +16323,7 @@ Change log
 </details>
 
 # v2.105.0
-## (2022-09-21)
+## (2022-09-20)
 
 
 <details>
@@ -11795,40 +16334,90 @@ Change log
 > 
 > * Update balena-os/balena-supervisor to v14.2.0 [renovate[bot]]
 > 
-</details>
-
-# v2.104.1
-## (2022-09-20)
-
-
-<details>
-<summary> Update layers/meta-balena to 226aa0d60a8e7d69ae2b17c5bc3efff1559a6bda [renovate[bot]] </summary>
-
 > ## meta-balena-2.104.1
 > ### (2022-09-20)
 > 
 > * balena: remove kernel-module-nf-nat-native dependency for host build [Alexandru Costache]
 > 
 </details>
+
+# v2.104.0
+## (2022-09-20)
 
 
 <details>
 <summary> Update layers/meta-balena to 09435bc8b96abc8fcd245eaa5e1ead0fe626cae5 [renovate[bot]] </summary>
 
-> ## meta-balena-2.104.1
-> ### (2022-09-20)
+> ## meta-balena-2.104.0
+> ### (2022-09-19)
 > 
-> * balena: remove kernel-module-nf-nat-native dependency for host build [Alexandru Costache]
+> * Update balena-os/balena-supervisor to v14.1.1 [renovate[bot]]
 > 
 </details>
 
-# v2.103.3
-## (2022-09-17)
+# v2.103.5
+## (2022-09-19)
 
 
 <details>
-<summary> Update layers/meta-balena to a17b3251407b74e424a6bcf7850783975c366cf0 [renovate[bot]] </summary>
+<summary> Update layers/meta-balena to 33e0b4caf72baa5b416574b91ddcf603eded1188 [renovate[bot]] </summary>
 
+> ## meta-balena-2.103.5
+> ### (2022-09-19)
+> 
+> * Update balena-os/balena-supervisor to v14.0.25 [renovate[bot]]
+> 
+</details>
+
+# v2.103.4
+## (2022-09-19)
+
+
+<details>
+<summary> Update layers/meta-balena to 0dc61866fa0970f997f60955ab1a4c3dd48783a5 [renovate[bot]] </summary>
+
+> ## meta-balena-2.103.4
+> ### (2022-09-17)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to 881cd72 [renovate[bot]] </summary>
+> 
+>> ### leviathan-2.9.5
+>> #### (2022-09-15)
+>> 
+>> * bump contracts to  v2.0.15 [rcooke-warwick]
+>> 
+>> ### leviathan-2.9.4
+>> #### (2022-09-13)
+>> 
+>> * increase timeout on local push sv ping [rcooke-warwick]
+>> 
+>> ### leviathan-2.9.3
+>> #### (2022-09-08)
+>> 
+>> * patch: Remove unused SDK helpers [Vipul Gupta (@vipulgupta2048)]
+>> 
+>> ### leviathan-2.9.2
+>> #### (2022-09-08)
+>> 
+>> * patch: Remove unused CLI helpers [Vipul Gupta (@vipulgupta2048)]
+>> 
+>> ### leviathan-2.9.1
+>> #### (2022-09-08)
+>> 
+>> * patch: Remove npm package as dependency [Vipul Gupta (@vipulgupta2048)]
+>> 
+>> ### leviathan-2.9.0
+>> #### (2022-09-07)
+>> 
+>> * core: Switch to debian base and install standalone balena-cli [Kyle Harding]
+>> * core: Set node engine to match the Dockerfile [Kyle Harding]
+>> * core: Remove balena-cli npm dependency [Kyle Harding]
+>> 
+> </details>
+> 
+> 
 > ## meta-balena-2.103.3
 > ### (2022-09-15)
 > 
@@ -11851,14 +16440,26 @@ Change log
 > 
 </details>
 
-# v2.103.1+rev2
+# v2.103.1+rev1
 ## (2022-09-15)
 
-* Use balena-rust support [Alex Gonzalez]
-* Enable firmware compression for the rockpro64. [Alex Gonzalez]
-* Enable RNG for rk3399-rockpro64 [Alex Gonzalez]
+* Update bsp to latest dunfell so we have brcm 43430 firmware in standard location [Florin Sarbu]
 
-# v2.103.1+rev1
+# v2.103.1
+## (2022-09-15)
+
+
+<details>
+<summary> Update layers/meta-balena to 2f207a3dbc3f142d4d1e0b9fdbd6136bcfb40dac [renovate[bot]] </summary>
+
+> ## meta-balena-2.103.1
+> ### (2022-09-13)
+> 
+> * tests: os: only do hdmi test if has capture device [rcooke-warwick]
+> 
+</details>
+
+# v2.103.0+rev1
 ## (2022-09-14)
 
 
@@ -11869,20 +16470,6 @@ Change log
 > ### (2022-09-14)
 > 
 > * hw.device-type: Set LED to false for rockpi-4b [Alexandru Costache]
-> 
-</details>
-
-# v2.103.1
-## (2022-09-14)
-
-
-<details>
-<summary> Update layers/meta-balena to 2f207a3dbc3f142d4d1e0b9fdbd6136bcfb40dac [renovate[bot]] </summary>
-
-> ## meta-balena-2.103.1
-> ### (2022-09-13)
-> 
-> * tests: os: only do hdmi test if has capture device [rcooke-warwick]
 > 
 </details>
 
@@ -11922,6 +16509,11 @@ Change log
 > * efi-tools: Replace SSTATE_DUPWHITELIST with SSTATE_ALLOW_OVERLAP_FILES [Alex Gonzalez]
 > 
 </details>
+
+# v2.102.6+rev1
+## (2022-09-09)
+
+* Update the BSP to latest dunfell [Florin Sarbu]
 
 # v2.102.6
 ## (2022-09-08)
@@ -11972,15 +16564,6 @@ Change log
 > </details>
 > 
 > 
-</details>
-
-# v2.102.5
-## (2022-09-06)
-
-
-<details>
-<summary> Update layers/meta-balena to 827a6fc341fc806ff065bbe1940c9a0f046cc373 [renovate[bot]] </summary>
-
 > ## meta-balena-2.102.5
 > ### (2022-09-06)
 > 
@@ -12015,15 +16598,6 @@ Change log
 > * udev: run resin-update-state after md assemble [Joseph Kogut]
 > * resin_update_state_probe: do not skip md devices [Joseph Kogut]
 > 
-</details>
-
-# v2.102.3
-## (2022-08-30)
-
-
-<details>
-<summary> Update layers/meta-balena to a24e52592b2fbc1c60e6a6fc39c61470219f61b1 [renovate[bot]] </summary>
-
 > ## meta-balena-2.102.3
 > ### (Invalid date)
 > 
@@ -12034,6 +16608,15 @@ Change log
 > 
 > * Renovate: Fix package rules for balena supervisor [Kyle Harding]
 > 
+</details>
+
+# v2.102.1
+## (2022-08-29)
+
+
+<details>
+<summary> Update layers/meta-balena to 59f3caaab340bf15bf562b60e1f7315c437e1297 [renovate[bot]] </summary>
+
 > ## meta-balena-2.102.1
 > ### (2022-08-29)
 > 
@@ -12041,26 +16624,38 @@ Change log
 > 
 </details>
 
-# v2.102.0
-## (2022-08-27)
-
 
 <details>
 <summary> Update layers/meta-balena to 09dd67ef6a3abd1e9048bb39a2b9a02dc3af18c3 [renovate[bot]] </summary>
 
-> ## meta-balena-2.102.0
-> ### (2022-08-25)
+> ## meta-balena-2.102.1
+> ### (2022-08-29)
 > 
-> * meta-balena-common: distro: Add rust preferred versions [Alex Gonzalez]
-> * meta-balena-common: os-config: Update to v1.2.11 [Alex Gonzalez]
-> * meta-balena-integration: Replace parallel_make_argument() [Alex Gonzalez]
-> * meta-balena-integration: Update cmake for versions below Zeus [Alex Gonzalez]
-> * meta-balena-rust: Add condition check for parallel_make_argument() use [Alex Gonzalez]
-> * meta-balena-rust: Provide crate fetcher for Yocto versions without it [Alex Gonzalez]
-> * meta-balena-rust: Modify to use without oe.rust.arch_to_rust_arch() support [Alex Gonzalez]
-> * meta-balena-rust: Add rust recipes to keep the rust version a distribution config [Alex Gonzalez]
-> * meta-balena-rust: Add compatibility layer [Alex Gonzalez]
+> * meta-balena-thud: initramfs: Fix building with latest meta-balena [Alex Gonzalez]
 > 
+</details>
+
+# v2.101.11+rev1
+## (2022-08-26)
+
+
+<details>
+<summary> Update contracts to 3bd4b2097a2796afc9a56a580e555982aad4f10b [renovate[bot]] </summary>
+
+> ## contracts-2.0.13
+> ### (2022-08-26)
+> 
+> * imx8mm-var-som: Add device type [Alexandru Costache]
+> 
+</details>
+
+# v2.101.11
+## (2022-08-25)
+
+
+<details>
+<summary> Update layers/meta-balena to 094cc1766365844e9e4dcf46f4f247cad0231715 [renovate[bot]] </summary>
+
 > ## meta-balena-2.101.11
 > ### (2022-08-24)
 > 
@@ -12078,18 +16673,9 @@ Change log
 </details>
 
 # v2.101.9+rev1
-## (2022-08-26)
+## (2022-08-25)
 
-
-<details>
-<summary> Update contracts to 3bd4b2097a2796afc9a56a580e555982aad4f10b [renovate[bot]] </summary>
-
-> ## contracts-2.0.13
-> ### (2022-08-26)
-> 
-> * imx8mm-var-som: Add device type [Alexandru Costache]
-> 
-</details>
+* Load uEnv.txt from the boot partition for the Radxa Zero [Florin Sarbu]
 
 # v2.101.9
 ## (2022-08-23)
@@ -12115,21 +16701,28 @@ Change log
 > 
 </details>
 
-# v2.101.8
-## (2022-08-23)
-
 
 <details>
 <summary> Update layers/meta-balena to ab80d0fbfbd28e10b7aa14739203a680d37815bd [renovate[bot]] </summary>
 
-> ## meta-balena-2.101.8
+> ## meta-balena-2.101.9
 > ### (2022-08-23)
 > 
-> * Update balena-io/balena-supervisor to v14.0.14 [renovate[bot]]
+> 
+> <details>
+> <summary> Update tests/leviathan digest to f7533c1 [renovate[bot]] </summary>
+> 
+>> ### leviathan-2.7.3
+>> #### (2022-08-16)
+>> 
+>> * compose: qemu: enable loopback and metadata devices [Joseph Kogut]
+>> 
+> </details>
+> 
 > 
 </details>
 
-# v2.101.7+rev1
+# v2.101.7+rev3
 ## (2022-08-19)
 
 
@@ -12144,8 +16737,32 @@ Change log
 > 
 </details>
 
+# v2.101.7+rev2
+## (2022-08-18)
+
+* Modify layer ordering [Alex Gonzalez]
+
+# v2.101.7+rev1
+## (2022-08-18)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 99807501efffc8c5034c88361049650a02511a78 [renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.19.12
+> ### (2022-08-08)
+> 
+> * barys: Add balena-rust to syntax conversion step [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.11
+> ### (2022-07-25)
+> 
+> * balena-api: On hostapp creation, set class to app [Alex Gonzalez]
+> 
+</details>
+
 # v2.101.7
-## (2022-08-17)
+## (2022-08-18)
 
 
 <details>
@@ -12158,34 +16775,11 @@ Change log
 > * Use a lightweight Engine healthcheck [Leandro Motta Barros]
 > * Make Engine watchdog termination graceful [Leandro Motta Barros]
 > 
-</details>
-
-# v2.101.6+rev1
-## (2022-08-17)
-
-* Modify layer ordering [Alex Gonzalez]
-
-# v2.101.6
-## (2022-08-16)
-
-
-<details>
-<summary> Update layers/meta-balena to 7dfa6d2abc3795d47a8a6cdb30bc540ee110e7ee [renovate[bot]] </summary>
-
 > ## meta-balena-2.101.6
 > ### (2022-08-15)
 > 
 > * tests/cloud: fix ssh prod test for physical duts [rcooke-warwick]
 > 
-</details>
-
-# v2.101.5
-## (2022-08-15)
-
-
-<details>
-<summary> Update layers/meta-balena to 771593f49920c4ae0ef101d2328f03f033449a9e [renovate[bot]] </summary>
-
 > ## meta-balena-2.101.5
 > ### (2022-08-12)
 > 
@@ -12234,98 +16828,6 @@ Change log
 > 
 > * os-config: Update os-config from v1.2.1 to v1.2.10 [Zahari Petkov]
 > 
-</details>
-
-# v2.101.0+rev4
-## (2022-08-11)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 99807501efffc8c5034c88361049650a02511a78 [renovate[bot]] </summary>
-
-> ## balena-yocto-scripts-1.19.12
-> ### (2022-08-08)
-> 
-> * barys: Add balena-rust to syntax conversion step [Alex Gonzalez]
-> 
-</details>
-
-* Update contracts to 91807ae538dccedb69877eed28ae6752287e2f21 [renovate[bot]]
-
-# v2.101.0+rev3
-## (2022-08-05)
-
-
-<details>
-<summary> Update contracts to 3d133659481f38ee1bba63d3835a231c70c11eec [renovate[bot]] </summary>
-
-> ## contracts-2.0.9
-> ### (2022-08-04)
-> 
-> * generic-amd64: match genericx86-64-ext connectivity [Joseph Kogut]
-> * generic-amd64: update name to include GPT qualifier [Joseph Kogut]
-> * genericx86-64-ext: update name to include MBR qualifier [Joseph Kogut]
-> 
-</details>
-
-# v2.101.0+rev2
-## (2022-08-04)
-
-* Remove final argument from build and deploy workflow [Alex Gonzalez]
-* Update build and deploy workflow to v0.0.9 [Alex Gonzalez]
-
-# v2.101.0+rev1
-## (2022-08-03)
-
-
-<details>
-<summary> Update contracts to b48eaf24e3b0cf67116e4adbe1a12d349825fda5 [renovate[bot]] </summary>
-
-> ## contracts-2.0.8
-> ### (2022-08-03)
-> 
-> * Update dotnet contract to latest v6.x and v3.x [Trong Nghia Nguyen]
-> * Add node v18.7.0 [Trong Nghia Nguyen]
-> 
-> ## contracts-2.0.7
-> ### (2022-07-19)
-> 
-> * hw.device-type: fix tdpzu9 device name [Francois]
-> 
-> ## contracts-2.0.6
-> ### (2022-07-17)
-> 
-> * hw.device-type: Add correct tdpzu9 board [Florin Sarbu]
-> 
-> ## contracts-2.0.5
-> ### (2022-07-14)
-> 
-> * Add node v18.6.0 [Trong Nghia Nguyen]
-> * Add golang v1.8.4 and v1.17.12 [Trong Nghia Nguyen]
-> * Add node v18.5.0 v16.16.0 and v14.20.0 [Trong Nghia Nguyen]
-> * Remove Debian Stretch as it is EOL [Trong Nghia Nguyen]
-> 
-> ## contracts-2.0.4
-> ### (2022-06-21)
-> 
-> * Add libffi3.4 linked python binaries [Trong Nghia Nguyen]
-> 
-> ## contracts-2.0.3
-> ### (2022-06-13)
-> 
-> * Add Python v3.10.5 and v3.9.13 [Trong Nghia Nguyen]
-> * Add support for Alpine Linux 3.16 [Trong Nghia Nguyen]
-> * Add support for Ubuntu Jammy and Kinetic [Trong Nghia Nguyen]
-> 
-</details>
-
-# v2.101.0
-## (2022-08-03)
-
-
-<details>
-<summary> Update layers/meta-balena to c233b4107fc25b08e963e2419b40263409d2de9e [renovate[bot]] </summary>
-
 > ## meta-balena-2.101.0
 > ### (2022-07-29)
 > 
@@ -12505,6 +17007,76 @@ Change log
 > </details>
 > 
 > 
+</details>
+
+# v2.99.27+rev3
+## (2022-08-18)
+
+
+<details>
+<summary> Update contracts to 91807ae538dccedb69877eed28ae6752287e2f21 [renovate[bot]] </summary>
+
+> ## contracts-2.0.11
+> ### (2022-08-10)
+> 
+> * generic-amd64: update logo to be vendor agnostic [Joseph Kogut]
+> 
+> ## contracts-2.0.10
+> ### (2022-08-10)
+> 
+> * generic-amd64: disable private [Joseph Kogut]
+> 
+> ## contracts-2.0.9
+> ### (2022-08-04)
+> 
+> * generic-amd64: match genericx86-64-ext connectivity [Joseph Kogut]
+> * generic-amd64: update name to include GPT qualifier [Joseph Kogut]
+> * genericx86-64-ext: update name to include MBR qualifier [Joseph Kogut]
+> 
+> ## contracts-2.0.8
+> ### (2022-08-03)
+> 
+> * Update dotnet contract to latest v6.x and v3.x [Trong Nghia Nguyen]
+> * Add node v18.7.0 [Trong Nghia Nguyen]
+> 
+> ## contracts-2.0.7
+> ### (2022-07-19)
+> 
+> * hw.device-type: fix tdpzu9 device name [Francois]
+> 
+> ## contracts-2.0.6
+> ### (2022-07-17)
+> 
+> * hw.device-type: Add correct tdpzu9 board [Florin Sarbu]
+> 
+> ## contracts-2.0.5
+> ### (2022-07-14)
+> 
+> * Add node v18.6.0 [Trong Nghia Nguyen]
+> * Add golang v1.8.4 and v1.17.12 [Trong Nghia Nguyen]
+> * Add node v18.5.0 v16.16.0 and v14.20.0 [Trong Nghia Nguyen]
+> * Remove Debian Stretch as it is EOL [Trong Nghia Nguyen]
+> 
+</details>
+
+# v2.99.27+rev2
+## (2022-08-03)
+
+* Remove final argument from build and deploy workflow [Alex Gonzalez]
+* Update build and deploy workflow to v0.0.9 [Alex Gonzalez]
+
+# v2.99.27+rev1
+## (2022-07-08)
+
+* Update build and deploy workflow to support ESR tags [Alex Gonzalez]
+
+# v2.99.27
+## (2022-07-01)
+
+
+<details>
+<summary> Update layers/meta-balena to d748c184c7348683378b4e8f0dbc2cfc014b65de [renovate[bot]] </summary>
+
 > ## meta-balena-2.99.27
 > ### (Invalid date)
 > 
@@ -12515,6 +17087,46 @@ Change log
 > 
 > * tests: cloud: Wait for random triggers to be updated [Kyle Harding]
 > 
+</details>
+
+# v2.99.25+rev2
+## (2022-06-29)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 5e003d52ac8e118af3cce662362d45f780ade704 [renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.19.10
+> ### (2022-06-29)
+> 
+> * balena-deploy: Use balena-img instead of resin-img [Alex Gonzalez]
+> * Global rename from dockerhub resin to balena accounts [Alex Gonzalez]
+> * automation: Stop deploying images to dockerhub [Alex Gonzalez]
+> 
+</details>
+
+# v2.99.25+rev1
+## (2022-06-29)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 29b218350eb1553f0f2c4da2753e9f6722226f41 [renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.19.9
+> ### (2022-06-28)
+> 
+> * balena-deploy: pin balena-img to v4.1.2 [Joseph Kogut]
+> * balena-deploy: s/resin-img/balena-img [Joseph Kogut]
+> 
+</details>
+
+# v2.99.25
+## (2022-06-29)
+
+
+<details>
+<summary> Update layers/meta-balena to b76de1e01b5e49196a800340335a3fb2c814b931 [renovate[bot]] </summary>
+
 > ## meta-balena-2.99.25
 > ### (2022-06-28)
 > 
@@ -12538,6 +17150,15 @@ Change log
 > 
 > * tests: Increase delay when testing randomized timers [Kyle Harding]
 > 
+</details>
+
+# v2.99.23
+## (2022-06-28)
+
+
+<details>
+<summary> Update layers/meta-balena to d44b153e75f61c8a18d5149f37412f1fc1e577d9 [renovate[bot]] </summary>
+
 > ## meta-balena-2.99.23
 > ### (2022-06-27)
 > 
@@ -12549,26 +17170,85 @@ Change log
 > * balena-supervisor: Replace BOOT_MOUNTPOINT with BALENA_BOOT_MOUNTPOINT [Alex Gonzalez]
 > * balena-config-vars: Remove BOOT_MOUNTPOINT from configuration environment [Alex Gonzalez]
 > 
+</details>
+
+# v2.99.21
+## (2022-06-27)
+
+
+<details>
+<summary> Update layers/meta-balena to b266b1a4ebeb269145192f8412fa12c902a30812 [renovate[bot]] </summary>
+
 > ## meta-balena-2.99.21
 > ### (2022-06-27)
 > 
 > * balena-config-vars: Do not use systemctl to list unit files [Alex Gonzalez]
 > 
+</details>
+
+# v2.99.20
+## (2022-06-24)
+
+
+<details>
+<summary> Update layers/meta-balena to 34e139b190f7aef385f9d7a831fe90e5efee007d [renovate[bot]] </summary>
+
 > ## meta-balena-2.99.20
 > ### (2022-06-24)
 > 
 > * tests: os: make apiKey an optional parameter [Joseph Kogut]
 > 
+</details>
+
+# v2.99.19
+## (2022-06-24)
+
+
+<details>
+<summary> Update layers/meta-balena to 85c5bf992befbdd5b4f88978aeb7acd1a206bf9b [renovate[bot]] </summary>
+
 > ## meta-balena-2.99.19
 > ### (2022-06-24)
 > 
 > * tests: os: purge-data: reduce intervals in waitUntil [Joseph Kogut]
 > 
+</details>
+
+# v2.99.18
+## (2022-06-24)
+
+
+<details>
+<summary> Update layers/meta-balena to 16898dbf4b204482fc0018bef3d823599a504c36 [renovate[bot]] </summary>
+
 > ## meta-balena-2.99.18
 > ### (2022-06-23)
 > 
 > * tests: os: config-json: fix race in udevRules test [Joseph Kogut]
 > 
+</details>
+
+# v2.99.17+rev1
+## (2022-06-23)
+
+
+<details>
+<summary> Update contracts to 98c8c8ef3039bb927ce39f77eed4479f12c77fac [renovate[bot]] </summary>
+
+> ## contracts-2.0.4
+> ### (2022-06-21)
+> 
+> * Add libffi3.4 linked python binaries [Trong Nghia Nguyen]
+> 
+</details>
+
+# v2.99.17
+## (2022-06-23)
+
+
+<details>
+<summary> Update layers/meta-balena to 1c9301223cfcf611347b13e07f9058602af975c1 [renovate[bot]] </summary>
+
 > ## meta-balena-2.99.17
 > ### (2022-06-22)
 > 
@@ -12648,6 +17328,15 @@ Change log
 > 
 > * grub-efi: disable shim_lock when in secure boot mode [Michal Toman]
 > 
+</details>
+
+# v2.99.4
+## (2022-06-17)
+
+
+<details>
+<summary> Update layers/meta-balena to c1656294fcae050821257383049e4b608765516e [Renovate Bot] </summary>
+
 > ## meta-balena-2.99.4
 > ### (2022-06-16)
 > 
@@ -12683,6 +17372,15 @@ Change log
 > </details>
 > 
 > 
+</details>
+
+# v2.99.3
+## (2022-06-16)
+
+
+<details>
+<summary> Update layers/meta-balena to 6db02b204e1a33c90fa6f2e8f81f5f45eb9359ca [Renovate Bot] </summary>
+
 > ## meta-balena-2.99.3
 > ### (2022-06-16)
 > 
@@ -12690,21 +17388,78 @@ Change log
 > * tests: os: Refactor config-json tests to wait for passing results [Kyle Harding]
 > * tests: os: chrony: Avoid conflicts with supervisor firewall [Kyle Harding]
 > 
+</details>
+
+# v2.99.2
+## (2022-06-14)
+
+
+<details>
+<summary> Update layers/meta-balena to ee8110bd257ff145acba793720ea739f14f2429a [Renovate Bot] </summary>
+
 > ## meta-balena-2.99.2
 > ### (2022-06-13)
 > 
 > * tests: os: chrony: reduce retry interval [Joseph Kogut]
 > 
+</details>
+
+# v2.99.1+rev2
+## (2022-06-13)
+
+
+<details>
+<summary> Update contracts to b2bddbdc896e6c628231512b363e5c93d16f5b15 [Renovate Bot] </summary>
+
+> ## contracts-2.0.3
+> ### (2022-06-13)
+> 
+> * Add Python v3.10.5 and v3.9.13 [Trong Nghia Nguyen]
+> * Add support for Alpine Linux 3.16 [Trong Nghia Nguyen]
+> * Add support for Ubuntu Jammy and Kinetic [Trong Nghia Nguyen]
+> 
+</details>
+
+# v2.99.1+rev1
+## (2022-06-13)
+
+* Update contracts to 1733467586d1af917c169806986179fdf039336e [Renovate Bot]
+
+# v2.99.1
+## (2022-06-11)
+
+
+<details>
+<summary> Update layers/meta-balena to 1aee182ad517f4dd6f24c643bdee1b4db883ffb3 [Renovate Bot] </summary>
+
 > ## meta-balena-2.99.1
 > ### (2022-06-11)
 > 
 > * tests: hup: gzip hostapp before transfer to DUT [rcooke-warwick]
 > 
+</details>
+
+# v2.99.0
+## (2022-06-10)
+
+
+<details>
+<summary> Update layers/meta-balena to 202e9c71433434b1f2bd5e658c7f7f216a364ad5 [Renovate Bot] </summary>
+
 > ## meta-balena-2.99.0
 > ### (2022-06-10)
 > 
 > * chronyd: Add time synchronization healthcheck [Alex Gonzalez]
 > 
+</details>
+
+# v2.98.45
+## (2022-06-10)
+
+
+<details>
+<summary> Update layers/meta-balena to 466c0e3a56da6605f033d8fd1b37c301c96af979 [Renovate Bot] </summary>
+
 > ## meta-balena-2.98.45
 > ### (2022-06-09)
 > 
@@ -12738,48 +17493,24 @@ Change log
 > 
 </details>
 
-# v2.98.42+rev3
-## (2022-07-25)
+# v2.98.42
+## (2022-06-07)
 
 
 <details>
-<summary> Update balena-yocto-scripts to 09e4514953fed499a69c224b47969fd2c3fb7ab8 [renovate[bot]] </summary>
+<summary> Update layers/meta-balena to 3a62a83ec12b05377b46d46bee9661b8b6b4a090 [Renovate Bot] </summary>
 
-> ## balena-yocto-scripts-1.19.11
-> ### (2022-07-25)
+> ## meta-balena-2.98.42
+> ### (2022-06-05)
 > 
-> * balena-api: On hostapp creation, set class to app [Alex Gonzalez]
-> 
-> ## balena-yocto-scripts-1.19.10
-> ### (2022-06-29)
-> 
-> * balena-deploy: Use balena-img instead of resin-img [Alex Gonzalez]
-> * Global rename from dockerhub resin to balena accounts [Alex Gonzalez]
-> * automation: Stop deploying images to dockerhub [Alex Gonzalez]
-> 
-> ## balena-yocto-scripts-1.19.9
-> ### (2022-06-28)
-> 
-> * balena-deploy: pin balena-img to v4.1.2 [Joseph Kogut]
-> * balena-deploy: s/resin-img/balena-img [Joseph Kogut]
+> * tests:cloud: Register teardown only when DUT is reachable [Florin Sarbu]
 > 
 </details>
 
-# v2.98.42+rev2
-## (2022-07-08)
-
-* Update build and deploy workflow to support ESR tags [Alex Gonzalez]
-
-# v2.98.42+rev1
-## (2022-06-09)
-
-* Add contracts submodule [Alex Gonzalez]
-
-# v2.98.42
-## (2022-06-08)
+# v2.98.41+rev1
+## (2022-06-07)
 
 * Add build and deploy workflow [Alex Gonzalez]
-* Update layers/meta-balena to 3a62a83ec12b05377b46d46bee9661b8b6b4a090 [Renovate Bot]
 
 # v2.98.41
 ## (2022-06-05)
@@ -12805,6 +17536,20 @@ Change log
 > 
 </details>
 
+# v2.98.40+rev1
+## (2022-06-05)
+
+
+<details>
+<summary> Update contracts to 58bcfbc0b0237177c51db2d7120e61d70e9c415b [Renovate Bot] </summary>
+
+> ## contracts-2.0.2
+> ### (2022-06-05)
+> 
+> * sw.os - hw.device-type: Update Xavier NX SD and Xavier NX eMMC to 32.7.1 [Alexandru Costache]
+> 
+</details>
+
 # v2.98.40
 ## (2022-06-04)
 
@@ -12817,10 +17562,16 @@ Change log
 > 
 > * tests: hup: reduce delay between retries [Joseph Kogut]
 > 
-> ## meta-balena-2.98.39
+</details>
+
+
+<details>
+<summary> Update layers/meta-balena to 82f6128a170dd68e671e30278a4f98398f5d1034 [Renovate Bot] </summary>
+
+> ## meta-balena-2.98.40
 > ### (2022-06-04)
 > 
-> * tests: cloud: reduce waitUntil interval [Joseph Kogut]
+> * tests: hup: reduce delay between retries [Joseph Kogut]
 > 
 </details>
 
@@ -12838,8 +17589,13 @@ Change log
 > 
 </details>
 
+# v2.98.37+rev1
+## (2022-06-04)
+
+* Revert device tree aliases for bringing back dynamic spi bus name numbering [Florin Sarbu]
+
 # v2.98.37
-## (2022-06-03)
+## (2022-06-04)
 
 
 <details>
@@ -12881,34 +17637,37 @@ Change log
 > 
 </details>
 
+# v2.98.35+rev1
+## (2022-06-03)
+
+* Add required header to changelog file [Alex Gonzalez]
+
+# v2.83.1+rev1
+## (2021-08-04)
+
 # v2.98.35
-## (2022-06-02)
+## (2022-06-03)
 
 
 <details>
-<summary> Update layers/meta-balena to ff147b2a19933df0c16fb37cb7bb294e77caa985 [Renovate Bot] </summary>
+<summary> Update contracts to bba65f2a1904e5ccc61e25793c8b4be1f02f3942 [Renovate Bot] </summary>
 
-> ## meta-balena-2.98.35
-> ### (2022-06-02)
+> ## contracts-2.0.1
+> ### (2022-06-03)
 > 
-> * tests: os: udev: improve formatting [Joseph Kogut]
-> * tests: os: udev: use systemd.waitForServiceState [Joseph Kogut]
+> * Update QEMU to v7.0.0+balena1 [Trong Nghia Nguyen]
+> * Remove the wrapper shim that base images have around sh on first run [Trong Nghia Nguyen]
+> * Add golang v1.18.3 and v1.17.11 [Trong Nghia Nguyen]
+> * Add node v18.3.0 v17.9.1 and v16.15.1 [Trong Nghia Nguyen]
 > 
 </details>
+
+* Update layers/meta-balena to ff147b2a19933df0c16fb37cb7bb294e77caa985 [Renovate Bot]
 
 # v2.98.34+rev1
 ## (2022-06-02)
 
-
-<details>
-<summary> Update balena-yocto-scripts to 8cce34e9763389eb59e4e375c532c81eb592fc1e [Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.8
-> ### (2022-06-01)
-> 
-> * balena-lib: release_finalize: Do not retag phase for ESR branch patch [Alex Gonzalez]
-> 
-</details>
+* Revert the u-boot balena integration rework for RockPi 4B because it needed additional work [Florin Sarbu]
 
 # v2.98.34
 ## (2022-06-01)
@@ -12941,7 +17700,21 @@ Change log
 > 
 </details>
 
-# v2.98.33+rev1
+# v2.98.33+rev3
+## (2022-06-01)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 8cce34e9763389eb59e4e375c532c81eb592fc1e [Renovate Bot] </summary>
+
+> ## balena-yocto-scripts-1.19.8
+> ### (2022-06-01)
+> 
+> * balena-lib: release_finalize: Do not retag phase for ESR branch patch [Alex Gonzalez]
+> 
+</details>
+
+# v2.98.33+rev2
 ## (2022-05-31)
 
 
@@ -12956,8 +17729,13 @@ Change log
 > 
 </details>
 
-# v2.98.33
+# v2.98.33+rev1
 ## (2022-05-31)
+
+* Update balena-yocto-scripts to 8c132cde993d3a8d9e4eea2517edf27b53b47ef3 [Renovate Bot]
+
+# v2.98.33
+## (2022-05-28)
 
 
 <details>
@@ -12978,6 +17756,15 @@ Change log
 > </details>
 > 
 > 
+</details>
+
+# v2.98.32
+## (2022-05-27)
+
+
+<details>
+<summary> Update layers/meta-balena to cc2bc321c33d9c2af1f4566793e16b075e425a7c [Renovate Bot] </summary>
+
 > ## meta-balena-2.98.32
 > ### (2022-05-27)
 > 
@@ -12986,9 +17773,18 @@ Change log
 </details>
 
 # v2.98.31+rev1
-## (2022-05-31)
+## (2022-05-27)
 
-* Update balena-yocto-scripts to 8c132cde993d3a8d9e4eea2517edf27b53b47ef3 [Renovate Bot]
+
+<details>
+<summary> Update contracts to 35dea15031cf273d469171f81ed24c394332caf5 [Renovate Bot] </summary>
+
+> ## contracts-2.0.0
+> ### (2022-05-27)
+> 
+> * Clean up installation method and add instruction partials [Micah Halter]
+> 
+</details>
 
 # v2.98.31
 ## (2022-05-26)
@@ -13017,17 +17813,6 @@ Change log
 > 
 > * Remove localMode setting from standalone image configuration [Alex Gonzalez]
 > 
-</details>
-
-* Update balena-yocto-scripts to 7b2a89987f196ec4261d240a88c1790c55b366b0 [Renovate Bot]
-
-# v2.98.29
-## (2022-05-24)
-
-
-<details>
-<summary> Update layers/meta-balena to c8f7eb1fdd6b342cc816e7b2b7e0c60634de2e87 [Renovate Bot] </summary>
-
 > ## meta-balena-2.98.29
 > ### (2022-05-23)
 > 
@@ -13042,6 +17827,37 @@ Change log
 >> 
 > </details>
 > 
+> 
+</details>
+
+* Update balena-yocto-scripts to 7b2a89987f196ec4261d240a88c1790c55b366b0 [Renovate Bot]
+
+# v2.98.28+rev3
+## (2022-05-24)
+
+
+<details>
+<summary> Update contracts to f251e053b36b3a6d14cd022b9745e478dcad9a6a [Renovate Bot] </summary>
+
+> ## contracts-1.13.76
+> ### (2022-05-23)
+> 
+> * sw.os-image: Add balena-image software image [Alex Gonzalez]
+> * sw.os: Add balenaOS contract [Alex Gonzalez]
+> 
+</details>
+
+# v2.98.28+rev2
+## (2022-05-21)
+
+
+<details>
+<summary> Update contracts to 6ffb1c8d87c8d0940405cbbc954aa625b4b1f94a [Renovate Bot] </summary>
+
+> ## contracts-1.13.75
+> ### (2022-05-21)
+> 
+> * jetson-xavier-agx: Update L4T in base images [Alexandru Costache]
 > 
 </details>
 
@@ -13063,6 +17879,8 @@ Change log
 > * balena-deploy: Fix header on balena_deploy_block() [Alex Gonzalez]
 > 
 </details>
+
+* Add contracts submodule [Alex Gonzalez]
 
 # v2.98.28
 ## (2022-05-20)
@@ -13121,7 +17939,7 @@ Change log
 </details>
 
 # v2.98.25
-## (2022-05-17)
+## (2022-05-16)
 
 
 <details>
@@ -13161,6 +17979,15 @@ Change log
 > 
 > * linux-firmware: Fix quz-a0-hr-b0 and quz-a0-jf-b0 packaging for compression [Michal Toman]
 > 
+</details>
+
+# v2.98.22
+## (2022-05-11)
+
+
+<details>
+<summary> Update layers/meta-balena to b66f92f791bee0527107453183f60fa9d659dbf9 [Renovate Bot] </summary>
+
 > ## meta-balena-2.98.22
 > ### (2022-05-11)
 > 
@@ -13196,15 +18023,6 @@ Change log
 > </details>
 > 
 > 
-</details>
-
-# v2.98.21
-## (2022-05-11)
-
-
-<details>
-<summary> Update layers/meta-balena to 96599b31001fc8f7e4eac7fc650a12d43ca39d21 [Renovate Bot] </summary>
-
 > ## meta-balena-2.98.21
 > ### (2022-05-11)
 > 
@@ -13240,15 +18058,6 @@ Change log
 > * tests/connectivity: Force proxy tests to use IPv4 [Kyle Harding]
 > * tests/connectivity: Fix compose warnings for expected string [Kyle Harding]
 > 
-</details>
-
-# v2.98.18
-## (2022-05-10)
-
-
-<details>
-<summary> Update layers/meta-balena to c46ab989cf8c688714bd7d3b7961e9d779cb7566 [Renovate Bot] </summary>
-
 > ## meta-balena-2.98.18
 > ### (2022-05-10)
 > 
@@ -13271,6 +18080,11 @@ Change log
 > 
 </details>
 
+# v2.98.17+rev1
+## (2022-05-08)
+
+* Update BSP to latest dunfell in order to fix WiFi timing issues [Florin Sarbu]
+
 # v2.98.17
 ## (2022-05-06)
 
@@ -13283,15 +18097,6 @@ Change log
 > 
 > * renovate: Override default package rules to enable leviathan [Kyle Harding]
 > 
-</details>
-
-# v2.98.16
-## (2022-05-06)
-
-
-<details>
-<summary> Update layers/meta-balena to 23c6581bee55a61231cdc61e108418e743b7df3e [Renovate Bot] </summary>
-
 > ## meta-balena-2.98.16
 > ### (2022-05-05)
 > 
@@ -13311,6 +18116,15 @@ Change log
 > 
 > * Rename renovate config [Kyle Harding]
 > 
+</details>
+
+# v2.98.14
+## (2022-05-04)
+
+
+<details>
+<summary> Update layers/meta-balena to 2e10b2d1990f200f5854b2317a71c2272e755df1 [Renovate Bot] </summary>
+
 > ## meta-balena-2.98.14
 > ### (2022-05-04)
 > 
@@ -13410,6 +18224,11 @@ Change log
 > 
 </details>
 
+# v2.98.12+rev1
+## (2022-05-04)
+
+* Fix WiFi after reboot on Radxa Zero [Florin Sarbu]
+
 # v2.98.12
 ## (2022-05-03)
 
@@ -13424,14 +18243,17 @@ Change log
 > 
 </details>
 
+# v2.98.11
+## (2022-04-30)
+
 
 <details>
 <summary> Update layers/meta-balena to e13f4afb2c6311450db3fc4e9cb74ef31132e8d6 [Renovate Bot] </summary>
 
-> ## meta-balena-2.98.12
-> ### (2022-05-02)
+> ## meta-balena-2.98.11
+> ### (2022-04-29)
 > 
-> * tests/hup: Test hostapp-update from current release [Kyle Harding]
+> * tests: os: create swap test [Joseph Kogut]
 > 
 </details>
 
@@ -13461,9 +18283,14 @@ Change log
 > 
 > * tests: bump leviathan to 2.2.11 [rcooke-warwick]
 > 
+> ## meta-balena-2.98.8
+> ### (2022-04-28)
+> 
+> * tests/cloud: fix ssh test for testbot workers [rcooke-warwick]
+> 
 </details>
 
-# v2.98.8+rev1
+# v2.98.7+rev1
 ## (2022-04-28)
 
 
@@ -13474,20 +18301,6 @@ Change log
 > ### (2022-04-28)
 > 
 > * balena-api.inc: fix 'fatal: unsafe repository' [Florin Sarbu]
-> 
-</details>
-
-# v2.98.8
-## (2022-04-28)
-
-
-<details>
-<summary> Update layers/meta-balena to 87fb338552e3cfdfcb3500ed65940be897b99bbc [Renovate Bot] </summary>
-
-> ## meta-balena-2.98.8
-> ### (2022-04-28)
-> 
-> * tests/cloud: fix ssh test for testbot workers [rcooke-warwick]
 > 
 </details>
 
@@ -13517,10 +18330,16 @@ Change log
 > 
 > * timeinit/timesync-https: Update rtc after setting system time [Alexandru Costache]
 > 
-> ## meta-balena-2.98.5
+</details>
+
+
+<details>
+<summary> Update layers/meta-balena to edda207aee705431cd02443bdfe8d6271228b96d [Renovate Bot] </summary>
+
+> ## meta-balena-2.98.6
 > ### (2022-04-26)
 > 
-> * networkmanager: Use default DHCP timeout [Zahari Petkov]
+> * timeinit/timesync-https: Update rtc after setting system time [Alexandru Costache]
 > 
 </details>
 
@@ -13566,22 +18385,14 @@ Change log
 > 
 </details>
 
-# v2.98.2
-## (2022-04-25)
-
 
 <details>
 <summary> Update layers/meta-balena to b6b6fc6c137e42a4184d46432c23cd20a35edd6c [Renovate Bot] </summary>
 
-> ## meta-balena-2.98.2
+> ## meta-balena-2.98.3
 > ### (2022-04-25)
 > 
-> * balena-config-vars: unit-conf: Correct description [Alex Gonzalez]
-> * tests: os: Remove sshKeys test [Alex Gonzalez]
-> * tests: cloud: Add SSH authentication tests [Alex Gonzalez]
-> * os-sshkeys: When ssh keys change, regenerate development configuration [Alex Gonzalez]
-> * development-features: use os-helpers-devmode include file [Alex Gonzalez]
-> * os-helpers: Add os-helpers-devmode [Alex Gonzalez]
+> * Add renovate configuration [Kyle Harding]
 > 
 </details>
 
@@ -13680,20 +18491,6 @@ Change log
 > 
 </details>
 
-# v2.95.17+rev1
-## (2022-04-22)
-
-
-<details>
-<summary> Update balena-yocto-scripts to 63e2b61fa462be4f68a2b7d8ca5084fd2d7d09b2 [Renovate Bot] </summary>
-
-> ## balena-yocto-scripts-1.19.2
-> ### (2022-04-21)
-> 
-> * balena-lib: fix 'fatal: unsafe repository' [Joseph Kogut]
-> 
-</details>
-
 # v2.95.17
 ## (2022-04-22)
 
@@ -13709,7 +18506,7 @@ Change log
 </details>
 
 # v2.95.16
-## (2022-04-21)
+## (2022-04-22)
 
 
 <details>
@@ -13722,7 +18519,36 @@ Change log
 > 
 </details>
 
-# v2.95.15+rev1
+# v2.95.15+rev6
+## (2022-04-22)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 63e2b61fa462be4f68a2b7d8ca5084fd2d7d09b2 [Renovate Bot] </summary>
+
+> ## balena-yocto-scripts-1.19.2
+> ### (2022-04-21)
+> 
+> * balena-lib: fix 'fatal: unsafe repository' [Joseph Kogut]
+> 
+</details>
+
+# v2.95.15+rev5
+## (2022-04-21)
+
+* Add bootloader hook for Radxa Zero [Florin Sarbu]
+
+# v2.95.15+rev4
+## (2022-04-21)
+
+* Add new Radxa Zero board [Florin Sarbu]
+
+# v2.95.15+rev3
+## (2022-04-15)
+
+* Update BSP to latest dunfell so we now use the AW-NB197 bluetooth firmware for all the AP6212 based chips. [Florin Sarbu]
+
+# v2.95.15+rev2
 ## (2022-04-14)
 
 
@@ -13740,6 +18566,11 @@ Change log
 > * deploy: push image variant artifacts [Joseph Kogut]
 > 
 </details>
+
+# v2.95.15+rev1
+## (2022-04-12)
+
+* Update BSP to latest dunfell so we have the latest bluetooth firmware [Florin Sarbu]
 
 # v2.95.15
 ## (2022-04-06)
@@ -13769,22 +18600,8 @@ Change log
 > 
 </details>
 
-# v2.95.13
+# v2.95.13+rev1
 ## (2022-04-06)
-
-
-<details>
-<summary> Update layers/meta-balena to 93481e8aae8a46c292eb6d4dd628992cedbf7757 [Renovate Bot] </summary>
-
-> ## meta-balena-2.95.13
-> ### (2022-04-06)
-> 
-> * test/hup: fix unmounting error [rcooke-warwick]
-> 
-</details>
-
-# v2.95.12+rev1
-## (2022-04-05)
 
 
 <details>
@@ -13810,35 +18627,24 @@ Change log
 > 
 > * Pass environment to docker [ab77]
 > 
-> ## balena-yocto-scripts-1.17.9
-> ### (2022-03-25)
+</details>
+
+# v2.95.13
+## (2022-04-06)
+
+
+<details>
+<summary> Update layers/meta-balena to 93481e8aae8a46c292eb6d4dd628992cedbf7757 [Renovate Bot] </summary>
+
+> ## meta-balena-2.95.13
+> ### (2022-04-06)
 > 
-> * automation: ami: make BALENA_PRELOAD_COMMIT optional [Joseph Kogut]
-> 
-> ## balena-yocto-scripts-1.17.8
-> ### (2022-03-15)
-> 
-> * balena-deploy: s/resin-flasher/balena-flasher [Joseph Kogut]
-> 
-> ## balena-yocto-scripts-1.17.7
-> ### (2022-03-15)
-> 
-> * jenkins_generate_ami: surface preload app commit as variable [Joseph Kogut]
-> 
-> ## balena-yocto-scripts-1.17.6
-> ### (2022-03-08)
-> 
-> * barys: Remove RESINHUP setting [Alex Gonzalez]
-> 
-> ## balena-yocto-scripts-1.17.5
-> ### (2022-03-08)
-> 
-> * balena-deploy: Avoid patching test suites config.js during deploy [Kyle Harding]
+> * test/hup: fix unmounting error [rcooke-warwick]
 > 
 </details>
 
 # v2.95.12
-## (2022-04-05)
+## (2022-04-01)
 
 
 <details>
@@ -13865,6 +18671,26 @@ Change log
 > * tests: update leviathan to 2.0.4 [rcooke-warwick]
 > * tests: update config for new leviathan version [rcooke-warwick]
 > 
+</details>
+
+# v2.95.8+rev2
+## (2022-03-29)
+
+* Specify full path in repo.yml upstreams [Alex Gonzalez]
+* Add renovate configuration [Alex Gonzalez]
+
+# v2.95.8+rev1
+## (2022-03-28)
+
+* Fix RockPi 4B hex bootcount issue for rollbacks [Florin Sarbu]
+
+# v2.95.8
+## (2022-03-28)
+
+
+<details>
+<summary> Update meta-balena from v2.95.0 to v2.95.8 [Florin Sarbu] </summary>
+
 > ## meta-balena-2.95.8
 > ### (2022-03-25)
 > 
@@ -13914,26 +18740,1479 @@ Change log
 > * tests/hup: Update hup suite to support core on client [Kyle Harding]
 > * tests/os: Update os suite to support core on client [Kyle Harding]
 > 
+</details>
+
+
+<details>
+<summary> Update balena-yocto-scripts to v1.17.9 [Florin Sarbu] </summary>
+
+> ## balena-yocto-scripts-1.17.9
+> ### (2022-03-25)
+> 
+> * automation: ami: make BALENA_PRELOAD_COMMIT optional [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.17.8
+> ### (2022-03-15)
+> 
+> * balena-deploy: s/resin-flasher/balena-flasher [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.17.7
+> ### (2022-03-15)
+> 
+> * jenkins_generate_ami: surface preload app commit as variable [Joseph Kogut]
+> 
+</details>
+
+# v2.95.0+rev3
+## (2022-03-24)
+
+* Ensure wireless powersave if off by default [Florin Sarbu]
+
+# v2.95.0+rev2
+## (2022-03-24)
+
+* Switch the wifi driver for RockPi 4B to backported brcmfmac driver from kernel version 5.4.18 [Florin Sarbu]
+
+# v2.95.0+rev1
+## (2022-03-12)
+
+* Do not swamp log with deprecation warnings [Alex Gonzalez]
+
+# v2.95.0
+## (2022-03-10)
+
+
+<details>
+<summary> Update meta-balena from v2.94.4 to v2.95.0 [Florin Sarbu] </summary>
+
 > ## meta-balena-2.95.0
 > ### (2022-03-04)
 > 
 > * Adds modem test suite [Alex]
 > 
+> ## meta-balena-2.94.5
+> ### (2022-03-04)
+> 
+> * Use by-state symlink for mounting the EFI partition when split [Michal Toman]
+> * os-helpers: add TPM2 helpers [Michal Toman]
+> * Add PCR protection policy to TPM operation unlocking LUKS passphrase [Michal Toman]
+> 
 </details>
 
-# v2.94.5+rev3
-## (2022-04-04)
 
-* Add renovate configuration [Alex Gonzalez]
+<details>
+<summary> Update balena-yocto-scripts to v1.17.6 [Florin Sarbu] </summary>
 
-# v2.94.5+rev2
-## (2022-04-02)
+> ## balena-yocto-scripts-1.17.6
+> ### (2022-03-08)
+> 
+> * barys: Remove RESINHUP setting [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.17.5
+> ### (2022-03-08)
+> 
+> * balena-deploy: Avoid patching test suites config.js during deploy [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.17.4
+> ### (2022-03-03)
+> 
+> * Init and update submodules when switching meta-balena branches [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.17.3
+> ### (2022-03-02)
+> 
+> * jenkins_build: Use recurse-submodules when checking out meta-balena [Kyle Harding]
+> 
+</details>
 
-* Disable kernel-modules-headers to circumvent a kernel-headers-test compile issue [Florin Sarbu]
+* Update poky to dunfell-23.0.12 [Florin Sarbu]
 
-# v2.94.5+rev1
-## (2022-04-01)
+# v2.94.4
+## (2022-03-04)
 
-* Specify full path in repo.yml upstreams [Florin Sarbu]
 
-* Add initial support for PINE64 ROCKPro64 [Florin Sarbu]
+<details>
+<summary> Update meta-balena from v2.94.3 to v2.94.4 [Florin Sarbu] </summary>
+
+> ## meta-balena-2.94.4
+> ### (2022-03-04)
+> 
+> * balena-supervisor: Fix supervisor tagging command [Florin Sarbu]
+> 
+</details>
+
+# v2.94.3
+## (2022-03-02)
+
+
+<details>
+<summary> Update meta-balena from v2.94.2 to v2.94.3 [Florin Sarbu] </summary>
+
+> ## meta-balena-2.94.3
+> ### (2022-03-02)
+> 
+> * tests/os: fix bracket in bbb overlay test [rcooke-warwick]
+> 
+</details>
+
+# v2.94.2
+## (2022-03-02)
+
+
+<details>
+<summary> Update meta-balena from v2.88.4 to v2.94.2 [Florin Sarbu] </summary>
+
+> ## meta-balena-2.94.2
+> ### (2022-03-02)
+> 
+> * tests: Enhance BeagleBone Black u-boot overlay test [Florin Sarbu]
+> 
+> ## meta-balena-2.94.1
+> ### (2022-03-01)
+> 
+> * balena-image: Default image type to balenaos-img [Alex Gonzalez]
+> * Remove legacy resinhup images. [Alex Gonzalez]
+> 
+> ## meta-balena-2.94.0
+> ### (2022-03-01)
+> 
+> 
+> <details>
+> <summary> Update balena-supervisor to v12.11.36 [Robert Günzler] </summary>
+> 
+>> ### balena-supervisor-12.11.36
+>> #### (2022-02-23)
+>> 
+>> * Ignore selinux security opts when comparing services [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-12.11.35
+>> #### (2022-02-16)
+>> 
+>> * Add troubleshooting notice for macOS [fisehara]
+>> 
+>> ### balena-supervisor-12.11.34
+>> #### (2022-02-15)
+>> 
+>> * Create `touch` and `getBootTime` utility functions [Felipe Lalanne]
+>> * Add update lock check to PATCH /v1/device/host-config [Christina Wang]
+>> 
+>> ### balena-supervisor-12.11.33
+>> #### (2022-02-09)
+>> 
+>> * Add support for local ipv6 reporting [Felipe Lalanne]
+>> 
+> </details>
+> 
+> * meta-resin-pyro: make sure $GO is set [Robert Günzler]
+> * Refactor balena-engine recipe to more closely resemble upstream [Robert Günzler]
+> * Update Golang recipes to 1.16.2 [Robert Günzler]
+> 
+> <details>
+> <summary> Update balena-engine to v20.10.12 [Robert Günzler] </summary>
+> 
+>> ### balena-engine-20.10.12
+>> #### (2022-02-18)
+>> 
+>> * storagemigration: keep going if migration fails [Robert Günzler]
+>> * graphdriver/copy: fix handling of sockets [Robert Günzler]
+>> * pkg/storagemigration: use graphdriver/copy.DirCopy [Robert Günzler]
+>> * Prune Jenkinsfile [Robert Günzler]
+>> * Backport platform-detection fixes from containerd [Robert Günzler]
+>> * storagemigration: capture failcleanup logs in logfile [Robert Günzler]
+>> * storagemigration: move logic to package [Robert Günzler]
+>> * prevent slice oob access in concatReadSeekCloser [Martin Rauscher]
+>> * Make layer download resuming more resilient [Leandro Motta Barros]
+>> * Drop CODEOWNERS [Robert Günzler]
+>> * pkg/storagemigration: poperly handle errors during state creation [Robert Günzler]
+>> * pkg/storagemigration: allow writing logs to separate file [Robert Günzler]
+>> * storagemigration: defer commit to next start [Robert Günzler]
+>> * Lock destination layers while delta is being processed [Robert Günzler]
+>> * Add aufs to overlay2 migrator [Robert Günzler]
+>> * Update the README [Robert Günzler]
+>> * Cleanup repo [Robert Günzler]
+>> * Add a SECURITY.md [Robert Günzler]
+>> * top_unix.go: allow busybox ps with no args [Kyle Harding]
+>> * Bump balena-os/balena-containerd to 1da48a8 [Tian Yuanhao]
+>> * Add changelog template to allow generating nested changelogs [Robert Günzler]
+>> * Update github issue and pr templates [Robert Günzler]
+>> * Update codeowners [Robert Günzler]
+>> * hack: Fix CLI versioning [Robert Günzler]
+>> * Fixed typos in getting-started.md docs [Miguel Casqueira]
+>> * Add integration tests for hostapp handling [Robert Günzler]
+>> * Fix container data deletion [Roman Mazur]
+>> * overlay2: Add List support [Roman Mazur]
+>> * aufs: Add List support [Roman Mazur]
+>> * layer: Remove unreferenced driver layers on create [Roman Mazur]
+>> * layer: Prune unused data on layer store creation [Roman Mazur]
+>> * layer: Persist cacheID early on transaction start [Roman Mazur]
+>> * pkg/authorization: Fix test failures on macOS [Roman Mazur]
+>> * Move ci to balenaCI [Robert Günzler]
+>> * contrib: Add balena-engine version of dind container [Robert Günzler]
+>> * build.sh: Disable btrfs,zfs,devicemapper graphdrivers [Robert Günzler]
+>> * Bump CLI dependency to include fix for #178 [Robert Günzler]
+>> * Bump CLI dependency to include --cidenv flag [Robert Günzler]
+>> * Allow passing container ID to container via environment variable [Robert Günzler]
+>> * contrib/install.sh: Add details to the success message [Robert Günzler]
+>> * contrib/install.sh: Rename balena to balenaEngine in ASCII art output [Robert Günzler]
+>> * contrib/install.sh: Fail on error [Robert Günzler]
+>> * Add daemon flags to configure max download/upload attempts during pull/push [Robert Günzler]
+>> * aufs,overlay2: Add driver opts for disk sync [Robert Günzler]
+>> * Fix double locking in the event handling code of OOM events [Robert Günzler]
+>> * integration-tests: Add test for containers with memory,cpu constraints [Robert Günzler]
+>> * Update Dockerfiles used for build to Go 1.10.8 [Robert Günzler]
+>> * travis: Use the minimal machine [Robert Günzler]
+>> * Add cli for tagging delta images [Robert Günzler]
+>> * Allow tagging of image deltas on creation [Robert Günzler]
+>> * docs: Fix Docker capitalisation in balenaEngine docs [Paulo Castro]
+>> * Update balenaEngine logo in README.md [Paulo Castro]
+>> * Disable incompatible integration tests [Paulo Castro]
+>> 
+>> ### balena-engine-20.10.11
+>> #### (2021-12-09)
+>> 
+>> * Merge upstream v20.10.11 [Robert Günzler]
+>> 
+> </details>
+> 
+> 
+> ## meta-balena-2.93.2
+> ### (2022-03-01)
+> 
+> * prepare-openvpn: Make configurable [Alex Gonzalez]
+> 
+> ## meta-balena-2.93.1
+> ### (2022-02-28)
+> 
+> * tests/cloud: Use deviceID returned from pre-registration [Kyle Harding]
+> 
+> ## meta-balena-2.93.0
+> ### (2022-02-26)
+> 
+> * resin-device-register: Use supervisor version label instead of tag [Alex Gonzalez]
+> * balena-supervisor: Rename repository/tag to fleet/version [Alex Gonzalez]
+> * docker-disk: entry.sh: Rename repository/tag to fleet/version [Alex Gonzalez]
+> 
+> ## meta-balena-2.92.0
+> ### (2022-02-25)
+> 
+> * Update ModemManager to v1.18.4 [Zahari Petkov]
+> 
+> ## meta-balena-2.91.6
+> ### (2022-02-25)
+> 
+> * resin-device-register: Regenerate VPN credentials on registration [Alex Gonzalez]
+> * resin-init-flasher: Wait for resin-device-register to start [Alex Gonzalez]
+> 
+> ## meta-balena-2.91.5
+> ### (2022-02-24)
+> 
+> * suites/os: Add testcase for RPi device-tree [Alexandru Costache]
+> 
+> ## meta-balena-2.91.4
+> ### (2022-02-24)
+> 
+> * openvpn: Remove dependency on timesync-http target [Alex Gonzalez]
+> 
+> ## meta-balena-2.91.3
+> ### (2022-02-24)
+> 
+> * tests/os: Wait for os-config-json service to be inactive [Kyle Harding]
+> 
+> ## meta-balena-2.91.2
+> ### (2022-02-23)
+> 
+> * contributing-device-support.md: Updates to board support instructions [Florin Sarbu]
+> 
+> ## meta-balena-2.91.1
+> ### (2022-02-21)
+> 
+> * tests/cloud: wait for update lock message in logs [rcooke-warwick]
+> * tests/cloud: register teardown before  online [rcooke-warwick]
+> 
+> ## meta-balena-2.91.0
+> ### (2022-02-14)
+> 
+> * openssh: Add a dependency on os-sshkeys [Alex Gonzalez]
+> * balena-supervisor: Add dependency on root CA [Alex Gonzalez]
+> * balena: Add dependency on balena-hostname [Alex Gonzalez]
+> * Make services configurable [Alex Gonzalez]
+> * classes: Add balena-configurable [Alex Gonzalez]
+> * balena-config-vars: Split config.json configuration on write [Alex Gonzalez]
+> * Remove config-json.target [Alex Gonzalez]
+> 
+> ## meta-balena-2.90.0
+> ### (2022-02-13)
+> 
+> * resin-init-flasher: check for UEFI mode and set config variables [Mark Corbin]
+> * resin-init-flasher: Fix flashing progress reporting for LUKS [Michal Toman]
+> * resin-init-flasher: Use flasher kernel to emulate stage2 bootloader with LUKS [Michal Toman]
+> * resin-init-flasher: Add support for opt-in full disk encryption [Michal Toman]
+> 
+> ## meta-balena-2.89.19
+> ### (2022-02-13)
+> 
+> * README: Update versioning information [Alex Gonzalez]
+> 
+> ## meta-balena-2.89.18
+> ### (2022-02-11)
+> 
+> * fix cloud suite teardown [rcooke-warwick]
+> 
+> ## meta-balena-2.89.17
+> ### (2022-02-09)
+> 
+> * suites/hup: Add under-voltage test before and after HUP [Alexandru Costache]
+> 
+> ## meta-balena-2.89.16
+> ### (2022-02-07)
+> 
+> * balena-supervisor: Update balena-supervisor to v12.11.32 [Felipe Lalanne]
+> 
+> ## meta-balena-2.89.15
+> ### (2022-02-07)
+> 
+> * resindataexpander: do not return after resizing the partition only [Michal Toman]
+> 
+> ## meta-balena-2.89.14
+> ### (2022-02-03)
+> 
+> * resin-u-boot.bbclass: Do not error if no config_defaults.h [Florin Sarbu]
+> 
+> ## meta-balena-2.89.13
+> ### (2022-02-01)
+> 
+> * docker-disk: Tag the supervisor digest with the repo name [Kyle Harding]
+> 
+> ## meta-balena-2.89.12
+> ### (2022-02-01)
+> 
+> * resindataexpander: expand fs independent of partition [Joseph Kogut]
+> 
+> ## meta-balena-2.89.11
+> ### (2022-01-29)
+> 
+> * image_types_balena: Augment dependency on u-boot do_deploy task [Florin Sarbu]
+> 
+> ## meta-balena-2.89.10
+> ### (2022-01-28)
+> 
+> * tests: relax boot splash screen check [rcooke-warwick]
+> 
+> ## meta-balena-2.89.9
+> ### (2022-01-27)
+> 
+> * archive logs using local ssh [rcooke-warwick]
+> * put archiver in the right place [rcooke-warwick]
+> * Enable UART serial console for supported devices [Kyle Harding]
+> * archive image on teardown [rcooke-warwick]
+> * put device in dev mode [rcooke-warwick]
+> * tests: add extra logging to cloud suite [rcooke-warwick]
+> 
+> ## meta-balena-2.89.8
+> ### (2022-01-27)
+> 
+> * u-boot: Move config fragments merging code out of common layer [Florin Sarbu]
+> 
+> ## meta-balena-2.89.7
+> ### (2022-01-26)
+> 
+> * explain balenaRootCA better [Martin Rauscher]
+> 
+> ## meta-balena-2.89.6
+> ### (2022-01-26)
+> 
+> * classes/kernel-balena: Update aufs patches for kernel 5.10.82 [Alexandru Costache]
+> 
+> ## meta-balena-2.89.5
+> ### (2022-01-24)
+> 
+> * os: tests: optimize fingerprint tests [Joseph Kogut]
+> 
+> ## meta-balena-2.89.4
+> ### (2022-01-21)
+> 
+> * tests: add cloud test suite [rcooke-warwick]
+> 
+> ## meta-balena-2.89.3
+> ### (2022-01-20)
+> 
+> * initramfs-framework: Make cleaning udev database the last step [Alex Gonzalez]
+> 
+> ## meta-balena-2.89.2
+> ### (2022-01-20)
+> 
+> * recipes-core/jq: Use 64bit time symbols [Alexandru Costache]
+> 
+> ## meta-balena-2.89.1
+> ### (2022-01-19)
+> 
+> * tests: Enable UART serial console where supported [Kyle Harding]
+> 
+> ## meta-balena-2.89.0
+> ### (2022-01-19)
+> 
+> * docker-disk: Pull images from Balena's registry [Alex Gonzalez]
+> * balena-supervisor: Use image location path instead of repository:tag [Alex Gonzalez]
+> * distro: balena-os: Add default cloud environment distro setting [Alex Gonzalez]
+> 
+> ## meta-balena-2.88.22
+> ### (2022-01-18)
+> 
+> * intel-quark: Fix to honister syntax [Alex Gonzalez]
+> * recipes-core/bash: Use 64bit time symbols [Alexandru Costache]
+> * recipes-core/busybox: Use 64bit time symbols [Alexandru Costache]
+> 
+> ## meta-balena-2.88.21
+> ### (2022-01-17)
+> 
+> * tests: os: config-json: cleanup persistentLogging test [Joseph Kogut]
+> * tests: os: config-json: return promise from sshKeys test [Joseph Kogut]
+> * tests: os: config-json: cleanup dnsServers config test [Joseph Kogut]
+> * tests: os: config-json: cleanup ntpServer config test [Joseph Kogut]
+> * tests: os: config-json: cleanup hostname config test [Joseph Kogut]
+> * tests: os: create waitForServiceState helper [Joseph Kogut]
+> * tests: os: config-json: remove reboot from randomMacAddressScan test [Joseph Kogut]
+> * tests: os: config-json: remove reboot from connectivity test [Joseph Kogut]
+> * tests: os: config-json: remove reboot from udevRules test [Joseph Kogut]
+> 
+> ## meta-balena-2.88.20
+> ### (2022-01-17)
+> 
+> * chrony: fix mount service dependency for driftfile [Mark Corbin]
+> 
+> ## meta-balena-2.88.19
+> ### (2022-01-12)
+> 
+> * os: tests: optimize fsck tests [Joseph Kogut]
+> 
+> ## meta-balena-2.88.18
+> ### (2022-01-11)
+> 
+> * conf/distro: Prefer rust v1.36 for releases older than Honister [Alexandru Costache]
+> 
+> ## meta-balena-2.88.17
+> ### (2022-01-10)
+> 
+> * recipes-core/coreutils: Use 64bit time symbols [Alexandru Costache]
+> * classes/image_types_balena: Preserve file modification times with mcopy [Alexandru Costache]
+> 
+> ## meta-balena-2.88.16
+> ### (2022-01-05)
+> 
+> * balena-os.inc: Switch balena backend storage to overlay2 [Florin Sarbu]
+> 
+> ## meta-balena-2.88.15
+> ### (2022-01-04)
+> 
+> * initrdscripts: fsuuidinit: Generate resin-rootA last [Alex Gonzalez]
+> * lvm2: Add rule to persist dm devices in udev database [Alex Gonzalez]
+> * initrdscript: Cleanup udev database before transitioning to rootfs [Alex Gonzalez]
+> * initrdscripts: Use /run as bootparam_root storage [Alex Gonzalez]
+> * lvm: Add lvm rules when secure boot is configured [Alex Gonzalez]
+> * balena-keys: Fetch DER keys and decode from base64 [Alex Gonzalez]
+> 
+> ## meta-balena-2.88.14
+> ### (2022-01-04)
+> 
+> * Sync cached writes to disk when updating supervisor.conf [Miguel Casqueira]
+> 
+> ## meta-balena-2.88.13
+> ### (2022-01-04)
+> 
+> * hostapp-update-hooks: Handle developmentMode updates [Alex Gonzalez]
+> 
+> ## meta-balena-2.88.12
+> ### (2022-01-03)
+> 
+> * systemd/timeinit: handle missing date field in HTTPS header [Mark Corbin]
+> 
+> ## meta-balena-2.88.11
+> ### (2021-12-22)
+> 
+> * balena-supervisor: Update balena-supervisor to v12.11.16 Update balena-supervisor from 12.11.0 to 12.11.16 [Miguel Casqueira]
+> 
+> ## meta-balena-2.88.10
+> ### (2021-12-16)
+> 
+> * Update NetworkManager to 1.32.12 [Zahari Petkov]
+> 
+> ## meta-balena-2.88.9
+> ### (2021-12-15)
+> 
+> * u-boot: Move u-boot configs inclusion into resin-u-boot.bbclass [Florin Sarbu]
+> 
+> ## meta-balena-2.88.8
+> ### (2021-12-09)
+> 
+> * patch: Add archiveLogs Teardown for HUP suite [Vipul Gupta]
+> 
+> ## meta-balena-2.88.7
+> ### (2021-12-06)
+> 
+> * tests: Ensure BDADDR is initialized [Alexandru Costache]
+> 
+> ## meta-balena-2.88.6
+> ### (2021-12-04)
+> 
+> * docs: Fix links in Rollback documentation [Kyle Harding]
+> 
+> ## meta-balena-2.88.5
+> ### (2021-12-04)
+> 
+> * tests: os: fix unhandled exception when unwrapping non-flasher image [Joseph Kogut]
+> 
+</details>
+
+# v2.88.4+rev6
+## (2022-02-25)
+
+
+<details>
+<summary> Update balena-yocto-scripts to v1.17.2 [Alex Gonzalez] </summary>
+
+> ## balena-yocto-scripts-1.17.2
+> ### (2022-02-25)
+> 
+> * prepare-and-start: Remove balena login [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.17.1
+> ### (2022-01-27)
+> 
+> * balena-deploy.inc: Do no deploy device logo to deprecated endpoint [Florin Sarbu]
+> 
+</details>
+
+# v2.88.4+rev5
+## (2022-02-22)
+
+* balena-image: Wait on u-boot when creating rootfs [Alexandru Costache]
+* balena-image: ensure u-boot files are present when generating rootfs [Alexandru Costache]
+
+# v2.88.4+rev4
+## (2022-02-02)
+
+* Fix variable in local.conf.sample for correct switch to development image [Florin Sarbu]
+
+# v2.88.4+rev3
+## (2022-01-21)
+
+
+<details>
+<summary> Update balena-yocto-scripts to v1.17.0 [Alex Gonzalez] </summary>
+
+> ## balena-yocto-scripts-1.17.0
+> ### (2022-01-20)
+> 
+> * balena-lib: Fix fetching meta-balena base version [Alex Gonzalez]
+> * jenkins_build-block: Use true/false for ESR variable [Alex Gonzalez]
+> * balena-deploy-block: Label ESR hostapps [Alex Gonzalez]
+> * balena-api: add balena_api_fetch_fleet_tag [Alex Gonzalez]
+> * balena-api: Set policy on ESR hostapps [Alex Gonzalez]
+> * balena-deploy: Pass ESR variable when creating apps [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.16.4
+> ### (2022-01-18)
+> 
+> * balena-deploy: Deploy passing the latest meta-balena version and not tag [Alex Gonzalez]
+> * balena-lib: Add balena_lib_get_meta_balena_base_version [Alex Gonzalez]
+> 
+</details>
+
+# v2.88.4+rev2
+## (2022-01-18)
+
+
+<details>
+<summary> Update balena-yocto-scripts to v1.16.3 [Alex Gonzalez] </summary>
+
+> ## balena-yocto-scripts-1.16.3
+> ### (2022-01-17)
+> 
+> * balena-deploy-block: Check for existing tag only in specific hostapp [Alex Gonzalez]
+> 
+</details>
+
+# v2.88.4+rev1
+## (2022-01-15)
+
+
+<details>
+<summary> Update balena-yocto-scripts to v1.16.2 [Alex Gonzalez] </summary>
+
+> ## balena-yocto-scripts-1.16.2
+> ### (2022-01-15)
+> 
+> * balena-api: Propagate balena API environment, token and OS organization [Alex Gonzalez]
+> * balena-build.sh: Propagate balena API environment and token [Alex Gonzalez]
+> * prepare-and-start: Propagate balena API environment and token [Alex Gonzalez]
+> 
+</details>
+
+# v2.88.4
+## (2022-01-15)
+
+
+<details>
+<summary> Update meta-balena from v2.85.2 to v2.88.4 [Alex Gonzalez] </summary>
+
+> ## meta-balena-2.88.4
+> ### (2021-12-03)
+> 
+> * tests: Add basic checks for data loss during HUP [Kyle Harding]
+> * hostapp-update-hooks: Ensure data breadcrumb is present before HUP [Kyle Harding]
+> 
+> ## meta-balena-2.88.3
+> ### (2021-12-02)
+> 
+> * grub-conf: Delay grub boot in os development mode [Alex Gonzalez]
+> * grub-efi: Allow input/output in OS development mode [Alex Gonzalez]
+> 
+> ## meta-balena-2.88.2
+> ### (2021-12-02)
+> 
+> * sign-efi.bbclass: Do not deploy the unused .signed symlink [Michal Toman]
+> * sign-gpg.bbclass: Only deploy the detached signature [Michal Toman]
+> * kernel-image-initramfs.bb: Ship kernel and matching signature [Michal Toman]
+> * Make kexec work under kernel lockdown [Michal Toman]
+> 
+> ## meta-balena-2.88.1
+> ### (2021-12-02)
+> 
+> * bluez5: Update to bluez 5.61 from poky honister [Kyle Harding]
+> 
+> ## meta-balena-2.88.0
+> ### (2021-12-01)
+> 
+> * systemd/timeinit: add HTTPS time synchronisation service [Mark Corbin]
+> 
+> ## meta-balena-2.87.32
+> ### (2021-12-01)
+> 
+> * tests: Add BeagleBone Black u-boot overlay test [Florin Sarbu]
+> 
+> ## meta-balena-2.87.31
+> ### (2021-11-30)
+> 
+> * resin-update-state.rules: do not run for unnamed partitions [Michal Toman]
+> * resin_update_state_probe: do not skip device mapper devices [Michal Toman]
+> 
+> ## meta-balena-2.87.30
+> ### (2021-11-30)
+> 
+> * tests: Add device specific RevPi Core 3 DIO module test [Alexandru Costache]
+> 
+> ## meta-balena-2.87.29
+> ### (2021-11-29)
+> 
+> * common: image-balena: enable developmentMode when OS_DEVELOPMENT=1 [Joseph Kogut]
+> 
+> ## meta-balena-2.87.28
+> ### (2021-11-26)
+> 
+> * Add secure boot keys to the flasher boot partition [Alex Gonzalez]
+> 
+> ## meta-balena-2.87.27
+> ### (2021-11-25)
+> 
+> * balena-os: make sure PAM support is not configured [Alex Gonzalez]
+> 
+> ## meta-balena-2.87.26
+> ### (2021-11-25)
+> 
+> * tests: add test for filesystem checks [Joseph Kogut]
+> * common: initrdscript: fsck resin-data on boot [Joseph Kogut]
+> 
+> ## meta-balena-2.87.25
+> ### (2021-11-25)
+> 
+> * connectivity: reduce ping interval to minimum [Joseph Kogut]
+> 
+> ## meta-balena-2.87.24
+> ### (2021-11-24)
+> 
+> * tests: Fix dnsmasq tests in cases where 8.8.8.8 is assigned via DHCP [Kyle Harding]
+> 
+> ## meta-balena-2.87.23
+> ### (2021-11-24)
+> 
+> * 0-signed-update HUP hook: mount efivarfs if necessary [Michal Toman]
+> 
+> ## meta-balena-2.87.22
+> ### (2021-11-24)
+> 
+> * grub-efi: Accept no input and output nothing when in secure boot mode [Michal Toman]
+> 
+> ## meta-balena-2.87.21
+> ### (2021-11-24)
+> 
+> * linux-firmware: Include MT7601U firmware [Zahari Petkov]
+> 
+> ## meta-balena-2.87.20
+> ### (2021-11-23)
+> 
+> * balena-image: Add balena keys to boot partition if required [Alex Gonzalez]
+> * grub-conf: Enforce module signing and integrity lockdown on luks config [Alex Gonzalez]
+> * distro: balena-os: Add empty SIGN_API [Alex Gonzalez]
+> * classes: image-balena: Copy signed files if present [Alex Gonzalez]
+> * classes/sign-gpg: Rename class to sign_gpg [Alex Gonzalez]
+> * classes: Rename sign to sign-gpg [Alex Gonzalez]
+> * classes: sign: Drop suffix from deployed files [Alex Gonzalez]
+> * resin-init-flasher: Set fde grub.cfg if secure boot is enabled [Alex Gonzalez]
+> * balena-image-initramfs: Add secure boot dependencies [Alex Gonzalez]
+> * kernel-image-initramfs: Install signed kernel images if available [Alex Gonzalez]
+> * kernel-balena: Configure for secure boot [Alex Gonzalez]
+> 
+> ## meta-balena-2.87.19
+> ### (2021-11-22)
+> 
+> * common: enable multi-label mDNS resolution and IPv6 [Joseph Kogut]
+> 
+> ## meta-balena-2.87.18
+> ### (2021-11-22)
+> 
+> * unwrap flasher images in os suite if needed [rcooke-warwick]
+> * bluetooth and hup test with qemu [rcooke-warwick]
+> 
+> ## meta-balena-2.87.17
+> ### (2021-11-21)
+> 
+> * efitools: Add recipe [Alex Gonzalez]
+> * sbsigntool: Add recipe [Alex Gonzalez]
+> 
+> ## meta-balena-2.87.16
+> ### (2021-11-21)
+> 
+> * peak: Modify kernel driver to use signing class [Alex Gonzalez]
+> 
+> ## meta-balena-2.87.15
+> ### (2021-11-21)
+> 
+> * kernel-balena.class: Add support for FDE and sign for secure boot [Michal Toman]
+> 
+> ## meta-balena-2.87.14
+> ### (2021-11-21)
+> 
+> * sign-efi.bbclass: do not mix old and new bitbake syntax [Michal Toman]
+> * Revert "sign-efi.class, sign-kmod.class: Replace original files with signed ones" [Michal Toman]
+> 
+> ## meta-balena-2.87.13
+> ### (2021-11-20)
+> 
+> * meta-resin-sumo/pyro: Fix initramfs-framework kexec dependencies [Alex Gonzalez]
+> * initrdscripts: Use a 2nd stage bootloader to unlock LUKS partitions [Michal Toman]
+> * grub-efi: add support for signature verification in secure boot mode [Michal Toman]
+> 
+> ## meta-balena-2.87.12
+> ### (2021-11-20)
+> 
+> * initramfs-module-cryptsetup: add TPM dependencies [Michal Toman]
+> 
+> ## meta-balena-2.87.11
+> ### (2021-11-20)
+> 
+> * balena-keys: Add recipe [Alex Gonzalez]
+> 
+> ## meta-balena-2.87.10
+> ### (2021-11-20)
+> 
+> * sign-efi.class, sign-kmod.class: Replace original files with signed ones [Michal Toman]
+> * Add signing classes [Alex Gonzalez]
+> 
+> ## meta-balena-2.87.9
+> ### (2021-11-17)
+> 
+> * hostapp-update-hooks: Add a hook that aborts HUP to unsigned OS under secure boot [Michal Toman]
+> 
+> ## meta-balena-2.87.8
+> ### (2021-11-17)
+> 
+> * resin-mounts: mount EFI partition if it is split from boot [Michal Toman]
+> 
+> ## meta-balena-2.87.7
+> ### (2021-11-16)
+> 
+> * initrdscripts: add a script for unlocking LUKS volumes [Michal Toman]
+> 
+> ## meta-balena-2.87.6
+> ### (2021-11-15)
+> 
+> * connectivity: proxy: move nadoo/glider to container [Joseph Kogut]
+> 
+> ## meta-balena-2.87.5
+> ### (2021-11-11)
+> 
+> * tests: os: Add exposed engine socket test [Alex Gonzalez]
+> 
+> ## meta-balena-2.87.4
+> ### (2021-11-11)
+> 
+> * resindataexpander: also resize LUKS volume if necessary [Michal Toman]
+> 
+> ## meta-balena-2.87.3
+> ### (2021-11-11)
+> 
+> * Add out-of-tree peak CAN driver [Michal Toman]
+> 
+> ## meta-balena-2.87.2
+> ### (2021-11-11)
+> 
+> * Add recipes for TPM2 tools [Michal Toman]
+> 
+> ## meta-balena-2.87.1
+> ### (2021-11-10)
+> 
+> * recipes-devtools/dosfstools: Fix build with Poky Honister [Alexandru Costache]
+> 
+> ## meta-balena-2.87.0
+> ### (2021-11-09)
+> 
+> * meta-balena-common/conf: Switch layer to Honister compatibility [Alexandru Costache]
+> 
+> ## meta-balena-2.86.3
+> ### (2021-11-09)
+> 
+> * patch: Fix URL to yocto project dependencies [Kyle Harding]
+> 
+> ## meta-balena-2.86.2
+> ### (2021-11-08)
+> 
+> * dosfstools: selectively apply upstreamed patch [Joseph Kogut]
+> * tests: wait for the chronyd service become active [Mark Corbin]
+> 
+> ## meta-balena-2.86.1
+> ### (2021-11-02)
+> 
+> * tests/issue: Add test to check issues files [Alex Gonzalez]
+> * base files: Use HOSTOS_VERSION in issue and issue.net [Alex Gonzalez]
+> 
+> ## meta-balena-2.86.0
+> ### (2021-10-29)
+> 
+> * Create new data partition reset service [Kyle Harding]
+> 
+> ## meta-balena-2.85.17
+> ### (2021-10-28)
+> 
+> * restrict dtoverlay test to rpi devices [rcooke-warwick]
+> 
+> ## meta-balena-2.85.16
+> ### (2021-10-27)
+> 
+> 
+> <details>
+> <summary> Update balena-engine to v19.03.30 [Robert Günzler] </summary>
+> 
+>> ### balena-engine-19.03.30
+>> #### (2021-10-26)
+>> 
+>> * storagemigration: keep going if migration fails [Robert Günzler]
+>> * graphdriver/copy: fix handling of sockets [Robert Günzler]
+>> 
+> </details>
+> 
+> 
+> ## meta-balena-2.85.15
+> ### (2021-10-26)
+> 
+> * linux-firmware: Include RTL8723BU firmware files [Zahari Petkov]
+> 
+> ## meta-balena-2.85.14
+> ### (2021-10-25)
+> 
+> * balena-supervisor: Update balena-supervisor to v12.11.0 [Felipe Lalanne]
+> 
+> ## meta-balena-2.85.13
+> ### (2021-10-21)
+> 
+> * balena-engine: Remove deprecated development drop-in service file [Kyle Harding]
+> 
+> ## meta-balena-2.85.12
+> ### (2021-10-21)
+> 
+> * make led test work with beaglebone [rcooke-warwick]
+> 
+> ## meta-balena-2.85.11
+> ### (2021-10-06)
+> 
+> * patch: Add dtoverlay practical test [Vipul Gupta (@vipulgupta2048)]
+> 
+> ## meta-balena-2.85.10
+> ### (2021-10-04)
+> 
+> * image-balena: Decouple boot directory generation from rootfs task [Alex Gonzalez]
+> 
+> ## meta-balena-2.85.9
+> ### (2021-10-01)
+> 
+> * classes/resin-u-boot: Increase OS_BOOTCOUNT_LIMIT to 3 [Alexandru Costache]
+> 
+> ## meta-balena-2.85.8
+> ### (2021-09-29)
+> 
+> * hostapp-update-hooks: Blacklist Rock Pi configuration file [Alexandru Costache]
+> 
+> ## meta-balena-2.85.7
+> ### (2021-09-28)
+> 
+> * balena-healthcheck: Remove redundant steps and rely on hello-world [Kyle Harding]
+> 
+> ## meta-balena-2.85.6
+> ### (2021-09-27)
+> 
+> * kernel-balena: Fix kernel config warning for UPROBE_EVENTS [Alex Gonzalez]
+> * kernel-balena: Configure DEBUG_FS [Alex Gonzalez]
+> 
+> ## meta-balena-2.85.5
+> ### (2021-09-23)
+> 
+> * Run iwlwifi firmware cleanup in fakeroot [Kyle Harding]
+> 
+> ## meta-balena-2.85.4
+> ### (2021-09-21)
+> 
+> * common: conf: create disable-user-ns distro feature [Joseph Kogut]
+> 
+> ## meta-balena-2.85.3
+> ### (2021-09-21)
+> 
+> * balena-os-sysctl: Reduce the console default loglevel [Alex Gonzalez]
+> * balena-config-vars: Re-run os-sshkeys if config.json is modified [Alex Gonzalez]
+> * systemd: Use drop-in to modify unit files instead of sed [Alex Gonzalez]
+> 
+</details>
+
+# v2.85.2+rev7
+## (2022-01-12)
+
+
+<details>
+<summary> Update balena-yocto-scripts to v1.16.1 [Alex Gonzalez] </summary>
+
+> ## balena-yocto-scripts-1.16.1
+> ### (2022-01-11)
+> 
+> * revert_overrides: Add intel-quark to architecture overrides [Alex Gonzalez]
+> 
+</details>
+
+# v2.85.2+rev6
+## (2022-01-03)
+
+
+<details>
+<summary> Update balena-yocto-scripts to v1.16.0 [Alex Gonzalez] </summary>
+
+> ## balena-yocto-scripts-1.16.0
+> ### (2021-12-30)
+> 
+> * balena-deploy: Check for file existence before deploying [Alex Gonzalez]
+> * balena-deploy-block: Check existence of tag before re-deploying [Alex Gonzalez]
+> * balena-api: Add function to check the existence of a release tag [Alex Gonzalez]
+> * balena-deploy-block: Finalize releases when deployed [Alex Gonzalez]
+> * Accept deployments without balena.yml [Alex Gonzalez]
+> * jenkins_generate_ami: Remove variant from image name [Alex Gonzalez]
+> * balena-build.sh: Stop building OS variants [Alex Gonzalez]
+> * jenkins_build.sh: Remove buildFlavor [Alex Gonzalez]
+> * jenkins_build-blocks: Remove variant build option [Alex Gonzalez]
+> * balena-deploy: Stop using .dev/.prod variant suffixes [Alex Gonzalez]
+> * balena-deploy-block: Stop tagging hostapp releases with variant [Alex Gonzalez]
+> * balena-lib: Use externalVersion to match contracts [Alex Gonzalez]
+> * jenkins_build: Deploy hostapp like any other block [Alex Gonzalez]
+> * jenkins_build-blocks: Separate block build release deployment [Alex Gonzalez]
+> * balena-deploy-block: Use release versioning [Alex Gonzalez]
+> * jenkins_build: Remove discontinued check [Alex Gonzalez]
+> * balena-deploy: Do not deploy discontinued device types [Alex Gonzalez]
+> * balena-deploy: Discontinued device types use meta-balena version [Alex Gonzalez]
+> * balena-deploy: Adapt balena_deploy_block to release versioning and use it [Alex Gonzalez]
+> * balena-build-block: Remove image release [Alex Gonzalez]
+> * balena-api: Use release revision for fetchers [Alex Gonzalez]
+> * jenkins_build-block: Remove release version API setter [Alex Gonzalez]
+> * balena-api: Remove release version API setter [Alex Gonzalez]
+> * balena-lib: Use release versioning [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.15.10
+> ### (2021-12-02)
+> 
+> * balena-deploy: Set leviathan networkWireless mode based on device slug [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.15.9
+> ### (2021-11-26)
+> 
+> * Substitute the worker types for generic device slugs [Kyle Harding]
+> 
+</details>
+
+# v2.85.2+rev5
+## (2021-12-09)
+
+* Fix bluetooth firmware loading [Florin Sarbu]
+
+# v2.85.2+rev4
+## (2021-11-22)
+
+* Turn i2c7 bus on by default [Aaron Shaw]
+
+# v2.85.2+rev3
+## (2021-11-17)
+
+* balena-image: Install overlays in correct directory [Alexandru Costache]
+
+# v2.85.2+rev2
+## (2021-11-10)
+
+* Backport u-boot fat fs related patch in order to fix write failure when saving bootcount [Florin Sarbu]
+
+# v2.85.2+rev1
+## (2021-11-06)
+
+
+<details>
+<summary> Update meta-balena from v2.83.10 to v2.85.2 [Alexandru Costache] </summary>
+
+> ## meta-balena-2.85.2
+> ### (2021-09-17)
+> 
+> 
+> <details>
+> <summary> Update balena-engine to v19.03.29 [Robert Günzler] </summary>
+> 
+>> ### balena-engine-19.03.29
+>> #### (2021-09-14)
+>> 
+>> * pkg/storagemigration: use graphdriver/copy.DirCopy [Robert Günzler]
+>> 
+>> ### balena-engine-19.03.28
+>> #### (2021-09-14)
+>> 
+>> * Prune Jenkinsfile [Robert Günzler]
+>> 
+>> ### balena-engine-19.03.27
+>> #### (2021-09-01)
+>> 
+>> * Backport platform-detection fixes from containerd [Robert Günzler]
+>> 
+> </details>
+> 
+> 
+> ## meta-balena-2.85.1
+> ### (2021-09-17)
+> 
+> * Fix typo in OS_DEVELOPMENT distro feature [Kyle Harding]
+> * tests: Remove OS variants [Alex Gonzalez]
+> 
+> ## meta-balena-2.85.0
+> ### (2021-09-15)
+> 
+> * Replace image variants with development mode [Alex Gonzalez]
+> 
+> <details>
+> <summary> balena-supervisor: Update balena-supervisor to v12.10.10 [Alex Gonzalez] </summary>
+> 
+>> ### balena-supervisor-12.10.10
+>> #### (2021-09-07)
+>> 
+>> * api-keys: Remove os variant parameter for authentication check [Alex Gonzalez]
+>> * os-release: Use developmentMode to ascertain OS variant in new releases [Alex Gonzalez]
+>> * config: Add developmentMode to schema [Alex Gonzalez]
+>> 
+>> ### balena-supervisor-12.10.9
+>> #### (2021-09-02)
+>> 
+>> * Update URL to balena-proxy-config source code [Kyle Harding]
+>> 
+>> ### balena-supervisor-12.10.8
+>> #### (2021-09-01)
+>> 
+>> * Bump path-parse from 1.0.6 to 1.0.7 [dependabot[bot]]
+>> 
+>> ### balena-supervisor-12.10.7
+>> #### (2021-09-01)
+>> 
+>> * Bump tar from 4.4.13 to 4.4.19 [dependabot[bot]]
+>> 
+>> ### balena-supervisor-12.10.6
+>> #### (2021-09-01)
+>> 
+>> * Remove "variable list" heading in configuration doc [Miguel Casqueira]
+>> 
+>> ### balena-supervisor-12.10.5
+>> #### (2021-08-31)
+>> 
+>> * Clean up configurations.md [Miguel Casqueira]
+>> 
+>> ### balena-supervisor-12.10.4
+>> #### (2021-08-31)
+>> 
+>> * Include issues with downgrading versions in README [Miguel Casqueira]
+>> 
+> </details>
+> 
+> * u-boot: Introduce a compile time osdev-image feature [Alex Gonzalez]
+> * os-release: Remove image variants information [Alex Gonzalez]
+> * Replace DEVELOPMENT_IMAGE and image variants with OS_DEVELOPMENT [Alex Gonzalez]
+> * images: Remove debug-tweaks settings. [Alex Gonzalez]
+> * openssh: Enable runtime development configuration [Alex Gonzalez]
+> * balena-info: Rename from resin-info [Alex Gonzalez]
+> * balena: Expose engine socket on development mode [Alex Gonzalez]
+> * image-balena: Allow passwordless root logins [Alex Gonzalez]
+> * image_balena: Remove "balena" hostname from development images [Alex Gonzalez]
+> * systemd: Runtime enablement of serial console [Alex Gonzalez]
+> * development-features: Add service for development features runtime management [Alex Gonzalez]
+> 
+> ## meta-balena-2.84.7
+> ### (2021-09-13)
+> 
+> * hostapp-update-hooks: Fix blacklisted extlinux.conf file path [Alexandru Costache]
+> 
+> ## meta-balena-2.84.6
+> ### (2021-09-11)
+> 
+> * balena-persistent-logs: add comment and update logging [Mark Corbin]
+> * meta-balena: rename resin-persistent-logs [Mark Corbin]
+> 
+> ## meta-balena-2.84.5
+> ### (2021-09-10)
+> 
+> * tests: led: require led property from device type [Joseph Kogut]
+> 
+> ## meta-balena-2.84.4
+> ### (2021-09-09)
+> 
+> * tests: Remove reboots from redsocks test cases [Kyle Harding]
+> 
+> ## meta-balena-2.84.3
+> ### (2021-09-09)
+> 
+> * tests: Prevent failure when journalctl has no logs for some boots [Kyle Harding]
+> 
+> ## meta-balena-2.84.2
+> ### (2021-09-08)
+> 
+> * contributing-device-support.md: Updates to board support instructions [Florin Sarbu]
+> 
+> ## meta-balena-2.84.1
+> ### (2021-09-05)
+> 
+> * tests: s/BALENA_MACHINE_NAME/BALENA_ARCH [Joseph Kogut]
+> 
+> ## meta-balena-2.84.0
+> ### (2021-09-03)
+> 
+> * balena-engine: Enable storage migration [Robert Günzler]
+> 
+> <details>
+> <summary> Update balena-engine to v19.03.26 [Robert Günzler] </summary>
+> 
+>> ### balena-engine-19.03.26
+>> #### (2021-08-31)
+>> 
+>> * storagemigration: capture failcleanup logs in logfile [Robert Günzler]
+>> 
+>> ### balena-engine-19.03.25
+>> #### (2021-08-20)
+>> 
+>> * storagemigration: move logic to package [Robert Günzler]
+>> 
+> </details>
+> 
+> 
+> ## meta-balena-2.83.22
+> ### (2021-09-02)
+> 
+> * tests: remove healthcheck test race condition [rcooke-warwick]
+> 
+> ## meta-balena-2.83.21
+> ### (2021-09-01)
+> 
+> * tests: Register teardown only when DUT is reachable [rcooke-warwick]
+> 
+> ## meta-balena-2.83.20
+> ### (2021-09-01)
+> 
+> * tests: Use new Archiver implementation & helpers [Vipul Gupta (@vipulgupta2048)]
+> 
+> ## meta-balena-2.83.19
+> ### (2021-09-01)
+> 
+> * tests: List boots when collecting journal logs in hup suite [Kyle Harding]
+> 
+> ## meta-balena-2.83.18
+> ### (2021-08-31)
+> 
+> 
+> <details>
+> <summary> balena-supervisor: Update balena-supervisor to v12.10.3 [Kyle Harding] </summary>
+> 
+>> ### balena-supervisor-12.10.3
+>> #### (2021-08-24)
+>> 
+>> * Skip restarting services if they are part of conf targets [Kyle Harding]
+>> 
+>> ### balena-supervisor-12.10.2
+>> #### (2021-08-02)
+>> 
+>> * Removed fire emoji prefix for firewall logs. [peakyDicers]
+>> 
+>> ### balena-supervisor-12.10.1
+>> #### (2021-08-02)
+>> 
+>> * Fix regression with local mode push [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-12.10.0
+>> #### (2021-07-28)
+>> 
+>> * Remove comparison based on image, release, and service ids [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-12.9.6
+>> #### (2021-07-26)
+>> 
+>> * Use tags to track supervised images in docker [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-12.9.5
+>> #### (2021-07-22)
+>> 
+>> * Log the delta URL that will be downloaded on update [Felipe Lalanne]
+>> 
+>> ### balena-supervisor-12.9.4
+>> #### (2021-07-08)
+>> 
+>> * Fix db-helper module for tests [Felipe Lalanne]
+>> 
+> </details>
+> 
+> 
+> ## meta-balena-2.83.17
+> ### (2021-08-31)
+> 
+> * Assign a fixed name to the balena-healthcheck container [Kyle Harding]
+> 
+> ## meta-balena-2.83.16
+> ### (2021-08-31)
+> 
+> * kernel-modules-headers: Copy module.lds [Alex Gonzalez]
+> 
+> ## meta-balena-2.83.15
+> ### (2021-08-30)
+> 
+> * kernel-balena: remove global blacklist of btrfs [Joseph Kogut]
+> 
+> ## meta-balena-2.83.14
+> ### (2021-08-26)
+> 
+> * tests: remove reboot requirement from NTP server test [Mark Corbin]
+> * recipes-connectivity: fix auto-update when config.json changes [Mark Corbin]
+> 
+> ## meta-balena-2.83.13
+> ### (2021-08-26)
+> 
+> * networkmanager: fix hostname race condition [Mark Corbin]
+> 
+> ## meta-balena-2.83.12
+> ### (2021-08-25)
+> 
+> * tests: remove reboot requirement from hostname test [Mark Corbin]
+> * hostname: update system hostname when config.json changes [Mark Corbin]
+> 
+> ## meta-balena-2.83.11
+> ### (2021-08-24)
+> 
+> * linux-firmware: Use wildcards when selecting files to package [Alex Gonzalez]
+> * linux-firmware: Add firmware compression support [Alex Gonzalez]
+> * kernel-balena: Support firmware compression from kernel version 5.3 [Alex Gonzalez]
+> 
+</details>
+
+# v2.83.10+rev3
+## (2021-11-05)
+
+
+<details>
+<summary> Update balena-yocto-scripts from v1.14.8 to v1.15.8 [Alexandru Costache] </summary>
+
+> ## balena-yocto-scripts-1.15.8
+> ### (2021-11-03)
+> 
+> * Dockerfile_yocto-build-env: Install Honister host deps [Alexandru Costache]
+> 
+> ## balena-yocto-scripts-1.15.7
+> ### (2021-10-25)
+> 
+> * jenkins_build.sh: Fix deployment for discontinued device types [Alex Gonzalez]
+> * jenkins_build.sh: Remove PRIVATE_DT as it is unused [Alex Gonzalez]
+> * jenkins_build.sh: Fix lint warnings [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.15.6
+> ### (2021-10-21)
+> 
+> * balena-generate-ami.sh: wait for boot partition when preloading AMI [Michal Toman]
+> 
+> ## balena-yocto-scripts-1.15.5
+> ### (2021-10-21)
+> 
+> * jenkins_generate_ami.sh: Use a shared directory for preloaded image [Michal Toman]
+> 
+> ## balena-yocto-scripts-1.15.4
+> ### (2021-10-20)
+> 
+> * barys: update development image variables [Mark Corbin]
+> 
+> ## balena-yocto-scripts-1.15.3
+> ### (2021-10-20)
+> 
+> * jenkins_generate_ami.sh: Preload outside of yocto cache [Michal Toman]
+> 
+> ## balena-yocto-scripts-1.15.2
+> ### (2021-10-01)
+> 
+> * balena-generate-ami.sh: correctly mount boot partition when injecting SSH key [Michal Toman]
+> 
+> ## balena-yocto-scripts-1.15.1
+> ### (2021-10-01)
+> 
+> * Update balena-cli to 12.50.1 [Michal Toman]
+> 
+> ## balena-yocto-scripts-1.15.0
+> ### (2021-10-01)
+> 
+> * jenkins_generate_ami.sh: Use lib function to get arch from config.json [Michal Toman]
+> * balena-generate-ami.sh: Look for boot partition by label rather than hardcoding p1 [Michal Toman]
+> * balena-generate-ami.sh: Fail if AMI already exists [Michal Toman]
+> * balena-generate-ami.sh: sync after writing config.json [Michal Toman]
+> * balena-generate-ami.sh: Stick to POSIX-compliant [ instead of [[ [Michal Toman]
+> * balena-generate-ami.sh: Remove useless statements [Michal Toman]
+> * jenkins_generate_ami.sh: Use architecture as suffix instead of machine name [Michal Toman]
+> * jenkins_build.sh: pass MACHINE to jenkins_generate_ami.sh [Michal Toman]
+> * AMI automation: Adjust AMI names to be compatible with AWS API [ab77]
+> * AMI automation: Correct S3 bucket name and key [ab77]
+> * AMI automation: Add a separate container for generaing AMI [Michal Toman]
+> * AMI automation: shellcheck and resolve violations [ab77]
+> * AMI automation: Use staging env by default [Tomás Tormo]
+> * AMI automation: Simplify public ssh addition. Do not use sudo [Tomás Tormo]
+> * automation: Generate and publish AMI from the raw balenaOS image [Tomás Tormo]
+> 
+> ## balena-yocto-scripts-1.14.9
+> ### (2021-08-20)
+> 
+> * balena-deploy: When deploying hostapp default to using slug as name [Alex Gonzalez]
+> * balena-api: Do not use balena_lib_resolve_aliases [Alex Gonzalez]
+> * balena_lib: Make resolve_aliases local so it is not globally used [Alex Gonzalez]
+> 
+</details>
+
+# v2.83.10+rev2
+## (2021-09-29)
+
+* balena-image: Install boot overlays in the root partition [Alexandru Costache]
+
+# v2.83.10+rev1
+## (2021-08-23)
+
+
+<details>
+<summary> Update meta-balena from v2.83.5 to v2.83.10 [Florin Sarbu] </summary>
+
+> ## meta-balena-2.83.10
+> ### (2021-08-18)
+> 
+> * kernel-balena: Add function to conditionally configure based on version [Alex Gonzalez]
+> * kernel-balena: Split function to get kernel version from source [Alex Gonzalez]
+> * kernel-resin: Add as symlink to kernel-balena [Alex Gonzalez]
+> * kernel-balena: Replace and deprecate kernel-resin [Alex Gonzalez]
+> 
+> ## meta-balena-2.83.9
+> ### (2021-08-17)
+> 
+> * recipes-connectivity: improve NTP dispatcher script [Mark Corbin]
+> 
+> ## meta-balena-2.83.8
+> ### (2021-08-17)
+> 
+> 
+> <details>
+> <summary> Update balena-engine to v19.03.24 [Alex Gonzalez] </summary>
+> 
+>> ### balena-engine-19.03.24
+>> #### (2021-08-12)
+>> 
+>> * prevent slice oob access in concatReadSeekCloser [Martin Rauscher]
+>> 
+> </details>
+> 
+> 
+> ## meta-balena-2.83.7
+> ### (2021-08-14)
+> 
+> * grub: don't package or install bindir utils [Joseph Kogut]
+> 
+> ## meta-balena-2.83.6
+> ### (2021-08-13)
+> 
+> * balena-os-sysctl: disable user namespacing by default [Joseph Kogut]
+> * common: kernel-resin: enable user namespacing [Joseph Kogut]
+> 
+</details>
+
+# v2.83.5+rev3
+## (2021-08-18)
+
+* Improve the provisioning instructions for rockpi-4b-rk3399 [Florin Sarbu]
+
+# v2.83.5+rev2
+## (2021-08-14)
+
+* Add missing u-boot hostapp update hook [Florin Sarbu]
+
+# v2.83.5+rev1
+## (2021-08-13)
+
+
+<details>
+<summary> Update meta-balena from v2.83.1 to v2.83.5 [Florin Sarbu] </summary>
+
+> ## meta-balena-2.83.5
+> ### (2021-08-13)
+> 
+> * resin-u-boot.bbclass: Make console silencing change more resilient [Florin Sarbu]
+> 
+> ## meta-balena-2.83.4
+> ### (2021-08-11)
+> 
+> * balena-os: pin linux-firmware to 20210511 from hardknott [Joseph Kogut]
+> * linux-firmware: upgrade 20190815 -> 20210511 [Joseph Kogut]
+> 
+> ## meta-balena-2.83.3
+> ### (2021-08-05)
+> 
+> * supervisor: Consolidate supervisor container removal [Kyle Harding]
+> 
+> ## meta-balena-2.83.2
+> ### (2021-08-05)
+> 
+> * tests: Fix insecure registry error [Robert Günzler]
+> 
+</details>
+
+
+<details>
+<summary> Update balena-yocto-scripts from v1.14.7 to v1.14.8 [Florin Sarbu] </summary>
+
+> ## balena-yocto-scripts-1.14.8
+> ### (2021-07-22)
+> 
+> * Use slug when setting deviceType for leviathan [Kyle Harding]
+> 
+</details>
+
+* Add balena-yocto-scripts upstream source [Florin Sarbu]
+
+# v2.83.1+rev3
+## (2021-08-12)
+
+* Fix bluetooth on rockpi-4b-rk3399 [Florin Sarbu]
+
+# v2.83.1+rev2
+## (2021-08-04)
+
+* Fix boot partition number in rockpi-4b-rk3399.coffee [Florin Sarbu]
+
+* Add initial support for rockpi-4b-rk3399 [Florin Sarbu]

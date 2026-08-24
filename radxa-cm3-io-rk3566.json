@@ -1,0 +1,101 @@
+{
+	"slug": "radxa-cm3-rpicm4-ioboard",
+	"version": 1,
+	"name": "Radxa CM3 on Raspberry Pi Compute Module 4 IO Board (NEW)",
+	"arch": "aarch64",
+	"state": "NEW",
+	"stateInstructions": {
+		"postProvisioning": [
+			""
+		]
+	},
+	"instructions": [
+		"Enable <a href=https://wiki.radxa.com/Rock3/installusb-install-radxa-cm3-rpi-cm4-io#Boot_the_board_to_maskrom_mode>maskrom mode</a> and connect you board to your computer over the MicroUSB port.",
+		"Install on your PC the <a href=https://wiki.radxa.com/Rock3/install/rockchip-flash-tools>rockchip flash tools</a> required for flashing.",
+		"Clear eMMC and set it in UMS mode. Make sure to use <a href=https://dl.radxa.com/rock3/images/loader/rk356x_spl_loader_ddr1056_v1.06.110.bin>this loader</a> when following the <a href=https://wiki.radxa.com/Rock3/installusb-install-radxa-cm3-rpi-cm4-io#Begin_Installation_USB_-.3E_eMMC>USB provisioning instructions</a>",
+		""
+	],
+	"gettingStartedLink": {
+		"windows": "https://www.balena.io/docs/learn/getting-started/radxa-cm3-io-rk3566/nodejs/",
+		"osx": "https://www.balena.io/docs/learn/getting-started/radxa-cm3-io-rk3566/nodejs/",
+		"linux": "https://www.balena.io/docs/learn/getting-started/radxa-cm3-io-rk3566/nodejs/"
+	},
+	"options": [
+		{
+			"isGroup": true,
+			"name": "network",
+			"message": "Network",
+			"options": [
+				{
+					"message": "Network Connection",
+					"name": "network",
+					"type": "list",
+					"choices": [
+						"ethernet",
+						"wifi"
+					]
+				},
+				{
+					"message": "Wifi SSID",
+					"name": "wifiSsid",
+					"type": "text",
+					"when": {
+						"network": "wifi"
+					}
+				},
+				{
+					"message": "Wifi Passphrase",
+					"name": "wifiKey",
+					"type": "password",
+					"when": {
+						"network": "wifi"
+					}
+				}
+			]
+		},
+		{
+			"isGroup": true,
+			"isCollapsible": true,
+			"collapsed": true,
+			"name": "advanced",
+			"message": "Advanced",
+			"options": [
+				{
+					"message": "Check for updates every X minutes",
+					"name": "appUpdatePollInterval",
+					"type": "number",
+					"min": 10,
+					"default": 10
+				}
+			]
+		}
+	],
+	"yocto": {
+		"machine": "radxa-cm3-io-rk3566",
+		"image": "balena-image",
+		"fstype": "balenaos-img",
+		"version": "yocto-scarthgap",
+		"deployArtifact": "balena-image-radxa-cm3-io-rk3566.balenaos-img",
+		"compressed": true
+	},
+	"configuration": {
+		"config": {
+			"partition": 3,
+			"path": "/config.json"
+		}
+	},
+	"initialization": {
+		"options": [
+			{
+				"message": "Select a drive",
+				"type": "drive",
+				"name": "drive"
+			}
+		],
+		"operations": [
+			{
+				"command": "burn"
+			}
+		]
+	}
+}

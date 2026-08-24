@@ -1,0 +1,26 @@
+From 9c9071480edd4093b28a9e9a9980c2426d27344c Mon Sep 17 00:00:00 2001
+From: Sam James <sam@gentoo.org>
+Date: Fri, 2 Aug 2024 23:07:21 +0100
+Subject: [PATCH] Add <cstdint> to SmallVector
+
+SmallVector uses uint32_t and uint64_t without including <cstdint>. GCC 15
+no longer exposes those declarations through the previous transitive include.
+
+Upstream-Status: Backport [https://github.com/llvm/llvm-project/commit/7e44305041d96b064c197216b931ae3917a34ac1]
+---
+ llvm/include/llvm/ADT/SmallVector.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/llvm/include/llvm/ADT/SmallVector.h b/llvm/include/llvm/ADT/SmallVector.h
+--- a/llvm/include/llvm/ADT/SmallVector.h
++++ b/llvm/include/llvm/ADT/SmallVector.h
+@@ -19,6 +19,7 @@
+ #include <algorithm>
+ #include <cassert>
+ #include <cstddef>
++#include <cstdint>
+ #include <cstdlib>
+ #include <cstring>
+ #include <functional>
+-- 
+2.43.0
