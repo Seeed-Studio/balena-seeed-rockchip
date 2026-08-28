@@ -7,8 +7,6 @@ LIC_FILES_CHKSUM = "file://README.md;md5=8b91895b0e94b03cb4b3eb7a44e8dd7e"
 SRCREV = "d9846710f54da5e4383e2d67311819659ac2cf5c"
 SRC_URI = "git://github.com/armbian/firmware.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 inherit allarch deploy
 
 do_install() {

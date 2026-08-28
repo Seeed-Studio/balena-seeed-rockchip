@@ -1,0 +1,25 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Seeed Studio <support@seeed.cc>
+Date: Tue, 25 Aug 2026 00:00:00 +0800
+Subject: [PATCH] command: match cmd_process declaration with vendor definition
+
+The Rockchip vendor U-Boot implementation returns enum command_ret_t while
+the public declaration still returns int. GCC 15 diagnoses this as an enum / 
+integer mismatch under the vendor tree's -Werror flags.
+
+Upstream-Status: Inappropriate [vendor tree build compatibility]
+---
+ include/command.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/command.h b/include/command.h
+--- a/include/command.h
++++ b/include/command.h
+@@ -139,7 +139,7 @@ enum command_ret_t {
+  * @return 0 if the command succeeded, 1 if it failed
+  */
+-int cmd_process(int flag, int argc, char * const argv[],
++enum command_ret_t cmd_process(int flag, int argc, char * const argv[],
+ 			       int *repeatable, unsigned long *ticks);
+ 
+ void fixup_cmdtable(cmd_tbl_t *cmdtp, int size);

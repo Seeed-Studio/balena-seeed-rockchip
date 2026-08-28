@@ -1,6 +1,12 @@
 # Ignore build directory
 build*/
 
+# Directories selected by scripts/build-recomputer-rk3588-devkit.sh.
+# They are intentionally repository-relative but remain local build output.
+/downloads/
+/sstate-cache/
+/.build-tools/
+
 # Ignore shared directories
 shared-*/
 
@@ -17,3 +23,20 @@ conf-notes.txt
 
 # Local migration notes (kept outside the repository)
 docs/
+
+# The Rockchip SDK is part of the reproducible RK3588 build source and is
+# intentionally committed in this distribution.
+
+# externalsrc creates these convenience links in the staged SDK worktrees;
+# their targets are build-directory paths and must never be committed.
+/bsp/rockchip-sdk/**/oe-logs
+/bsp/rockchip-sdk/**/oe-workdir
+/bsp/rockchip-sdk/source/kernel-6.1/.kernel-meta/
+/bsp/rockchip-sdk/source/u-boot/include/*.orig
+/bsp/rockchip-sdk/source/u-boot/include/config_resin.h
+/bsp/rockchip-sdk/source/u-boot/include/env_resin.h
+/bsp/rockchip-sdk/source/u-boot/cmd/balena_check_crc32.c
+/bsp/rockchip-sdk/source/u-boot/configs/recomputer-rk3588-devkit_defconfig
+/bsp/rockchip-sdk/source/u-boot/arch/arm/dts/rk3588-recomputer-rk3588-devkit.dts
+/bsp/rockchip-sdk/source/kernel-6.1/arch/arm64/boot/dts/rockchip/rk3588-recomputer-rk3588-devkit.dts
+/bsp/rockchip-sdk/source/kernel-6.1/arch/arm64/boot/dts/rockchip/recomputer-rk3588-devkit-cam.dtsi

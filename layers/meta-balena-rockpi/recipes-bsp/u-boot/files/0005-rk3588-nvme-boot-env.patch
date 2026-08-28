@@ -1,0 +1,35 @@
+From: Balena RK3588 integration
+Subject: [PATCH 5/5] rk3588: add NVMe distro-boot environment
+
+The vendor 2017.09 tree enables CONFIG_CMD_NVME but its
+config_distro_bootcmd.h has no BOOTENV_NVME blocks, so boot_targets never
+includes nvme and no bootcmd_nvme0 is generated.  The reComputer RK3588
+DevKit boots from an NVMe SSD on boards whose eMMC does not enumerate.
+
+Append distro-style nvme boot fragments at the end of the default
+environment array: entries placed after CONFIG_EXTRA_ENV_SETTINGS win
+over the generated distro environment, which is how boot_targets and
+bootcmd are overridden here.  bootcmd additionally runs "nvme scan"
+before the resin scan so that flasher/image flag detection on nvme
+works even when no other boot step touched the PCIe bus first.
+
+--- a/include/env_default.h
++++ b/include/env_default.h
+@@ -112,6 +112,14 @@
+ #ifdef	CONFIG_EXTRA_ENV_SETTINGS
+ 	CONFIG_EXTRA_ENV_SETTINGS
+ #endif
++#ifdef CONFIG_CMD_NVME
++	"nvme_boot=nvme scan; if nvme dev ${devnum}; then " \
++		"setenv devtype nvme; run scan_dev_for_boot_part; fi\0" \
++	"bootcmd_nvme0=setenv devnum 0; run nvme_boot\0" \
++	"boot_targets=mmc1 mmc0 nvme0 mtd2 mtd1 mtd0 usb0 pxe dhcp\0" \
++	"bootcmd=setenv resin_kernel_load_addr ${kernel_addr_r};nvme scan;" \
++		"run resin_set_kernel_root;run set_os_cmdline;run distro_bootcmd;\0"
++#endif
+ 	"\0"
+ #ifdef DEFAULT_ENV_INSTANCE_EMBEDDED
+ 	}
+--
+2.43.0
+

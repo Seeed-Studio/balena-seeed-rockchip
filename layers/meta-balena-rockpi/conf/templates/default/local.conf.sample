@@ -6,6 +6,11 @@
 
 BALENA_STORAGE = "overlay2"
 
+# Docker Engine 29 rejects the legacy API 1.41 used by the upstream v8
+# default. Wrynose builds use the host Docker API minimum supported by this
+# build environment.
+BALENA_API_VERSION = "1.44"
+
 # More info meta-resin/README.md
 #TARGET_REPOSITORY ?= ""
 #TARGET_TAG ?= ""
@@ -29,11 +34,11 @@ PARALLEL_MAKE ?= "-j ${@oe.utils.cpu_count()}"
 # Resin specific distros
 DISTRO ?= "resin-systemd"
 
-# Custom downloads directory
-#DL_DIR ?= "${TOPDIR}/downloads"
-
-# Custom sstate directory
-#SSTATE_DIR ?= "${TOPDIR}/sstate-cache"
+# Keep fetches and shared-state artifacts inside the build directory.  TOPDIR
+# is calculated by BitBake at run time, so this works regardless of where the
+# repository is cloned and does not reuse another checkout's cache.
+DL_DIR = "${TOPDIR}/downloads"
+SSTATE_DIR = "${TOPDIR}/sstate-cache"
 
 # Inheriting this class has shown to speed up builds due to significantly lower
 # amounts of data stored in the data cache as well as on disk.

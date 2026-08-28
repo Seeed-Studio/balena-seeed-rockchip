@@ -37,7 +37,7 @@ module.exports =
 		machine: 'rockpi-4b-rk3399'
 		image: 'balena-image-flasher'
 		fstype: 'balenaos-img'
-		version: 'yocto-scarthgap'
+		version: 'yocto-wrynose'
 		deployArtifact: 'balena-image-flasher-rockpi-4b-rk3399.balenaos-img'
 		compressed: true
 
