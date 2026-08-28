@@ -2,8 +2,6 @@
 
 set -e
 
-# fix for making the SDIO probe successful; otherwise it just fails early in the boot with a double probe for some reason and wifi is never functional
-echo fe310000.mmc > /sys/bus/platform/drivers/dwmmc_rockchip/unbind
-echo fe310000.mmc > /sys/bus/platform/drivers/dwmmc_rockchip/bind
+# No board-specific runtime initialization is currently required.
 
 exit 0

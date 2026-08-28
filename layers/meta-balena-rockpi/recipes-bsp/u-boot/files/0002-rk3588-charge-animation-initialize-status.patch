@@ -1,0 +1,21 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Seeed Studio <support@seeed.cc>
+Date: Tue, 25 Aug 2026 00:00:00 +0800
+Subject: [PATCH] power: charge_animation: initialize fuel-gauge status
+
+Newer GCC versions used by Yocto Wrynose diagnose the debug path as
+possibly reading soc and current before the first successful fuel-gauge
+poll. Initialize all status values so the vendor U-Boot tree builds with
+-Werror=maybe-uninitialized.
+
+Upstream-Status: Inappropriate [vendor tree build compatibility]
+---
+ drivers/power/charge_animation.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/power/charge_animation.c b/drivers/power/charge_animation.c
+--- a/drivers/power/charge_animation.c
++++ b/drivers/power/charge_animation.c
+@@ -582,1 +582,1 @@
+-	int soc, voltage, current, key_state;
++	int soc = 0, voltage = 0, current = 0, key_state;

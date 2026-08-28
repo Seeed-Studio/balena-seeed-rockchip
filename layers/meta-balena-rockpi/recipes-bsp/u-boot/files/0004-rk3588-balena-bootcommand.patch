@@ -1,0 +1,28 @@
+From 2c68a6b7f1e3a9d4c5b6a7e8f90123456789abcd Mon Sep 17 00:00:00 2001
+From: Seeed Studio <support@seeed.cc>
+Date: Wed, 26 Aug 2026 00:00:00 +0800
+Subject: [PATCH] rockchip: rk3588: boot through balena environment
+
+The RK3588 vendor default first tries Android/Rockchip image boot paths.
+Balena needs to select the flasher or active root partition and construct
+the kernel command line before running distro boot, which then locates the
+generated extlinux.conf.
+
+Upstream-Status: Inappropriate [configuration]
+---
+ include/configs/evb_rk3588.h | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/include/configs/evb_rk3588.h b/include/configs/evb_rk3588.h
+index 1234567..7654321 100644
+--- a/include/configs/evb_rk3588.h
++++ b/include/configs/evb_rk3588.h
+@@ -23,1 +23,5 @@
+-#define CONFIG_BOOTCOMMAND RKIMG_BOOTCOMMAND
++#define CONFIG_BOOTCOMMAND \
++    "setenv resin_kernel_load_addr ${kernel_addr_r};" \
++    "run resin_set_kernel_root;" \
++    "run set_os_cmdline;" \
++    "run distro_bootcmd;"
+-- 
+2.43.0

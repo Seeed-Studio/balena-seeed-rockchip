@@ -1,6 +1,7 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 inherit resin-u-boot
+inherit externalsrc
 
 SRC_URI:append:rockpi-4b-rk3399 = " \
     file://0001-Revert-Correct-SPL-use-of-CMD_ERASEENV.patch \
@@ -8,55 +9,149 @@ SRC_URI:append:rockpi-4b-rk3399 = " \
     file://balenaos_rockpi4b.cfg \
 "
 
-# Board files are kept as explicit layer inputs while the vendor U-Boot source
-# is being converted from the existing Armbian worktree into reproducible
-# Yocto patches.
+# The official Rockchip SDK supplies the SoC U-Boot tree. The board DTS comes
+# from the Seeed Armbian adaptation and is installed into that tree below.
 SRC_URI:append:recomputer-rk3588-devkit = " \
-    file://recomputer-rk3588-devkit_defconfig \
     file://rk3588-recomputer-rk3588-devkit.dts \
-    file://0001-rockchip-use-python3-for-fit-generator.patch \
+    file://rk3588-maskrom.ini \
+    file://balenaos_bootcommand.cfg \
+    file://balenaos-rk3588-nvme.cfg \
+    file://0004-rk3588-balena-bootcommand.patch \
+    file://0002-rk3588-charge-animation-initialize-status.patch \
+    file://0003-fix-command-process-prototype.patch \
+    file://0005-rk3588-nvme-boot-env.patch \
+    file://0006-rk3588-nvme-scan-pci-init.patch \
 "
 
-# Keep the base recipe's source and resin-u-boot integration inputs intact,
-# but build from Radxa's RK35xx tree in a separate fetch destination.
+# Build directly from the locally staged official SDK. No public U-Boot Git
+# repository is used for this machine.
+RK_SDK_ROOT ?= "${TOPDIR}/../bsp/rockchip-sdk"
+EXTERNALSRC:recomputer-rk3588-devkit = "${RK_SDK_ROOT}/source/u-boot"
+EXTERNALSRC_BUILD:recomputer-rk3588-devkit = "${WORKDIR}/u-boot-build"
+# These were formerly supplied by the Radxa u-boot-rockchip include.  Keep
+# them local to the SDK-backed RK3588 machine now that the Radxa layer is no
+# longer in BBLAYERS.
+BL31:recomputer-rk3588-devkit = "${DEPLOY_DIR_IMAGE}/bl31-rk3588.elf"
+do_compile[depends] += "rockchip-rkbin:do_deploy"
+# The Rockchip FIT generator consumes the trusted firmware from fixed files
+# in its working directory.  Keep the source paths explicit so this remains
+# tied to the locally staged SDK/rkbin deployment rather than a public fetch.
+RK_TEE:recomputer-rk3588-devkit = "${DEPLOY_DIR_IMAGE}/tee-rk3588.bin"
+RK_BOOT_MERGER:recomputer-rk3588-devkit = "${RK_SDK_ROOT}/rkbin/tools/boot_merger"
+RK_USBPLUG:recomputer-rk3588-devkit = "${RK_SDK_ROOT}/rkbin/bin/rk35/rk3588_usbplug_v1.11.bin"
 SRC_URI:remove:recomputer-rk3588-devkit = "git://source.denx.de/u-boot/u-boot.git;protocol=https;branch=master"
-# The Poky 2024.01 recipe adds CVE backports for its pinned mainline tree.
-# They target files which do not exist in Radxa's vendor next-dev tree, so
-# applying them to this machine would make do_patch fail before configuration.
-# Keep this exception local to the vendor-tree machine; a future Radxa commit
-# with matching upstream fixes should remove these entries and re-enable the
-# applicable security patches.
+# The Wrynose U-Boot 2026.01 recipe adds a CVE backport for its pinned
+# mainline tree. It targets files which do not exist in the SDK vendor tree,
+# so applying it to this machine would make do_patch fail before configuration.
+# Keep this exception local to the SDK vendor-tree machine; a future SDK
+# update with the matching fix should remove this entry and re-enable the
+# security patch.
 SRC_URI:remove:recomputer-rk3588-devkit = " \
-    file://CVE-2025-24857.patch \
-    file://CVE-2024-57254.patch \
-    file://CVE-2024-57255.patch \
-    file://CVE-2024-57256.patch \
-    file://CVE-2024-57257.patch \
-    file://CVE-2024-57258-1.patch \
-    file://CVE-2024-57258-2.patch \
-    file://CVE-2024-57258-3.patch \
-    file://CVE-2024-57259.patch \
-    file://CVE-2024-42040.patch \
+    file://CVE-2026-33243.patch \
 "
-SRC_URI:append:recomputer-rk3588-devkit = " \
-    git://github.com/radxa/u-boot.git;protocol=https;branch=next-dev-v2024.10;name=radxa;destsuffix=radxa \
-"
-SRCREV_radxa:recomputer-rk3588-devkit = "39cd993e5d6296635438e84f4576b3a9bf76f86e"
-SRCREV_FORMAT:recomputer-rk3588-devkit = "radxa"
-S:recomputer-rk3588-devkit = "${WORKDIR}/radxa"
-
-# Radxa's vendor tree has a newer copy of Licenses/README than the
-# mainline U-Boot 2024.01 recipe records.
+# The official SDK U-Boot tree carries the same license file but uses the
+# Rockchip 2017.09 vendor baseline.
 LIC_FILES_CHKSUM:recomputer-rk3588-devkit = "file://Licenses/README;md5=a2c678cfd4a4d97135585cad908541c6"
 
 do_configure:prepend:recomputer-rk3588-devkit() {
-    install -Dm0644 ${WORKDIR}/recomputer-rk3588-devkit_defconfig \
+    # externalsrc keeps the vendor SDK tree between BitBake invocations.
+    # resin-u-boot injects these includes during do_configure, so remove any
+    # prior generated copies first and make repeated configure runs idempotent.
+    sed -i '/^#include <env_resin.h>$/d; /^[[:space:]]*BALENA_ENV$/d' \
+        ${S}/include/env_default.h
+    sed -i '/^#include <config_resin.h>$/d' ${S}/include/config_defaults.h
+    # resin-u-boot's production console silencing inserts a bare column-0
+    # "return;" after each puts() definition.  With the persistent
+    # externalsrc tree that edit is not idempotent: every production build
+    # stacks another return; and development builds never remove them, so
+    # U-Boot proper stays silent forever after one production build.  Strip
+    # the injected lines here (vendor code is tab-indented); the class
+    # re-applies the silencing itself for genuine production builds.
+    sed -i '/^return;$/d' ${S}/common/console.c
+
+    install -Dm0644 ${S}/configs/rk3588_defconfig \
         ${S}/configs/${UBOOT_MACHINE}
-    install -Dm0644 ${WORKDIR}/rk3588-recomputer-rk3588-devkit.dts \
+    install -Dm0644 ${UNPACKDIR}/rk3588-recomputer-rk3588-devkit.dts \
         ${S}/arch/arm/dts/rk3588-recomputer-rk3588-devkit.dts
+    sed -i 's#CONFIG_DEFAULT_DEVICE_TREE=.*#CONFIG_DEFAULT_DEVICE_TREE="rk3588-recomputer-rk3588-devkit"#' \
+        ${S}/configs/${UBOOT_MACHINE}
+    if ! grep -q 'int soc = 0, voltage = 0, current = 0' \
+        ${S}/drivers/power/charge_animation.c; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0002-rk3588-charge-animation-initialize-status.patch
+    fi
+    if ! grep -q '^enum command_ret_t cmd_process' ${S}/include/command.h; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0003-fix-command-process-prototype.patch
+    fi
+    if grep -q '^#define CONFIG_BOOTCOMMAND RKIMG_BOOTCOMMAND' \
+        ${S}/include/configs/evb_rk3588.h; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0004-rk3588-balena-bootcommand.patch
+    fi
+    # NVMe distro-boot fragments are not generated by this vendor tree (see
+    # the patch header); append them to the default environment so boards
+    # that boot from the NVMe SSD are scanned as a distro boot target.
+    if ! grep -q 'bootcmd_nvme0' ${S}/include/env_default.h; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0005-rk3588-nvme-boot-env.patch
+    fi
+    # Without this the "nvme scan" bootcmd step iterates an empty NVMe
+    # uclass: this tree never enumerates PCIe for DM builds (see the
+    # patch header for the board_r.c guard responsible).
+    if ! grep -q 'pci_init();' ${S}/drivers/nvme/nvme.c; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0006-rk3588-nvme-scan-pci-init.patch
+    fi
+    # The vendor Makefile uses a tab-indented continuation list.  Remove any
+    # stale malformed insertion from an earlier staging attempt, then insert a
+    # real tab through awk rather than relying on sed's escape handling.
+    sed -i '/rk3588-recomputer-rk3588-devkit.dtb/d' \
+        ${S}/arch/arm/dts/Makefile
+    awk 'index($0, "rv1108-evb.dtb") { print sprintf("%c%s %c", 9, "rk3588-recomputer-rk3588-devkit.dtb", 92); print; next } { print }' \
+        ${S}/arch/arm/dts/Makefile > ${S}/arch/arm/dts/Makefile.tmp
+    mv ${S}/arch/arm/dts/Makefile.tmp ${S}/arch/arm/dts/Makefile
 }
 
-# Radxa's RK3588 tree builds u-boot.bin and SPL as part of the normal `all`
+# resin-u-boot's generic implementation still reads this file from WORKDIR.
+# Wrynose places file:// inputs under UNPACKDIR, so provide the RK3588-specific
+# implementation with the new path while retaining the same integration.
+# externalsrc deletes do_patch, which drops this task's "after do_patch"
+# ordering anchor; add an explicit dependency (as a list, mirroring
+# externalsrc.bbclass) so do_unpack has populated UNPACKDIR before the task
+# copies balena_check_crc32.c from it.
+python __anonymous() {
+    deps = d.getVarFlag('do_inject_check_crc32_cmd', 'deps') or []
+    if isinstance(deps, str):
+        deps = deps.split()
+    if 'do_unpack' not in deps:
+        deps.append('do_unpack')
+    d.setVarFlag('do_inject_check_crc32_cmd', 'deps', deps)
+}
+do_inject_check_crc32_cmd:recomputer-rk3588-devkit() {
+    if ${@bb.utils.contains('OS_OVERLAP_CHECK_ENABLED', '1', 'true', 'false', d)}; then
+        if ! grep -q -r "cmd_tbl_t" ${S}/cmd/ ; then
+            sed -i 's/cmd_tbl_t/struct cmd_tbl/g' ${UNPACKDIR}/balena_check_crc32.c
+        fi
+        if [ ! -f ${S}/include/env.h ]; then
+            sed -i 's/env.h/common.h/g' ${UNPACKDIR}/balena_check_crc32.c
+            if ! grep -q env_get "${S}/include/common.h"; then
+                sed -i 's/env_get/getenv/g' "${UNPACKDIR}/balena_check_crc32.c"
+                sed -i 's/env_set/setenv/g' "${UNPACKDIR}/balena_check_crc32.c"
+            fi
+        fi
+        cp ${UNPACKDIR}/balena_check_crc32.c ${S}/cmd/
+        if ! grep -q "balena_check_crc32" ${S}/cmd/Makefile ; then
+            cat >> ${S}/cmd/Makefile << EOF
+ifndef CONFIG_SPL_BUILD
+obj-y += balena_check_crc32.o
+endif
+EOF
+        fi
+    fi
+}
+
+# The SDK RK3588 tree builds u-boot.bin and SPL as part of the normal `all`
 # target, but the Rockchip boot flow consumes a FIT u-boot.itb plus an RKSD
 # idbloader.img.  Generate both in the recipe work directory so the standard
 # u-boot deploy task can publish them for Balena image assembly.
@@ -69,14 +164,60 @@ do_compile:append:recomputer-rk3588-devkit() {
     ln -sf ${S}/arch/arm/mach-rockchip/decode_bl31.py \
         ${B}/arch/arm/mach-rockchip/decode_bl31.py
 
-    export BL31="${BL31}"
+    # make_fit_atf.sh is a vendor script: decode_bl31.py looks specifically
+    # for ./bl31.elf and fit_nodes.sh includes ./tee.bin.  BL31 alone is not
+    # sufficient when the generator is called directly from this recipe.
+    install -Dm0644 "${BL31}" ${B}/bl31.elf
+    install -Dm0644 "${RK_TEE}" ${B}/tee.bin
     cd ${B}
-    srctree=. ${S}/arch/arm/mach-rockchip/make_fit_atf.sh > ${B}/u-boot.its
+    # RK3588 reserves the standard 0x08400000 offset from DRAM base 0 for
+    # OP-TEE, matching the SDK make.sh default.
+    srctree=. ${S}/arch/arm/mach-rockchip/make_fit_atf.sh \
+        -t 0x08400000 > ${B}/u-boot.its
     ${B}/tools/mkimage -f ${B}/u-boot.its -E ${B}/u-boot.itb
+    # The source-built tpl/u-boot-tpl.bin is a ~1KB version-string stub with
+    # no DDR init.  Rockchip's own make.sh takes the TPL stage (FlashData)
+    # from the rkbin DDR blob; use the same here or the bootrom jumps into a
+    # stub that only prints a banner and hangs before DDR training.
     ${B}/tools/mkimage -n rk3588 -T rksd \
-        -d ${B}/tpl/u-boot-tpl.bin:${B}/spl/u-boot-spl.bin \
+        -d ${DEPLOY_DIR_IMAGE}/ddr-rk3588.bin:${B}/spl/u-boot-spl.bin \
         ${B}/idbloader.img
+
+    # Build the Rockchip Maskrom download loader from the same SDK blobs and
+    # SPL used above.  This is deliberately separate from idbloader.img:
+    # rkdeveloptool db consumes the boot_merger format, while SD/eMMC/SPI
+    # boot consumes the RKSD idbloader format.
+    install -Dm0644 ${UNPACKDIR}/rk3588-maskrom.ini ${B}/rk3588-maskrom.ini
+    sed -i \
+        -e "s|__DDR_PATH__|${DEPLOY_DIR_IMAGE}/ddr-rk3588.bin|g" \
+        -e "s|__USBPLUG_PATH__|${RK_USBPLUG}|g" \
+        -e "s|__SPL_PATH__|${B}/spl/u-boot-spl.bin|g" \
+        ${B}/rk3588-maskrom.ini
+    if [ ! -x "${RK_BOOT_MERGER}" ]; then
+        bbfatal "Missing RK3588 boot_merger: ${RK_BOOT_MERGER}"
+    fi
+    (cd ${B} && "${RK_BOOT_MERGER}" ${B}/rk3588-maskrom.ini)
+    install -Dm0644 ${B}/rk3588_spl_loader.bin ${B}/spl_loader_maskrom.bin
+
+    # Assemble the SPI-NOR loader image using the same layout used by the
+    # Seeed Armbian integration: GPT metadata plus idbloader at sector 64 and
+    # U-Boot FIT at sector 16384.  Keep this as an independent deployable
+    # artifact; the Balena system image still embeds the two raw components
+    # at those offsets on its target disk.
+    truncate -s 16M ${B}/rkspi_loader.img
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img mklabel gpt
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart idbloader 64 7167
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart vnvm 7168 7679
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart reserved_space 7680 8063
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart reserved1 8064 8127
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart uboot_env 8128 8191
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart reserved2 8192 16383
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart uboot 16384 32734
+    dd if=${B}/idbloader.img of=${B}/rkspi_loader.img bs=512 seek=64 conv=notrunc
+    dd if=${B}/u-boot.itb of=${B}/rkspi_loader.img bs=512 seek=16384 conv=notrunc
 }
+
+DEPENDS:append:recomputer-rk3588-devkit = " parted-native"
 
 # partition 1 is used for idbloader.img,partition 2 for u-boot.itb, partition 3 is left empty for the new BSP but we keep it so we are backward compatible
 BALENA_BOOT_PART:rockpi-4b-rk3399 = "4"
@@ -86,6 +227,10 @@ BALENA_UBOOT_DEVICES = "0 1"
 
 # Create extlinux.conf for the internal image; this file will be stored in the rootfs' boot directory
 
+# The former Radxa meta-rockchip layer used to enable extlinux generation for
+# its machines; the official SDK layer does not, so enable it here explicitly
+# or the u-boot-extlinux package referenced by the images is not produced.
+UBOOT_EXTLINUX = "1"
 UBOOT_EXTLINUX_LABELS = "balenaOS"
 UBOOT_EXTLINUX_ROOT = "${resin_kernel_root}"
 UBOOT_EXTLINUX_KERNEL_ARGS = "${os_cmdline}"
@@ -95,6 +240,11 @@ UBOOT_EXTLINUX_KERNEL_ARGS = "${os_cmdline}"
 BALENA_BOOT_PART:recomputer-rk3588-devkit = "3"
 BALENA_DEFAULT_ROOT_PART:recomputer-rk3588-devkit = "4"
 BALENA_UBOOT_DEVICES:recomputer-rk3588-devkit = "0 1"
+# The eMMC on early boards may not enumerate; the NVMe SSD is the usable
+# internal storage, so the resin flasher/image flag scan must cover it in
+# addition to mmc.  bootcmd runs "nvme scan" before resin_set_kernel_root
+# (see 0005-rk3588-nvme-boot-env.patch) so this scan can find the device.
+BALENA_UBOOT_DEVICE_TYPES:recomputer-rk3588-devkit = "mmc nvme"
 
 UBOOT_EXTLINUX_LABELS:recomputer-rk3588-devkit = "balenaOS"
 UBOOT_EXTLINUX_ROOT:recomputer-rk3588-devkit = "${resin_kernel_root}"
@@ -105,7 +255,7 @@ do_deploy[nostamp] = "1"
 
 # Create extlinux.conf for the flasher image; this file will be stored in the boot partition
 do_deploy:append() {
-    KERNEL_CMDLINE_ARGS_FLASHER="earlycon console=tty1 console=ttyS2,1500000n8 rw root=LABEL=flash-rootA rootfstype=ext4 rootwait flasher"
+    KERNEL_CMDLINE_ARGS_FLASHER="earlycon=uart8250,mmio32,0xfeb50000 console=tty1 console=ttyFIQ0,1500000n8 rw root=LABEL=flash-rootA rootfstype=ext4 rootwait flasher"
 
     mkdir -p ${DEPLOY_DIR_IMAGE}/extlinux || true
     cat >${DEPLOY_DIR_IMAGE}/extlinux/extlinux.conf_flasher <<EOF
@@ -120,7 +270,7 @@ EOF
 }
 
 do_deploy:append:recomputer-rk3588-devkit() {
-    KERNEL_CMDLINE_ARGS_FLASHER="earlycon console=tty1 console=ttyS2,1500000n8 rw root=LABEL=flash-rootA rootfstype=ext4 rootwait flasher"
+    KERNEL_CMDLINE_ARGS_FLASHER="earlycon=uart8250,mmio32,0xfeb50000 console=tty1 console=ttyFIQ0,1500000n8 rw root=LABEL=flash-rootA rootfstype=ext4 rootwait flasher"
 
     install -d ${DEPLOY_DIR_IMAGE}/extlinux
     cat > ${DEPLOY_DIR_IMAGE}/extlinux/extlinux.conf_flasher <<EOF
@@ -131,4 +281,18 @@ LABEL balenaOS
     FDT /rk3588-recomputer-rk3588-devkit.dtb
     APPEND ${KERNEL_CMDLINE_ARGS_FLASHER}
 EOF
+
+    install -m0644 ${B}/rk3588_spl_loader.bin \
+        ${DEPLOY_DIR_IMAGE}/rk3588_spl_loader.bin
+    install -m0644 ${B}/spl_loader_maskrom.bin \
+        ${DEPLOY_DIR_IMAGE}/spl_loader_maskrom.bin
+    install -m0644 ${B}/rkspi_loader.img \
+        ${DEPLOY_DIR_IMAGE}/rkspi_loader.img
+    # The image recipes and BALENA_BOOT_PARTITION_FILES consume the raw
+    # Rockchip boot chain from the deploy directory (idbloader at sector 64,
+    # u-boot.itb at sector 16384); deploy both unversioned as well.
+    install -m0644 ${B}/idbloader.img \
+        ${DEPLOY_DIR_IMAGE}/idbloader.img
+    install -m0644 ${B}/u-boot.itb \
+        ${DEPLOY_DIR_IMAGE}/u-boot.itb
 }

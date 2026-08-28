@@ -28,7 +28,7 @@ module.exports =
 		machine: 'recomputer-rk3588-devkit'
 		image: 'balena-image-flasher'
 		fstype: 'balenaos-img'
-		version: 'yocto-scarthgap'
+		version: 'yocto-wrynose'
 		deployArtifact: 'balena-image-flasher-recomputer-rk3588-devkit.balenaos-img'
 		compressed: true
 

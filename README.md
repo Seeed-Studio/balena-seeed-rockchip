@@ -46,8 +46,9 @@ Additional host tools need to be installed for native builds to work.
 
 * Edit the `local.conf` in the `build/conf` directory
 
-* Prepare build's shell environment
-    `source layers/poky/oe-init-build-env`
+* Prepare the Wrynose build shell environment with the matching BitBake 2.18
+  checkout
+  `source layers/openembedded-core/oe-init-build-env build-wrynose layers/bitbake`
 
 * Run bitbake (see message outputted when you sourced above for examples)
 
@@ -55,10 +56,23 @@ Additional host tools need to be installed for native builds to work.
 
 The initial board port is available as `recomputer-rk3588-devkit`.
 
-It uses the Seeed board DTB, the Radxa RK3588 U-Boot branch, and the Balena
-Rockchip raw-loader layout. See [PORTING.md](PORTING.md) for the current
+It uses the Seeed board DTB, the Rockchip official SDK staged from the private
+build server, and the Balena Rockchip raw-loader layout. See [PORTING.md](PORTING.md) for the current
 bring-up status and the remaining hardware validation steps. The detailed
 phase-one change log is in [docs/阶段一移植工作记录.md](docs/阶段一移植工作记录.md).
+
+Build this board from the repository root with:
+
+```
+scripts/build-recomputer-rk3588-devkit.sh
+```
+
+The script initializes the pinned submodules, installs the JavaScript build
+dependencies through the existing Barys entry point, and starts the Yocto
+build. Its default `build-recomputer-rk3588-devkit/` directory contains the
+temporary work tree, source downloads and sstate cache; all of these locations
+are relative to the repository and are Git-ignored. Use `--clean` for a fresh
+build or `--continue` to keep going after individual task failures.
 
 ### Build flags
 

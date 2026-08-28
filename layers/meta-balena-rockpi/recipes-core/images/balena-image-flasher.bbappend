@@ -7,7 +7,7 @@ BALENA_BOOT_PARTITION_FILES:append:rockpi-4b-rk3399 = " \
 "
 
 # increase the flasher boot partition size in order to fit the uncompressed Image kernel type
-BALENA_BOOT_SIZE:rockpi-4b-rk3399="163840"
+BALENA_BOOT_SIZE:rockpi-4b-rk3399 = "163840"
 
 BALENA_BOOT_PARTITION_FILES:append:recomputer-rk3588-devkit = " \
     extlinux/extlinux.conf_flasher:/extlinux/extlinux.conf \
@@ -15,4 +15,6 @@ BALENA_BOOT_PARTITION_FILES:append:recomputer-rk3588-devkit = " \
     ${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin:/${KERNEL_IMAGETYPE} \
 "
 
-BALENA_BOOT_SIZE:recomputer-rk3588-devkit = "163840"
+# Wrynose's uncompressed initramfs Image is larger than the previous
+# baseline. Leave enough free space for atomic boot-file replacement.
+BALENA_BOOT_SIZE:recomputer-rk3588-devkit = "180224"
