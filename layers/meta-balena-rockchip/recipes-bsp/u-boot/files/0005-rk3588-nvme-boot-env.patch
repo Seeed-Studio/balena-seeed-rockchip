@@ -13,9 +13,15 @@ bootcmd are overridden here.  bootcmd additionally runs "nvme scan"
 before the resin scan so that flasher/image flag detection on nvme
 works even when no other boot step touched the PCIe bus first.
 
+When the resin scan detects flasher media, bootcmd narrows boot_targets
+to that device alone before running distro_bootcmd.  The static order
+puts mmc0 (internal eMMC) ahead of nvme0, so once the eMMC carries a
+bootable extlinux.conf the distro scan would boot the installed runtime
+instead of the flasher and the install media would never run.
+
 --- a/include/env_default.h
 +++ b/include/env_default.h
-@@ -112,6 +112,14 @@
+@@ -112,6 +112,17 @@
  #ifdef	CONFIG_EXTRA_ENV_SETTINGS
  	CONFIG_EXTRA_ENV_SETTINGS
  #endif
@@ -25,7 +31,10 @@ works even when no other boot step touched the PCIe bus first.
 +	"bootcmd_nvme0=setenv devnum 0; run nvme_boot\0" \
 +	"boot_targets=mmc1 mmc0 nvme0 mtd2 mtd1 mtd0 usb0 pxe dhcp\0" \
 +	"bootcmd=setenv resin_kernel_load_addr ${kernel_addr_r};nvme scan;" \
-+		"run resin_set_kernel_root;run set_os_cmdline;run distro_bootcmd;\0"
++		"run resin_set_kernel_root;run set_os_cmdline;" \
++		"if test -n \"${resin_flasher_dev_index}\"; then " \
++		"setenv boot_targets ${resin_dev_type}${resin_dev_index}; fi;" \
++		"run distro_bootcmd;\0"
 +#endif
  	"\0"
  #ifdef DEFAULT_ENV_INSTANCE_EMBEDDED

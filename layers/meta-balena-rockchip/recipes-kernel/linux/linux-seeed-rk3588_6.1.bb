@@ -99,3 +99,18 @@ do_compile_kernelmodules:append:recomputer-rk3588-devkit() {
         fi
     done
 }
+
+# kernel-yocto's scc does not create its output directories: do_kernel_metadata
+# (patch mode) and the config-mode metadata run embedded in do_kernel_configme
+# write straight into ${S}/.kernel-meta, and do_kernel_configme itself
+# redirects merge_config.sh output into ${S}/.kernel-meta/cfg, all of which
+# fail with "Directory nonexistent" when nothing has created them yet.  With
+# externalsrc the source tree persists between builds, so the directories only
+# went missing after the first clean rebuild wiped the leftover state.
+do_kernel_metadata:prepend:recomputer-rk3588-devkit() {
+    mkdir -p ${S}/.kernel-meta ${S}/.kernel-meta/cfg
+}
+
+do_kernel_configme:prepend:recomputer-rk3588-devkit() {
+    mkdir -p ${S}/.kernel-meta ${S}/.kernel-meta/cfg
+}

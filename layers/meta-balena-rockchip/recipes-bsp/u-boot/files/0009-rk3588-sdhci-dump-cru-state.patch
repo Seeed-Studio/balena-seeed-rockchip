@@ -1,0 +1,57 @@
+From: Balena RK3588 integration
+Subject: [PATCH] rockchip_sdhci: report the eMMC CRU and controller state at probe
+
+Diagnostic dump for the eMMC -95 investigation: print the raw CRU
+clock-gate/select state for the eMMC clocks (CLKGATE_CON(31) bits 4-8
+with CLK_GATE_SET_TO_DISABLE polarity - 0 means the clock is enabled;
+CLKSEL_CON(77)/(78) are the cclk/bclk mux+div) together with the
+controller capabilities, HOST_CONTROL/HOST_CONTROL2 and the vendor
+EMMC_CONTROL register.  Also print the final CLOCK_CONTROL and
+PRESENT_STATE after the identify clock is enabled, so a failing boot
+reports the exact state at CMD time.
+
+Note: an earlier revision of this patch wrote 0x1f0 to the gate bits
+with inverted polarity and gated all five clocks off (caps read back
+zero, "Your controller doesn't support SDMA!!"); the register dump
+showed the gates were 0 (enabled) from reset, so nothing is written
+any more.
+
++++ b/drivers/mmc/rockchip_sdhci.c
+@@ -448,6 +448,11 @@
+ 	/* enable output clock */
+ 	sdhci_enable_clk(host, 0);
+ 
++	printf("%s: idclk final cc=%04x ps=%08x\n",
++	       priv->dev->name,
++	       sdhci_readw(host, SDHCI_CLOCK_CONTROL),
++	       sdhci_readl(host, SDHCI_PRESENT_STATE));
++
+ 	return ret;
+ }
+ 
+@@ -597,6 +602,25 @@
+ 	}
+ 
+ 	/*
++	 * Diagnostic only: dump the eMMC CRU clock state.  The five eMMC
++	 * gates live in CLKGATE_CON(31) bits 4-8 (hclk/aclk/cclk/bclk/
++	 * tmclk) with CLK_GATE_SET_TO_DISABLE polarity, so 0 there means
++	 * all five clocks are already enabled; nothing needs writing.
++	 */
++	{
++		/* RK3588 CRU; this vendor tree has no CRU syscon entry. */
++		void __iomem *cru = (void __iomem *)0xfd7c0000;
++
++		printf("%s: emmc clkgate31 %08x sel77 %08x sel78 %08x caps %08x hc %02x hc2 %04x ctl %08x\n",
++		       dev->name,
++		       readl(cru + 0x87c), readl(cru + 0x434), readl(cru + 0x438),
++		       sdhci_readl(host, SDHCI_CAPABILITIES),
++		       sdhci_readb(host, SDHCI_HOST_CONTROL),
++		       sdhci_readw(host, SDHCI_HOST_CONTROL2),
++		       sdhci_readl(host, DWCMSHC_EMMC_CONTROL));
++	}
++
++	/*
+ 	 * The kernel's rk35xx_sdhci_reset() pulses all device-tree reset
+ 	 * controls (core/bus/axi/block/timer) on SDHCI_RESET_ALL; a host
+ 	 * left wedged by earlier boot stages only recovers after that
