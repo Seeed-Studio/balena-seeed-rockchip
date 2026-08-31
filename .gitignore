@@ -6,6 +6,7 @@ build*/
 /downloads/
 /sstate-cache/
 /.build-tools/
+/output/
 
 # Ignore shared directories
 shared-*/
