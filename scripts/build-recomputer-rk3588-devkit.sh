@@ -8,7 +8,6 @@ set -euo pipefail
 readonly SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 readonly REPO_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd -P)"
 readonly MACHINE="recomputer-rk3588-devkit"
-readonly TEMPLATE_PATH="layers/meta-balena-rockchip/conf/templates/default"
 
 BUILD_DIR="build-recomputer-rk3588-devkit"
 CLEAN_BUILD=0
@@ -166,11 +165,13 @@ if ((${#SUBMODULE_PATHS[@]})); then
 	done
 fi
 
-# A previous invocation may have left a generated config behind. Rewrite only
-# that ignored build file so a cache from another checkout can never leak into
-# this build.
-BUILD_CONF="${REPO_ROOT}/${BUILD_DIR}/conf/local.conf"
-if [[ -f "$BUILD_CONF" ]]; then
+# A previous invocation may have left a generated config behind. Normalized
+# again after the build environment is initialized below, when a fresh
+# conf/local.conf may have appeared. Rewrite only that ignored build file so
+# a cache from another checkout can never leak into this build.
+normalize_build_conf() {
+	local BUILD_CONF="${REPO_ROOT}/${BUILD_DIR}/conf/local.conf"
+	[[ -f "$BUILD_CONF" ]] || return 0
 	if grep -Eq '^DL_DIR[[:space:]]*\??=' "$BUILD_CONF"; then
 		sed -i -E 's#^DL_DIR[[:space:]]*\??=.*#DL_DIR = "${TOPDIR}/downloads"#' "$BUILD_CONF"
 	else
@@ -188,31 +189,8 @@ if [[ -f "$BUILD_CONF" ]]; then
 		-e 's#^SSTATE_DIR="(.*)"#SSTATE_DIR = "\1"#' \
 		-e 's#^RK_SDK_ROOT="(.*)"#RK_SDK_ROOT = "\1"#' \
 		"$BUILD_CONF"
-fi
-
-BARYS_ARGS=(
-	--machine "$MACHINE"
-	--build-name "$BUILD_DIR"
-	--templates-path "$TEMPLATE_PATH"
-)
-
-if (( CLEAN_BUILD )); then
-	BARYS_ARGS+=(--remove-build)
-fi
-
-if (( CONTINUE_BUILD )); then
-	BARYS_ARGS+=(--continue)
-fi
-
-if (( DEVELOPMENT_IMAGE )); then
-	BARYS_ARGS+=(--development-image)
-fi
-
-# See image-balena.bbclass: this only removes the kernel-devsrc and
-# kernel-headers-test build-time dependencies; the produced image is identical.
-if (( DISABLE_KERNEL_HEADERS )); then
-	export BALENA_DISABLE_KERNEL_HEADERS=1
-fi
+}
+normalize_build_conf
 
 # Collect the flashable artifacts and the full build console log under
 # output/ so nothing has to be hunted down in the deploy directory.
@@ -227,8 +205,55 @@ BUILD_LOG="${LOG_OUT_DIR}/build-$(date +%Y%m%d-%H%M%S).log"
 ln -sfn "$(basename "${BUILD_LOG}")" "${LOG_OUT_DIR}/latest.log"
 echo "[build] console log: ${BUILD_LOG}"
 
+# Drive the Yocto environment directly instead of through barys: upstream
+# barys cannot source oe-init-build-env with Wrynose's separate
+# layers/bitbake checkout (it only knows the poky layout), which used to
+# require a local patch inside the submodule.  The steps below replicate the
+# parts of barys this build actually uses.
+if (( CLEAN_BUILD )); then
+	echo "[build] removing ${REPO_ROOT}/${BUILD_DIR}"
+	rm -rf "${REPO_ROOT}/${BUILD_DIR}"
+fi
+
+export MACHINE
+export TEMPLATECONF="${REPO_ROOT}/layers/meta-balena-rockchip/conf/templates/default"
+
+# oe-init-build-env changes the working directory to the build directory and
+# expects a less strict shell than "set -euo pipefail".
+set +e +u
+source "${REPO_ROOT}/layers/openembedded-core/oe-init-build-env" \
+	"${REPO_ROOT}/${BUILD_DIR}" \
+	"${REPO_ROOT}/layers/bitbake" >"${BUILD_LOG}.env" 2>&1
+ENV_STATUS=$?
+set -e -u
+if (( ENV_STATUS != 0 )); then
+	tee -a "${BUILD_LOG}" <"${BUILD_LOG}.env" >&2
+	echo "[build] FAILED: oe-init-build-env exited ${ENV_STATUS}; see ${BUILD_LOG}" >&2
+	exit "${ENV_STATUS}"
+fi
+rm -f "${BUILD_LOG}.env"
+
+# barys-equivalent local.conf adjustments, now that conf/ exists.
+normalize_build_conf
+if (( DEVELOPMENT_IMAGE )); then
+	sed -i 's#.*OS_DEVELOPMENT =.*#OS_DEVELOPMENT = "1"#g' "${REPO_ROOT}/${BUILD_DIR}/conf/local.conf"
+else
+	sed -i 's#.*OS_DEVELOPMENT =.*#OS_DEVELOPMENT = "0"#g' "${REPO_ROOT}/${BUILD_DIR}/conf/local.conf"
+fi
+
+# See image-balena.bbclass: this only removes the kernel-devsrc and
+# kernel-headers-test build-time dependencies; the produced image is identical.
+if (( DISABLE_KERNEL_HEADERS )); then
+	export BALENA_DISABLE_KERNEL_HEADERS=1
+fi
+
+BITBAKE_ARGS=(balena-image-flasher)
+if (( CONTINUE_BUILD )); then
+	BITBAKE_ARGS=(-k "${BITBAKE_ARGS[@]}")
+fi
+
 set +e
-./balena-yocto-scripts/build/barys "${BARYS_ARGS[@]}" 2>&1 | tee "${BUILD_LOG}"
+bitbake "${BITBAKE_ARGS[@]}" 2>&1 | tee -a "${BUILD_LOG}"
 BARYS_STATUS=${PIPESTATUS[0]}
 set -e
 
