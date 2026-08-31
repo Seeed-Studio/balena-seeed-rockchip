@@ -14,6 +14,7 @@
 #include <malloc.h>
 #include <mapmem.h>
 #include <sdhci.h>
+#include <reset.h>
 #include <clk.h>
 #include <syscon.h>
 #include <dm/ofnode.h>
@@ -59,6 +60,12 @@ DECLARE_GLOBAL_DATA_PTR;
 #define DWCMSHC_EMMC_DLL_TXCLK		0x808
 #define DWCMSHC_EMMC_DLL_STRBIN		0x80c
 #define DECMSHC_EMMC_DLL_CMDOUT		0x810
+/* Same register the kernel driver calls DECMSHC_EMMC_MISC_CON. */
+#define DWCMSHC_EMMC_MISC_CON		0x81c
+#define DWCMSHC_MISC_INTCLK_EN		BIT(1)
+
+/* debug dump rate limiters (per boot) */
+static int idclk_dumped;
 #define DWCMSHC_EMMC_DLL_STATUS0	0x840
 #define DWCMSHC_EMMC_DLL_STATUS1	0x844
 #define DWCMSHC_EMMC_DLL_START		BIT(0)
@@ -407,9 +414,10 @@ static int dwcmshc_sdhci_emmc_set_clock(struct sdhci_host *host, unsigned int cl
 		/* disable dll */
 		sdhci_writel(host, 0, DWCMSHC_EMMC_DLL_CTRL);
 
-		/* Disable cmd conflict check */
+		/* Disable cmd conflict check and disable internal clock gate */
 		extra = sdhci_readl(host, DWCMSHC_HOST_CTRL3);
 		extra &= ~BIT(0);
+		extra |= BIT(4);
 		sdhci_writel(host, extra, DWCMSHC_HOST_CTRL3);
 
 		/* reset the clock phase when the frequency is lower than 100MHz */
@@ -426,11 +434,31 @@ static int dwcmshc_sdhci_emmc_set_clock(struct sdhci_host *host, unsigned int cl
 			DLL_STRBIN_DELAY_NUM_SEL |
 			data->ddr50_strbin_delay_num << DLL_STRBIN_DELAY_NUM_OFFSET;
 		sdhci_writel(host, extra, DWCMSHC_EMMC_DLL_STRBIN);
+
+		if (idclk_dumped++ < 2) {
+			printf("%s: idclk regs cc=%04x ps=%08x hc3=%08x dll=%08x rx=%08x tx=%08x str=%08x misc=%08x\n",
+			       priv->dev->name,
+			       sdhci_readw(host, SDHCI_CLOCK_CONTROL),
+			       sdhci_readl(host, SDHCI_PRESENT_STATE),
+			       sdhci_readl(host, DWCMSHC_HOST_CTRL3),
+			       sdhci_readl(host, DWCMSHC_EMMC_DLL_CTRL),
+			       sdhci_readl(host, DWCMSHC_EMMC_DLL_RXCLK),
+			       sdhci_readl(host, DWCMSHC_EMMC_DLL_TXCLK),
+			       sdhci_readl(host, DWCMSHC_EMMC_DLL_STRBIN),
+			       sdhci_readl(host, DWCMSHC_EMMC_MISC_CON));
+		}
 	}
 
 exit:
 	/* enable output clock */
 	sdhci_enable_clk(host, 0);
+
+	if (idclk_dumped++ < 4) {
+		printf("%s: idclk final cc=%04x ps=%08x\n",
+		       priv->dev->name,
+		       sdhci_readw(host, SDHCI_CLOCK_CONTROL),
+		       sdhci_readl(host, SDHCI_PRESENT_STATE));
+	}
 
 	return ret;
 }
@@ -555,6 +583,148 @@ static int rockchip_sdhci_probe(struct udevice *dev)
 			printf("%s clk set rate fail!\n", __func__);
 	} else {
 		printf("%s fail to get clk\n", __func__);
+	}
+
+	/*
+	 * The kernel enables every clock listed in the device tree
+	 * (devm_clk_bulk_get_optional + clk_bulk_prepare_enable: core, bus,
+	 * axi, block, timer).  This driver only ever set the rate of clock
+	 * index 0 and never enabled any gate: after a CRU reset leaves the
+	 * aclk/bclk/tmclk gates closed the controller still answers register
+	 * access, but no clock reaches the card, which looks exactly like
+	 * the "Card did not respond" (-95) seen on every boot.  Enable all
+	 * declared clocks, mirroring the kernel.  A separate struct keeps
+	 * clk (index 0) intact for prv->emmc_clk below.
+	 */
+	{
+		struct clk c;
+		int i;
+
+		for (i = 0;; i++) {
+			ret = clk_get_by_index(dev, i, &c);
+			if (ret)
+				break;
+			clk_enable(&c);
+		}
+	}
+
+	/*
+	 * Diagnostic only: dump the eMMC CRU clock state.  The five eMMC
+	 * gates live in CLKGATE_CON(31) bits 4-8 (hclk/aclk/cclk/bclk/
+	 * tmclk) with CLK_GATE_SET_TO_DISABLE polarity, so 0 there means
+	 * all five clocks are already enabled; nothing needs writing.
+	 */
+	{
+		/* RK3588 CRU; this vendor tree has no CRU syscon entry. */
+		void __iomem *cru = (void __iomem *)0xfd7c0000;
+
+		printf("%s: emmc clkgate31 %08x sel77 %08x sel78 %08x caps %08x hc %02x hc2 %04x ctl %08x\n",
+		       dev->name,
+		       readl(cru + 0x87c), readl(cru + 0x434), readl(cru + 0x438),
+		       sdhci_readl(host, SDHCI_CAPABILITIES),
+		       sdhci_readb(host, SDHCI_HOST_CONTROL),
+		       sdhci_readw(host, SDHCI_HOST_CONTROL2),
+		       sdhci_readl(host, DWCMSHC_EMMC_CONTROL));
+	}
+
+	/*
+	 * eMMC and FSPI-m0 share the GPIO2A/GPIO2D pads on RK3588 (emmc =
+	 * iomux function 1, fspi = 2, gpio/reset = 0).  The SPI-NOR boot
+	 * chain leaves them outside the emmc function, so every mmc 0 init
+	 * talks to pads the card cannot hear ("Card did not respond", -95).
+	 * Linux does not have the problem because its pinctrl applies the
+	 * emmc pinconf from DT.
+	 *
+	 * U-Boot proper only: the SPL still has to load its FIT from the
+	 * SPI-NOR over those same pads, so muxing them to eMMC inside the
+	 * SPL cuts off the NOR and the boot dies before U-Boot proper.
+	 * After the switch the NOR is unreachable; U-Boot proper no longer
+	 * needs it.  Perform the same six IOC writes
+	 * board_set_iomux(IF_TYPE_MMC, 0, 0) does in the mach-rockchip
+	 * board code - iomux back to emmc plus the vendor drive strengths
+	 * (data/cmd 50ohm, clock 25ohm) - and report the previous state.
+	 */
+#ifndef CONFIG_SPL_BUILD
+	{
+		void __iomem *bus_ioc = (void __iomem *)0xfd5f8000;
+		void __iomem *emmc_ioc = (void __iomem *)0xfd5fd000;
+		static int dumped;
+
+		if (dumped++ < 2) {
+			printf("%s: pad iomux before gpio2a_l %08x gpio2d_l %08x gpio2d_h %08x ds %08x %08x %08x\n",
+			       dev->name,
+			       readl(bus_ioc + 0x40), readl(bus_ioc + 0x58),
+			       readl(bus_ioc + 0x5c),
+			       readl(emmc_ioc + 0x40), readl(emmc_ioc + 0x58),
+			       readl(emmc_ioc + 0x5c));
+		}
+		writel(0x00770052, emmc_ioc + 0x40);
+		writel(0x77772222, emmc_ioc + 0x58);
+		writel(0x77772222, emmc_ioc + 0x5c);
+		writel(0xffff1111, bus_ioc + 0x40);
+		writel(0xffff1111, bus_ioc + 0x58);
+		writel(0xffff1111, bus_ioc + 0x5c);
+		/*
+		 * Pin bias, mirroring the kernel pinconf
+		 * (pcfg_pull_up_drv_level_2 on cmd/clk/data, pull_none on
+		 * strobe/rstn): pull-up = 01, two bits per pin.  Without
+		 * the pulls the bus enumerates at 400 kHz but block reads
+		 * time out once the clock is raised.
+		 */
+		writel(0x15, emmc_ioc + 0x120);	/* A0 cmd, A1 clk up; A2 ds, A3 rstn none */
+		writel(0x5555, emmc_ioc + 0x12c);/* D0-D7 up */
+	}
+#endif
+
+	/*
+	 * The kernel's rk35xx_sdhci_reset() pulses all device-tree reset
+	 * controls (core/bus/axi/block/timer) on SDHCI_RESET_ALL; a host
+	 * left wedged by earlier boot stages only recovers after that
+	 * pulse.  This driver never touched the resets, so mmc 0 init
+	 * failed with "Card did not respond to voltage select" (-95) even
+	 * though the same chip enumerates fine under Linux.  Mirror the
+	 * kernel sequence exactly: the reset lines are asserted and
+	 * released as a group (the kernel holds a reset_control_array),
+	 * then the SDHCI software reset clears the command/data state
+	 * machines (the inhibit bits), and finally the vendor internal
+	 * clock gate wiped by the CRU pulse is re-enabled.  Without those
+	 * two post-pulse steps the first rockchip_emmc_set_clock() stalls
+	 * with "Timeout to wait cmd & data inhibit" and every command
+	 * ends in a busy timeout.
+	 */
+	{
+		struct reset_ctl rst;
+		u32 extra = sdhci_readl(host, DWCMSHC_EMMC_MISC_CON);
+		unsigned long timeout;
+		int i, count;
+
+		for (i = 0;; i++) {
+			ret = reset_get_by_index(dev, i, &rst);
+			if (ret)
+				break;
+			reset_assert(&rst);
+		}
+		count = i;
+		udelay(1);
+		for (i = 0; i < count; i++) {
+			reset_get_by_index(dev, i, &rst);
+			reset_deassert(&rst);
+		}
+
+		sdhci_writeb(host, SDHCI_RESET_ALL, SDHCI_SOFTWARE_RESET);
+		timeout = 100;
+		while (sdhci_readb(host, SDHCI_SOFTWARE_RESET) & SDHCI_RESET_ALL) {
+			if (timeout == 0) {
+				printf("%s: Reset 0x%x never completed.\n",
+				       __func__, (int)SDHCI_RESET_ALL);
+				break;
+			}
+			timeout--;
+			udelay(1000);
+		}
+
+		sdhci_writel(host, DWCMSHC_MISC_INTCLK_EN | extra,
+			     DWCMSHC_EMMC_MISC_CON);
 	}
 
 	prv->emmc_clk = clk;

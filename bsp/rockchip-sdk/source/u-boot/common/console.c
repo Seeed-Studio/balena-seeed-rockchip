@@ -568,7 +568,6 @@ static void vspfunc(char *buf, size_t size, char *format, ...)
 
 void puts(const char *s)
 {
-return;
 	unsigned long ts_sec, ts_msec, us, delta_ms;
 	char pr_timestamp[32], *p;
 	int cpu;
@@ -609,7 +608,6 @@ return;
 #else
 void puts(const char *s)
 {
-return;
 	u_spin_lock(&console_lock);
 
 	while (*s)

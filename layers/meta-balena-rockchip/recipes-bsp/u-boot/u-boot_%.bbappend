@@ -21,6 +21,10 @@ SRC_URI:append:recomputer-rk3588-devkit = " \
     file://0003-fix-command-process-prototype.patch \
     file://0005-rk3588-nvme-boot-env.patch \
     file://0006-rk3588-nvme-scan-pci-init.patch \
+    file://0007-rk3588-sdhci-pulse-dt-resets.patch \
+    file://0008-rk3588-sdhci-enable-clocks-hostctrl3.patch \
+    file://0009-rk3588-sdhci-dump-cru-state.patch \
+    file://0010-rk3588-sdhci-mux-shared-pads.patch \
 "
 
 # Build directly from the locally staged official SDK. No public U-Boot Git
@@ -75,6 +79,17 @@ do_configure:prepend:recomputer-rk3588-devkit() {
         ${S}/arch/arm/dts/rk3588-recomputer-rk3588-devkit.dts
     sed -i 's#CONFIG_DEFAULT_DEVICE_TREE=.*#CONFIG_DEFAULT_DEVICE_TREE="rk3588-recomputer-rk3588-devkit"#' \
         ${S}/configs/${UBOOT_MACHINE}
+    # SPL runs from SRAM with its malloc_simple pool capped by
+    # SYS_MALLOC_F_LEN; parsing a large SD GPT plus FIT verification
+    # exhausts it ("sys malloc pool space exhausted") and SPL resets in a
+    # loop whenever an SD card is inserted.  Relocate the SPL stack and a
+    # 1 MB malloc_simple heap into DRAM instead (default
+    # SPL_STACK_R_MALLOC_SIMPLE_LEN).  The address must dodge the SPL
+    # text relocation at 0x03d00000, U-Boot proper at 0x00200000, the
+    # OP-TEE carve-out at 0x08400000 and the FIT load at 0x10000000.
+    # rk3588_defconfig is reinstalled above, so the append is idempotent.
+    printf 'CONFIG_SPL_STACK_R=y\nCONFIG_SPL_STACK_R_ADDR=0x06000000\n' \
+        >> ${S}/configs/${UBOOT_MACHINE}
     if ! grep -q 'int soc = 0, voltage = 0, current = 0' \
         ${S}/drivers/power/charge_animation.c; then
         patch -d ${S} -p1 --forward --batch \
@@ -102,6 +117,38 @@ do_configure:prepend:recomputer-rk3588-devkit() {
     if ! grep -q 'pci_init();' ${S}/drivers/nvme/nvme.c; then
         patch -d ${S} -p1 --forward --batch \
             < ${UNPACKDIR}/0006-rk3588-nvme-scan-pci-init.patch
+    fi
+    # The vendor rockchip_sdhci driver never pulses the device-tree reset
+    # lines; the kernel does this on every SDHCI_RESET_ALL and it is what
+    # recovers an eMMC host left wedged by earlier boot stages.  Without
+    # the pulse mmc 0 init fails with "Card did not respond to voltage
+    # select" (-95) in SPL and U-Boot proper while Linux enumerates the
+    # same chip.
+    if ! grep -q 'reset_get_by_index' ${S}/drivers/mmc/rockchip_sdhci.c; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0007-rk3588-sdhci-pulse-dt-resets.patch
+    fi
+    # The kernel enables every DT clock (clk_bulk) and clears the
+    # HOST_CTRL3 internal clock gate; this driver did neither, leaving a
+    # closed CRU gate indistinguishable from a dead card.  Also dumps the
+    # controller/PHY registers after the identify clock is set.
+    if ! grep -q 'no clock reaches the card' ${S}/drivers/mmc/rockchip_sdhci.c; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0008-rk3588-sdhci-enable-clocks-hostctrl3.patch
+    fi
+    # Diagnostic dump for the eMMC -95 hunt: CRU gate/select state
+    # (CLKGATE_CON31 bits 4-8, SET_TO_DISABLE polarity) plus controller
+    # caps/host regs and the final CLOCK_CONTROL/PRESENT_STATE.
+    if ! grep -q 'emmc clkgate31' ${S}/drivers/mmc/rockchip_sdhci.c; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0009-rk3588-sdhci-dump-cru-state.patch
+    fi
+    # eMMC and FSPI-m0 share the GPIO2A/2D pads; booting from SPI-NOR
+    # leaves them muxed to fspi and the card never hears a command (-95).
+    # Mux them back to emmc at probe, mirroring board_set_iomux(MMC).
+    if ! grep -q 'pad iomux before' ${S}/drivers/mmc/rockchip_sdhci.c; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0010-rk3588-sdhci-mux-shared-pads.patch
     fi
     # The vendor Makefile uses a tab-indented continuation list.  Remove any
     # stale malformed insertion from an earlier staging attempt, then insert a
@@ -250,12 +297,16 @@ UBOOT_EXTLINUX_LABELS:recomputer-rk3588-devkit = "balenaOS"
 UBOOT_EXTLINUX_ROOT:recomputer-rk3588-devkit = "${resin_kernel_root}"
 UBOOT_EXTLINUX_KERNEL_ARGS:recomputer-rk3588-devkit = "${os_cmdline}"
 
-# Ensure this isn't re-used from sstate
-do_deploy[nostamp] = "1"
+# do_deploy must stay stamp-based.  A nostamp deploy forces a partial rerun on
+# no-op rebuilds: balena-image's do_image_balenaos_img (which embeds the raw
+# loaders) reruns with a fresh DATETIME while the sibling docker-image task
+# stays cached, and do_image_size_check then fails with FileNotFoundError on
+# the new IMAGE_NAME.  When externalsrc edits seem not picked up, run
+# `bitbake -c clean u-boot` instead of forcing redeploy here.
 
 # Create extlinux.conf for the flasher image; this file will be stored in the boot partition
 do_deploy:append() {
-    KERNEL_CMDLINE_ARGS_FLASHER="earlycon=uart8250,mmio32,0xfeb50000 console=tty1 console=ttyFIQ0,1500000n8 rw root=LABEL=flash-rootA rootfstype=ext4 rootwait flasher"
+    KERNEL_CMDLINE_ARGS_FLASHER="console=tty1 console=ttyFIQ0,1500000n8 rw root=LABEL=flash-rootA rootfstype=ext4 rootwait flasher"
 
     mkdir -p ${DEPLOY_DIR_IMAGE}/extlinux || true
     cat >${DEPLOY_DIR_IMAGE}/extlinux/extlinux.conf_flasher <<EOF
@@ -270,7 +321,7 @@ EOF
 }
 
 do_deploy:append:recomputer-rk3588-devkit() {
-    KERNEL_CMDLINE_ARGS_FLASHER="earlycon=uart8250,mmio32,0xfeb50000 console=tty1 console=ttyFIQ0,1500000n8 rw root=LABEL=flash-rootA rootfstype=ext4 rootwait flasher"
+    KERNEL_CMDLINE_ARGS_FLASHER="console=tty1 console=ttyFIQ0,1500000n8 rw root=LABEL=flash-rootA rootfstype=ext4 rootwait flasher"
 
     install -d ${DEPLOY_DIR_IMAGE}/extlinux
     cat > ${DEPLOY_DIR_IMAGE}/extlinux/extlinux.conf_flasher <<EOF
@@ -280,6 +331,22 @@ LABEL balenaOS
     KERNEL /${KERNEL_IMAGETYPE}
     FDT /rk3588-recomputer-rk3588-devkit.dtb
     APPEND ${KERNEL_CMDLINE_ARGS_FLASHER}
+EOF
+
+    # Runtime version: the APPEND placeholders are expanded by the
+    # U-Boot environment (resin_kernel_root / os_cmdline) at boot time,
+    # matching the u-boot-extlinux package's rootfs copy.  The SFC
+    # (SPI-NOR) controller shares its m0 pads with the eMMC; letting its
+    # driver probe steals the pads back and kills the eMMC root
+    # mid-boot, so both the SFC and the NOR-backed vendor storage are
+    # kept out of the runtime.
+    cat > ${DEPLOY_DIR_IMAGE}/extlinux/extlinux.conf <<EOF
+default balenaOS
+
+LABEL balenaOS
+    KERNEL /${KERNEL_IMAGETYPE}
+    FDT /rk3588-recomputer-rk3588-devkit.dtb
+    APPEND \${resin_kernel_root} \${os_cmdline} console=ttyFIQ0,1500000n8 rootfstype=ext4 rootwait initcall_blacklist=rockchip_sfc_driver_init,vendor_storage_init
 EOF
 
     install -m0644 ${B}/rk3588_spl_loader.bin \

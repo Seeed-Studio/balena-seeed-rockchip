@@ -319,6 +319,43 @@
 	non-removable;
 };
 
+/* The vendor rk3588-u-boot.dtsi enables &sdhci without any pinctrl, and this
+ * board file never overrode it: the eMMC pads stayed in their default mux, so
+ * U-Boot's mmc 0 init always failed with "Card did not respond to voltage
+ * select" (-95) even though the kernel (whose board DTS carries this pinmux)
+ * enumerates the same chip.  Apply the same pin group the kernel uses.
+ *
+ * The pin GROUP nodes must also carry dm markers: U-Boot ships a reduced
+ * device tree that drops nodes without u-boot,dm-* markers, which would
+ * remove the groups, dangling pinctrl-0, and reproduce the -95.  The vendor
+ * dtsi does exactly this for the sdmmc groups ("Support SPL-PINCTRL") but
+ * never did it for eMMC.
+ *
+ * The vendor U-Boot dtsi also omits the resets/reset-names that the kernel
+ * version of this node carries.  The kernel's rk35xx_sdhci_reset() pulses
+ * these five lines on every SDHCI_RESET_ALL and that is what recovers an
+ * eMMC host left wedged by earlier boot stages; the matching U-Boot patch
+ * (0007) walks them at probe time. */
+&sdhci {
+	u-boot,dm-pre-reloc;
+	/* Diagnostic cap: block reads time out above the identify rate
+	 * until the high-speed DLL/tap configuration is sorted out. */
+	max-frequency = <12000000>;
+	/* Diagnostic: route all data over DAT0 only. */
+	bus-width = <1>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&emmc_rstnout &emmc_bus8 &emmc_clk &emmc_cmd &emmc_data_strobe>;
+	resets = <&cru SRST_C_EMMC>, <&cru SRST_H_EMMC>, <&cru SRST_A_EMMC>,
+		 <&cru SRST_B_EMMC>, <&cru SRST_T_EMMC>;
+	reset-names = "core", "bus", "axi", "block", "timer";
+};
+
+&emmc_rstnout { u-boot,dm-spl; u-boot,dm-pre-reloc; };
+&emmc_bus8 { u-boot,dm-spl; u-boot,dm-pre-reloc; };
+&emmc_clk { u-boot,dm-spl; u-boot,dm-pre-reloc; };
+&emmc_cmd { u-boot,dm-spl; u-boot,dm-pre-reloc; };
+&emmc_data_strobe { u-boot,dm-spl; u-boot,dm-pre-reloc; };
+
 &pinctrl {
 
 	u-boot,dm-pre-reloc;

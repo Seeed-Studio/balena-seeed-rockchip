@@ -118,7 +118,10 @@ const uchar default_environment[] = {
 	"bootcmd_nvme0=setenv devnum 0; run nvme_boot\0" \
 	"boot_targets=mmc1 mmc0 nvme0 mtd2 mtd1 mtd0 usb0 pxe dhcp\0" \
 	"bootcmd=setenv resin_kernel_load_addr ${kernel_addr_r};nvme scan;" \
-		"run resin_set_kernel_root;run set_os_cmdline;run distro_bootcmd;\0"
+		"run resin_set_kernel_root;run set_os_cmdline;" \
+		"if test -n \"${resin_flasher_dev_index}\"; then " \
+		"setenv boot_targets ${resin_dev_type}${resin_dev_index}; fi;" \
+		"run distro_bootcmd;\0"
 #endif
 	"\0"
 #ifdef DEFAULT_ENV_INSTANCE_EMBEDDED
