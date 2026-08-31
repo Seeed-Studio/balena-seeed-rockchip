@@ -8,21 +8,34 @@ set -euo pipefail
 readonly SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 readonly REPO_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd -P)"
 readonly MACHINE="recomputer-rk3588-devkit"
-readonly TEMPLATE_PATH="layers/meta-balena-rockpi/conf/templates/default"
+readonly TEMPLATE_PATH="layers/meta-balena-rockchip/conf/templates/default"
 
 BUILD_DIR="build-recomputer-rk3588-devkit"
 CLEAN_BUILD=0
 
 usage() {
 	cat <<'EOF'
-Usage: scripts/build-recomputer-rk3588-devkit.sh [--clean] [--continue] [--build-dir DIR]
+Usage: scripts/build-recomputer-rk3588-devkit.sh [--clean] [--continue] [--development-image] [--disable-kernel-headers] [--build-dir DIR]
 
 Builds balena-image-flasher for recomputer-rk3588-devkit.
 
-  --clean             remove the selected build directory before building
-  --continue          continue as much as possible after a task failure
-  --build-dir DIR     repository-relative build directory name (default:
-                      build-recomputer-rk3588-devkit)
+  --clean                  remove the selected build directory before building
+  --continue               continue as much as possible after a task failure
+  --development-image      enable Balena development mode (serial login and
+                           development features) for this build
+  --disable-kernel-headers skip the kernel-headers-test build dependency.  It
+                           pulls a base image from Docker Hub and fails when
+                           the registry is unreachable (broken proxy node).
+                           Image contents are unaffected; drop the flag when
+                           Docker Hub is reachable again.
+  --build-dir DIR          repository-relative build directory name (default:
+                           build-recomputer-rk3588-devkit)
+
+After a successful build the flashable artifacts are copied (without
+timestamp suffixes) to output/images/: the flasher image, the runtime image,
+rkspi_loader.img and spl_loader_maskrom.bin.  The full build console log is
+written live to output/logs/build-<timestamp>.log (output/logs/latest.log
+always points at the newest one).
 
 The build directory contains tmp/, downloads/ and sstate-cache/.  They are
 local build artifacts and are excluded from Git.
@@ -30,6 +43,8 @@ EOF
 }
 
 CONTINUE_BUILD=0
+DEVELOPMENT_IMAGE=0
+DISABLE_KERNEL_HEADERS=0
 while (($#)); do
 	case "$1" in
 		--clean)
@@ -46,6 +61,12 @@ while (($#)); do
 			;;
 		--continue|-k)
 			CONTINUE_BUILD=1
+			;;
+		--development-image)
+			DEVELOPMENT_IMAGE=1
+			;;
+		--disable-kernel-headers)
+			DISABLE_KERNEL_HEADERS=1
 			;;
 		*)
 			echo "Unknown argument: $1" >&2
@@ -183,4 +204,55 @@ if (( CONTINUE_BUILD )); then
 	BARYS_ARGS+=(--continue)
 fi
 
-exec ./balena-yocto-scripts/build/barys "${BARYS_ARGS[@]}"
+if (( DEVELOPMENT_IMAGE )); then
+	BARYS_ARGS+=(--development-image)
+fi
+
+# See image-balena.bbclass: this only removes the kernel-devsrc and
+# kernel-headers-test build-time dependencies; the produced image is identical.
+if (( DISABLE_KERNEL_HEADERS )); then
+	export BALENA_DISABLE_KERNEL_HEADERS=1
+fi
+
+# Collect the flashable artifacts and the full build console log under
+# output/ so nothing has to be hunted down in the deploy directory.
+readonly OUTPUT_DIR="${REPO_ROOT}/output"
+readonly IMAGE_OUT_DIR="${OUTPUT_DIR}/images"
+readonly LOG_OUT_DIR="${OUTPUT_DIR}/logs"
+mkdir -p "${IMAGE_OUT_DIR}" "${LOG_OUT_DIR}"
+
+BUILD_LOG="${LOG_OUT_DIR}/build-$(date +%Y%m%d-%H%M%S).log"
+# tee writes as the build streams, so the log is a live view of the console
+# output; latest.log always points at the most recent build.
+ln -sfn "$(basename "${BUILD_LOG}")" "${LOG_OUT_DIR}/latest.log"
+echo "[build] console log: ${BUILD_LOG}"
+
+set +e
+./balena-yocto-scripts/build/barys "${BARYS_ARGS[@]}" 2>&1 | tee "${BUILD_LOG}"
+BARYS_STATUS=${PIPESTATUS[0]}
+set -e
+
+if (( BARYS_STATUS != 0 )); then
+	echo "[build] FAILED (exit ${BARYS_STATUS}); see ${BUILD_LOG}" >&2
+	exit "${BARYS_STATUS}"
+fi
+
+# Unversioned copies of everything needed to flash a board.  cp -L resolves
+# the deploy-directory symlinks so the copied names carry no timestamp.
+DEPLOY_IMAGE_DIR="${REPO_ROOT}/${BUILD_DIR}/tmp/deploy/images/${MACHINE}"
+copy_image() {
+	local src="${DEPLOY_IMAGE_DIR}/$1"
+	if [[ ! -e "${src}" ]]; then
+		echo "[build] WARNING: expected artifact not found: ${src}" >&2
+		return
+	fi
+	cp -fL "${src}" "${IMAGE_OUT_DIR}/$1"
+	echo "[build] image: ${IMAGE_OUT_DIR}/$1"
+}
+
+copy_image balena-image-flasher-recomputer-rk3588-devkit.balenaos-img
+copy_image balena-image-recomputer-rk3588-devkit.balenaos-img
+copy_image rkspi_loader.img
+copy_image spl_loader_maskrom.bin
+
+echo "[build] done; images in ${IMAGE_OUT_DIR}, logs in ${LOG_OUT_DIR}"
