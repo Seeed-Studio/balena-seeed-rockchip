@@ -20,5 +20,5 @@ BBLAYERS ?= " \
     ${TOPDIR}/../layers/meta-openembedded/meta-python \
     ${TOPDIR}/../layers/meta-openembedded/meta-perl \
     ${TOPDIR}/../bsp/rockchip-sdk/yocto/meta-rockchip \
-    ${TOPDIR}/../layers/meta-balena-rockpi \
+    ${TOPDIR}/../layers/meta-balena-rockchip \
     "
