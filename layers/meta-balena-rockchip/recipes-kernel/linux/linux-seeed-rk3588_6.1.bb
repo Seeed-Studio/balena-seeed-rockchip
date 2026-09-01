@@ -15,6 +15,8 @@ EXTERNALSRC:recomputer-rk3588-devkit = "${RK_SDK_ROOT}/source/kernel-6.1"
 EXTERNALSRC_BUILD:recomputer-rk3588-devkit = "${WORKDIR}/kernel-build"
 
 SRC_URI = "file://balena-rk3588.cfg \
+    file://rk3588-recomputer-rk3588-devkit.dts \
+    file://recomputer-rk3588-devkit-cam.dtsi \
     file://0001-fiq-debugger-keep-console-on-break.patch \
     file://0002-fiq-debugger-console-thread-lost-wakeup.patch \
     file://0003-fiq-debugger-lossless-tty-wake.patch \
@@ -64,9 +66,14 @@ do_configure:prepend:recomputer-rk3588-devkit() {
         patch -d ${S} -p1 --forward --batch \
             < ${THISDIR}/files/0003-fiq-debugger-lossless-tty-wake.patch
     fi
-    install -Dm0644 ${THISDIR}/files/rk3588-recomputer-rk3588-devkit.dts \
+    # Installed from UNPACKDIR (SRC_URI): copies from THISDIR would be
+    # invisible to bitbake's stamp tracking, so edits to the layer DTS files
+    # would silently never reach the externalsrc tree (hit with the camera
+    # dtsi: link-frequencies fix stayed undeployed until configure was
+    # forced by an unrelated .cfg change).
+    install -Dm0644 ${UNPACKDIR}/rk3588-recomputer-rk3588-devkit.dts \
         ${S}/arch/arm64/boot/dts/rockchip/rk3588-recomputer-rk3588-devkit.dts
-    install -Dm0644 ${THISDIR}/files/recomputer-rk3588-devkit-cam.dtsi \
+    install -Dm0644 ${UNPACKDIR}/recomputer-rk3588-devkit-cam.dtsi \
         ${S}/arch/arm64/boot/dts/rockchip/recomputer-rk3588-devkit-cam.dtsi
     if ! grep -q 'rk3588-recomputer-rk3588-devkit.dtb' \
         ${S}/arch/arm64/boot/dts/rockchip/Makefile; then
