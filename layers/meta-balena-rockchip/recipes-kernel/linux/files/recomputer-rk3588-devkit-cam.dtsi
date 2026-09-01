@@ -132,15 +132,19 @@
 };
 
 /*
- * cam1 seat (second camera connector, Pi-camera form factor).
- *
- * Kept DISABLED by default: an enabled-but-unpopulated camera chain is a
- * "ghost camera" and crashes rkaiq_3A_server (proven during the Seeed
- * Armbian rkaiq A/B tests).  To use a module in this seat, flip these
- * nodes to status = "okay" and rebuild the DTB:
- *
- *   &i2c6, imx708_1 (or imx219_1 for a v2 module), &csi2_dphy3, &mipi4_csi2,
- *   &rkcif_mipi_lvds4, &rkcif_mipi_lvds4_sditf, &rkisp1_vir1, &rkisp1, &isp1_mmu
+ * Both camera seats are enabled - the module can be plugged into either
+ * connector freely, no DTB change needed:
+ *   cam0 = i2c3 chain (imx708_0, dphy0/mipi2_csi2/rkcif_lvds2/rkisp0)
+ *   cam1 = i2c6 chain (imx708_1, dphy3/mipi4_csi2/rkcif_lvds4/rkisp1)
+ * An empty seat's sensor fails probe cleanly (-5 on chip-id read) and
+ * rkaiq_3A_server skips its half-formed media topology - validated on
+ * board with both nodes on and the module in cam1 only (the "ghost
+ * camera crashes rkaiq" behavior from the Armbian-era A/B tests does
+ * not reproduce with this engine version; do keep exactly-one-module
+ * rule of thumb: with NO module at all the 3A service gives up via its
+ * start rate limit, which is fine).  The capture node follows the seat:
+ * find it with `v4l2-ctl --list-devices` (rkisp0 mainpath vs rkisp1
+ * mainpath); node numbers shift with probe order.
  *
  * &i2c6 is shared with fusb302@0x22 and pcf8563@0x51 from the board DTS -
  * that coexistence is fine (I2C multi-device, distinct addresses; the same
@@ -148,7 +152,7 @@
  */
 /* cam1: i2c6 */
 &i2c6 {
-	status = "disabled";
+	status = "okay";
 
 	imx219_1: imx219@10 {
 		status = "disabled";
@@ -184,7 +188,7 @@
 	};
 
 	imx708_1: imx708@1a {
-		status = "disabled";
+		status = "okay";
 		compatible = "sony,imx708";
 		reg = <0x1a>;
 		clocks = <&clk_cam_24m_1>;
@@ -248,7 +252,7 @@
 };
 
 &csi2_dphy3 {
-	status = "disabled";
+	status = "okay";
 
 	ports {
 		#address-cells = <1>;
@@ -319,7 +323,7 @@
 };
 
 &mipi4_csi2 {
-	status = "disabled";
+	status = "okay";
 
 	ports {
 		#address-cells = <1>;
@@ -362,7 +366,7 @@
 };
 
 &rkcif_mipi_lvds4 {
-	status = "disabled";
+	status = "okay";
 
 	port {
 		cif_mipi4_in1: endpoint {
@@ -384,7 +388,7 @@
 };
 
 &rkcif_mipi_lvds4_sditf {
-	status = "disabled";
+	status = "okay";
 
 	port {
 		mipi_lvds4_sditf: endpoint {
@@ -410,7 +414,7 @@
 };
 
 &rkisp1_vir1 {
-	status = "disabled";
+	status = "okay";
 
 	port {
 		#address-cells = <1>;
@@ -442,11 +446,11 @@
 };
 
 &rkisp1 {
-	status = "disabled";
+	status = "okay";
 };
 
 &isp1_mmu {
-	status = "disabled";
+	status = "okay";
 };
 
 /*-----------------------------------------------------------------------*/
