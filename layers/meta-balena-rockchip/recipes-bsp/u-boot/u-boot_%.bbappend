@@ -25,7 +25,19 @@ SRC_URI:append:recomputer-rk3588-devkit = " \
     file://0008-rk3588-sdhci-enable-clocks-hostctrl3.patch \
     file://0009-rk3588-sdhci-dump-cru-state.patch \
     file://0010-rk3588-sdhci-mux-shared-pads.patch \
+    file://0011-setexpr-store-decimal-result.patch \
 "
+# meta-balena's env_resin.h drives the hostapp A/B rollback state machine
+# with setexpr/test env scripting.  The 0011 patch makes this tree's setexpr
+# store decimal results (env_set_hex "0x" output breaks cmd/test.c's base-10
+# numeric parsing, so the rollback flip condition was always false).  With
+# decimal values os_inc_bc_save exports "bootcount=N\n" (12 bytes for single
+# digits), so files/env_resin.h in this layer retunes os_bc_wr_sz from 0xd
+# (13, sized for "bootcount=0xN\n") to 0xc to keep the fatwrite payload
+# tight; everything else in the file is identical to meta-balena-common's
+# copy.  The FILESEXTRAPATHS prepend at the top of this file makes this
+# layer's env_resin.h win the file://env_resin.h lookup from
+# resin-u-boot.bbclass.
 
 # Build directly from the locally staged official SDK. No public U-Boot Git
 # repository is used for this machine.
@@ -150,6 +162,22 @@ do_configure:prepend:recomputer-rk3588-devkit() {
         patch -d ${S} -p1 --forward --batch \
             < ${UNPACKDIR}/0010-rk3588-sdhci-mux-shared-pads.patch
     fi
+    # setexpr stores its result via env_set_hex ("0x"-prefixed), while
+    # cmd/test.c parses numeric operands base-10, so meta-balena's rollback
+    # script (resin_check_altroot) can never see bootcount exceed its limit.
+    # Store decimal instead; see the patch header for the full analysis.
+    if ! grep -q 'env_set_ulong(argv\[1\], value)' ${S}/cmd/setexpr.c; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0011-setexpr-store-decimal-result.patch
+    fi
+    # The decimal setexpr makes os_inc_bc_save export "bootcount=N\n" (12
+    # bytes for single digits), so retune the fatwrite size that the default
+    # environment carries for it.  resin-u-boot.bbclass copies env_resin.h
+    # into the persistent externalsrc tree from do_generate_resin_uboot_
+    # configuration, whose stamps do not track the source file contents;
+    # the copy in the tree can therefore lag the layer override, so patch
+    # it in place as well (idempotent, matches the layer copy).
+    sed -i 's/os_bc_wr_sz=0xd /os_bc_wr_sz=0xc /' ${S}/include/env_resin.h
     # The vendor Makefile uses a tab-indented continuation list.  Remove any
     # stale malformed insertion from an earlier staging attempt, then insert a
     # real tab through awk rather than relying on sed's escape handling.

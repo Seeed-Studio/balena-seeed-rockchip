@@ -370,7 +370,7 @@ static int do_setexpr(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 		return 1;
 	}
 
-	env_set_hex(argv[1], value);
+	env_set_ulong(argv[1], value);
 
 	return 0;
 }

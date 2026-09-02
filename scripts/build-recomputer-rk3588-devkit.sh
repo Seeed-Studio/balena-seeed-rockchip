@@ -32,7 +32,9 @@ Builds balena-image-flasher for recomputer-rk3588-devkit.
 
 After a successful build the flashable artifacts are copied (without
 timestamp suffixes) to output/images/: the flasher image, the runtime image,
-rkspi_loader.img and spl_loader_maskrom.bin.  The full build console log is
+the host OS docker image (balena-image-<machine>.docker, the hostapp-update
+-f input used for OTA-style updates), rkspi_loader.img and
+spl_loader_maskrom.bin.  The full build console log is
 written live to output/logs/build-<timestamp>.log (output/logs/latest.log
 always points at the newest one).
 
@@ -277,6 +279,8 @@ copy_image() {
 
 copy_image balena-image-flasher-recomputer-rk3588-devkit.balenaos-img
 copy_image balena-image-recomputer-rk3588-devkit.balenaos-img
+# Host OS docker image: the hostapp-update -f input (OTA payload).
+copy_image balena-image-recomputer-rk3588-devkit.docker
 copy_image rkspi_loader.img
 copy_image spl_loader_maskrom.bin
 
