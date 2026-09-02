@@ -39,5 +39,15 @@ docs/
 /bsp/rockchip-sdk/source/u-boot/cmd/balena_check_crc32.c
 /bsp/rockchip-sdk/source/u-boot/configs/recomputer-rk3588-devkit_defconfig
 /bsp/rockchip-sdk/source/u-boot/arch/arm/dts/rk3588-recomputer-rk3588-devkit.dts
+# source/u-boot-rk3576 is a per-SoC externalsrc copy of the same SDK tree;
+# the same configure-time generated files must stay out of it as well.
+/bsp/rockchip-sdk/source/u-boot-rk3576/include/*.orig
+/bsp/rockchip-sdk/source/u-boot-rk3576/include/config_resin.h
+/bsp/rockchip-sdk/source/u-boot-rk3576/include/env_resin.h
+/bsp/rockchip-sdk/source/u-boot-rk3576/cmd/balena_check_crc32.c
+/bsp/rockchip-sdk/source/u-boot-rk3576/configs/recomputer-rk3576-devkit_defconfig
+/bsp/rockchip-sdk/source/u-boot-rk3576/arch/arm/dts/rk3576-recomputer-rk3576-devkit.dts
 /bsp/rockchip-sdk/source/kernel-6.1/arch/arm64/boot/dts/rockchip/rk3588-recomputer-rk3588-devkit.dts
 /bsp/rockchip-sdk/source/kernel-6.1/arch/arm64/boot/dts/rockchip/recomputer-rk3588-devkit-cam.dtsi
+/bsp/rockchip-sdk/source/kernel-6.1/arch/arm64/boot/dts/rockchip/rk3576-recomputer-rk3576-devkit.dts
+/bsp/rockchip-sdk/source/kernel-6.1/arch/arm64/boot/dts/rockchip/recomputer-rk3576-devkit-cam.dtsi

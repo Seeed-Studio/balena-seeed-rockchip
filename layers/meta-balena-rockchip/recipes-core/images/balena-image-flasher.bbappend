@@ -19,6 +19,14 @@ BALENA_BOOT_PARTITION_FILES:append:recomputer-rk3588-devkit = " \
 # baseline. Leave enough free space for atomic boot-file replacement.
 BALENA_BOOT_SIZE:recomputer-rk3588-devkit = "180224"
 
+BALENA_BOOT_PARTITION_FILES:append:recomputer-rk3576-devkit = " \
+    extlinux/extlinux.conf_flasher:/extlinux/extlinux.conf \
+    rk3576-recomputer-rk3576-devkit.dtb:/ \
+    ${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin:/${KERNEL_IMAGETYPE} \
+"
+
+BALENA_BOOT_SIZE:recomputer-rk3576-devkit = "180224"
+
 # do_resin_boot_dirgen_and_deploy only runs after do_rootfs upstream, but the
 # boot partition files it copies (kernel bundle, dtb, the generated extlinux
 # and the raw loaders) come from the deploy directory.  When only a deploy
