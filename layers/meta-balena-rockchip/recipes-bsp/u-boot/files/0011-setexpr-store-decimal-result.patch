@@ -1,0 +1,41 @@
+From: Balena RK3588 integration
+Subject: [PATCH] setexpr: store arithmetic results as decimal
+
+meta-balena's rollback environment (env_resin.h) drives hostapp A/B
+rollback entirely through u-boot env scripting:
+
+  setexpr bootcount ${bootcount} + 1
+  ...
+  if test ${bootcount} -gt ${os_bc_lim}; then    /* roll back  */
+  if test ${resin_root_part} = ${resin_roota}; then  /* pick slot */
+
+This tree stores setexpr results with env_set_hex(), i.e. "0x"-prefixed
+hex strings, while cmd/test.c parses numeric operands with
+simple_strtol(arg, NULL, 10).  strtol("0x4", 10) stops at 'x' and
+yields 0, so the bootcount limit comparison isalways false and the slot
+comparison compares "4" against "0x4" as strings.  Both rollback
+decisions in resin_check_altroot can never trigger on this u-boot
+(E1 board experiment: bootcount.env updated to "bootcount=0x2" each
+boot while no partition flip ever happened with bootcount preseeded
+past the limit).
+
+The default environment on this device uses setexpr arithmetic only
+inside env_resin.h (bootcount, resin_roota, resin_rootb); nothing else
+consumes its output format.  Store the operator result with
+env_set_ulong() so the value round-trips as plain decimal through
+os_inc_bc_save's "env export/fatwrite bootcount.env" and matches both
+the decimal test comparisons and the decimal resin_root_part written
+by the OS-side 99-resin-uboot hook.
+
+---
+--- a/cmd/setexpr.c
++++ b/cmd/setexpr.c
+@@ -370,7 +370,7 @@
+ 		return 1;
+ 	}
+ 
+-	env_set_hex(argv[1], value);
++	env_set_ulong(argv[1], value);
+ 
+ 	return 0;
+ }
