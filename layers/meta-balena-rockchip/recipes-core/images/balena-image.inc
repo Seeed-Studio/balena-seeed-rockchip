@@ -137,3 +137,22 @@ IMAGE_CMD:balenaos-img:append:recomputer-rk3588-devkit () {
     dd if=${DEPLOY_DIR_IMAGE}/idbloader.img of=${BALENA_RAW_IMG} conv=notrunc bs=512 seek=64
     dd if=${DEPLOY_DIR_IMAGE}/u-boot.itb of=${BALENA_RAW_IMG} conv=notrunc bs=512 seek=16384
 }
+
+# Seeed reComputer RK3576 DevKit.  Identical raw loader layout to RK3588
+# (idbloader at sector 64, u-boot.itb at sector 16384; the RK3576 boot ROM
+# uses the same loader slots), so boot/rootA stay at partitions 3/4.
+PARTITION_TABLE_TYPE:recomputer-rk3576-devkit = "gpt"
+DEVICE_SPECIFIC_SPACE:recomputer-rk3576-devkit = "40960"
+IMAGE_ROOTFS_SIZE:recomputer-rk3576-devkit = "733184"
+BALENA_BOOT_SIZE:recomputer-rk3576-devkit = "180224"
+BALENA_STATE_SIZE:recomputer-rk3576-devkit = "20480"
+
+device_specific_configuration:recomputer-rk3576-devkit() {
+    parted -s ${BALENA_RAW_IMG} unit s mkpart loader1 64 8063
+    parted -s ${BALENA_RAW_IMG} unit s mkpart loader2 16384 24575
+}
+
+IMAGE_CMD:balenaos-img:append:recomputer-rk3576-devkit () {
+    dd if=${DEPLOY_DIR_IMAGE}/idbloader.img of=${BALENA_RAW_IMG} conv=notrunc bs=512 seek=64
+    dd if=${DEPLOY_DIR_IMAGE}/u-boot.itb of=${BALENA_RAW_IMG} conv=notrunc bs=512 seek=16384
+}

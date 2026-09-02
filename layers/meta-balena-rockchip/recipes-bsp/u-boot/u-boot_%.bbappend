@@ -27,6 +27,26 @@ SRC_URI:append:recomputer-rk3588-devkit = " \
     file://0010-rk3588-sdhci-mux-shared-pads.patch \
     file://0011-setexpr-store-decimal-result.patch \
 "
+
+# Same Balena integration for the RK3576 machine, built from a per-SoC copy
+# of the SDK U-Boot tree.  The RK3588 eMMC debug/workaround patches
+# (0007-0010) hard-code RK3588 CRU/GRF offsets and are deliberately NOT
+# staged here: the rk3576 tree keeps a pristine rockchip_sdhci.c so the two
+# machines' externalsrc trees never cross-contaminate.  The SoC-neutral
+# fixes (0002/0003/0005/0006/0011) are already baked into that tree copy;
+# the guarded applies below keep it self-healing after a pristine restore.
+SRC_URI:append:recomputer-rk3576-devkit = " \
+    file://rk3576-recomputer-rk3576-devkit.dts \
+    file://rk3576-maskrom.ini \
+    file://balenaos_bootcommand.cfg \
+    file://balenaos-rk3576-nvme.cfg \
+    file://0004-rk3576-balena-bootcommand.patch \
+    file://0002-rk3588-charge-animation-initialize-status.patch \
+    file://0003-fix-command-process-prototype.patch \
+    file://0005-rk3588-nvme-boot-env.patch \
+    file://0006-rk3588-nvme-scan-pci-init.patch \
+    file://0011-setexpr-store-decimal-result.patch \
+"
 # meta-balena's env_resin.h drives the hostapp A/B rollback state machine
 # with setexpr/test env scripting.  The 0011 patch makes this tree's setexpr
 # store decimal results (env_set_hex "0x" output breaks cmd/test.c's base-10
@@ -68,6 +88,23 @@ SRC_URI:remove:recomputer-rk3588-devkit = " \
 # The official SDK U-Boot tree carries the same license file but uses the
 # Rockchip 2017.09 vendor baseline.
 LIC_FILES_CHKSUM:recomputer-rk3588-devkit = "file://Licenses/README;md5=a2c678cfd4a4d97135585cad908541c6"
+
+# The RK3576 machine builds from a dedicated copy of the same official SDK
+# U-Boot tree (see the SRC_URI note above for why the trees are per-SoC).
+# Firmware, usbplug and loader tooling come from the same staged rkbin.
+EXTERNALSRC:recomputer-rk3576-devkit = "${RK_SDK_ROOT}/source/u-boot-rk3576"
+EXTERNALSRC_BUILD:recomputer-rk3576-devkit = "${WORKDIR}/u-boot-build"
+BL31:recomputer-rk3576-devkit = "${DEPLOY_DIR_IMAGE}/bl31-rk3576.elf"
+RK_TEE:recomputer-rk3576-devkit = "${DEPLOY_DIR_IMAGE}/tee-rk3576.bin"
+RK_BOOT_MERGER:recomputer-rk3576-devkit = "${RK_SDK_ROOT}/rkbin/tools/boot_merger"
+RK_USBPLUG:recomputer-rk3576-devkit = "${RK_SDK_ROOT}/rkbin/bin/rk35/rk3576_usbplug_v1.04.bin"
+SRC_URI:remove:recomputer-rk3576-devkit = "git://source.denx.de/u-boot/u-boot.git;protocol=https;branch=master"
+# Same Wrynose CVE backport exception as the RK3588 vendor tree: the patch
+# targets mainline files absent from the 2017.09 baseline.
+SRC_URI:remove:recomputer-rk3576-devkit = " \
+    file://CVE-2026-33243.patch \
+"
+LIC_FILES_CHKSUM:recomputer-rk3576-devkit = "file://Licenses/README;md5=a2c678cfd4a4d97135585cad908541c6"
 
 do_configure:prepend:recomputer-rk3588-devkit() {
     # externalsrc keeps the vendor SDK tree between BitBake invocations.
@@ -188,6 +225,68 @@ do_configure:prepend:recomputer-rk3588-devkit() {
     mv ${S}/arch/arm/dts/Makefile.tmp ${S}/arch/arm/dts/Makefile
 }
 
+do_configure:prepend:recomputer-rk3576-devkit() {
+    # Same idempotent cleanup of resin-u-boot's persistent-tree injections
+    # as the RK3588 machine (env includes, config include, console silencing).
+    sed -i '/^#include <env_resin.h>$/d; /^[[:space:]]*BALENA_ENV$/d' \
+        ${S}/include/env_default.h
+    sed -i '/^#include <config_resin.h>$/d' ${S}/include/config_defaults.h
+    sed -i '/^return;$/d' ${S}/common/console.c
+
+    # Start from the SDK's rk3576 base every configure run; the board
+    # device tree and the balenaos-rk3576-nvme.cfg fragment are layered on
+    # top (the .cfg reaches the .config through u-boot-configure.inc's
+    # merge_config pass, covering SETEXPR/NVMe/SPI-flash vendors).
+    install -Dm0644 ${S}/configs/rk3576_defconfig \
+        ${S}/configs/${UBOOT_MACHINE}
+    install -Dm0644 ${UNPACKDIR}/rk3576-recomputer-rk3576-devkit.dts \
+        ${S}/arch/arm/dts/rk3576-recomputer-rk3576-devkit.dts
+    sed -i 's#CONFIG_DEFAULT_DEVICE_TREE=.*#CONFIG_DEFAULT_DEVICE_TREE="rk3576-recomputer-rk3576-devkit"#' \
+        ${S}/configs/${UBOOT_MACHINE}
+    # No SPL_STACK_R relocation here (unlike RK3588): rk3576_defconfig
+    # already gives SPL a 512 KiB SYS_MALLOC_F pool, which the SDK tuned
+    # for this SoC's GPT/FIT parsing, and no SRAM layout conflict has been
+    # observed.  Revisit only if SPL resets with "sys malloc pool space
+    # exhausted" during bring-up.
+    if ! grep -q 'int soc = 0, voltage = 0, current = 0' \
+        ${S}/drivers/power/charge_animation.c; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0002-rk3588-charge-animation-initialize-status.patch
+    fi
+    if ! grep -q '^enum command_ret_t cmd_process' ${S}/include/command.h; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0003-fix-command-process-prototype.patch
+    fi
+    if grep -q '^#define CONFIG_BOOTCOMMAND RKIMG_BOOTCOMMAND' \
+        ${S}/include/configs/evb_rk3576.h; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0004-rk3576-balena-bootcommand.patch
+    fi
+    if ! grep -q 'bootcmd_nvme0' ${S}/include/env_default.h; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0005-rk3588-nvme-boot-env.patch
+    fi
+    if ! grep -q 'pci_init();' ${S}/drivers/nvme/nvme.c; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0006-rk3588-nvme-scan-pci-init.patch
+    fi
+    if ! grep -q 'env_set_ulong(argv\[1\], value)' ${S}/cmd/setexpr.c; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0011-setexpr-store-decimal-result.patch
+    fi
+    # Same decimal-bootcount retune of the fatwrite payload size as RK3588
+    # (see the 0011 patch note above).
+    sed -i 's/os_bc_wr_sz=0xd /os_bc_wr_sz=0xc /' ${S}/include/env_resin.h
+    # Register the board DTB in the vendor Makefile; strip any stale line
+    # first so repeated configure runs stay idempotent (the tree copy ships
+    # without any recomputer entry).
+    sed -i '/rk3576-recomputer-rk3576-devkit.dtb/d' \
+        ${S}/arch/arm/dts/Makefile
+    awk 'index($0, "rv1108-evb.dtb") { print sprintf("%c%s %c", 9, "rk3576-recomputer-rk3576-devkit.dtb", 92); print; next } { print }' \
+        ${S}/arch/arm/dts/Makefile > ${S}/arch/arm/dts/Makefile.tmp
+    mv ${S}/arch/arm/dts/Makefile.tmp ${S}/arch/arm/dts/Makefile
+}
+
 # resin-u-boot's generic implementation still reads this file from WORKDIR.
 # Wrynose places file:// inputs under UNPACKDIR, so provide the RK3588-specific
 # implementation with the new path while retaining the same integration.
@@ -204,6 +303,32 @@ python __anonymous() {
     d.setVarFlag('do_inject_check_crc32_cmd', 'deps', deps)
 }
 do_inject_check_crc32_cmd:recomputer-rk3588-devkit() {
+    if ${@bb.utils.contains('OS_OVERLAP_CHECK_ENABLED', '1', 'true', 'false', d)}; then
+        if ! grep -q -r "cmd_tbl_t" ${S}/cmd/ ; then
+            sed -i 's/cmd_tbl_t/struct cmd_tbl/g' ${UNPACKDIR}/balena_check_crc32.c
+        fi
+        if [ ! -f ${S}/include/env.h ]; then
+            sed -i 's/env.h/common.h/g' ${UNPACKDIR}/balena_check_crc32.c
+            if ! grep -q env_get "${S}/include/common.h"; then
+                sed -i 's/env_get/getenv/g' "${UNPACKDIR}/balena_check_crc32.c"
+                sed -i 's/env_set/setenv/g' "${UNPACKDIR}/balena_check_crc32.c"
+            fi
+        fi
+        cp ${UNPACKDIR}/balena_check_crc32.c ${S}/cmd/
+        if ! grep -q "balena_check_crc32" ${S}/cmd/Makefile ; then
+            cat >> ${S}/cmd/Makefile << EOF
+ifndef CONFIG_SPL_BUILD
+obj-y += balena_check_crc32.o
+endif
+EOF
+        fi
+    fi
+}
+
+# Same vendor-tree command injection for the RK3576 copy; the anonymous
+# python block above already anchors this task after do_unpack for both
+# machines.
+do_inject_check_crc32_cmd:recomputer-rk3576-devkit() {
     if ${@bb.utils.contains('OS_OVERLAP_CHECK_ENABLED', '1', 'true', 'false', d)}; then
         if ! grep -q -r "cmd_tbl_t" ${S}/cmd/ ; then
             sed -i 's/cmd_tbl_t/struct cmd_tbl/g' ${UNPACKDIR}/balena_check_crc32.c
@@ -294,6 +419,71 @@ do_compile:append:recomputer-rk3588-devkit() {
 
 DEPENDS:append:recomputer-rk3588-devkit = " parted-native"
 
+# Same artifact assembly for the RK3576 tree: FIT u-boot.itb, three-segment
+# RKSD idbloader, maskrom download loader and the SPI-NOR image.  Key SoC
+# differences from the RK3588 flow:
+#   - The FIT TEE node uses the standard -t 0x08400000 offset; fit_args.sh
+#     adds the SoC DRAM base itself (RK3576 SDRAM starts at 0x40000000, so
+#     OP-TEE lands at 0x48400000; RK3588's DRAM base is 0 and the recipe
+#     passed the absolute address there).
+#   - The RK3576 boot ROM consumes a three-segment loader: boost (SRAM,
+#     0x3FFC0000) + DDR init (0x3FF81000) + SPL.  mkimage's rksd type in
+#     this SDK tree takes the boost stage as the third -d segment and
+#     writes it first with the right V2 header entries.
+do_compile:append:recomputer-rk3576-devkit() {
+    install -d ${B}/arch/arm/mach-rockchip
+    ln -sf ${S}/arch/arm/mach-rockchip/fit_nodes.sh \
+        ${B}/arch/arm/mach-rockchip/fit_nodes.sh
+    ln -sf ${S}/arch/arm/mach-rockchip/fit_args.sh \
+        ${B}/arch/arm/mach-rockchip/fit_args.sh
+    ln -sf ${S}/arch/arm/mach-rockchip/decode_bl31.py \
+        ${B}/arch/arm/mach-rockchip/decode_bl31.py
+
+    install -Dm0644 "${BL31}" ${B}/bl31.elf
+    install -Dm0644 "${RK_TEE}" ${B}/tee.bin
+    cd ${B}
+    srctree=. ${S}/arch/arm/mach-rockchip/make_fit_atf.sh \
+        -t 0x08400000 > ${B}/u-boot.its
+    ${B}/tools/mkimage -f ${B}/u-boot.its -E ${B}/u-boot.itb
+    # idbloader = boost + rkbin DDR blob + source-built SPL (the third -d
+    # segment is the pre-init stage, written first inside the image).
+    ${B}/tools/mkimage -n rk3576 -T rksd \
+        -d ${DEPLOY_DIR_IMAGE}/ddr-rk3576.bin:${B}/spl/u-boot-spl.bin:${DEPLOY_DIR_IMAGE}/boost-rk3576.bin \
+        ${B}/idbloader.img
+
+    # Maskrom download loader from the same blobs, following the official
+    # RK3576MINIALL layout (boost/DDR/usbplug, NEWIDB + ALIGN=8).
+    install -Dm0644 ${UNPACKDIR}/rk3576-maskrom.ini ${B}/rk3576-maskrom.ini
+    sed -i \
+        -e "s|__DDR_PATH__|${DEPLOY_DIR_IMAGE}/ddr-rk3576.bin|g" \
+        -e "s|__USBPLUG_PATH__|${RK_USBPLUG}|g" \
+        -e "s|__BOOST_PATH__|${DEPLOY_DIR_IMAGE}/boost-rk3576.bin|g" \
+        -e "s|__SPL_PATH__|${B}/spl/u-boot-spl.bin|g" \
+        ${B}/rk3576-maskrom.ini
+    if [ ! -x "${RK_BOOT_MERGER}" ]; then
+        bbfatal "Missing RK3576 boot_merger: ${RK_BOOT_MERGER}"
+    fi
+    (cd ${B} && "${RK_BOOT_MERGER}" ${B}/rk3576-maskrom.ini)
+    install -Dm0644 ${B}/rk3576_spl_loader.bin ${B}/spl_loader_maskrom.bin
+
+    # SPI-NOR loader image with the same GPT layout used by the Seeed
+    # Armbian integration (identical partition map for RK3576 and RK3588):
+    # idbloader at sector 64 and the U-Boot FIT at sector 16384.
+    truncate -s 16M ${B}/rkspi_loader.img
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img mklabel gpt
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart idbloader 64 7167
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart vnvm 7168 7679
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart reserved_space 7680 8063
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart reserved1 8064 8127
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart uboot_env 8128 8191
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart reserved2 8192 16383
+    ${STAGING_SBINDIR_NATIVE}/parted -s ${B}/rkspi_loader.img unit s mkpart uboot 16384 32734
+    dd if=${B}/idbloader.img of=${B}/rkspi_loader.img bs=512 seek=64 conv=notrunc
+    dd if=${B}/u-boot.itb of=${B}/rkspi_loader.img bs=512 seek=16384 conv=notrunc
+}
+
+DEPENDS:append:recomputer-rk3576-devkit = " parted-native"
+
 # partition 1 is used for idbloader.img,partition 2 for u-boot.itb, partition 3 is left empty for the new BSP but we keep it so we are backward compatible
 BALENA_BOOT_PART:rockpi-4b-rk3399 = "4"
 BALENA_DEFAULT_ROOT_PART:rockpi-4b-rk3399 = "5"
@@ -321,9 +511,18 @@ BALENA_UBOOT_DEVICES:recomputer-rk3588-devkit = "0 1"
 # (see 0005-rk3588-nvme-boot-env.patch) so this scan can find the device.
 BALENA_UBOOT_DEVICE_TYPES:recomputer-rk3588-devkit = "mmc nvme"
 
-UBOOT_EXTLINUX_LABELS:recomputer-rk3588-devkit = "balenaOS"
-UBOOT_EXTLINUX_ROOT:recomputer-rk3588-devkit = "${resin_kernel_root}"
-UBOOT_EXTLINUX_KERNEL_ARGS:recomputer-rk3588-devkit = "${os_cmdline}"
+# Seeed reComputer RK3576 DevKit.  Same layout: two raw loader entries, so
+# boot/rootA are partitions 3/4.  Aliases in rk3576-u-boot.dtsi map mmc0 to
+# eMMC (sdhci) and mmc1 to the SD card.  The flasher media can be an
+# external SD card or NVMe SSD, hence the mmc+nvme scan set.
+BALENA_BOOT_PART:recomputer-rk3576-devkit = "3"
+BALENA_DEFAULT_ROOT_PART:recomputer-rk3576-devkit = "4"
+BALENA_UBOOT_DEVICES:recomputer-rk3576-devkit = "0 1"
+BALENA_UBOOT_DEVICE_TYPES:recomputer-rk3576-devkit = "mmc nvme"
+
+UBOOT_EXTLINUX_LABELS:recomputer-rk3576-devkit = "balenaOS"
+UBOOT_EXTLINUX_ROOT:recomputer-rk3576-devkit = "${resin_kernel_root}"
+UBOOT_EXTLINUX_KERNEL_ARGS:recomputer-rk3576-devkit = "${os_cmdline}"
 
 # do_deploy must stay stamp-based.  A nostamp deploy forces a partial rerun on
 # no-op rebuilds: balena-image's do_image_balenaos_img (which embeds the raw
@@ -386,6 +585,48 @@ EOF
     # The image recipes and BALENA_BOOT_PARTITION_FILES consume the raw
     # Rockchip boot chain from the deploy directory (idbloader at sector 64,
     # u-boot.itb at sector 16384); deploy both unversioned as well.
+    install -m0644 ${B}/idbloader.img \
+        ${DEPLOY_DIR_IMAGE}/idbloader.img
+    install -m0644 ${B}/u-boot.itb \
+        ${DEPLOY_DIR_IMAGE}/u-boot.itb
+}
+
+do_deploy:append:recomputer-rk3576-devkit() {
+    KERNEL_CMDLINE_ARGS_FLASHER="console=tty1 console=ttyFIQ0,1500000n8 rw root=LABEL=flash-rootA rootfstype=ext4 rootwait flasher"
+
+    install -d ${DEPLOY_DIR_IMAGE}/extlinux
+    cat > ${DEPLOY_DIR_IMAGE}/extlinux/extlinux.conf_flasher <<EOF
+default balenaOS
+
+LABEL balenaOS
+    KERNEL /${KERNEL_IMAGETYPE}
+    FDT /rk3576-recomputer-rk3576-devkit.dtb
+    APPEND ${KERNEL_CMDLINE_ARGS_FLASHER}
+EOF
+
+    # Runtime extlinux: APPEND placeholders are expanded by the U-Boot
+    # environment (resin_kernel_root / os_cmdline) at boot time.  The
+    # SFC/eMMC initcall blacklist is deliberately NOT carried over from
+    # RK3588: on RK3576 the FSPI0 and eMMC pads are independent, and the
+    # SPI NOR stays available at runtime until board validation proves
+    # otherwise.
+    cat > ${DEPLOY_DIR_IMAGE}/extlinux/extlinux.conf <<EOF
+default balenaOS
+
+LABEL balenaOS
+    KERNEL /${KERNEL_IMAGETYPE}
+    FDT /rk3576-recomputer-rk3576-devkit.dtb
+    APPEND \${resin_kernel_root} \${os_cmdline} console=ttyFIQ0,1500000n8 rootfstype=ext4 rootwait
+EOF
+
+    install -m0644 ${B}/rk3576_spl_loader.bin \
+        ${DEPLOY_DIR_IMAGE}/rk3576_spl_loader.bin
+    install -m0644 ${B}/spl_loader_maskrom.bin \
+        ${DEPLOY_DIR_IMAGE}/spl_loader_maskrom.bin
+    install -m0644 ${B}/rkspi_loader.img \
+        ${DEPLOY_DIR_IMAGE}/rkspi_loader.img
+    # Raw Rockchip boot chain for Balena image assembly (idbloader at
+    # sector 64, u-boot.itb at sector 16384); deploy unversioned as well.
     install -m0644 ${B}/idbloader.img \
         ${DEPLOY_DIR_IMAGE}/idbloader.img
     install -m0644 ${B}/u-boot.itb \

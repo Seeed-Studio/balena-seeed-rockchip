@@ -30,3 +30,16 @@ BALENA_BOOT_PARTITION_FILES:append:recomputer-rk3588-devkit = " \
 "
 
 IMAGE_INSTALL:append:recomputer-rk3588-devkit = " u-boot-extlinux"
+
+# Same boot-partition bundle for the RK3576: raw loaders, the initramfs
+# bundle kernel, the board DTB and the runtime extlinux (bare kernels
+# cannot resolve root=UUID= without an initramfs).
+BALENA_BOOT_PARTITION_FILES:append:recomputer-rk3576-devkit = " \
+    idbloader.img:/ \
+    u-boot.itb:/ \
+    ${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin:/${KERNEL_IMAGETYPE} \
+    rk3576-recomputer-rk3576-devkit-recomputer-rk3576-devkit.dtb:/rk3576-recomputer-rk3576-devkit.dtb \
+    extlinux/extlinux.conf:/extlinux/extlinux.conf \
+"
+
+IMAGE_INSTALL:append:recomputer-rk3576-devkit = " u-boot-extlinux"
