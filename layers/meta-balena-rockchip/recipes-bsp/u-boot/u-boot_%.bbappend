@@ -42,6 +42,7 @@ SRC_URI:append:recomputer-rk3576-devkit = " \
     file://balenaos_bootcommand.cfg \
     file://balenaos-rk3576-nvme.cfg \
     file://0004-rk3576-balena-bootcommand.patch \
+    file://0005-rk3576-usbplug-guard-scsi-bootdev.patch \
     file://0002-rk3588-charge-animation-initialize-status.patch \
     file://0003-fix-command-process-prototype.patch \
     file://0005-rk3588-nvme-boot-env.patch \
@@ -268,6 +269,13 @@ do_configure:prepend:recomputer-rk3576-devkit() {
         ${S}/include/configs/evb_rk3576.h; then
         patch -d ${S} -p1 --forward --batch \
             < ${UNPACKDIR}/0004-rk3576-balena-bootcommand.patch
+    fi
+    # The usbplug dev_list scan aborts on its first entry (SCSI, if_type 2)
+    # when SCSI/UFS are compiled out of the plug; guard the entry.
+    if ! grep -q 'scsi bootdev needs scsi support' \
+        ${S}/arch/arm/mach-rockchip/usbplug.c; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${UNPACKDIR}/0005-rk3576-usbplug-guard-scsi-bootdev.patch
     fi
     if ! grep -q 'bootcmd_nvme0' ${S}/include/env_default.h; then
         patch -d ${S} -p1 --forward --batch \
