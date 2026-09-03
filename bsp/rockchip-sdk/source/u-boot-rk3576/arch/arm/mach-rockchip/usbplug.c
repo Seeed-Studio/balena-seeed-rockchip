@@ -32,7 +32,9 @@ static const struct bootdev_list dev_list[] = {
 };
 #elif CONFIG_IS_ENABLED(ROCKCHIP_RK3576)
 static const struct bootdev_list dev_list[] = {
+#if defined(CONFIG_SCSI) && defined(CONFIG_CMD_SCSI) && (defined(CONFIG_AHCI) || defined(CONFIG_UFS)) /* scsi bootdev needs scsi support */
 	{IF_TYPE_SCSI, 0, 0},
+#endif
 	{IF_TYPE_MMC, 0, 0},
 	{IF_TYPE_MTD, 1, 0}, /* BLK_MTD_SPI_NAND FSPI0 M0 */
 	{IF_TYPE_MTD, 1, 1}, /* BLK_MTD_SPI_NAND FSPI1 M0 */
