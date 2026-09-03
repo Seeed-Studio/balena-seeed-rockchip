@@ -38,6 +38,7 @@ SRC_URI:append:recomputer-rk3588-devkit = " \
 SRC_URI:append:recomputer-rk3576-devkit = " \
     file://rk3576-recomputer-rk3576-devkit.dts \
     file://rk3576-maskrom.ini \
+    file://rk3576-usbplug-board.config \
     file://balenaos_bootcommand.cfg \
     file://balenaos-rk3576-nvme.cfg \
     file://0004-rk3576-balena-bootcommand.patch \
@@ -97,7 +98,13 @@ EXTERNALSRC_BUILD:recomputer-rk3576-devkit = "${WORKDIR}/u-boot-build"
 BL31:recomputer-rk3576-devkit = "${DEPLOY_DIR_IMAGE}/bl31-rk3576.elf"
 RK_TEE:recomputer-rk3576-devkit = "${DEPLOY_DIR_IMAGE}/tee-rk3576.bin"
 RK_BOOT_MERGER:recomputer-rk3576-devkit = "${RK_SDK_ROOT}/rkbin/tools/boot_merger"
-RK_USBPLUG:recomputer-rk3576-devkit = "${RK_SDK_ROOT}/rkbin/bin/rk35/rk3576_usbplug_v1.04.bin"
+# The maskrom loader's CODE472 usbplug is rebuilt from this tree (see
+# do_compile) instead of using the rkbin prebuilt: the prebuilt (v1.04)
+# runs UFS link training before serving USB (~20 s of UIC timeouts, which
+# makes `upgrade_tool db` fail) and does not know the board NOR's ZBIT
+# ZB25LQ128 JEDEC id.  Seeed's Armbian integration compiles the plug from
+# source for the same reasons (RK_COMPILE_USBPLUG=yes).
+RK_USBPLUG:recomputer-rk3576-devkit = "${WORKDIR}/usbplug-build/usbplug.bin"
 SRC_URI:remove:recomputer-rk3576-devkit = "git://source.denx.de/u-boot/u-boot.git;protocol=https;branch=master"
 # Same Wrynose CVE backport exception as the RK3588 vendor tree: the patch
 # targets mainline files absent from the 2017.09 baseline.
@@ -450,6 +457,28 @@ do_compile:append:recomputer-rk3576-devkit() {
     ${B}/tools/mkimage -n rk3576 -T rksd \
         -d ${DEPLOY_DIR_IMAGE}/ddr-rk3576.bin:${B}/spl/u-boot-spl.bin:${DEPLOY_DIR_IMAGE}/boost-rk3576.bin \
         ${B}/idbloader.img
+
+    # Rebuild the maskrom usbplug (CODE472) in a separate output directory:
+    # rockchip-usbplug_defconfig + configs/rk3576-usbplug.config, then the
+    # board fragment (UFS off, ZBIT NOR on) appended so its values win the
+    # olddefconfig pass.  ARCH=arm covers armv8 in this U-Boot generation.
+    # The -Werror strip mirrors the Seeed Armbian build: the plug sources
+    # predate the Wrynose host GCC.  sed is naturally idempotent, and the
+    # relaxation also applies to this tree's main build (harmless).
+    USBPLUG_BUILD=${WORKDIR}/usbplug-build
+    mkdir -p ${USBPLUG_BUILD}
+    oe_runmake -C ${S} O=${USBPLUG_BUILD} ARCH=arm rockchip-usbplug_defconfig
+    cat ${S}/configs/rk3576-usbplug.config \
+        ${UNPACKDIR}/rk3576-usbplug-board.config >> ${USBPLUG_BUILD}/.config
+    oe_runmake -C ${S} O=${USBPLUG_BUILD} ARCH=arm olddefconfig
+    # Strip the standalone -Werror (the plug sources predate the Wrynose
+    # host GCC; same relaxation Seeed's build applies).  The patterns anchor
+    # on end-of-line/trailing-space so -Werror=date-time survives intact.
+    sed -i -e 's/[[:space:]]*-Werror[[:space:]]*$//' \
+        -e 's/[[:space:]]*-Werror[[:space:]]/ /g' \
+        ${S}/Makefile ${S}/scripts/Makefile.build
+    oe_runmake -C ${S} O=${USBPLUG_BUILD} ARCH=arm
+    [ -f "${RK_USBPLUG}" ] || bbfatal "usbplug build did not produce ${RK_USBPLUG}"
 
     # Maskrom download loader from the same blobs, following the official
     # RK3576MINIALL layout (boost/DDR/usbplug, NEWIDB + ALIGN=8).
