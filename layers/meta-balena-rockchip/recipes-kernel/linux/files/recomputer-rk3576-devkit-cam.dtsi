@@ -7,7 +7,7 @@
 / {
 
     cam0_pwr: cam0-pwr {
-        status = "disabled";
+        status = "okay";
         compatible = "regulator-fixed";
         regulator-name = "cam0_pwr";
         regulator-min-microvolt = <3300000>;
@@ -19,7 +19,7 @@
     };
 
     cam1_pwr: cam1-pwr {
-        status = "disabled";
+        status = "okay";
         compatible = "regulator-fixed";
         regulator-name = "cam1_pwr";
         regulator-min-microvolt = <3300000>;
@@ -54,7 +54,7 @@
 	};
 
     clk_cam_24m: external-camera-clock-24m {
-        status = "disabled";
+        status = "okay";
         compatible = "fixed-clock";
         clock-frequency = <24000000>;
         clock-output-names = "clk_cam_24m";
@@ -62,7 +62,7 @@
     };
 
     clk_cam_24m_1: external-camera-clock-24m-1 {
-        status = "disabled";
+        status = "okay";
         compatible = "fixed-clock";
         clock-frequency = <24000000>;
         clock-output-names = "clk_cam_24m_1";
@@ -73,7 +73,7 @@
 
 // cam0: i2c7
 &i2c7 {
-	status = "disabled";
+	status = "okay";
 	pinctrl-0 = <&i2c7m1_xfer>;
 
     imx219_0: imx219@10 {
@@ -99,7 +99,7 @@
 
 	dw9817_0: dw9817@c {
 		compatible = "dongwoon,dw9800w";
-		status = "disabled";
+		status = "okay";
 		reg = <0x0c>;
 		VDD-supply = <&cam0_rst>;
 		power-supply = <&cam0_pwr>;
@@ -112,7 +112,7 @@
 	};
 
 	imx708_0: imx708@1a {
-		status = "disabled";
+		status = "okay";
 		compatible = "sony,imx708";
 		reg = <0x1a>;
 		clocks = <&clk_cam_24m>;
@@ -138,7 +138,7 @@
 
 // cam1: i2c2
 &i2c2 {
-	status = "disabled";
+	status = "okay";
 
     imx219_1: imx219@10 {
         status = "disabled";
@@ -164,7 +164,7 @@
  /**************raspberry pi cam v3**************/
 	dw9817_1: dw9817@c {
 		compatible = "dongwoon,dw9800w";
-		status = "disabled";
+		status = "okay";
 		reg = <0x0c>;
 		VDD-supply = <&cam1_rst>;
 		power-supply = <&cam1_pwr>;
@@ -177,7 +177,7 @@
 	};
 
 	imx708_1: imx708@1a {
-		status = "disabled";
+		status = "okay";
 		compatible = "sony,imx708";
 		reg = <0x1a>;
 		clocks = <&clk_cam_24m_1>;
@@ -204,7 +204,7 @@
 /*-----------------------------------------------------------------------*/
 
 &csi2_dcphy0 {
-	status = "disabled";
+	status = "okay";
 
 	ports {
 		#address-cells = <1>;
@@ -241,7 +241,7 @@
 };
 
 &csi2_dphy0 {
-	status = "disabled";
+	status = "okay";
 
 	ports {
 		#address-cells = <1>;
@@ -282,7 +282,7 @@
 /*-----------------------------------------------------------------------*/
 
 &mipi0_csi2 {
-	status = "disabled";
+	status = "okay";
 
 	ports {
 		#address-cells = <1>;
@@ -313,7 +313,7 @@
 };
 
 &mipi1_csi2 {
-	status = "disabled";
+	status = "okay";
 
 	ports {
 		#address-cells = <1>;
@@ -346,7 +346,7 @@
 /*-----------------------------------------------------------------------*/
 
 &rkcif_mipi_lvds {
-	status = "disabled";
+	status = "okay";
 
 	port {
 		cif_mipi_in0: endpoint {
@@ -356,7 +356,7 @@
 };
 
 &rkcif_mipi_lvds1 {
-	status = "disabled";
+	status = "okay";
 
 	port {
 		cif_mipi_in1: endpoint {
@@ -368,7 +368,7 @@
 /*-----------------------------------------------------------------------*/
 
 &rkcif_mipi_lvds_sditf {
-	status = "disabled";
+	status = "okay";
 
 	port {
 		mipi_lvds_sditf: endpoint {
@@ -378,7 +378,7 @@
 };
 
 &rkcif_mipi_lvds1_sditf {
-	status = "disabled";
+	status = "okay";
 
 	port {
 		mipi_lvds1_sditf: endpoint {
@@ -390,7 +390,7 @@
 /*-----------------------------------------------------------------------*/
 
 &rkisp_vir0 {
-	status = "disabled";
+	status = "okay";
 
 	port {
 		#address-cells = <1>;
@@ -404,7 +404,7 @@
 };
 
 &rkisp_vir1 {
-	status = "disabled";
+	status = "okay";
 
 	port {
 		#address-cells = <1>;
@@ -420,27 +420,27 @@
 /*-----------------------------------------------------------------------*/
 
 &rkcif {
-	status = "disabled";
+	status = "okay";
 };
 
 &rkcif_mmu {
-	status = "disabled";
+	status = "okay";
 };
 
 &rkisp {
-	status = "disabled";
+	status = "okay";
 };
 
 &rkisp_mmu {
-	status = "disabled";
+	status = "okay";
 };
 
 &rkvpss {
-	status = "disabled";
+	status = "okay";
 };
 
 &rkvpss_mmu {
-	status = "disabled";
+	status = "okay";
 };
 
 
