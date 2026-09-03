@@ -68,6 +68,17 @@ do_configure:prepend:recomputer-rk3576-devkit() {
         patch -d ${S} -p1 --forward --batch \
             < ${THISDIR}/files/0003-fiq-debugger-lossless-tty-wake.patch
     fi
+    # Align the rkisp mesh-buffer uapi with Seeed's rkaiq userspace: the
+    # RKISP_CMD_GET_MESHBUF_INFO ioctl number encodes sizeof(struct
+    # rkisp_meshbuf_info), so a kernel built with ISP2X_MESH_BUF_NUM=3
+    # rejects the userspace command with ENOTTY and the 3A server dies
+    # during CAC mesh-buffer setup (2026-09 bring-up).  Baked into the
+    # staged tree; this guard keeps it self-healing like the fiq fixes.
+    if ! grep -q 'Keep in sync with the userspace ABI' \
+        ${S}/include/uapi/linux/rk-isp2-config.h; then
+        patch -d ${S} -p1 --forward --batch \
+            < ${THISDIR}/files/0004-uapi-rkisp-mesh-buf-num-2.patch
+    fi
     # Installed from UNPACKDIR (SRC_URI): copies from THISDIR would be
     # invisible to bitbake's stamp tracking, so edits to the layer DTS files
     # would silently never reach the externalsrc tree.
