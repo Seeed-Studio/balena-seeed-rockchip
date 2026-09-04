@@ -285,15 +285,54 @@ if (( CONTINUE_BUILD )); then
 	BITBAKE_ARGS=(-k "${BITBAKE_ARGS[@]}")
 fi
 
-set +e
-bitbake "${BITBAKE_ARGS[@]}" 2>&1 | tee -a "${BUILD_LOG}"
-BARYS_STATUS=${PIPESTATUS[0]}
-set -e
+# Fresh-host builds pull hundreds of sources over the same lossy links
+# that break submodule clones, and bitbake's git fetcher sets no
+# transfer timeout of its own: a stalled clone (rockchip-libmali once
+# sat 40+ minutes on a dead TCP stream) hangs the build indefinitely.
+# Push http.* settings through git's GIT_CONFIG_* environment variables
+# so every git process bitbake spawns uses HTTP/1.1 and aborts
+# transfers stalled below 1KB/s for 60s -- no ~/.gitconfig side
+# effects. Also passthrough-listed in case BB_PRESERVE_ENV is dropped.
+export GIT_CONFIG_COUNT=3
+export GIT_CONFIG_KEY_0=http.version
+export GIT_CONFIG_VALUE_0=HTTP/1.1
+export GIT_CONFIG_KEY_1=http.lowSpeedLimit
+export GIT_CONFIG_VALUE_1=1000
+export GIT_CONFIG_KEY_2=http.lowSpeedTime
+export GIT_CONFIG_VALUE_2=60
+export BB_ENV_PASSTHROUGH_ADDITIONS="${BB_ENV_PASSTHROUGH_ADDITIONS:-} GIT_CONFIG_COUNT GIT_CONFIG_KEY_0 GIT_CONFIG_KEY_1 GIT_CONFIG_KEY_2 GIT_CONFIG_VALUE_0 GIT_CONFIG_VALUE_1 GIT_CONFIG_VALUE_2"
 
-if (( BARYS_STATUS != 0 )); then
-	echo "[build] FAILED (exit ${BARYS_STATUS}); see ${BUILD_LOG}" >&2
-	exit "${BARYS_STATUS}"
-fi
+# A flaky link typically fails a handful of do_fetch tasks per round.
+# Rerun bitbake in that case: finished tasks come back from stamps and
+# partial downloads resume, so each round only refetches what failed.
+# Retry only while every failed task is do_fetch -- any other failure
+# is a real build break and aborts immediately, never masked.
+BUILD_ATTEMPTS=5
+build_status=0
+touch "${BUILD_LOG}"
+for ((build_round = 1; build_round <= BUILD_ATTEMPTS; build_round++)); do
+	log_start_line=$(wc -l <"${BUILD_LOG}")
+	set +e
+	bitbake "${BITBAKE_ARGS[@]}" 2>&1 | tee -a "${BUILD_LOG}"
+	build_status=${PIPESTATUS[0]}
+	set -e
+	if (( build_status == 0 )); then
+		break
+	fi
+	round_log=$(tail -n +"$((log_start_line + 1))" "${BUILD_LOG}")
+	failed_tasks=$(grep -cE '^ERROR: Task ' <<<"${round_log}" || true)
+	fetch_failed=$(grep -cE '^ERROR: Task .*:do_fetch\) failed' <<<"${round_log}" || true)
+	if (( failed_tasks == 0 || failed_tasks != fetch_failed )); then
+		echo "[build] FAILED (exit ${build_status}, non-fetch or unclassified failures); see ${BUILD_LOG}" >&2
+		exit "${build_status}"
+	fi
+	if (( build_round >= BUILD_ATTEMPTS )); then
+		echo "[build] FAILED: ${fetch_failed} fetch task(s) still failing after ${BUILD_ATTEMPTS} rounds; see ${BUILD_LOG}" >&2
+		exit "${build_status}"
+	fi
+	echo "[build] round ${build_round}/${BUILD_ATTEMPTS}: ${fetch_failed} fetch task(s) failed on flaky links, retrying in $((build_round * 60))s (finished work is cached)"
+	sleep $((build_round * 60))
+done
 
 # Unversioned copies of everything needed to flash a board.  cp -L resolves
 # the deploy-directory symlinks so the copied names carry no timestamp.
