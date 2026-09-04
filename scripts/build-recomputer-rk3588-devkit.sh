@@ -162,7 +162,38 @@ if ((${#SUBMODULE_PATHS[@]})); then
 		# Keep an existing checkout (including a locally selected Wrynose
 		# branch) intact. A missing path is initialized from the gitlink.
 		if [[ ! -e "${submodule_path}/.git" ]]; then
-			git submodule update --init --recursive "$submodule_path"
+			# Cloning github.com over lossy links dies mid-transfer with
+			# "HTTP/2 stream ... not closed cleanly" / "early EOF"
+			# (curl 92). That is a transport failure, not a missing
+			# repository: force HTTP/1.1 (one sequential stream survives
+			# middleboxes best), abort stalled transfers quickly, retry
+			# with backoff, and shorten the transfer window with a
+			# shallow fetch when full clones keep failing (attempt 3
+			# only, hosts that reject SHA-wants still get full clones on
+			# attempts 4/5). Shallow is fine for bitbake: only the
+			# worktree is read.
+			submodule_attempts=5
+			for ((attempt = 1; attempt <= submodule_attempts; attempt++)); do
+				submodule_flags=()
+				if ((attempt == 3)); then
+					submodule_flags+=(--depth 1)
+				fi
+				if git -c http.version=HTTP/1.1 \
+					-c http.lowSpeedLimit=1000 -c http.lowSpeedTime=60 \
+					submodule update --init --recursive \
+					"${submodule_flags[@]}" "${submodule_path}"; then
+					break
+				fi
+				if ((attempt >= submodule_attempts)); then
+					echo "[build] FAILED: submodule ${submodule_path} not initialized after ${submodule_attempts} attempts" >&2
+					exit 1
+				fi
+				# Drop a half-written clone so the retry starts clean.
+				if ! git -C "${submodule_path}" rev-parse --verify HEAD >/dev/null 2>&1; then
+					rm -rf "${submodule_path}"
+				fi
+				sleep $((attempt * 10))
+			done
 		fi
 	done
 fi
