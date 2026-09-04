@@ -16,11 +16,7 @@ dwcmshc_sdhci_emmc_set_clock() for the <=52 MHz identify path:
    stops the card clock, which is indistinguishable from a dead card
    ("Card did not respond to voltage select", -95).
 
-Also dump the controller/PHY register state right after the identify
-clock is configured, so a failing boot reports the ground truth
-(CLOCK_CONTROL, PRESENT_STATE, HOST_CTRL3, DLL_CTRL/RXCLK/TXCLK/
-STRBIN, MISC_CON) on the console.
-
+--- a/drivers/mmc/rockchip_sdhci.c
 +++ b/drivers/mmc/rockchip_sdhci.c
 @@ -411,9 +411,10 @@
  		/* disable dll */
@@ -34,25 +30,7 @@ STRBIN, MISC_CON) on the console.
  		sdhci_writel(host, extra, DWCMSHC_HOST_CTRL3);
  
  		/* reset the clock phase when the frequency is lower than 100MHz */
-@@ -430,6 +431,17 @@
- 			DLL_STRBIN_DELAY_NUM_SEL |
- 			data->ddr50_strbin_delay_num << DLL_STRBIN_DELAY_NUM_OFFSET;
- 		sdhci_writel(host, extra, DWCMSHC_EMMC_DLL_STRBIN);
-+
-+		printf("%s: idclk regs cc=%04x ps=%08x hc3=%08x dll=%08x rx=%08x tx=%08x str=%08x misc=%08x\n",
-+		       priv->dev->name,
-+		       sdhci_readw(host, SDHCI_CLOCK_CONTROL),
-+		       sdhci_readl(host, SDHCI_PRESENT_STATE),
-+		       sdhci_readl(host, DWCMSHC_HOST_CTRL3),
-+		       sdhci_readl(host, DWCMSHC_EMMC_DLL_CTRL),
-+		       sdhci_readl(host, DWCMSHC_EMMC_DLL_RXCLK),
-+		       sdhci_readl(host, DWCMSHC_EMMC_DLL_TXCLK),
-+		       sdhci_readl(host, DWCMSHC_EMMC_DLL_STRBIN),
-+		       sdhci_readl(host, DWCMSHC_EMMC_MISC_CON));
- 	}
- 
- exit:
-@@ -562,6 +574,29 @@
+@@ -562,6 +563,29 @@
  	}
  
  	/*

@@ -23,7 +23,6 @@ SRC_URI:append:recomputer-rk3588-devkit = " \
     file://0006-rk3588-nvme-scan-pci-init.patch \
     file://0007-rk3588-sdhci-pulse-dt-resets.patch \
     file://0008-rk3588-sdhci-enable-clocks-hostctrl3.patch \
-    file://0009-rk3588-sdhci-dump-cru-state.patch \
     file://0010-rk3588-sdhci-mux-shared-pads.patch \
     file://0011-setexpr-store-decimal-result.patch \
 "
@@ -187,18 +186,10 @@ do_configure:prepend:recomputer-rk3588-devkit() {
     fi
     # The kernel enables every DT clock (clk_bulk) and clears the
     # HOST_CTRL3 internal clock gate; this driver did neither, leaving a
-    # closed CRU gate indistinguishable from a dead card.  Also dumps the
-    # controller/PHY registers after the identify clock is set.
+    # closed CRU gate indistinguishable from a dead card.
     if ! grep -q 'no clock reaches the card' ${S}/drivers/mmc/rockchip_sdhci.c; then
         patch -d ${S} -p1 --forward --batch \
             < ${UNPACKDIR}/0008-rk3588-sdhci-enable-clocks-hostctrl3.patch
-    fi
-    # Diagnostic dump for the eMMC -95 hunt: CRU gate/select state
-    # (CLKGATE_CON31 bits 4-8, SET_TO_DISABLE polarity) plus controller
-    # caps/host regs and the final CLOCK_CONTROL/PRESENT_STATE.
-    if ! grep -q 'emmc clkgate31' ${S}/drivers/mmc/rockchip_sdhci.c; then
-        patch -d ${S} -p1 --forward --batch \
-            < ${UNPACKDIR}/0009-rk3588-sdhci-dump-cru-state.patch
     fi
     # eMMC and FSPI-m0 share the GPIO2A/2D pads; booting from SPI-NOR
     # leaves them muxed to fspi and the card never hears a command (-95).

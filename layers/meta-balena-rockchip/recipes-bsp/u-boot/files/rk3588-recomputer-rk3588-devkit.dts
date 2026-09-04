@@ -338,11 +338,19 @@
  * (0007) walks them at probe time. */
 &sdhci {
 	u-boot,dm-pre-reloc;
-	/* Diagnostic cap: block reads time out above the identify rate
-	 * until the high-speed DLL/tap configuration is sorted out. */
-	max-frequency = <12000000>;
-	/* Diagnostic: route all data over DAT0 only. */
-	bus-width = <1>;
+	/* Mirror the kernel board DTS speed config.  The 1-bit/12MHz caps
+	 * below were phase-3 diagnostics for a broken <=52MHz DLL-bypass
+	 * band (reads time out above identify, writes fail with Data CRC +
+	 * End Bit).  Root cause of that detour: this node lacked
+	 * mmc-hs200-1_8v, so rockchip_sdhci never set MMC_MODE_HS200 and
+	 * the card stayed in the legacy band where the vendor driver's
+	 * bypass path (DLL off, TXCLK=0) is broken on this board.  With
+	 * HS200 requested the set_clock() DLL path (clock >= 100MHz, taps
+	 * from DLL lock value) runs instead - the same path the kernel
+	 * uses at its observed HS200/8-bit/100MHz. */
+	max-frequency = <150000000>;
+	bus-width = <8>;
+	mmc-hs200-1_8v;
 	pinctrl-names = "default";
 	pinctrl-0 = <&emmc_rstnout &emmc_bus8 &emmc_clk &emmc_cmd &emmc_data_strobe>;
 	resets = <&cru SRST_C_EMMC>, <&cru SRST_H_EMMC>, <&cru SRST_A_EMMC>,
