@@ -368,8 +368,57 @@
 	status = "okay";
 };
 
+/*
+ * Plain GPU OPP table for panfrost. The SDK gpu_opp_table bins every OPP
+ * behind opp-supported-hw/nvmem filtering that only the kbase rk glue
+ * enables via dev_pm_opp_set_supported_hw(); panfrost never sets it, so
+ * all OPPs are rejected there and the probe dies with -ENOENT. Voltages
+ * are the vendor per-OPP defaults (min/target/max); the RK3576S-only
+ * opp-s-800000000 entry (837500) is dropped for the full-RK3576 one.
+ */
+/ {
+	gpu_opp_table_devkit: gpu-opp-table-devkit {
+		compatible = "operating-points-v2";
+
+		opp-300000000 {
+			opp-hz = /bits/ 64 <300000000>;
+			opp-microvolt = <712500 712500 875000>;
+		};
+		opp-400000000 {
+			opp-hz = /bits/ 64 <400000000>;
+			opp-microvolt = <712500 712500 875000>;
+		};
+		opp-500000000 {
+			opp-hz = /bits/ 64 <500000000>;
+			opp-microvolt = <712500 712500 875000>;
+		};
+		opp-600000000 {
+			opp-hz = /bits/ 64 <600000000>;
+			opp-microvolt = <712500 712500 875000>;
+		};
+		opp-700000000 {
+			opp-hz = /bits/ 64 <700000000>;
+			opp-microvolt = <712500 712500 875000>;
+		};
+		opp-800000000 {
+			opp-hz = /bits/ 64 <800000000>;
+			opp-microvolt = <812500 812500 875000>;
+		};
+		opp-900000000 {
+			opp-hz = /bits/ 64 <900000000>;
+			opp-microvolt = <875000 875000 875000>;
+		};
+	};
+};
+
 &gpu {
 	mali-supply = <&vdd_gpu_s0>;
+	/* panfrost resolves IRQs by lowercase name; the SDK DT uses
+	 * "GPU"/"MMU"/"JOB" (kbase spelling) and platform_get_irq_byname
+	 * is case-sensitive. Interrupt order stays 349/348/347 = gpu/mmu/job.
+	 */
+	interrupt-names = "gpu", "mmu", "job";
+	operating-points-v2 = <&gpu_opp_table_devkit>;
 	status = "okay";
 };
 
