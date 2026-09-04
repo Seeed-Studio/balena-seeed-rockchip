@@ -63,9 +63,6 @@ DECLARE_GLOBAL_DATA_PTR;
 /* Same register the kernel driver calls DECMSHC_EMMC_MISC_CON. */
 #define DWCMSHC_EMMC_MISC_CON		0x81c
 #define DWCMSHC_MISC_INTCLK_EN		BIT(1)
-
-/* debug dump rate limiters (per boot) */
-static int idclk_dumped;
 #define DWCMSHC_EMMC_DLL_STATUS0	0x840
 #define DWCMSHC_EMMC_DLL_STATUS1	0x844
 #define DWCMSHC_EMMC_DLL_START		BIT(0)
@@ -434,31 +431,11 @@ static int dwcmshc_sdhci_emmc_set_clock(struct sdhci_host *host, unsigned int cl
 			DLL_STRBIN_DELAY_NUM_SEL |
 			data->ddr50_strbin_delay_num << DLL_STRBIN_DELAY_NUM_OFFSET;
 		sdhci_writel(host, extra, DWCMSHC_EMMC_DLL_STRBIN);
-
-		if (idclk_dumped++ < 2) {
-			printf("%s: idclk regs cc=%04x ps=%08x hc3=%08x dll=%08x rx=%08x tx=%08x str=%08x misc=%08x\n",
-			       priv->dev->name,
-			       sdhci_readw(host, SDHCI_CLOCK_CONTROL),
-			       sdhci_readl(host, SDHCI_PRESENT_STATE),
-			       sdhci_readl(host, DWCMSHC_HOST_CTRL3),
-			       sdhci_readl(host, DWCMSHC_EMMC_DLL_CTRL),
-			       sdhci_readl(host, DWCMSHC_EMMC_DLL_RXCLK),
-			       sdhci_readl(host, DWCMSHC_EMMC_DLL_TXCLK),
-			       sdhci_readl(host, DWCMSHC_EMMC_DLL_STRBIN),
-			       sdhci_readl(host, DWCMSHC_EMMC_MISC_CON));
-		}
 	}
 
 exit:
 	/* enable output clock */
 	sdhci_enable_clk(host, 0);
-
-	if (idclk_dumped++ < 4) {
-		printf("%s: idclk final cc=%04x ps=%08x\n",
-		       priv->dev->name,
-		       sdhci_readw(host, SDHCI_CLOCK_CONTROL),
-		       sdhci_readl(host, SDHCI_PRESENT_STATE));
-	}
 
 	return ret;
 }
@@ -606,25 +583,6 @@ static int rockchip_sdhci_probe(struct udevice *dev)
 				break;
 			clk_enable(&c);
 		}
-	}
-
-	/*
-	 * Diagnostic only: dump the eMMC CRU clock state.  The five eMMC
-	 * gates live in CLKGATE_CON(31) bits 4-8 (hclk/aclk/cclk/bclk/
-	 * tmclk) with CLK_GATE_SET_TO_DISABLE polarity, so 0 there means
-	 * all five clocks are already enabled; nothing needs writing.
-	 */
-	{
-		/* RK3588 CRU; this vendor tree has no CRU syscon entry. */
-		void __iomem *cru = (void __iomem *)0xfd7c0000;
-
-		printf("%s: emmc clkgate31 %08x sel77 %08x sel78 %08x caps %08x hc %02x hc2 %04x ctl %08x\n",
-		       dev->name,
-		       readl(cru + 0x87c), readl(cru + 0x434), readl(cru + 0x438),
-		       sdhci_readl(host, SDHCI_CAPABILITIES),
-		       sdhci_readb(host, SDHCI_HOST_CONTROL),
-		       sdhci_readw(host, SDHCI_HOST_CONTROL2),
-		       sdhci_readl(host, DWCMSHC_EMMC_CONTROL));
 	}
 
 	/*

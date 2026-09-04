@@ -20,67 +20,11 @@ vendor drive strengths (data/cmd 50ohm, clock 25ohm) - plus the pin
 bias from the kernel pinconf (pcfg_pull_up_drv_level_2 on cmd/clk/
 data, pull_none on strobe/rstn): without the pulls the bus enumerates
 at 400 kHz but block reads time out once the clock is raised.  The
-previous pad state is printed (rate limited).  The identify-clock
-debug dumps are rate limited as well; the boot-time retry loops used
-to flood the console.
+previous pad state is printed (rate limited).
 
+--- a/drivers/mmc/rockchip_sdhci.c
 +++ b/drivers/mmc/rockchip_sdhci.c
-@@ -63,6 +63,9 @@
- /* Same register the kernel driver calls DECMSHC_EMMC_MISC_CON. */
- #define DWCMSHC_EMMC_MISC_CON		0x81c
- #define DWCMSHC_MISC_INTCLK_EN		BIT(1)
-+
-+/* debug dump rate limiters (per boot) */
-+static int idclk_dumped;
- #define DWCMSHC_EMMC_DLL_STATUS0	0x840
- #define DWCMSHC_EMMC_DLL_STATUS1	0x844
- #define DWCMSHC_EMMC_DLL_START		BIT(0)
-@@ -432,26 +435,30 @@
- 			data->ddr50_strbin_delay_num << DLL_STRBIN_DELAY_NUM_OFFSET;
- 		sdhci_writel(host, extra, DWCMSHC_EMMC_DLL_STRBIN);
- 
--		printf("%s: idclk regs cc=%04x ps=%08x hc3=%08x dll=%08x rx=%08x tx=%08x str=%08x misc=%08x\n",
--		       priv->dev->name,
--		       sdhci_readw(host, SDHCI_CLOCK_CONTROL),
--		       sdhci_readl(host, SDHCI_PRESENT_STATE),
--		       sdhci_readl(host, DWCMSHC_HOST_CTRL3),
--		       sdhci_readl(host, DWCMSHC_EMMC_DLL_CTRL),
--		       sdhci_readl(host, DWCMSHC_EMMC_DLL_RXCLK),
--		       sdhci_readl(host, DWCMSHC_EMMC_DLL_TXCLK),
--		       sdhci_readl(host, DWCMSHC_EMMC_DLL_STRBIN),
--		       sdhci_readl(host, DWCMSHC_EMMC_MISC_CON));
-+		if (idclk_dumped++ < 2) {
-+			printf("%s: idclk regs cc=%04x ps=%08x hc3=%08x dll=%08x rx=%08x tx=%08x str=%08x misc=%08x\n",
-+			       priv->dev->name,
-+			       sdhci_readw(host, SDHCI_CLOCK_CONTROL),
-+			       sdhci_readl(host, SDHCI_PRESENT_STATE),
-+			       sdhci_readl(host, DWCMSHC_HOST_CTRL3),
-+			       sdhci_readl(host, DWCMSHC_EMMC_DLL_CTRL),
-+			       sdhci_readl(host, DWCMSHC_EMMC_DLL_RXCLK),
-+			       sdhci_readl(host, DWCMSHC_EMMC_DLL_TXCLK),
-+			       sdhci_readl(host, DWCMSHC_EMMC_DLL_STRBIN),
-+			       sdhci_readl(host, DWCMSHC_EMMC_MISC_CON));
-+		}
- 	}
- 
- exit:
- 	/* enable output clock */
- 	sdhci_enable_clk(host, 0);
- 
--	printf("%s: idclk final cc=%04x ps=%08x\n",
--	       priv->dev->name,
--	       sdhci_readw(host, SDHCI_CLOCK_CONTROL),
--	       sdhci_readl(host, SDHCI_PRESENT_STATE));
-+	if (idclk_dumped++ < 4) {
-+		printf("%s: idclk final cc=%04x ps=%08x\n",
-+		       priv->dev->name,
-+		       sdhci_readw(host, SDHCI_CLOCK_CONTROL),
-+		       sdhci_readl(host, SDHCI_PRESENT_STATE));
-+	}
- 
- 	return ret;
- }
-@@ -621,6 +628,55 @@
+@@ -586,6 +586,55 @@
  	}
  
  	/*
