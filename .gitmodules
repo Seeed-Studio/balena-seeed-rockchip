@@ -30,3 +30,7 @@
 	path = layers/meta-yocto
 	url = https://git.yoctoproject.org/meta-yocto.git
 	branch = wrynose
+[submodule "layers/meta-rockchip"]
+	path = layers/meta-rockchip
+	url = https://github.com/JeffyCN/meta-rockchip.git
+	branch = wrynose
