@@ -72,10 +72,10 @@ BL31:recomputer-rk3588-devkit = "${DEPLOY_DIR_IMAGE}/bl31-rk3588.elf"
 do_compile[depends] += "rockchip-rkbin:do_deploy"
 # The Rockchip FIT generator consumes the trusted firmware from fixed files
 # in its working directory.  Keep the source paths explicit so this remains
-# tied to the locally staged SDK/rkbin deployment rather than a public fetch.
+# tied to the pinned official rkbin deployment rather than a moving fetch.
 RK_TEE:recomputer-rk3588-devkit = "${DEPLOY_DIR_IMAGE}/tee-rk3588.bin"
-RK_BOOT_MERGER:recomputer-rk3588-devkit = "${RK_SDK_ROOT}/rkbin/tools/boot_merger"
-RK_USBPLUG:recomputer-rk3588-devkit = "${RK_SDK_ROOT}/rkbin/bin/rk35/rk3588_usbplug_v1.11.bin"
+RK_BOOT_MERGER:recomputer-rk3588-devkit = "${DEPLOY_DIR_IMAGE}/boot_merger"
+RK_USBPLUG:recomputer-rk3588-devkit = "${DEPLOY_DIR_IMAGE}/usbplug-rk3588.bin"
 SRC_URI:remove:recomputer-rk3588-devkit = "git://source.denx.de/u-boot/u-boot.git;protocol=https;branch=master"
 # The Wrynose U-Boot 2026.01 recipe adds a CVE backport for its pinned
 # mainline tree. It targets files which do not exist in the SDK vendor tree,
@@ -92,12 +92,12 @@ LIC_FILES_CHKSUM:recomputer-rk3588-devkit = "file://Licenses/README;md5=a2c678cf
 
 # The RK3576 machine builds from a dedicated copy of the same official SDK
 # U-Boot tree (see the SRC_URI note above for why the trees are per-SoC).
-# Firmware, usbplug and loader tooling come from the same staged rkbin.
+# Firmware and loader tooling come from the pinned official rkbin recipe.
 EXTERNALSRC:recomputer-rk3576-devkit = "${RK_SDK_ROOT}/source/u-boot-rk3576"
 EXTERNALSRC_BUILD:recomputer-rk3576-devkit = "${WORKDIR}/u-boot-build"
 BL31:recomputer-rk3576-devkit = "${DEPLOY_DIR_IMAGE}/bl31-rk3576.elf"
 RK_TEE:recomputer-rk3576-devkit = "${DEPLOY_DIR_IMAGE}/tee-rk3576.bin"
-RK_BOOT_MERGER:recomputer-rk3576-devkit = "${RK_SDK_ROOT}/rkbin/tools/boot_merger"
+RK_BOOT_MERGER:recomputer-rk3576-devkit = "${DEPLOY_DIR_IMAGE}/boot_merger"
 # The maskrom loader's CODE472 usbplug is rebuilt from this tree (see
 # do_compile) instead of using the rkbin prebuilt: the prebuilt (v1.04)
 # runs UFS link training before serving USB (~20 s of UIC timeouts, which
