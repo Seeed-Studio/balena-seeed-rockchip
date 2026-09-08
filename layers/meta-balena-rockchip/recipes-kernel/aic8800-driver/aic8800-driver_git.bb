@@ -23,6 +23,7 @@ EXTRA_OEMAKE = "KDIR=${STAGING_KERNEL_DIR} ARCH=arm64 CROSS_COMPILE=${TARGET_PRE
 SRC_URI = "git://github.com/radxa-pkg/aic8800.git;protocol=https;nobranch=1;subpath=src/SDIO/driver_fw/driver/aic8800 \
            file://0001-fix-sdio-firmware-path.patch \
            file://0002-fix-sdio-per-chip-firmware-path.patch \
+           file://0003-quiet-default-loglevel.patch \
            "
 SRCREV = "516e3b087763d80c44f5e3b6d2dd63e0d925c91d"
 
