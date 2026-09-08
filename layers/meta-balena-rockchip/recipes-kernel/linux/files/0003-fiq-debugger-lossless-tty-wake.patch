@@ -15,10 +15,8 @@ event re-enters the tty path.  Two hardening changes:
    unbounded schedule(), so any wakeup lost on a path not covered by
    the explicit wakes self-heals within 20 ms instead of stalling
    until serial input arrives.
-
----
---- a/drivers/soc/rockchip/fiq_debugger/rk_fiq_debugger.c	2026-08-27 17:39:45.006903512 +0800
-+++ b/drivers/soc/rockchip/fiq_debugger/rk_fiq_debugger.c	2026-08-27 17:39:45.015553456 +0800
+--- a/drivers/soc/rockchip/fiq_debugger/rk_fiq_debugger.c
++++ b/drivers/soc/rockchip/fiq_debugger/rk_fiq_debugger.c
 @@ -374,7 +374,13 @@
  				smp_store_mb(console_thread_running, true);
  				continue;
@@ -42,10 +40,10 @@ event re-enters the tty path.  Two hardening changes:
 +		/*
 +		 * tty writes run in process context and never hold the
 +		 * console lock, so the conditional wakeup in
-+		 * wake_up_console_thread() (an anti-deadlock measure for
-+		 * the printk path) is not needed here.  Wake the console
-+		 * thread unconditionally so no user-visible output can
-+		 * lose its wakeup.
++		 * wake_up_console_thread() (an anti-deadlock measure
++		 * for the printk path) is not needed here.  Wake the
++		 * console thread unconditionally so no user-visible
++		 * output can lose its wakeup.
 +		 */
 +		wake_up_process(t->console_task);
  	}
