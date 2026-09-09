@@ -251,9 +251,23 @@ CONFIG_ENV_IS_NOWHERE=y
 CONFIG_SPI_FLASH_PUYA=y
 CONFIG_CMD_I2C=y
 # BalenaOS additions over the Seeed Armbian baseline defconfig (see the
-# RK3588 copy for the rationale of each entry; no SPL_STACK_R here, the
-# SDK build relied on the 512 KiB SYS_MALLOC_F pool and no SRAM conflict
-# was ever observed on this SoC).
+# RK3588 copy for the rationale of each entry).  Booting the runtime image
+# directly from SD (board has no eMMC; boot ROM falls back from empty/absent
+# SPI content to the SD idbloader) exhausts the default 512 KiB SPL early
+# malloc pool while parsing the balena GPT (128 entries) plus loading the
+# FIT from card: "sys malloc pool space exhausted" -> GPT entries alloc
+# failure -> Synchronous Abort in dm_mmc_send_cmd's dcache maintenance.
+# Grow the early pool to 4 MiB (lands at 0x43b60000-0x43f5f800, clear of the
+# SPL text at 0x40000000, the FIT load area above 0x40060000 and OP-TEE at
+# 0x48400000).  SPL_STACK_R below is kept as belt-and-braces: the vendor
+# boot flow reaches the media scan before the crt0 stack relocation takes
+# effect (crash dumps show gd still at the initial 0x43f5fe30 stack area),
+# so the enlarged early pool is the fix that actually covers this path.
+CONFIG_SPL_SYS_MALLOC_F_LEN=0x400000
+CONFIG_SPL_STACK_R=y
+CONFIG_SPL_STACK_R_ADDR=0x46000000
+CONFIG_SPL_SYS_MALLOC_SIMPLE=y
+CONFIG_SPL_STACK_R_MALLOC_SIMPLE_LEN=0x100000
 CONFIG_HUSH_PARSER=y
 CONFIG_ENV_SIZE=0x8000
 CONFIG_CMD_NVME=y
