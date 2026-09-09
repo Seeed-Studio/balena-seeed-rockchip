@@ -50,6 +50,7 @@ SRC_URI:append:recomputer-rk3588-devkit = " \
     file://0100-rkflash-sfc-unaligned-write.patch \
     file://0001-rockchip-use-python3-for-fit-generator.patch \
     file://0102-fit-restore-optee-node.patch \
+    file://0103-spi-nor-ids-carry-zbit-entries.patch \
 "
 
 # Same Radxa tree for the RK3576 machine; each machine patches its own
@@ -79,6 +80,7 @@ SRC_URI:append:recomputer-rk3576-devkit = " \
     file://0101-usbplug-defconfig-spi-flash-vendors.patch \
     file://0001-rockchip-use-python3-for-fit-generator.patch \
     file://0102-fit-restore-optee-node.patch \
+    file://0103-spi-nor-ids-carry-zbit-entries.patch \
 "
 
 # meta-balena's env_resin.h drives the hostapp A/B rollback state machine
