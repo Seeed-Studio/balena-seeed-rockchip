@@ -29,7 +29,7 @@
 # closed payload untouched.
 #
 # NOTE the kernel counterpart: the uapi alignment patch guarding
-# ISP2X_MESH_BUF_NUM=2 in linux-seeed-rk3576 (files/0004 of the kernel
+# ISP2X_MESH_BUF_NUM=2 in linux-seeed (files/0004 of the kernel
 # recipe).  The deb's librkaiq issues RKISP_CMD_GET_MESHBUF_INFO with the
 # 2-entry struct layout; against a kernel built with 3 the command number
 # mismatches and the CAC mesh-buffer GET fails with ENOTTY, which kills

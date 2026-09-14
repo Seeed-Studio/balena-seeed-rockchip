@@ -1,8 +1,13 @@
-SUMMARY = "Seeed RK3576 vendor Linux kernel (Armbian rk-6.1-rkr7.2)"
-DESCRIPTION = "Linux 6.1 vendor kernel for the reComputer RK3576 DevKit, \
+# Common definition for the Seeed reComputer vendor Linux kernel.  The
+# recipes (linux-seeed_6.1.bb) exist once for all reComputer machines; each
+# machine only appends its own board files through the per-machine
+# SRC_URI:append:recomputer-* blocks at the bottom of this file.
+
+SUMMARY = "Seeed reComputer vendor Linux kernel (Armbian rk-6.1-rkr7.2)"
+DESCRIPTION = "Linux 6.1 vendor kernel for the Seeed reComputer DevKits, \
 taken from Armbian's linux-rockchip repository (same Rockchip BSP lineage \
 as the previous in-repo SDK snapshot, tracked upstream).  Board DTS files, \
-the fiq-debugger console fixes and the rkaiq mesh-buffer uapi alignment are \
+the fiq-debugger console fixes and the SoC/board config deltas are \
 layered on top."
 SECTION = "kernel"
 LICENSE = "GPL-2.0-only"
@@ -11,18 +16,18 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 inherit kernel
 inherit kernel-yocto
 
-COMPATIBLE_MACHINE = "^recomputer-rk3576-devkit$"
+COMPATIBLE_MACHINE = "^recomputer-"
 
-# Same Armbian vendor branch as the RK3588 machine (the tree covers all
-# rk35xx SoCs).  Pinned to the branch tip verified for this switch.
+# Armbian's vendor branch for all rk35xx SoCs; the same tree feeds every
+# reComputer machine.  Pinned to the branch tip verified for this switch.
+# Shared per-tree files: the fiq-debugger console fixes and the common
+# balena config baseline; each machine appends its own DTS, cam dtsi,
+# config delta and (where needed) extra patches below.
 SRC_URI = "git://github.com/armbian/linux-rockchip.git;protocol=https;branch=rk-6.1-rkr7.2 \
-    file://balena-rk3576.cfg \
-    file://rk3576-recomputer-rk3576-devkit.dts \
-    file://recomputer-rk3576-devkit-cam.dtsi \
+    file://balena-rockchip.cfg \
     file://0001-fiq-debugger-keep-console-on-break.patch \
     file://0002-fiq-debugger-console-thread-lost-wakeup.patch \
     file://0003-fiq-debugger-lossless-tty-wake.patch \
-    file://0004-uapi-rkisp-mesh-buf-num-2.patch \
 "
 SRCREV = "5ef479b1070b9d74dcefce859826176ce0eb5fe1"
 
@@ -42,19 +47,36 @@ KBUILD_DEFCONFIG = "rockchip_linux_defconfig"
 # silent kernel.  Use alldefconfig so unlisted symbols keep their defaults.
 KCONFIG_MODE = "alldefconfig"
 KERNEL_IMAGETYPE = "Image"
-KERNEL_DEVICETREE = "rockchip/rk3576-recomputer-rk3576-devkit.dtb"
+# KERNEL_DEVICETREE stays per machine (set in the machine confs); it is
+# deliberately not set here so a future machine cannot silently inherit
+# another board's DTB.
+
+# Per-machine additions: board DTS pair, config delta and SoC-specific
+# patches.  Filenames follow the ${RK_SOC_FAMILY}-${MACHINE}.dts and
+# ${MACHINE}-cam.dtsi patterns.
+SRC_URI:append:recomputer-rk3588-devkit = " \
+    file://balena-rk3588-extra.cfg \
+    file://rk3588-recomputer-rk3588-devkit.dts \
+    file://recomputer-rk3588-devkit-cam.dtsi \
+"
+SRC_URI:append:recomputer-rk3576-devkit = " \
+    file://balena-rk3576-extra.cfg \
+    file://rk3576-recomputer-rk3576-devkit.dts \
+    file://recomputer-rk3576-devkit-cam.dtsi \
+    file://0004-uapi-rkisp-mesh-buf-num-2.patch \
+"
 
 # The vendor tree is SoC-complete but does not carry Seeed's board DTS.  Add
 # only the board files and DTB registration to the source tree at configure
 # time (installed from UNPACKDIR so bitbake's stamp tracking sees them).
-do_configure:prepend:recomputer-rk3576-devkit() {
-    install -Dm0644 ${UNPACKDIR}/rk3576-recomputer-rk3576-devkit.dts \
-        ${S}/arch/arm64/boot/dts/rockchip/rk3576-recomputer-rk3576-devkit.dts
-    install -Dm0644 ${UNPACKDIR}/recomputer-rk3576-devkit-cam.dtsi \
-        ${S}/arch/arm64/boot/dts/rockchip/recomputer-rk3576-devkit-cam.dtsi
-    if ! grep -q 'rk3576-recomputer-rk3576-devkit.dtb' \
+do_configure:prepend() {
+    install -Dm0644 ${UNPACKDIR}/${RK_SOC_FAMILY}-${MACHINE}.dts \
+        ${S}/arch/arm64/boot/dts/rockchip/${RK_SOC_FAMILY}-${MACHINE}.dts
+    install -Dm0644 ${UNPACKDIR}/${MACHINE}-cam.dtsi \
+        ${S}/arch/arm64/boot/dts/rockchip/${MACHINE}-cam.dtsi
+    if ! grep -q '${RK_SOC_FAMILY}-${MACHINE}.dtb' \
         ${S}/arch/arm64/boot/dts/rockchip/Makefile; then
-        printf '%s\n' 'dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-recomputer-rk3576-devkit.dtb' \
+        printf '%s\n' 'dtb-$(CONFIG_ARCH_ROCKCHIP) += ${RK_SOC_FAMILY}-${MACHINE}.dtb' \
             >> ${S}/arch/arm64/boot/dts/rockchip/Makefile
     fi
 }
@@ -64,7 +86,7 @@ do_configure:prepend:recomputer-rk3576-devkit() {
 # compiler prefix maps cannot rewrite because it is generated source text.
 # Replace the build-root portion after generation so linux-*-src remains
 # relocatable and passes the package QA check.
-do_compile:append:recomputer-rk3576-devkit() {
+do_compile:append() {
     for generated in \
         ${B}/drivers/tty/vt/consolemap_deftbl.c \
         ${B}/lib/oid_registry_data.c; do
@@ -74,7 +96,7 @@ do_compile:append:recomputer-rk3576-devkit() {
     done
 }
 
-do_compile_kernelmodules:append:recomputer-rk3576-devkit() {
+do_compile_kernelmodules:append() {
     for generated in \
         ${B}/drivers/tty/vt/consolemap_deftbl.c \
         ${B}/lib/oid_registry_data.c; do
@@ -89,11 +111,11 @@ do_compile_kernelmodules:append:recomputer-rk3576-devkit() {
 # write straight into ${S}/.kernel-meta, and do_kernel_configme itself
 # redirects merge_config.sh output into ${S}/.kernel-meta/cfg, all of which
 # fail with "Directory nonexistent" when nothing has created them yet.
-# mkdir -p is idempotent even when both machines build from this tree.
-do_kernel_metadata:prepend:recomputer-rk3576-devkit() {
+# mkdir -p is idempotent even when several machines build from this tree.
+do_kernel_metadata:prepend() {
     mkdir -p ${S}/.kernel-meta ${S}/.kernel-meta/cfg
 }
 
-do_kernel_configme:prepend:recomputer-rk3576-devkit() {
+do_kernel_configme:prepend() {
     mkdir -p ${S}/.kernel-meta ${S}/.kernel-meta/cfg
 }
