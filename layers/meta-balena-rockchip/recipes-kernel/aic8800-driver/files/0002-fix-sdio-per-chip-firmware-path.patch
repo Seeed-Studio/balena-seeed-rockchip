@@ -1,3 +1,9 @@
+Make the SDIO firmware lookup per-chip: get_fw_path() appends the
+chip-specific subdirectory to the configured base path, matching the
+layout the aic8800-firmware package installs.
+
+Upstream-Status: Inappropriate [distro firmware location]
+
 diff --git a/aic8800_bsp/aic8800dc_compat.c b/aic8800_bsp/aic8800dc_compat.c
 index 64fbb01..60b9b6f 100644
 --- a/aic8800_bsp/aic8800dc_compat.c

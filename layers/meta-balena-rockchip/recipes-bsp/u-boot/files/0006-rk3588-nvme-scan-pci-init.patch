@@ -13,6 +13,7 @@ probes every UCLASS_PCI controller and, as a side effect of probing,
 enumerates the buses and binds the NVMe child devices the loop below is
 meant to probe.
 
+Upstream-Status: Pending
 ---
 --- a/drivers/nvme/nvme.c	2026-08-27 14:06:58.339750973 +0800
 +++ b/drivers/nvme/nvme.c	2026-08-27 14:06:58.352855325 +0800

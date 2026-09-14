@@ -21,6 +21,7 @@ instead of sleeping when new data arrived in the window.  A producer
 that arrives after the store still performs wake_up_process() itself,
 so no wakeup is lost either way.
 
+Upstream-Status: Pending
 ---
 --- a/drivers/soc/rockchip/fiq_debugger/rk_fiq_debugger.c	2026-08-27 16:51:04.820538083 +0800
 +++ b/drivers/soc/rockchip/fiq_debugger/rk_fiq_debugger.c	2026-08-27 16:51:04.843696924 +0800

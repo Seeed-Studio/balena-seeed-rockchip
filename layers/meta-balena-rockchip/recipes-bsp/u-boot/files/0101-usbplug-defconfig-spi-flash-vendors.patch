@@ -12,6 +12,7 @@ Configs added: EON, ISSI, PUYA, FMSH, DOSILICON, BOYA, ZBIT, NORMEM, ATMEL,
 SPANSION, STMICRO.
 
 Signed-off-by: Ming Zhangqun <north_sea@qq.com>
+Upstream-Status: Pending
 ---
  configs/rockchip-usbplug_defconfig | 11 +++++++++++
  1 file changed, 11 insertions(+)

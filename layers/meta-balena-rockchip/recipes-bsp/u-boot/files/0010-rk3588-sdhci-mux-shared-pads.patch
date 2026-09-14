@@ -22,6 +22,8 @@ data, pull_none on strobe/rstn): without the pulls the bus enumerates
 at 400 kHz but block reads time out once the clock is raised.  The
 previous pad state is printed (rate limited).
 
+Upstream-Status: Pending
+
 --- a/drivers/mmc/rockchip_sdhci.c
 +++ b/drivers/mmc/rockchip_sdhci.c
 @@ -586,6 +586,55 @@

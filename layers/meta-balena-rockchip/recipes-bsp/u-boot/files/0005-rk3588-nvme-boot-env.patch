@@ -19,6 +19,8 @@ puts mmc0 (internal eMMC) ahead of nvme0, so once the eMMC carries a
 bootable extlinux.conf the distro scan would boot the installed runtime
 instead of the flasher and the install media would never run.
 
+Upstream-Status: Inappropriate [boot environment configuration]
+
 --- a/include/env_default.h
 +++ b/include/env_default.h
 @@ -112,6 +112,17 @@

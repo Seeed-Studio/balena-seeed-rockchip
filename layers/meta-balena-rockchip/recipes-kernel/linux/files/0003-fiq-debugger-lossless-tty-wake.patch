@@ -15,6 +15,9 @@ event re-enters the tty path.  Two hardening changes:
    unbounded schedule(), so any wakeup lost on a path not covered by
    the explicit wakes self-heals within 20 ms instead of stalling
    until serial input arrives.
+
+Upstream-Status: Pending
+
 --- a/drivers/soc/rockchip/fiq_debugger/rk_fiq_debugger.c
 +++ b/drivers/soc/rockchip/fiq_debugger/rk_fiq_debugger.c
 @@ -374,7 +374,13 @@

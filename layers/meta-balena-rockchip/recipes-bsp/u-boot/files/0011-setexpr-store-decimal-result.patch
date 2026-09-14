@@ -27,6 +27,7 @@ os_inc_bc_save's "env export/fatwrite bootcount.env" and matches both
 the decimal test comparisons and the decimal resin_root_part written
 by the OS-side 99-resin-uboot hook.
 
+Upstream-Status: Inappropriate [balena rollback environment arithmetic]
 ---
 --- a/cmd/setexpr.c
 +++ b/cmd/setexpr.c

@@ -8,6 +8,7 @@ copying to an aligned temp buffer. Without this fix, usbplug fails to
 read SPI flash capability in Maskrom mode.
 
 Signed-off-by: Ming Zhangqun <north_sea@qq.com>
+Upstream-Status: Backport
 ---
  drivers/rkflash/sfc.c | 19 ++++++++++++++++++-
  1 file changed, 18 insertions(+), 1 deletion(-)

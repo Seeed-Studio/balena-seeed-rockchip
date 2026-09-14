@@ -9,6 +9,7 @@ path, clock) that the test documentation relies on, drop the rest.
 The fdrv level stays runtime-tunable via /sys/module/aic8800_fdrv/
 parameters/aicwf_dbg_level if verbose tracing is ever needed.
 
+Upstream-Status: Inappropriate [default debug configuration]
 ---
 --- a/aic8800_fdrv/rwnx_main.c
 +++ b/aic8800_fdrv/rwnx_main.c

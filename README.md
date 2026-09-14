@@ -101,6 +101,19 @@ up serial console support for example) and build prerequisites. Build flags can
 be set by using the build scripts (barys or balena-build) or by manually
 modifying `local.conf`.
 
+### Vendored layer QA policy
+
+The vendored meta-rockchip layer globally removes the `patch-status` and
+`patch-fuzz` checks from `ERROR_QA`/`WARN_QA`
+(`conf/machine/include/rockchip-common.inc` in that layer), so patches without
+an `Upstream-Status` header or with fuzz do not fail its builds.  This
+repository intentionally keeps that upstream behavior instead of modifying the
+digest-pinned submodule, and compensates on its own side: every patch carried
+under `layers/meta-balena-rockchip` declares an `Upstream-Status` header
+(`Pending` for real vendor-tree fixes, `Backport` for changes taken from
+newer upstream releases, `Inappropriate` with a reason for Balena/distro
+integration deltas).
+
 ## Contributing
 
 ### Issues

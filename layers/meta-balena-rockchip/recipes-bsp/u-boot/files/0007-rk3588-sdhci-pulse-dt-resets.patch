@@ -27,6 +27,8 @@ showed on the board.  The DM reset API is already enabled for both
 U-Boot proper and SPL in the board defconfig, so the same code path
 covers both stages.
 
+Upstream-Status: Pending
+
 diff --git a/drivers/mmc/rockchip_sdhci.c b/bsp/rockchip-sdk/source/u-boot/drivers/mmc/rockchip_sdhci.c
 index 373b634a9..9c36ce6d4 100644
 --- a/drivers/mmc/rockchip_sdhci.c

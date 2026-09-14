@@ -16,6 +16,8 @@ dwcmshc_sdhci_emmc_set_clock() for the <=52 MHz identify path:
    stops the card clock, which is indistinguishable from a dead card
    ("Card did not respond to voltage select", -95).
 
+Upstream-Status: Pending
+
 --- a/drivers/mmc/rockchip_sdhci.c
 +++ b/drivers/mmc/rockchip_sdhci.c
 @@ -411,9 +411,10 @@

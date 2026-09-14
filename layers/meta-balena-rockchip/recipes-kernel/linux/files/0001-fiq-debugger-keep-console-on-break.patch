@@ -12,6 +12,7 @@ unusable until someone types the "console" debugger command.
 Only honor the break entry when the console passthrough is already off,
 so a stray break can never steal the console from getty/login.
 
+Upstream-Status: Pending
 ---
 --- a/drivers/soc/rockchip/fiq_debugger/fiq_debugger.c	2026-08-27 16:12:08.220544302 +0800
 +++ b/drivers/soc/rockchip/fiq_debugger/fiq_debugger.c	2026-08-27 16:12:08.237434285 +0800
