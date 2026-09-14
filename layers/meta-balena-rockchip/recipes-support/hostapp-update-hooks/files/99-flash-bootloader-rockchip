@@ -3,8 +3,8 @@
 # Update the Rockchip loader artifacts from resin-boot onto the media that
 # currently contains /mnt/boot. Keep the same raw offsets used to assemble
 # balenaos-img so hostapp updates and first provisioning are identical.
-# RK3576 uses the same loader slots as RK3588 (idbloader at sector 64,
-# u-boot.itb at sector 16384).
+# Both reComputer SoCs use the same loader slots (idbloader at sector
+# 64, u-boot.itb at sector 16384).
 
 set -eu
 

@@ -38,7 +38,7 @@ S = "${UNPACKDIR}/aic8800"
 RDEPENDS:${PN} += "aic8800-firmware"
 RPROVIDES:${PN} += "kernel-module-aic8800-fdrv kernel-module-aic8800-bsp kernel-module-aic8800-btlpm"
 
-COMPATIBLE_MACHINE = "^(recomputer-rk3588-devkit|recomputer-rk3576-devkit)$"
+COMPATIBLE_MACHINE = "^recomputer-"
 
 # The vendor Makefile has no modules_install target (its install rule does a
 # bare copy to /lib/modules/$(uname -r) and runs the host depmod), so install

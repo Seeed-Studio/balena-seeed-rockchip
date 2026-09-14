@@ -19,7 +19,7 @@ SRCREV = "a6f2a6486d5c5ce0506c57e795a27022e1687ce7"
 PROVIDES += "trusted-firmware-a optee-os"
 INHIBIT_DEFAULT_DEPS = "1"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-COMPATIBLE_MACHINE = "^(recomputer-rk3588-devkit|recomputer-rk3576-devkit)$"
+COMPATIBLE_MACHINE = "^recomputer-"
 
 PACKAGES = "${PN}"
 ALLOW_EMPTY:${PN} = "1"

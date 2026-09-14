@@ -1,5 +1,5 @@
 #!/bin/sh
-# Persistent NCM USB network gadget for the reComputer RK3588 DevKit Type-C
+# Persistent NCM USB network gadget for the reComputer DevKit Type-C
 # OTG port (dwc3 dr_mode=otg).  Pattern follows the Seeed Armbian
 # usb-gadget-network BSP package: compose the gadget through configfs and
 # bind it to the UDC whenever the controller shows up in peripheral mode.
@@ -27,7 +27,9 @@ echo 0x0100 > bcdDevice
 
 mkdir -p strings/0x409
 echo "Seeed" > strings/0x409/manufacturer
-echo "reComputer RK3588 DevKit" > strings/0x409/product
+# The product string is shared by all reComputer machines (the script
+# ships in one package for all of them); hosts only show it as a label.
+echo "Seeed reComputer DevKit" > strings/0x409/product
 echo "0123456789" > strings/0x409/serialnumber
 
 mkdir -p functions/ncm.usb0
