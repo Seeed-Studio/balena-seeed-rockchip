@@ -1,5 +1,3 @@
-#  balena-rockchip repository
-
 ## Clone/Initialize the repository
 
 There are two ways of initializing this repository:
@@ -52,27 +50,49 @@ Additional host tools need to be installed for native builds to work.
 
 * Run bitbake (see message outputted when you sourced above for examples)
 
-### Seeed reComputer RK3588 DevKit
+### Direct Yocto build
 
-The initial board port is available as `recomputer-rk3588-devkit`.
+The barys flow above is the upstream default. This repository is also built
+directly with the standard Yocto environment, which is the validated flow for
+these machines (Wrynose uses the OE-Core + BitBake submodule layout; barys
+selects it automatically through the layer's LAYERSERIES_COMPAT).
 
-It uses the Seeed board DTB, the Rockchip official SDK staged from the private
-build server, and the Balena Rockchip raw-loader layout. See [PORTING.md](PORTING.md) for the current
-bring-up status and the remaining hardware validation steps. The detailed
-phase-one change log is in [docs/阶段一移植工作记录.md](docs/阶段一移植工作记录.md).
+For each machine (`recomputer-rk3576-devkit` or `recomputer-rk3588-devkit`),
+using rk3588 as the example:
 
-Build this board from the repository root with:
+```bash
+# One-time per clone: initialize the pinned submodules
+git submodule update --init --recursive
 
+# First time only (creates build-recomputer-rk3588-devkit/conf from the
+# layer template); re-run in every new shell afterwards:
+export TEMPLATECONF=$PWD/layers/meta-balena-rockchip/conf/templates/default
+MACHINE=recomputer-rk3588-devkit source layers/openembedded-core/oe-init-build-env \
+    build-recomputer-rk3588-devkit layers/bitbake
+
+# Build the flasher image (production by default)
+MACHINE=recomputer-rk3588-devkit bitbake balena-image-flasher
 ```
-scripts/build-recomputer-rk3588-devkit.sh
-```
 
-The script initializes the pinned submodules, installs the JavaScript build
-dependencies through the existing Barys entry point, and starts the Yocto
-build. Its default `build-recomputer-rk3588-devkit/` directory contains the
-temporary work tree, source downloads and sstate cache; all of these locations
-are relative to the repository and are Git-ignored. Use `--clean` for a fresh
-build or `--continue` to keep going after individual task failures.
+Notes:
+
+* TEMPLATECONF only matters when the build directory is first created; it is
+  ignored once `conf/` exists.
+* The build defaults to a production image. For a development (debug) image,
+  either put `OS_DEVELOPMENT = "1"` in local.conf, or pass it per build:
+  `bitbake -R /tmp/dev.conf balena-image-flasher` with
+  `echo 'OS_DEVELOPMENT = "1"' > /tmp/dev.conf` (postread files override
+  local.conf), or whitelist and export it:
+  `export BB_ENV_PASSTHROUGH_ADDITIONS="$BB_ENV_PASSTHROUGH_ADDITIONS OS_DEVELOPMENT"`
+  then prefix the build with `OS_DEVELOPMENT=1`.
+* Useful switches: `-k` continues past task failures; `bitbake -C compile
+  u-boot` forces a loader rebuild when only deploy artifacts are wanted.
+* Artifacts land in
+  `build-recomputer-rk3588-devkit/tmp/deploy/images/recomputer-rk3588-devkit/`:
+  the flasher and runtime `*.balenaos-img` images and the OTA
+  `*.docker` hostapp bundle are unversioned symlinks (use `cp -L` to
+  materialize them), while `rkspi_loader.img` and `spl_loader_maskrom.bin`
+  (maskrom flashing) are plain files.
 
 ### Build flags
 
