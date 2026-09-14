@@ -14,13 +14,6 @@ do_image_docker[nostamp] = "1"
 # explicit deploy dependency a deploy-only change ships stale boot files.
 do_resin_boot_dirgen_and_deploy[depends] += "virtual/kernel:do_deploy virtual/bootloader:do_deploy"
 
-BALENA_BOOT_PARTITION_FILES:append:rockpi-4b-rk3399 = " \
-    idbloader.img:/ \
-    u-boot.itb:/ \
-"
-
-IMAGE_INSTALL:append:rockpi-4b-rk3399 = " u-boot-extlinux"
-
 BALENA_BOOT_PARTITION_FILES:append:recomputer-rk3588-devkit = " \
     idbloader.img:/ \
     u-boot.itb:/ \
@@ -28,8 +21,6 @@ BALENA_BOOT_PARTITION_FILES:append:recomputer-rk3588-devkit = " \
     rk3588-recomputer-rk3588-devkit-recomputer-rk3588-devkit.dtb:/rk3588-recomputer-rk3588-devkit.dtb \
     extlinux/extlinux.conf:/extlinux/extlinux.conf \
 "
-
-IMAGE_INSTALL:append:recomputer-rk3588-devkit = " u-boot-extlinux"
 
 # Same boot-partition bundle for the RK3576: raw loaders, the initramfs
 # bundle kernel, the board DTB and the runtime extlinux (bare kernels
@@ -41,5 +32,3 @@ BALENA_BOOT_PARTITION_FILES:append:recomputer-rk3576-devkit = " \
     rk3576-recomputer-rk3576-devkit-recomputer-rk3576-devkit.dtb:/rk3576-recomputer-rk3576-devkit.dtb \
     extlinux/extlinux.conf:/extlinux/extlinux.conf \
 "
-
-IMAGE_INSTALL:append:recomputer-rk3576-devkit = " u-boot-extlinux"
