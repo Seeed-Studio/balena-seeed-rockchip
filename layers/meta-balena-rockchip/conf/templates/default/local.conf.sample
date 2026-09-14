@@ -34,9 +34,12 @@ DISTRO ?= "resin-systemd"
 
 # Keep fetches and shared-state artifacts inside the build directory.  TOPDIR
 # is calculated by BitBake at run time, so this works regardless of where the
-# repository is cloned and does not reuse another checkout's cache.
-DL_DIR = "${TOPDIR}/downloads"
-SSTATE_DIR = "${TOPDIR}/sstate-cache"
+# repository is cloned and does not reuse another checkout's cache.  The "?="
+# form keeps these defaults while letting barys --shared-downloads /
+# --shared-sstate rewrite them to a shared cache (barys only rewrites lines
+# written as "?=").
+DL_DIR ?= "${TOPDIR}/downloads"
+SSTATE_DIR ?= "${TOPDIR}/sstate-cache"
 
 # Inheriting this class has shown to speed up builds due to significantly lower
 # amounts of data stored in the data cache as well as on disk.
