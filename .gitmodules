@@ -34,3 +34,6 @@
 	path = layers/meta-rockchip
 	url = https://github.com/JeffyCN/meta-rockchip.git
 	branch = wrynose
+[submodule "layers/meta-seeed-rockchip"]
+	path = layers/meta-seeed-rockchip
+	url = https://github.com/Seeed-Studio/meta-seeed-rockchip.git
