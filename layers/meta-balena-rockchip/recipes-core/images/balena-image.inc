@@ -49,7 +49,9 @@ deploy_image_license_manifest() {
 # to Balena's image layout and leave boot/rootA at partitions 3/4.
 PARTITION_TABLE_TYPE:recomputer-rk3588-devkit = "gpt"
 DEVICE_SPECIFIC_SPACE:recomputer-rk3588-devkit = "40960"
-IMAGE_ROOTFS_SIZE:recomputer-rk3588-devkit = "733184"
+# Sized for the meta-rockchip rkaiq+rkisp camera stack in IMAGE_INSTALL;
+# 733184 KiB failed the HUP size check by ~24 MiB once rkisp was added.
+IMAGE_ROOTFS_SIZE:recomputer-rk3588-devkit = "798720"
 # Wrynose's uncompressed initramfs Image is larger than the previous
 # baseline. Leave enough free space for atomic boot-file replacement.
 BALENA_BOOT_SIZE:recomputer-rk3588-devkit = "180224"
@@ -70,7 +72,9 @@ IMAGE_CMD:balenaos-img:append:recomputer-rk3588-devkit () {
 # uses the same loader slots), so boot/rootA stay at partitions 3/4.
 PARTITION_TABLE_TYPE:recomputer-rk3576-devkit = "gpt"
 DEVICE_SPECIFIC_SPACE:recomputer-rk3576-devkit = "40960"
-IMAGE_ROOTFS_SIZE:recomputer-rk3576-devkit = "733184"
+# Sized for the meta-rockchip rkaiq+rkisp camera stack in IMAGE_INSTALL;
+# 733184 KiB failed the HUP size check by ~24 MiB once rkisp was added.
+IMAGE_ROOTFS_SIZE:recomputer-rk3576-devkit = "798720"
 BALENA_BOOT_SIZE:recomputer-rk3576-devkit = "180224"
 BALENA_STATE_SIZE:recomputer-rk3576-devkit = "20480"
 
