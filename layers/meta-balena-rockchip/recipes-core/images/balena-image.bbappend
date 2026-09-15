@@ -1,5 +1,11 @@
 include balena-image.inc
 
+IMAGE_INSTALL:append = " \
+    u-boot-extlinux \
+    usb-gadget-network \
+    board-access-keys \
+"
+
 # image_types_balena names BALENA_DOCKER_IMG after the DATETIME-versioned
 # ${IMAGE_NAME}, so the file only exists when do_image_docker ran in the
 # *current* build.  A bootloader-only change reruns do_image_balenaos_img

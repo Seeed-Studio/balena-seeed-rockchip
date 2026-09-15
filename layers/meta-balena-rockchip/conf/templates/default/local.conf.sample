@@ -1,6 +1,5 @@
 # Supported machines
-#MACHINE ?= "recomputer-rk3576-devkit"
-#MACHINE ?= "recomputer-rk3588-devkit"
+MACHINE ?= "recomputer-rk3588-devkit"
 
 BALENA_STORAGE = "overlay2"
 

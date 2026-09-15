@@ -1,5 +1,11 @@
 include balena-image.inc
 
+IMAGE_INSTALL:append = " \
+    u-boot-extlinux \
+    usb-gadget-network \
+    board-access-keys \
+"
+
 BALENA_BOOT_PARTITION_FILES:append:recomputer-rk3588-devkit = " \
     extlinux/extlinux.conf_flasher:/extlinux/extlinux.conf \
     rk3588-recomputer-rk3588-devkit.dtb:/ \
