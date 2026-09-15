@@ -57,7 +57,9 @@ directly with the standard Yocto environment, which is the validated flow for
 these machines (Wrynose uses the OE-Core + BitBake submodule layout; barys
 selects it automatically through the layer's LAYERSERIES_COMPAT).
 
-For each machine (`recomputer-rk3576-devkit` or `recomputer-rk3588-devkit`),
+The hardware support is provided by `layers/meta-seeed-rockchip`; the
+BalenaOS integration is provided by `layers/meta-balena-rockchip`, which
+depends on the Seeed layer. For each machine (`recomputer-rk3576-devkit` or `recomputer-rk3588-devkit`),
 using rk3588 as the example:
 
 ```bash
