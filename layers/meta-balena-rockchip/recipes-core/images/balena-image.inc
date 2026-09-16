@@ -86,4 +86,53 @@ device_specific_configuration:recomputer-rk3576-devkit() {
 IMAGE_CMD:balenaos-img:append:recomputer-rk3576-devkit () {
     dd if=${DEPLOY_DIR_IMAGE}/idbloader.img of=${BALENA_RAW_IMG} conv=notrunc bs=512 seek=64
     dd if=${DEPLOY_DIR_IMAGE}/u-boot.itb of=${BALENA_RAW_IMG} conv=notrunc bs=512 seek=16384
+
+    # Shrink the GPT partition-entry table from the parted default 128
+    # entries to 16 (this image only has 7).  The stock SPI SPL parses
+    # the GPT (primary + backup) with a bump allocator that never frees,
+    # so 128 entries cost 16 KiB per scan and push the final
+    # memalign_simple() for the u-boot FIT image over the early-pool
+    # cliff; the NULL buffer then aborts in dcache maintenance.  16
+    # entries keep every partition LBA/UUID/label identical and free
+    # ~28 KiB of the pool instead.
+    python3 - "${BALENA_RAW_IMG}" <<'PYEOF'
+import struct, sys, zlib
+
+img = sys.argv[1]
+ss = 512
+
+def shrink(hdr):
+    # UEFI GPT header: NumberOfPartitionEntries is a UINT32 at offset 80,
+    # SizeOfPartitionEntry a UINT32 at 84, entry-array CRC at 88.
+    n = struct.unpack_from('<I', hdr, 80)[0]
+    if n == 16:
+        return False
+    assert n == 128, f"unexpected GPT entries count {n}"
+    struct.pack_into('<I', hdr, 80, 16)
+    return True
+
+def fixup_crcs(f, hdr_lba):
+    f.seek(hdr_lba * ss)
+    hdr = bytearray(f.read(ss))
+    assert hdr[0:8] == b'EFI PART', f"no GPT header at LBA {hdr_lba}"
+    if not shrink(hdr):
+        return
+    pte_lba = struct.unpack_from('<Q', hdr, 72)[0]
+    # entry-array CRC now covers 16 * 128 bytes from the declared PTE LBA
+    f.seek(pte_lba * ss)
+    pte_crc = zlib.crc32(f.read(16 * 128)) & 0xffffffff
+    struct.pack_into('<I', hdr, 88, pte_crc)
+    # header CRC over the first 92 bytes with the CRC field zeroed
+    struct.pack_into('<I', hdr, 16, 0)
+    struct.pack_into('<I', hdr, 16, zlib.crc32(bytes(hdr[:92])) & 0xffffffff)
+    f.seek(hdr_lba * ss)
+    f.write(hdr)
+
+with open(img, 'r+b') as f:
+    f.seek(0, 2)
+    last_lba = f.tell() // ss - 1
+    fixup_crcs(f, 1)          # primary header
+    fixup_crcs(f, last_lba)   # backup header
+print("GPT partition entries shrunk 128 -> 16")
+PYEOF
 }
