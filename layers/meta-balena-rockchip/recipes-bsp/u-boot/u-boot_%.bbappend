@@ -66,6 +66,13 @@ UBOOT_EXTLINUX = "1"
 UBOOT_EXTLINUX_LABELS = "balenaOS"
 UBOOT_EXTLINUX_ROOT = "${resin_kernel_root}"
 UBOOT_EXTLINUX_KERNEL_ARGS = "${os_cmdline}"
+# The vendor U-Boot extlinux scan resolves FDTDIR entries only against
+# vendor subdirectories (../rockchip/*.dtb), but the rootfs installs the
+# dtb flat in /boot.  With the balena devplist patch the scan targets the
+# root partition, whose OE-generated extlinux.conf would fail with
+# "File not found ... Skipping" right after loading the kernel.  Point
+# at the dtb file explicitly instead.
+UBOOT_EXTLINUX_FDT = "../${@d.getVar('KERNEL_DEVICETREE').split()[0].split('/')[-1]}"
 BALENA_BOOT_PART = "3"
 BALENA_DEFAULT_ROOT_PART = "4"
 BALENA_UBOOT_DEVICE_TYPES = "mmc nvme"
