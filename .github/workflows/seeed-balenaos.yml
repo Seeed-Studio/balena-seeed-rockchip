@@ -1,0 +1,94 @@
+name: Seeed BalenaOS Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      machine:
+        description: Board to build
+        required: true
+        type: choice
+        options:
+          - recomputer-rk3576-devkit
+          - recomputer-rk3588-devkit
+      yocto_version:
+        description: Yocto release series
+        required: true
+        type: choice
+        options:
+          - wrynose
+        default: wrynose
+
+concurrency:
+  group: balenaos-${{ github.workflow }}-${{ github.ref }}-${{ inputs.machine }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: ${{ inputs.machine }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+
+      - name: Free up runner disk space
+        run: |
+          sudo apt-get remove -yq \
+            '^dotnet-.*' '^llvm-.*' 'php.*' \
+            azure-cli google-cloud-sdk firefox google-chrome-stable \
+            powershell mono-complete > /dev/null 2>&1 || true
+          sudo apt-get autoremove -y > /dev/null 2>&1 || true
+          sudo apt-get clean
+          sudo rm -rf "${AGENT_TOOLSDIRECTORY:-/opt/hostedtoolcache}" \
+            /usr/local/lib/android /usr/local/share/boost \
+            /usr/share/dotnet /usr/share/swift \
+            /opt/ghc /usr/local/.ghcup
+          sudo docker image prune -af > /dev/null 2>&1 || true
+          df -h /
+
+      - name: Install Yocto host dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            bc build-essential chrpath cpio diffstat file gawk git \
+            iputils-ping libacl1 libegl1 lz4 libsdl2-dev \
+            mesa-common-dev pylint python3 python3-git python3-jinja2 \
+            python3-pexpect python3-subunit socat texinfo unzip \
+            wget xterm xz-utils zstd
+
+      - name: Enable BitBake user namespaces
+        run: |
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
+      - name: Build BalenaOS image
+        env:
+          MACHINE: ${{ inputs.machine }}
+          YOCTO_VERSION: ${{ inputs.yocto_version }}
+        run: |
+          set -euo pipefail
+          test "$YOCTO_VERSION" = wrynose
+          build_dir="build-${YOCTO_VERSION}-${MACHINE}"
+          ./balena-yocto-scripts/build/barys \
+            --machine "$MACHINE" \
+            --build-name "$build_dir" \
+            --remove-build \
+            --rm-work \
+            --log
+
+      - name: Upload BalenaOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: balenaos-${{ inputs.machine }}-${{ inputs.yocto_version }}
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            build-${{ inputs.yocto_version }}-${{ inputs.machine }}/tmp/deploy/images/${{ inputs.machine }}/*.balenaos-img*
+            build-${{ inputs.yocto_version }}-${{ inputs.machine }}/tmp/deploy/images/${{ inputs.machine }}/*.docker*
+            build-${{ inputs.yocto_version }}-${{ inputs.machine }}/tmp/deploy/images/${{ inputs.machine }}/rkspi_loader.img
+            build-${{ inputs.yocto_version }}-${{ inputs.machine }}/tmp/deploy/images/${{ inputs.machine }}/spl_loader_maskrom.bin
