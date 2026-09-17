@@ -2,7 +2,6 @@ include balena-image.inc
 
 IMAGE_INSTALL:append = " \
     u-boot-extlinux \
-    usb-gadget-network \
     board-access-keys \
 "
 

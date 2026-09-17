@@ -1,6 +1,6 @@
 # Installs the build host's SSH public key into /root/.ssh/authorized_keys_local
-# so key-based ssh/scp over the gadget link (ssh -p 22222 root@10.55.0.2)
-# works immediately after every re-flash, with zero on-board setup.
+# so key-based ssh/scp works immediately after every re-flash, with zero
+# on-board setup.
 #
 # Development images only (OS_DEVELOPMENT = 1): production images must not
 # ship a trust anchor for a specific developer machine.  The package stays
