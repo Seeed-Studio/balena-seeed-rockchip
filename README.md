@@ -116,6 +116,20 @@ under `layers/meta-balena-rockchip` declares an `Upstream-Status` header
 newer upstream releases, `Inappropriate` with a reason for Balena/distro
 integration deltas).
 
+## Device tree overlays
+
+The optional interfaces of both DevKits (40-pin header functions, camera
+seats, HaLow module, DSI panel, DP routing) are opt-in: the board DTB keeps
+them disabled and one of the 25 overlays shipped in `/boot` switches an
+interface on.  The selection is kept in the `fdtoverlays` U-Boot variable -
+the bootloader imports it from `/mnt/boot/extra_uEnv.txt` (writable, and
+preserved across host OS updates) and expands it into the `FDTOVERLAYS` line
+of the generated `/boot/extlinux/extlinux.conf`, so nothing in the read-only
+rootfs has to change.  On the host OS, `dt-overlays list|set|clear` maintains
+that variable; a future balenaCloud device configuration variable
+(`BALENA_HOST_EXTLINUX_fdtoverlays`) will drive the same value.  A change
+takes effect on the next boot.
+
 ## Contributing
 
 ### Issues

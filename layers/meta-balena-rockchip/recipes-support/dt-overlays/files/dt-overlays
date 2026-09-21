@@ -1,0 +1,192 @@
+#!/bin/bash
+
+# List the device tree overlays this board ships and pick the ones the
+# board's U-Boot applies before starting the kernel.
+#
+# The selection is kept as the `fdtoverlays` variable in extra_uEnv.txt on
+# the boot partition: U-Boot imports that file into its environment before it
+# runs distro_bootcmd, and the FDTOVERLAYS directive of the generated
+# extlinux.conf expands the variable.  Nothing in the read-only rootfs has to
+# be edited, and the selection survives host OS updates.  It takes effect on
+# the next boot.
+
+set -e
+
+OVERLAY_DIR=/boot
+ENV_FILE=/mnt/boot/extra_uEnv.txt
+MANIFEST=/usr/share/dt-overlays/overlays.list
+KEY=fdtoverlays
+FATRW=/usr/bin/fatrw
+
+usage() {
+	cat <<EOF
+Usage: dt-overlays list
+       dt-overlays set <overlay> [<overlay> ...]
+       dt-overlays clear
+
+Overlays are named as 'list' prints them, with or without the .dtbo suffix.
+The selection is stored in $KEY in $ENV_FILE and is
+applied by U-Boot on the next boot, so reboot after changing it.
+EOF
+}
+
+# Content of the boot partition env file, empty when it does not exist yet.
+read_env() {
+	if [ -f "$ENV_FILE" ]; then
+		if [ -x "$FATRW" ]; then
+			"$FATRW" read "$ENV_FILE"
+		else
+			cat "$ENV_FILE"
+		fi
+	fi
+}
+
+# Replace the env file with whatever arrives on stdin.  fatrw is what the OS
+# itself uses for boot partition writes; the plain redirection is only a
+# fallback for development hosts.
+write_env() {
+	if [ -x "$FATRW" ]; then
+		"$FATRW" write "$ENV_FILE"
+	else
+		cat > "$ENV_FILE"
+	fi
+}
+
+# The overlays selected right now, space separated.
+current() {
+	read_env | sed -n "s/^[[:space:]]*$KEY=//p" | tail -n 1
+}
+
+# Field 3 of the manifest entry of an overlay, i.e. its description.
+describe() {
+	awk -F'\t' -v n="$1" '$1 == n { print $3; exit }' "$MANIFEST"
+}
+
+# Field 2 of the manifest entry of an overlay, i.e. its exclusive group.
+group_of() {
+	awk -F'\t' -v n="$1" '$1 == n { print $2; exit }' "$MANIFEST"
+}
+
+listed() {
+	awk -F'\t' -v n="$1" '$1 == n { found = 1 } END { exit !found }' "$MANIFEST"
+}
+
+# Accept both "name" and "/boot/name.dtbo", and only overlays this
+# image actually ships.
+dtbo_path() {
+	local name=${1##*/}
+
+	name=${name%.dtbo}
+	if [ ! -f "$OVERLAY_DIR/$name.dtbo" ]; then
+		echo "dt-overlays: no such overlay: $1 (see 'dt-overlays list')" >&2
+		exit 1
+	fi
+	printf '%s/%s.dtbo\n' "$OVERLAY_DIR" "$name"
+}
+
+# Rewrite the env file with $1 as the fdtoverlays value; an empty value
+# removes the line.
+update_env() {
+	local value=$1 content
+
+	content=$(read_env | sed "/^[[:space:]]*$KEY=/d")
+	{
+		if [ -n "$content" ]; then
+			printf '%s\n' "$content"
+		fi
+		if [ -n "$value" ]; then
+			printf '%s=%s\n' "$KEY" "$value"
+		fi
+	} | write_env
+}
+
+cmd_list() {
+	local name path selection mark
+
+	if [ ! -d "$OVERLAY_DIR" ]; then
+		echo "dt-overlays: $OVERLAY_DIR is missing, this image ships no overlays" >&2
+		exit 1
+	fi
+
+	selection=" $(current) "
+	printf 'Overlays shipped for this board:\n\n'
+	while read -r name; do
+		[ -n "$name" ] || continue
+		[ -f "$OVERLAY_DIR/$name.dtbo" ] || continue
+		mark=' '
+		case "$selection" in
+			*" $OVERLAY_DIR/$name.dtbo "*) mark='*' ;;
+		esac
+		printf '  [%s] %s\n' "$mark" "$name"
+		printf '        %s\n' "$(describe "$name")"
+	done < <(awk -F'\t' '{ print $1 }' "$MANIFEST")
+
+	for path in "$OVERLAY_DIR"/*.dtbo; do
+		[ -e "$path" ] || continue
+		name=${path##*/}
+		name=${name%.dtbo}
+		if ! listed "$name"; then
+			printf '  [ ] %s\n        (unlisted overlay)\n' "$name"
+		fi
+	done
+
+	printf '\nApplied by U-Boot on the next boot: %s\n' "${selection# }"
+}
+
+cmd_set() {
+	local name base path group seen='' selection=''
+
+	if [ "$#" -eq 0 ]; then
+		usage >&2
+		exit 1
+	fi
+
+	for name in "$@"; do
+		path=$(dtbo_path "$name")
+		base=${path##*/}
+		base=${base%.dtbo}
+		group=$(group_of "$base")
+		if [ -n "$group" ] && [ "$group" != '-' ]; then
+			case " $seen " in
+				*" $group "*)
+					echo "dt-overlays: '$group' overlays are mutually exclusive, pick one" >&2
+					exit 1
+					;;
+			esac
+			seen="$seen $group"
+		fi
+		selection="$selection $path"
+	done
+
+	selection=${selection# }
+	update_env "$selection"
+	echo "Selected: $selection"
+	echo "Reboot the device to apply the change."
+}
+
+cmd_clear() {
+	update_env ""
+	echo "Selection cleared. Reboot the device to apply the change."
+}
+
+case "${1:-}" in
+	list)
+		shift
+		cmd_list "$@"
+		;;
+	set)
+		shift
+		cmd_set "$@"
+		;;
+	clear)
+		shift
+		cmd_clear "$@"
+		;;
+	help | -h | --help)
+		usage
+		;;
+	*)
+		usage >&2
+		exit 1
+		;;
+esac

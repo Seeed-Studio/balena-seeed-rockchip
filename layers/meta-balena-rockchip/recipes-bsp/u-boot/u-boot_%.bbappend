@@ -73,6 +73,16 @@ UBOOT_EXTLINUX_KERNEL_ARGS = "${os_cmdline}"
 # "File not found ... Skipping" right after loading the kernel.  Point
 # at the dtb file explicitly instead.
 UBOOT_EXTLINUX_FDT = "../${@d.getVar('KERNEL_DEVICETREE').split()[0].split('/')[-1]}"
+# The FDTOVERLAYS list is fed from the fdtoverlays boot variable rather than
+# written into the generated extlinux.conf: the booted extlinux.conf lives in
+# the read-only rootfs (partition 4) and is replaced on every host OS update,
+# while /mnt/boot/extra_uEnv.txt on the FAT boot partition is imported into
+# the U-Boot environment before distro_bootcmd runs (env_resin.h's
+# resin_inject_env_file) and is preserved across updates.  An unset variable
+# expands to nothing, so no overlay is applied by default; the 0013-pxe patch
+# is what makes the directive expand macros at all.  The dtbos themselves
+# ship in the rootfs as /boot/<name>.dtbo (kernel-devicetree).
+UBOOT_EXTLINUX_FDTOVERLAYS = "${fdtoverlays}"
 BALENA_BOOT_PART = "3"
 BALENA_DEFAULT_ROOT_PART = "4"
 BALENA_UBOOT_DEVICE_TYPES = "mmc nvme"

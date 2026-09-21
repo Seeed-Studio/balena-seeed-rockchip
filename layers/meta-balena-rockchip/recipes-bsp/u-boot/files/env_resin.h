@@ -46,6 +46,10 @@
        "resin_boot_part=" __stringify(BALENA_BOOT_PART) "\0" \
        "resin_root_part=" __stringify(BALENA_DEFAULT_ROOT_PART) "\0" \
        "base_os_cmdline=" __stringify(BASE_OS_CMDLINE) "\0" \
+       /* Space-separated FDTOVERLAYS list (the extlinux.conf directive of \
+        * the same name expands this); set it through extra_uEnv.txt on the \
+        * boot partition.  Empty means "apply no overlay". */ \
+       "fdtoverlays=\0" \
        "balena_device_kernel_addr_var=" __stringify(BALENA_DEVICE_KERNEL_ADDR_VAR) "\0"\
        "balena_device_fdt_addr_var=" __stringify(BALENA_DEVICE_FDT_ADDR_VAR) "\0"\
        "resin_flasher_skip=0 \0" \

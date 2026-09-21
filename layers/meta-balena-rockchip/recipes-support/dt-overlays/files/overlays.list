@@ -1,0 +1,37 @@
+# Overlay manifest for the recomputer-rk3588-devkit and
+# recomputer-rk3576-devkit machines.
+#
+# name<TAB>exclusive-group<TAB>description
+#
+# `dt-overlays list` shows only the entries whose .dtbo is shipped in
+# /boot, so one file covers both machines.  Overlays sharing an
+# exclusive group cannot be selected together (they drive the same
+# connector); '-' means the overlay has no conflict.
+#
+# The entries mirror the overlays the vendor kernel tree carries for these
+# machines under arch/arm64/boot/dts/rockchip/overlay/.
+recomputer-rk3588-devkit-40pin-i2c3	-	40-pin header: I2C3 (i2c3m1 pins)
+recomputer-rk3588-devkit-40pin-pwm0_m1	-	40-pin header: PWM0 (pwm0m1 pins)
+recomputer-rk3588-devkit-40pin-pwm1_m1	-	40-pin header: PWM1 (pwm1m1 pins)
+recomputer-rk3588-devkit-40pin-pwm14	-	40-pin header: PWM14 (pwm14m2 pins)
+recomputer-rk3588-devkit-40pin-pwm15IR_m3	-	40-pin header: PWM15 in IR mode (pwm15m3 pins)
+recomputer-rk3588-devkit-40pin-uart4	-	40-pin header: UART4 (uart4m0 pins)
+recomputer-rk3588-devkit-cam0-rpi-v2	recomputer-rk3588-cam0	CAM0: Raspberry Pi camera v2 (IMX219)
+recomputer-rk3588-devkit-cam0-rpi-v3	recomputer-rk3588-cam0	CAM0: Raspberry Pi camera v3 (IMX708)
+recomputer-rk3588-devkit-cam1-rpi-v2	recomputer-rk3588-cam1	CAM1: Raspberry Pi camera v2 (IMX219)
+recomputer-rk3588-devkit-cam1-rpi-v3	recomputer-rk3588-cam1	CAM1: Raspberry Pi camera v3 (IMX708)
+recomputer-rk3588-devkit-halow-wifi	-	Morse Micro MM6108 HaLow module on SPI1 CS0
+recomputer-rk3588-devkit-raspi-7inch-touchscreen	-	Raspberry Pi 7-inch DSI panel with GT911 touch (I2C4)
+recomputer-rk3576-devkit-40pin-can0	-	40-pin header: CAN0 (can0m2 pins)
+recomputer-rk3576-devkit-40pin-can1	-	40-pin header: CAN1 (can1m3 pins)
+recomputer-rk3576-devkit-40pin-i2c3	-	40-pin header: I2C3
+recomputer-rk3576-devkit-40pin-pwm2-ch6	-	40-pin header: PWM2 channel 6 (pwm2m0_ch6 pins)
+recomputer-rk3576-devkit-40pin-uart3	-	40-pin header: UART3 (uart3m1 pins)
+recomputer-rk3576-devkit-40pin-uart5	-	40-pin header: UART5 (takes over the SPI3 pins)
+recomputer-rk3576-devkit-cam0-rpi-v2	recomputer-rk3576-cam0	CAM0: Raspberry Pi camera v2 (IMX219)
+recomputer-rk3576-devkit-cam0-rpi-v3	recomputer-rk3576-cam0	CAM0: Raspberry Pi camera v3 (IMX708)
+recomputer-rk3576-devkit-cam1-rpi-v2	recomputer-rk3576-cam1	CAM1: Raspberry Pi camera v2 (IMX219)
+recomputer-rk3576-devkit-cam1-rpi-v3	recomputer-rk3576-cam1	CAM1: Raspberry Pi camera v3 (IMX708)
+recomputer-rk3576-devkit-dp-4k	-	Route DP0 to VP0 for 4K@60 and HDMI to VP1
+recomputer-rk3576-devkit-halow-wifi	-	Morse Micro MM6108 HaLow module on SPI3 CS1
+recomputer-rk3576-devkit-raspi-7inch-touchscreen	-	Raspberry Pi 7-inch DSI panel with GT911 touch (I2C0)

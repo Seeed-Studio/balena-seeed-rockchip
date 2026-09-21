@@ -3,6 +3,7 @@ include balena-image.inc
 IMAGE_INSTALL:append = " \
     u-boot-extlinux \
     board-access-keys \
+    dt-overlays \
 "
 
 # image_types_balena names BALENA_DOCKER_IMG after the DATETIME-versioned
