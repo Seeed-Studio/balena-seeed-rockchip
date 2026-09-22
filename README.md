@@ -130,6 +130,34 @@ that variable; a future balenaCloud device configuration variable
 (`BALENA_HOST_EXTLINUX_fdtoverlays`) will drive the same value.  A change
 takes effect on the next boot.
 
+## EEPROM device tree selection
+
+Both DevKits carry an AT24C256 board ID EEPROM on i2c4 (chip address 0x57)
+that Seeed programs with a 6-byte `"rk35xx"` ASCII signature, a 4-byte board
+code (`00A0` = reComputer RK3576 DevKit, `00B0` = reComputer RK3588 DevKit)
+and the serial number.  At boot the `seeed_eeprom_detect` U-Boot environment
+script (defined by the Seeed BSP layer, `0015-seeed-eeprom-dtb-select-env`)
+reads the EEPROM and picks the DTB into the `${board_dtb}` variable, which
+the extlinux `FDT ../${board_dtb}` line consumes through macro expansion
+(`0014-pxe-expand-fdt-macros`).  The mechanism is the groundwork for
+same-SoC adaptive images: one image per SoC carrying several board DTBs,
+selected at boot.
+
+Early production boards ship the EEPROM unprogrammed; every failure path
+(no data, i2c error, wrong signature, unknown or foreign-SoC board code)
+falls back to the SoC's build-time default DTB and says so on the console
+(the production image silences the U-Boot console; build a development
+image with `OS_DEVELOPMENT = "1"` to see the messages).  Each image only
+accepts the board code of its own SoC, so a misprogrammed EEPROM can never
+name a DTB the image does not carry.  Setting
+`seeed_eeprom_dtb_select=off` in `/mnt/boot/extra_uEnv.txt` disables the
+detection and always boots the default DTB.
+
+To add a future board variant of the same SoC: put its DTB into the
+machine's `KERNEL_DEVICETREE`, give it a board code in the EEPROM format,
+and extend the board-code comparison in `seeed_eeprom_env.h` (BSP layer)
+to map the code to the new DTB name.
+
 ## Contributing
 
 ### Issues

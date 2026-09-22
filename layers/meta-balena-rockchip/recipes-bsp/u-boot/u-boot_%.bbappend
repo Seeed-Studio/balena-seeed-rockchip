@@ -66,13 +66,13 @@ UBOOT_EXTLINUX = "1"
 UBOOT_EXTLINUX_LABELS = "balenaOS"
 UBOOT_EXTLINUX_ROOT = "${resin_kernel_root}"
 UBOOT_EXTLINUX_KERNEL_ARGS = "${os_cmdline}"
-# The vendor U-Boot extlinux scan resolves FDTDIR entries only against
-# vendor subdirectories (../rockchip/*.dtb), but the rootfs installs the
-# dtb flat in /boot.  With the balena devplist patch the scan targets the
-# root partition, whose OE-generated extlinux.conf would fail with
-# "File not found ... Skipping" right after loading the kernel.  Point
-# at the dtb file explicitly instead.
-UBOOT_EXTLINUX_FDT = "../${@d.getVar('KERNEL_DEVICETREE').split()[0].split('/')[-1]}"
+# UBOOT_EXTLINUX_FDT comes from the machine confs as "../${board_dtb}":
+# the FDT directive is macro-expanded by the pxe patch from the Seeed
+# BSP layer (0014-pxe-expand-fdt-macros), and ${board_dtb} is picked at
+# boot by seeed_eeprom_detect (0015-seeed-eeprom-dtb-select-env), which
+# keeps the per-SoC default when the board ID EEPROM carries no valid
+# data.  The ../ prefix is relative to /boot/extlinux/ with the DTBs
+# installed flat in /boot.
 # The FDTOVERLAYS list is fed from the fdtoverlays boot variable rather than
 # written into the generated extlinux.conf: the booted extlinux.conf lives in
 # the read-only rootfs (partition 4) and is replaced on every host OS update,
@@ -96,7 +96,7 @@ default balenaOS
 
 LABEL balenaOS
     KERNEL /${KERNEL_IMAGETYPE}
-    FDT /$(echo "${KERNEL_DEVICETREE}" | cut -d '/' -f 2)
+    FDT /\${board_dtb}
     APPEND ${KERNEL_CMDLINE_ARGS_FLASHER}
 EOF2
 }
@@ -107,7 +107,7 @@ default balenaOS
 
 LABEL balenaOS
     KERNEL /${KERNEL_IMAGETYPE}
-    FDT /rk3588-recomputer-rk3588-devkit.dtb
+    FDT /\${board_dtb}
     APPEND \${resin_kernel_root} \${os_cmdline} console=ttyFIQ0,1500000n8 rootfstype=ext4 rootwait initcall_blacklist=rockchip_sfc_driver_init,vendor_storage_init
 EOF2
 }
@@ -118,7 +118,7 @@ default balenaOS
 
 LABEL balenaOS
     KERNEL /${KERNEL_IMAGETYPE}
-    FDT /rk3576-recomputer-rk3576-devkit.dtb
+    FDT /\${board_dtb}
     APPEND \${resin_kernel_root} \${os_cmdline} console=ttyFIQ0,1500000n8 rootfstype=ext4 rootwait
 EOF2
 }

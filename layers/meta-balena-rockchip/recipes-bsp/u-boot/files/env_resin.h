@@ -155,6 +155,11 @@
                "if run balena_load_extra_env_file; then " \
                        "run balena_import_extra_env_file;" \
                "fi;" \
+               /* Board DTB from the ID EEPROM: the script comes with the \
+                * Seeed BSP; run it after the extra env import so \
+                * seeed_eeprom_dtb_select remains user-settable from \
+                * extra_uEnv.txt. */ \
+               "run seeed_eeprom_detect;" \
                "if run os_load_bootcount_file; then " \
                        "run os_import_bootcount_file;" \
                "else; " \
