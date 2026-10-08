@@ -1,42 +1,79 @@
 name: Seeed BalenaOS Build
 
+# Scheduled runs only fire on the default branch; GitHub auto-disables
+# scheduled workflows on public repos after 60 days without new commits.
+
 on:
+  schedule:
+    # Monthly on the 1st at 03:00 UTC
+    - cron: "0 3 1 * *"
   workflow_dispatch:
     inputs:
       machine:
-        description: Board to build
-        required: true
+        description: Board to build (leave empty to build all boards)
+        required: false
         type: choice
         options:
           - recomputer-rk3576-devkit
           - recomputer-rk3588-devkit
       yocto_version:
         description: Yocto release series
-        required: true
+        required: false
         type: choice
         options:
           - wrynose
         default: wrynose
 
 concurrency:
-  group: balenaos-${{ github.workflow }}-${{ github.ref }}-${{ inputs.machine }}
-  cancel-in-progress: true
+  group: balenaos-${{ github.workflow }}-${{ github.ref }}-${{ inputs.machine || 'all' }}
+  cancel-in-progress: false
 
 permissions:
   contents: read
 
+env:
+  # rclone remote holding the sstate/downloads caches. Requires the
+  # RCLONE_CONFIG repo secret; without it builds run from scratch.
+  # Namespace is specific to this repo, isolated from balena-seeed-cm4's
+  # yocto-cache/balenaos-latest path on the same storage.
+  RCLONE_REMOTE: seeed-storage:yocto-cache/balenaos-rockchip
+
 jobs:
+  prepare:
+    name: Resolve machines to build
+    runs-on: ubuntu-24.04
+    outputs:
+      machines: ${{ steps.set.outputs.machines }}
+    steps:
+      - id: set
+        env:
+          SELECTED: ${{ inputs.machine }}
+        run: |
+          machines='["recomputer-rk3576-devkit", "recomputer-rk3588-devkit"]'
+          if [ -n "$SELECTED" ]; then
+            machines="[\"$SELECTED\"]"
+          fi
+          echo "machines=$machines" >> "$GITHUB_OUTPUT"
+
   build:
-    name: ${{ inputs.machine }}
+    name: ${{ matrix.machine }}
     runs-on: ubuntu-24.04
     timeout-minutes: 360
+    needs: prepare
+
+    strategy:
+      fail-fast: false
+      matrix:
+        machine: ${{ fromJSON(needs.prepare.outputs.machines) }}
+
+    env:
+      MACHINE: ${{ matrix.machine }}
+      YOCTO_VERSION: ${{ inputs.yocto_version || 'wrynose' }}
+      BUILD_DIR: build-${{ inputs.yocto_version || 'wrynose' }}-${{ matrix.machine }}
+      # 'true' only when the RCLONE_CONFIG secret is configured; gates the cache steps
+      CACHE_ENABLED: ${{ secrets.RCLONE_CONFIG != '' }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-        with:
-          submodules: recursive
-
       - name: Free up runner disk space
         run: |
           sudo apt-get remove -yq \
@@ -52,6 +89,22 @@ jobs:
           sudo docker image prune -af > /dev/null 2>&1 || true
           df -h /
 
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 4096
+          swap-size-mb: 1024
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
+          remove-docker-images: 'true'
+
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+
       - name: Install Yocto host dependencies
         run: |
           sudo apt-get update
@@ -66,29 +119,90 @@ jobs:
         run: |
           sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 
+      - name: Setup Rclone
+        if: env.CACHE_ENABLED == 'true'
+        uses: AnimMouse/setup-rclone@v1
+        with:
+          version: v1.67.0
+          rclone_config: ${{ secrets.RCLONE_CONFIG }}
+
+      - name: Restore sstate and downloads caches
+        if: env.CACHE_ENABLED == 'true'
+        run: |
+          mkdir -p "${GITHUB_WORKSPACE}/yocto-cache/sstate" "${GITHUB_WORKSPACE}/yocto-cache/downloads"
+          rclone copy "${RCLONE_REMOTE}/${MACHINE}.sstate-cache.tar" "${GITHUB_WORKSPACE}/" --ignore-existing \
+            || echo "WARNING: sstate cache download failed, building from scratch"
+          rclone copy "${RCLONE_REMOTE}/yocto-download.tar" "${GITHUB_WORKSPACE}/" --ignore-existing \
+            || echo "WARNING: downloads cache download failed, sources will be fetched fresh"
+          if [ -f "${MACHINE}.sstate-cache.tar" ]; then
+            echo "Extracting sstate cache..."
+            tar --no-same-owner -xf "${MACHINE}.sstate-cache.tar" -C "${GITHUB_WORKSPACE}/yocto-cache/sstate"
+            rm -f "${MACHINE}.sstate-cache.tar"
+            du -sh "${GITHUB_WORKSPACE}/yocto-cache/sstate" || true
+          else
+            echo "No sstate cache found for ${MACHINE}, building from scratch"
+          fi
+          if [ -f "yocto-download.tar" ]; then
+            echo "Extracting downloads cache..."
+            tar --no-same-owner -xf yocto-download.tar -C "${GITHUB_WORKSPACE}/yocto-cache/downloads"
+            rm -f yocto-download.tar
+            du -sh "${GITHUB_WORKSPACE}/yocto-cache/downloads" || true
+          else
+            echo "No downloads cache found, sources will be fetched fresh"
+          fi
+
       - name: Build BalenaOS image
-        env:
-          MACHINE: ${{ inputs.machine }}
-          YOCTO_VERSION: ${{ inputs.yocto_version }}
         run: |
           set -euo pipefail
           test "$YOCTO_VERSION" = wrynose
-          build_dir="build-${YOCTO_VERSION}-${MACHINE}"
           ./balena-yocto-scripts/build/barys \
             --machine "$MACHINE" \
-            --build-name "$build_dir" \
-            --remove-build \
+            --build-name "$BUILD_DIR" \
+            --shared-sstate "${GITHUB_WORKSPACE}/yocto-cache/sstate" \
+            --shared-downloads "${GITHUB_WORKSPACE}/yocto-cache/downloads" \
             --rm-work \
             --log
 
       - name: Upload BalenaOS artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: balenaos-${{ inputs.machine }}-${{ inputs.yocto_version }}
+          name: balenaos-${{ matrix.machine }}-${{ github.run_number }}
           if-no-files-found: error
           retention-days: 14
           path: |
-            build-${{ inputs.yocto_version }}-${{ inputs.machine }}/tmp/deploy/images/${{ inputs.machine }}/*.balenaos-img*
-            build-${{ inputs.yocto_version }}-${{ inputs.machine }}/tmp/deploy/images/${{ inputs.machine }}/*.docker*
-            build-${{ inputs.yocto_version }}-${{ inputs.machine }}/tmp/deploy/images/${{ inputs.machine }}/rkspi_loader.img
-            build-${{ inputs.yocto_version }}-${{ inputs.machine }}/tmp/deploy/images/${{ inputs.machine }}/spl_loader_maskrom.bin
+            ${{ env.BUILD_DIR }}/tmp/deploy/images/${{ matrix.machine }}/*.balenaos-img*
+            ${{ env.BUILD_DIR }}/tmp/deploy/images/${{ matrix.machine }}/*.docker*
+            ${{ env.BUILD_DIR }}/tmp/deploy/images/${{ matrix.machine }}/rkspi_loader.img
+            ${{ env.BUILD_DIR }}/tmp/deploy/images/${{ matrix.machine }}/spl_loader_maskrom.bin
+
+      - name: Update sstate and downloads caches
+        if: success() && env.CACHE_ENABLED == 'true'
+        run: |
+          set -uo pipefail
+          sstate_script="layers/openembedded-core/scripts/sstate-cache-management.py"
+          if [ -f "$sstate_script" ] && [ -d "${BUILD_DIR}/tmp/stamps" ]; then
+            python3 "$sstate_script" -y \
+              --cache-dir="${GITHUB_WORKSPACE}/yocto-cache/sstate" \
+              --stamps-dir="${GITHUB_WORKSPACE}/${BUILD_DIR}/tmp/stamps" \
+              || echo "WARNING: sstate cache cleanup failed, uploading as-is"
+          else
+            echo "Sstate management script or stamps not found, uploading as-is"
+          fi
+          tar --format=posix --sort=name --mtime=0 \
+            -cf "updated-${MACHINE}.sstate-cache.tar" \
+            -C "${GITHUB_WORKSPACE}/yocto-cache/sstate" .
+          rclone copyto "updated-${MACHINE}.sstate-cache.tar" \
+            "${RCLONE_REMOTE}/${MACHINE}.sstate-cache.tar" --update \
+            || echo "WARNING: failed to upload sstate cache (next build will be slower)"
+          rm -f "updated-${MACHINE}.sstate-cache.tar"
+          # The downloads cache is shared across machines; only one job uploads it
+          if [ "$MACHINE" = "recomputer-rk3588-devkit" ]; then
+            tar --format=posix --sort=name --mtime=0 \
+              -cf updated-yocto-download.tar \
+              -C "${GITHUB_WORKSPACE}/yocto-cache/downloads" .
+            rclone copyto updated-yocto-download.tar \
+              "${RCLONE_REMOTE}/yocto-download.tar" --update \
+              || echo "WARNING: failed to upload downloads cache"
+            rm -f updated-yocto-download.tar
+          fi
+          df -h /
